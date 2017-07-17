@@ -1,0 +1,144 @@
+#!/usr/bin/python3
+'''
+Icon font contents list generator for codename "Wesmere"
+
+codename Wesmere - Next-gen Wesnoth.org stylesheet
+Copyright (C) 2017 by Ignacio R. Morelle <shadowm@wesnoth.org>
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along
+with this program; if not, see <http://www.gnu.org/licenses/>.
+'''
+
+import argparse
+import re
+import sys
+
+# Font Awesome CSS classes that should not be considered icon identifiers when
+# scanning SCSS files. These are regular expressions.
+SCSS_FONT_AWESOME_REGEX_BLACKLIST = (
+    "fw",
+    "lg", "[0-9]+x",
+    "inverse",
+    "stack(?:-[0-9]+x)?",
+    "spin", "pulse",
+    "border", "pull-(?:left|right)",
+    "rotate-[0-9]+", "flip-(?:horizontal|verical)"
+)
+
+ERR    = 1
+WARN   = 2
+NOTICE = 3
+INFO   = 4
+DBG    = 5
+
+class IconScraper:
+    """Generates and maintains a list of icons found in SCSS.
+
+    Attributes:
+        icons:       Dictionary with all icon ids found. The mapped values are
+                     lists of file name/line number pairs.
+    """
+    def __init__(self):
+        self.icons = {}
+        self.log_level = INFO
+        self._failed_files = []
+        self._reset_state()
+
+    def good(self):
+        return len(self._failed_files) == 0
+
+    def diag(self, msg, indent=0, level=INFO):
+        "Prints a diagnostic message."
+        if level <= self.log_level:
+            print("{}[{}:{}] {}".
+                  format(' ' * 4 * indent, self._filename, self._lno, msg),
+                  file=sys.stderr)
+
+    def _reset_state(self):
+        self._filename = "<stdin>"
+        self._lno = 1
+
+    def _add_icon(self, icon_id):
+        if icon_id not in self.icons:
+            self.icons[icon_id] = []
+        self.diag("Found valid FA icon class: fa-" + icon_id)
+        self.icons[icon_id].append((self._filename, self._lno))
+
+    def process_line(self, line):
+        using_blacklist = False
+        blacklisted = False
+        icon_id = ''
+        match = None
+        if self._filename.endswith(".sass") or self._filename.endswith(".scss"):
+            match = re.search(r'@extend\s+\.fa-([A-Za-z0-9_-]+)\s*(?:;|\/\/|\/\*)', line)
+            using_blacklist = True
+        if not match:
+            # TODO: warn on invalid CSSPOST directives
+            match = re.search(r'/\*\s*CSSPOST\s*\.fa-([A-Za-z0-9_-]+)\s*\*/', line)
+        if not match:
+            return
+        icon_id = match.group(1)
+        if using_blacklist:
+            for blacklist_expr in SCSS_FONT_AWESOME_REGEX_BLACKLIST:
+                if re.fullmatch(blacklist_expr, icon_id):
+                    blacklisted = True
+                    break
+        if blacklisted:
+            self.diag("Skipping blacklisted FA class: fa-" + icon_id)
+            return
+        self._add_icon(icon_id)
+
+    def process_file(self, filename):
+        try:
+            self._filename = filename
+            self._lno = 0
+            with open(filename, "r", encoding="utf-8") as lines:
+                for line in lines:
+                    self._lno = self._lno + 1
+                    self.process_line(line)
+        except FileNotFoundError as err:
+            self._failed_files.append(filename)
+            self.diag("Could not open {0} for reading.\n".format(filename), level=ERR)
+        finally:
+            self._reset_state()
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-v, --verbose", action="count", dest="verbose_level", default=0,
+                        help="Show additional information (useful for debugging). This is a cumulative option.")
+    parser.add_argument("-o, --output", dest="output_path", default="")
+    parser.add_argument("input_files", metavar="INPUT_FILES", default="", nargs="+")
+    #
+    # Parse command line arguments
+    #
+    args = parser.parse_args()
+    scraper = IconScraper()
+    scraper.log_level = NOTICE + args.verbose_level
+    for path in args.input_files:
+        scraper.process_file(path)
+    if not scraper.good():
+        sys.exit(1)
+    else:
+        try:
+            outf = open(args.output_path, "w", encoding="utf-8") if args.output_path else sys.stdout
+            for icon, refs in scraper.icons.items():
+                ref_lines = []
+                for filename, lno in refs:
+                    print("# {}:{}".format(filename, lno), file=outf)
+                print(icon, file=outf)
+        finally:
+            if args.output_path:
+                outf.close()
+
+# kate: indent-mode normal; encoding utf-8; space-indent on;

@@ -1,0 +1,206 @@
+/*
+ * General site layout styles shared between home and inside pages
+ *
+ * codename Wesmere - Next-gen Wesnoth.org stylesheet
+ * Copyright (C) 2011 - 2017 by Ignacio R. Morelle <shadowm@wesnoth.org>
+ *
+ * See LICENSE for usage terms.
+ */
+
+%wui-gradient-background {
+	background: $wui-gradient-start;
+	background: -webkit-linear-gradient(left, $wui-gradient-start, $wui-gradient-end, $wui-gradient-start);
+	background:    -moz-linear-gradient(left, $wui-gradient-start, $wui-gradient-end, $wui-gradient-start);
+	background:         linear-gradient(to right, $wui-gradient-start, $wui-gradient-end, $wui-gradient-start);
+}
+
+/*****************************************************************************
+ *                                NAVIGATION BAR                             *
+ *****************************************************************************/
+
+// Need to set nav links container font size independently of the centerbox
+// container to keep the latter's em size identical to the main page body
+// container.
+#navlinks {
+	font-size: 1.05em;
+}
+
+/*
+ * The site navigation bar styles.
+ *
+ * Note that the front page overrides some of these using the ".homepage #nav"
+ * selector. Try to define as much as possible here so that the front page
+ * rule set is relatively lean in size.
+ */
+
+#nav {
+	@extend %wui-gradient-background;
+
+	position: relative;
+	text-align: center;
+
+	border-bottom: $wui-text-navlink 1px solid;
+	box-shadow: 0px 1px 4px 0px #000;
+
+	.centerbox {
+		padding: $measurement-small/2 $measurement-sub;
+
+		@include media-small-screen-constraint {
+			padding: $measurement-small/2 0;
+		}
+	}
+
+	ul, li, a {
+		display: inline-block;
+		padding: 0;
+		margin: 0;
+	}
+
+	a {
+		font-weight: bold;
+		font-size: 1.1em;
+		text-decoration: none;
+		padding: 0.4em 0.6em;
+
+		color:       $wui-text-navlink;
+		text-shadow: 0px 0px 1px #000;
+
+		@extend %standard-transitions;
+		@extend %transition-decorative-properties-only;
+
+		&:hover, &:focus {
+			color: lighten($wui-text-navlink, 40%);
+			text-shadow: 0px 0px 8px #ccc;
+		}
+
+		@include media-tiny-screen-constraint {
+			font-size: 1em;
+			padding: 0.4em;
+		}
+	}
+
+	@include media-tiny-screen-constraint {
+		padding: 0;
+	}
+}
+
+#logo {
+	float: left;
+
+	a {
+		padding: 0;
+	}
+}
+
+#content, #footer-content {
+	padding: $measurement-sub;
+}
+
+#footer-sep {
+	border-bottom: 1px solid #000;
+}
+
+#footer {
+	@extend %wui-gradient-background;
+
+	color: $wui-text-normal;
+
+	border-top: $wui-text-navlink 1px solid;
+	box-shadow: 0px 0px 4px 1px #000;
+
+	a {
+		color:           $wui-text-navlink;
+		text-decoration: none;
+
+		&:hover {
+			color: #fff;
+		}
+	}
+}
+
+#footer-content > div {
+	font-size: $measurement-sub;
+}
+
+// FIXME: .centerbox is used by the standard navbar, and also by the front page
+// sections. We want to get rid of it entirely and associate its styles with
+// hardcoded blocks like #content, #footer-content, etc.
+.centerbox,
+#content,
+#footer-content {
+	width: auto;
+	max-width: $measurement-centerbox-width;
+	margin: 0 auto;
+}
+
+/*****************************************************************************
+ *                            FLEXBOX MODEL LAYOUT                           *
+ *****************************************************************************/
+
+// .centerbox is a CSS Flex container whenever possible. We don't need the
+// .flexbox selector bloat since Flexbox properties will be just ignored if
+// Flexbox is not supported.
+.centerbox,
+#navlinks,
+.columnbox {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	align-items: center;
+}
+
+.flextop,
+.flexfill {
+	justify-content: flex-start;
+	align-items: flex-start;
+}
+
+.flexfill {
+	align-items: stretch;
+}
+
+.flexbox {
+	#navlinks,
+	#navlinks li,
+	#navlinks li a {
+		display: inline-block;
+	}
+
+	#logo,
+	#sitesearch {
+		float: none;
+		flex: 0 0 auto;
+	}
+}
+
+#navlinks {
+	flex: 1 1 auto;
+}
+
+@include media-tiny-screen-constraint {
+	#navlinks {
+		order: -1;
+	}
+}
+
+/*****************************************************************************
+ *                              FLEXBOX FOOTER                               *
+ *****************************************************************************/
+
+// A.k.a. adjusting the footer position in short pages so as to force it to
+// rest at the bottom of the viewport.
+
+html, body {
+	height: 100%;
+}
+
+.flexbox {
+	body {
+		display:        flex;
+		flex-direction: column;
+	}
+
+	#main {
+		flex: 1 0 auto;
+	}
+}

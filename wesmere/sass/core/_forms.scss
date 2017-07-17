@@ -1,0 +1,33 @@
+/*
+ * Form element styles
+ *
+ * codename Wesmere - Next-gen Wesnoth.org stylesheet
+ * Copyright (C) 2011 - 2017 by Ignacio R. Morelle <shadowm@wesnoth.org>
+ *
+ * codename Westin - Wesnoth 1.12 Press Release stylesheet
+ * Copyright (C) 2014 by Ignacio R. Morelle <shadowm@wesnoth.org>
+ *
+ * See LICENSE for usage terms.
+ */
+
+button,
+input,
+optgroup,
+select {
+	font-family: inherit;
+}
+
+textarea {
+	@extend %monospace;
+	color: $text-emphasis;
+}
+
+fieldset {
+	border: 1px solid $wesmere-hr;
+	margin: 0 0 $measurement-sub;
+}
+
+legend {
+	padding: 0 $measurement-small/2;
+	color: $wui-border-dark;
+}

@@ -1,0 +1,113 @@
+/*
+ * Codebox styles
+ *
+ * codename Wesmere - Next-gen Wesnoth.org stylesheet
+ * Copyright (C) 2017 by Ignacio R. Morelle <shadowm@wesnoth.org>
+ *
+ * codename Iris
+ * Copyright (C) 2014 - 2017 by Ignacio R. Morelle <shadowm@wesnoth.org>
+ *
+ * See LICENSE for usage terms.
+ */
+
+.js pre,
+.client-js pre {
+	// This needs to be applied before the codebox code runs, since it needs
+	// to decide which boxes need an expand button based on these
+	// layout-altering properties. That's also why we use the .client-js
+	// selector instead of .codebox, which only becomes relevant once the
+	// codebox code is already running!
+	max-height: 200px;
+	white-space: pre-wrap;
+
+	&.expanded {
+		max-height: none;
+	}
+}
+
+.codebox {
+	margin: $measurement-paragraph-spacing 0;
+
+	@include media-not-tiny-screen-constraint {
+		display: flex;
+	}
+
+	& > pre {
+		flex-grow: 1;
+
+		margin: 0;
+		/*border-style: solid;*/
+	}
+}
+
+.codectl {
+	flex-shrink: 0;
+
+	// Chrome 34 refuses to shrink this box when our <pre> sibling gets shrunk
+	// after deassigning the 'expanded' class from it, resulting in .codectl
+	// taking up more space than the shrunk <pre>. This only happens when the
+	// <pre> has been expanded at least once. Placing this additional
+	// constraint on .codectl solves the issue without causing visible
+	// regressions on Chrome 34 and Firefox 29.
+	// NOTE 2017-06-25: This appears to have stopped being a problem at some
+	//                  point, but I'm keeping it around just in case.
+	max-height: 100%;
+
+	font-size: $measurement-sub;
+	text-align: right;
+
+	border: $wesmere-hr 1px dashed;
+	border-bottom-style: none;
+
+	@include media-not-tiny-screen-constraint {
+		.flexbox & {
+			border-right-style: none;
+			border-bottom-style: dashed;
+		}
+	}
+
+	background: $wm-wiki-toolbar-bg;
+	//box-shadow: inset 0px 0px 1px #fff;
+
+	//border-radius: $radius-minor 0 0 $radius-minor;
+
+	ul, li {
+		display: inline-block;
+
+		@include media-not-tiny-screen-constraint {
+			.flexbox & {
+				display: block;
+			}
+		}
+
+		padding: 0;
+		margin: 0;
+	}
+
+	a {
+		display: inline-block;
+		padding: $measurement-small/2;
+
+		&:hover {
+			background: $wesmere-page-bg;
+		}
+	}
+}
+
+$wesmere-cb-icons: (
+	select:						files-o,
+	collapse:					compress,
+	expand:						expand,
+);
+
+.cb-icon {
+	@extend .fa;
+	@extend .fa-lg;
+	@extend .fa-fw;
+
+	@each $id, $icon in $wesmere-cb-icons {
+		.cb-#{$id} & {
+			@extend .fa-#{$icon}; /* CSSPOST: .fa-#{$icon} */
+		}
+	}
+}

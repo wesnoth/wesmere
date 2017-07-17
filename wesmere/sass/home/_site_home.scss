@@ -1,0 +1,631 @@
+/*
+ * General home page styles
+ *
+ * codename Wesmere - Next-gen Wesnoth.org stylesheet
+ * Copyright (C) 2011 - 2017 by Ignacio R. Morelle <shadowm@wesnoth.org>
+ *
+ * See LICENSE for usage terms.
+ */
+
+#intro,
+#showcase-current {
+	text-align: center;
+}
+
+.homepage {
+	h1, h2, h3, h4, h5, h6 {
+		text-shadow: 0px 1px 0px #eee;
+	}
+}
+
+#homebg2 {
+	h1, h2, h3, h4, h5, h6 {
+		text-shadow: 0px 1px 0px #fff;
+	}
+}
+
+#homebg1 {
+	$banner-vertical-gradient: linear-gradient(to top, $wui-gradient-start, rgba($wui-gradient-start,0.8) 1em, rgba($wui-gradient-start,0) 3em);
+
+	background: $wui-gradient-start url('../img/front-background.jpg') 50% 40% / 1920px auto no-repeat scroll;
+	background-image: $banner-vertical-gradient,
+	                  url('../img/front-background.jpg');
+
+	@media only screen and (min-width: 1921px) {
+		// The reason there's a lot of copy-and-paste here is that Sass does
+		// not properly support calc() as of this writing. Sorry about that.
+		background-image: $banner-vertical-gradient,
+		              linear-gradient(to right, $wui-gradient-start calc((100% - 1920px)/2), rgba($wui-gradient-start, 0) calc(1em + (100% - 1920px)/2)),
+		              linear-gradient(to left, $wui-gradient-start calc((100% - 1920px)/2), rgba($wui-gradient-start, 0) calc(1em + (100% - 1920px)/2)),
+		              url('../img/front-background.jpg');
+	}
+
+	position: relative;
+	border-bottom: #000 1px solid;
+
+	img {
+		margin: 2em 0;
+
+		@include media-small-screen-constraint {
+			margin: 2% 0;
+		}
+
+		@include media-tiny-screen-constraint {
+			margin: 0;
+		}
+	}
+}
+
+#homebg4 {
+	@include wesmere-gradient-background($glamdrol-darkbg, darken($glamdrol-darkbg, 10%));
+}
+
+.homepage .centerbox {
+	padding: 0 $measurement-paragraph-spacing $measurement-paragraph-spacing;
+}
+
+.homepage #navlinks {
+	font-size: 1.2em;
+
+	@include media-tiny-screen-constraint {
+		font-size: 1em;
+	}
+}
+
+.homepage #nav {
+	border-top: $wui-text-navlink 1px solid;
+	background: rgba($wui-dialog-bg, 0.8);
+	padding: 0;
+}
+
+#overview > .centerbox {
+	padding: $measurement-paragraph-spacing;
+}
+
+.topdivider, .topdivider2 {
+	border-width: 1px 0 0;
+	border-style: solid;
+	border-color: $wui-text-navlink; // fallback for border-image
+}
+
+.topdivider {
+	border-image: linear-gradient(to right, rgba($wui-text-navlink, 0.0), rgba($wui-text-navlink, 0.6), rgba($wui-text-navlink, 0.0)) 1;
+}
+
+.topdivider2 {
+	border-image: linear-gradient(to right, rgba($wui-text-navlink, 0.2), rgba($wui-text-navlink, 0.8), rgba($wui-text-navlink, 0.2)) 1;
+}
+
+#description {
+	float: left;
+	width: 56%;
+
+	& > p:first-child {
+		margin-top: 0;
+	}
+
+	$description-base-font-size:			1.3em;
+	$description-base-font-size-tiny-ff:	1.2em;
+	$description-trail-font-factor:			1.2;
+
+	& > p {
+		font-size: 1.3em;
+		@extend %title-font;
+
+		@include media-tiny-screen-constraint {
+			font-size: $description-base-font-size-tiny-ff;
+		}
+	}
+
+	#description-trail {
+		font-size: $description-trail-font-factor*$description-base-font-size;
+		color: #000;
+
+		@include media-tiny-screen-constraint {
+			font-size: $description-trail-font-factor*$description-base-font-size-tiny-ff;
+		}
+	}
+
+	@include media-small-screen-constraint {
+		text-align: center;
+
+		#description-trail {
+			text-align: inherit;
+		}
+	}
+}
+
+// Rec. <cite>
+.stylizedbrand {
+	//font-weight: bold;
+	@extend %title-font;
+	font-style: normal;
+	font-size: 1.2em;
+	color: #000;
+}
+
+// This is here instead of in _download.scss because it's tied to the
+// surrounding context and is also part of the flex layout alternative
+// defined further down.
+#download-recommended {
+	float: right;
+	width: 40%;
+}
+
+.homepage h2 {
+	font-size: 160%;
+	// Explicit width of 0 needed to disable border-image on older Chrome/Safari.
+	border-bottom: 0;
+}
+
+#support,
+#contribute,
+#download {
+	position: relative;
+}
+
+/*****************************************************************************
+ *                           BACKGROUND DECORATIONS                          *
+ *****************************************************************************/
+
+#bgsupport {
+	@extend .fa-comments;
+}
+
+#bgcontrib {
+	@extend .fa-code-fork;
+}
+
+#bgdownload {
+	@extend .fa-download;
+}
+
+#bgsupport,
+#bgcontrib,
+#bgdownload {
+	@extend .fa;
+	@extend .fa-5x;
+	@extend .fr;
+
+	position: absolute;
+	bottom:   0%;
+	right:    0%;
+
+	text-shadow: none;
+	color: $wui-text-navlink;
+	opacity: 0.15;
+}
+
+/*****************************************************************************
+ *                             MEDIA SHOWCASE AREA                           *
+ *****************************************************************************/
+
+// These are the real dimensions of the images on wesnoth.org.
+$thumb-base-width:						192px;
+$thumb-base-height:						115px;
+
+$thumb-width:							($thumb-base-width * 0.75);
+$thumb-height:							($thumb-base-height * 0.75);
+
+$thumb-width-small-res:					($thumb-base-width * 0.50);
+$thumb-width-tiny-res:					($thumb-base-width * 0.25);
+
+$thumb-shadow-color-normal:				$link-hover-color;
+$thumb-shadow-color-hover:				#d82;
+
+// Actually the border thickness.
+$thumb-margin:							6px;
+
+$strip-padding:							$measurement-sub;
+
+#showcase {
+	@extend .reset; // For non-Flex layout.
+
+	background: $glamdrol-darkbg;
+	border-radius: $radius-std;
+
+	box-shadow: inset 0px 0px 2px 2px rgba($wui-text-navlink, 0.4);
+
+	// Needed for the gallery arrow buttons to not extend past the bottom edge.
+	overflow: hidden;
+}
+
+#showcase-current {
+	margin: $strip-padding
+}
+
+#showcase-video-container,
+#showcase-screenshot-container {
+	position:       relative;
+	height:         0;
+	overflow:       hidden;
+	background:     $wui-dialog-bg;
+}
+
+#showcase-video-container {
+	$width-factor:  16;
+	$height-factor: 9;
+	$vertical-span: 100%*($height-factor/$width-factor);
+
+	padding-bottom: $vertical-span;
+}
+
+#showcase-screenshot-container {
+	$width-factor:  1280;
+	$height-factor: 768;
+	$vertical-span: 100%*($height-factor/$width-factor);
+
+	padding-bottom: $vertical-span;
+}
+
+#showcase-video-container iframe,
+#showcase-screenshot-container img {
+	position: absolute;
+	top:      0;
+	left:     0;
+	width:    100%;
+	height:   100%;
+}
+
+#showcase-loading {
+	@extend %absolute-pos-center-x-y;
+	display: inline-block;
+
+	& > div {
+		padding:    $measurement-sub;
+
+		background: #000;
+		background: rgba(#000, 0.75);
+
+		border-radius: $radius-std;
+		box-shadow: 0px 0px 4px 0px #000;
+
+		line-height: 0;
+	}
+
+	$spinner-size: 40;
+
+	svg {
+		width: 1px*$spinner-size;
+		height: 1px*$spinner-size;
+		x: 0px;
+		y: 0px;
+		viewBox: 0 0 $spinner-size $spinner-size;
+
+		circle {
+			stroke:            #fff;
+			stroke-width:      4;
+			stroke-linecap:    round;
+			stroke-dasharray:  3.14*$spinner-size;
+			stroke-dashoffset: 0.66*$spinner-size;
+			fill:              transparent;
+		}
+
+		-webkit-transform-origin: 0.5px*$spinner-size 0.5px*$spinner-size 0;
+		-moz-transform-origin:    0.5px*$spinner-size 0.5px*$spinner-size 0;
+		-ms-transform-origin:     0.5px*$spinner-size 0.5px*$spinner-size 0;
+		-o-transform-origin:      0.5px*$spinner-size 0.5px*$spinner-size 0;
+		transform-origin:         0.5px*$spinner-size 0.5px*$spinner-size 0;
+
+		-webkit-animation: spinner 4s linear infinite;
+		-moz-animation:    spinner 4s linear infinite;
+		-ms-animation:     spinner 4s linear infinite;
+		-o-animation:      spinner 4s linear infinite;
+		animation:         spinner 4s linear infinite;
+	}
+}
+
+@-webkit-keyframes spinner {
+	0%   { -webkit-transform: rotate(0deg);    }
+	50%  { -webkit-transform: rotate(540deg);  }
+	100% { -webkit-transform: rotate(1080deg); }
+}
+
+@-moz-keyframes spinner {
+	0%   { -moz-transform: rotate(0deg);    }
+	50%  { -moz-transform: rotate(540deg);  }
+	100% { -moz-transform: rotate(1080deg); }
+}
+
+@-ms-keyframes spinner {
+	0%   { -ms-transform: rotate(0deg);    }
+	50%  { -ms-transform: rotate(540deg);  }
+	100% { -ms-transform: rotate(1080deg); }
+}
+
+@-o-keyframes spinner {
+	0%   { -o-transform: rotate(0deg);    }
+	50%  { -o-transform: rotate(540deg);  }
+	100% { -o-transform: rotate(1080deg); }
+}
+
+@keyframes spinner {
+	0% {
+		transform: rotate(0deg);
+	}
+	50% {
+		transform: rotate(540deg);
+	}
+	100% {
+		transform: rotate(1080deg);
+	}
+}
+
+#screenshots-strip {
+	@extend .center;
+
+	position: relative;
+	white-space: nowrap;
+
+	padding: $strip-padding;
+
+	background: rgba($wui-text-navlink, 0.30);
+	border-top: rgba($wui-text-navlink, 0.40) 1px solid;
+}
+
+#screenshots-scrollarea,
+#screenshots-scrollarea li {
+	display: inline-block;
+	padding: 0;
+	margin:  0;
+}
+
+#screenshots-scrollarea {
+	display:  block;
+	overflow: hidden;
+
+	a {
+		text-decoration: none;
+
+		& > img {
+			vertical-align: middle;
+
+			@extend %standard-transitions;
+			@extend %transition-border-color-only;
+
+			width:  $thumb-width;
+			height: $thumb-height;
+
+			border: solid $thumb-margin transparent;
+		}
+
+		&.current > img {
+			border-color: $thumb-shadow-color-normal;
+		}
+
+		&:hover > img {
+			border-color: $thumb-shadow-color-hover;
+		}
+	}
+}
+
+.screenshots-arrow {
+	background: rgba($wesmere-page-bg, 0.25);
+	text-shadow: 0px 0px 2px rgba(#000,0.5);
+
+	display: block;
+	position: absolute;
+
+	top:     0;
+	height:  100%;
+	z-index: 9999;
+
+	&:link, &:visited {
+		color: $wesmere-page-bg;
+	}
+
+	&:hover, &:focus {
+		color: #fff;
+		//background: rgba(#fa2, 0.50);
+		background: rgba($thumb-shadow-color-hover, 0.75);
+		text-shadow: 0px 0px 2px #000;
+	}
+}
+
+.screenshots-arrow > i {
+	@extend .fa;
+	@extend .fa-2x;
+	@extend .fa-fw;
+
+	position: relative;
+	top: 50%;
+
+	-webkit-transform: translateY(-50%);
+	-moz-transform:    translateY(-50%);
+	-ms-transform:     translateY(-50%);
+	-o-transform:      translateY(-50%);
+	transform:         translateY(-50%);
+}
+
+.screenshots-emptybg {
+	background: #f00;
+}
+
+#screenshots-left {
+	left: 0;
+
+	& > i {
+		@extend .fa-chevron-left;
+	}
+}
+
+#screenshots-right {
+	right: 0;
+
+	& > i {
+		@extend .fa-chevron-right;
+	}
+}
+
+#screenshots-strip .vyt {
+	position: relative;
+	text-shadow: 0px 0px 2px #000;
+
+	& > i {
+		@extend %standard-transitions;
+
+		@extend .fa;
+		@extend .fa-2x;
+		@extend .fa-play;
+
+		@extend %absolute-pos-center-x-y;
+
+		font-size: $thumb-height/2;
+
+		text-align: center;
+		color: #fff;
+		opacity: 0.60;
+	}
+
+	&:hover > i {
+		color: $thumb-shadow-color-hover;
+		opacity: 0.80;
+	}
+}
+
+//
+// Adapting gallery thumbnails bar for smaller form factors.
+//
+@include media-small-screen-constraint {
+	#showcase-current {
+		margin:  $strip-padding/2;
+	}
+
+	#screenshots-scrollarea {
+		.pic img,
+		.vyt img {
+			max-width: $thumb-width-small-res;
+			height: auto;
+		}
+	}
+
+	#screenshots-strip {
+		padding: $strip-padding/2;
+	}
+
+	.screenshots-arrow > i {
+		font-size: 1.75em;
+	}
+
+	#screenshots-strip .vyt > i {
+		font-size: $thumb-height/3;
+	}
+}
+
+@include media-tiny-screen-constraint {
+	#screenshots-scrollarea {
+		.pic img,
+		.vyt img {
+			max-width: $thumb-width-tiny-res;
+			height: auto;
+		}
+
+		a > img {
+			border-width: $thumb-margin*0.75;
+		}
+	}
+
+	.screenshots-arrow > i {
+		font-size: 1.50em;
+	}
+
+	#screenshots-strip .vyt > i {
+		font-size: $thumb-height/4;
+	}
+}
+
+/*****************************************************************************
+ *                    MORE STUFF NEAR THE BOTTOM OF THE PAGE                 *
+ *****************************************************************************/
+
+#support,
+#support-buttons,
+.system-requirements-minimum {
+	float: left;
+	width: 45%;
+}
+
+#contribute,
+#contribute-buttons,
+.system-requirements-recommended {
+	float: right;
+	width: 50%;
+}
+
+#support-buttons,
+#contribute-buttons {
+	@extend .center;
+}
+
+/*****************************************************************************
+ *                              FLEXBOX LAYOUT MODE                          *
+ *****************************************************************************/
+
+// Fallback to non-flexbox layout for the overview section on browsers that
+// do not support the flexbox wrap styles even if they otherwise support modern
+// flexbox, otherwise it becomes completely unreadable.
+.no-flexwrap #overview > .centerbox {
+	display: block;
+}
+
+@mixin disable-float-layout {
+	#support,
+	#contribute,
+	#description,
+	#support-buttons,
+	#contribute-buttons,
+	#download-recommended,
+	.system-requirements-minimum,
+	.system-requirements-recommended {
+		float: none;
+		width: auto;
+	}
+}
+
+.flexbox {
+	@include disable-float-layout;
+
+	#overview .centerbox {
+		align-items: flex-start;
+	}
+
+	#description {
+		flex: 2 1;
+	}
+
+	#download-recommended {
+		flex: 1 0;
+	}
+
+	#news,
+	#support,
+	#download,
+	#contribute,
+	#support-buttons,
+	#contribute-buttons,
+	.system-requirements-minimum,
+	.system-requirements-recommended {
+		flex: 1 1;
+	}
+
+	#support,
+	#support-buttons,
+	.system-requirements-minimum {
+		margin-right: 0.5em;
+	}
+
+	#contribute,
+	#contribute-buttons,
+	.system-requirements-recommended {
+		margin-left: 0.5em;
+	}
+}
+
+@include media-small-screen-constraint {
+	@include disable-float-layout;
+
+	.flexbox .centerbox,
+	.flexbox .columnbox { // unflex
+		display: block;
+	}
+}

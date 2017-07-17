@@ -1,0 +1,18 @@
+#!/bin/sh
+die() { echo "`basename $0`: $*" 1>&2; exit 1; }
+
+REMOTE=baldras-web:wesmere/
+FILES="
+./
+"
+for file in $FILES; do
+	test -e $file || die "File $file not found, cannot continue syncing!"
+done
+
+( cd wesmere; make clean; make )
+
+( set -x; rsync --exclude=.git --exclude=bin --exclude=wesmere/.sass-cache --exclude=wesmere/sass --exclude=mw -vzPrR ./ ${REMOTE} )
+
+( cd wesmere; make clean )
+
+echo "*** Done"

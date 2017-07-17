@@ -1,0 +1,52 @@
+/*
+ * Wiki printed media styles
+ *
+ * codename Wesmere - Next-gen Wesnoth.org stylesheet
+ * Copyright (C) 2011 - 2017 by Ignacio R. Morelle <shadowm@wesnoth.org>
+ *
+ * See LICENSE for usage terms.
+ */
+
+#wm-wiki-toolbar,
+.wm-toolbar,
+.mw-editsection,
+.codectl {
+	display: none;
+}
+
+.client-js pre {
+	max-height: none;
+}
+
+#lastmod {
+	text-align: left;
+	color: $print-border-color;
+}
+
+#toc,
+.toc {
+	border-color: #ccc;
+}
+
+table.reference-sidebar td {
+	border: none;
+}
+
+h2 {
+	/* Workaround for the old div.tleft/tright border layout conflict */
+	clear: both;
+}
+
+div.tleft,
+div.tright {
+	border-color: transparent;
+}
+
+div.thumb > div,
+table.wikitable,
+table.wikitable > th,
+table.wikitable > td,
+table.wikitable > * > tr > th,
+table.wikitable > * > tr > td {
+	border-color: $print-border-color;
+}

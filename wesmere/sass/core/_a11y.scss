@@ -1,0 +1,44 @@
+/*
+ * Accessibility styles
+ *
+ * codename Wesmere - Next-gen Wesnoth.org stylesheet
+ * Copyright (C) 2017 by Ignacio R. Morelle <shadowm@wesnoth.org>
+ *
+ * See LICENSE for usage terms.
+ */
+
+//
+// Normally-hidden elements that remain available for screen readers or other
+// special cases.
+//
+
+.sr-label,
+.sr-or-tinyff-label {
+	position: absolute;
+	border: 0;
+	clip: rect(0,0,0,0);
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+}
+
+@include media-tiny-screen-constraint() {
+	.sr-or-tinyff-label {
+		position: static;
+		width: auto;
+		height: auto;
+		margin: 0;
+		overflow: visible;
+	}
+}
+
+.sr-focusable {
+	position: static;
+	clip: auto;
+	width: auto;
+	height: auto;
+	margin: 0;
+	overflow: visible;
+}

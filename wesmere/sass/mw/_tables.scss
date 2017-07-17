@@ -1,0 +1,34 @@
+/*
+ * Tables for MediaWiki
+ *
+ * codename Wesmere - Next-gen Wesnoth.org stylesheet
+ * Copyright (C) 2011 - 2017 by Ignacio R. Morelle <shadowm@wesnoth.org>
+ *
+ * See LICENSE for usage terms.
+ */
+
+table.wikitable {
+	// These styles are overly specific in order to overrule MW's internal
+	// stylesheet (it keeps happening).
+
+	background: $wesmere-page-bg;
+	border: solid 1px $wesmere-page-bg;
+
+	& > th,
+	& > td,
+	& > * > tr > th,
+	& > * > tr > td {
+		border: solid 1px $wesmere-page-bg;
+	}
+
+	& > tr > th,
+	& > * > tr > th {
+		background: $glamdrol-darkbg;
+	}
+
+	td {
+		background: $glamdrol-bg;
+	}
+}
+
+// TODO: table.gallery, div.gallerybox

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montaga%7COpen+Sans:400,400i,700,700i" type="text/css" />
+	<link rel="icon" type="image/png" href="/wesmere/img/favicon-32.png" sizes="32x32" />
+	<link rel="icon" type="image/png" href="/wesmere/img/favicon-16.png" sizes="16x16" />
+	<link rel="stylesheet" type="text/css" href="/wesmere/css/wesmere.css" />
+
+	<title>Wesmere Standard Styles Test Page</title>
+
+	<script src="/wesmere/js/jquery-3.2.1.min.js"></script>
+
+	<script src="/wesmere/js/modernizr.js"></script>
+</head>
+
+<body>
+
+<div id="main">
+
+<div id="nav" role="banner">
+<div class="centerbox">
+
+	<div id="logo">
+		<a href="/"><img alt="Wesnoth logo" src="/wesmere/img/logo-minimal-64.png" width="64" height="64" data-retina /></a>
+	</div>
+
+	<ul id="navlinks" role="navigation">
+		<li><a href="/">Home</a></li>
+		<li><a href="https://forums.wesnoth.org/viewforum.php?f=62">News</a></li>
+		<li><a href="https://wiki.wesnoth.org/Play">Play</a></li>
+		<li><a href="https://wiki.wesnoth.org/Create">Create</a></li>
+		<li><a href="https://forums.wesnoth.org/">Forums</a></li>
+		<li><a href="https://wiki.wesnoth.org/Project">About</a></li>
+	</ul>
+
+	<div id="sitesearch" role="search">
+		<form method="get" action="/mw/index.php">
+			<i class="search-icon" aria-hidden="true"></i>
+			<input id="searchbox" type="search" name="search" placeholder="Search" value="" title="Search this site [Alt+Shift+f]" accesskey="f" tabindex="1" />
+		</form>
+	</div>
+
+	<div class="reset"></div>
+</div>
+</div>
+
+<div id="content" role="main">
+
+	<h1>Style Test</h1>
+
+	<p><del><b style="color:red">Ignore the huge gap above the first heading.</b></del> <ins>Fixed.</ins></p>
+
+	<p>Lorem <mark>ipsum</mark> dolor sit amet, <a href="#">consectetur adipiscing elit</a>. Proin feugiat, ante sed <abbr title="Dolor">placerat tincidunt</abbr>, eros dui pretium <strong>risus</strong>, ut <em>sollicitudin</em> dui libero a turpis. Nullam augue tortor, ullamcorper id sem ut, commodo condimentum tortor. <ins>Maecenas ullamcorper turpis mollis risus pretium, non faucibus nunc mattis.</ins> Donec odio velit, auctor eget purus nec, rutrum mollis tellus: <cite>Morbi Facilisis Ultricies Dictum</cite>. Nulla non faucibus odio. Quisque <s>non tempor diam</s>, tempus eleifend velit. Maecenas eu pharetra tortor. <del>Vivamus vel dui mollis, faucibus nisl laoreet, iaculis eros.</del> <small>Duis aenean magna id lorem...</small> In dium at? (<time>2011-11-12</time>)</p>
+
+	<hr />
+
+	<p>Vestibulum ultricies lorem quis arcu tincidunt, a <dfn title="VDC">Venenatis Diam Consectetur</dfn>: <q>Mauris vitae vulputate lectus.</q> Duis nec sem at diam sodales pulvinar. Pellentesque auctor facilisis <abbr title="Tortor Vitae Condimentum">TVC</abbr>. Mauris nec euismod justo. Nullam ut blandit nibh, at pulvinar lectus. Integer dictum lorem quis elementum tempor. Duis pulvinar neque vitae odio luctus fringilla. Cras non scelerisque enim. In ut est rutrum, lobortis arcu euismod, pulvinar justo. Sed vitae sem auctor, dignissim magna non, faucibus mauris. Curabitur sit amet justo urna.</p>
+
+	<h2>Header H2</h2>
+		<h3>Header H3</h3>
+			<h4>Header H4</h4>
+				<h5>Header H5</h5>
+					<h6>Header H6</h6>
+
+	<h2>Code Markup</h2>
+
+		<p>This paragraph contains inline code: <code>recruit=Peasant, Woodsman, Spearman, Bowman, Footpad, Ruffian</code>; it also mentions variables like <var>i</var>, <var>j</var>, <var>foo</var>, <var>bar</var>; key sequences like <kbd><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Del</kbd></kbd>, interactive actions like <kbd><samp>Preferences → Display</samp></kbd>, more generic input specifications like <kbd>Shift+R</kbd>, example UI output like <samp>Segmentation fault (11)</samp> and so on.</p>
+
+		<h3>Default Code block (<code class="noframe">&lt;pre&gt;</code>)</h3>
+
+			<pre>[message]
+	speaker=Elynia
+	message= _ "This is stupid."
+[/message]
+
+{FADE_TO_BLACK}
+
+[delay]
+	time=7000
+[/delay]
+
+{FADE_IN}
+
+[move_unit]
+	id=Anya
+	to_x=$x1
+	to_y=$($y1-4)
+[/move_unit]
+
+{HIGHLIGHT_GOAL x,y=$x1,$($y1-4)}
+
+[message]
+	speaker=Anya
+	message= _ "I know, right?"
+[/message]
+</pre>
+
+		<h3>Frameless Styled Code Block</h3>
+
+			<h4>Not line-wrapped</h4>
+
+				<pre class="noframe">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+Maecenas eget ullamcorper enim. Curabitur pharetra nisl eget mauris pulvinar molestie. Maecenas semper justo ac tempor molestie. Quisque at odio fermentum, commodo dolor id, placerat lacus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In et condimentum lectus, sit amet ultrices orci.
+
+Quisque lobortis purus metus, non pretium augue commodo ac. Nunc volutpat pulvinar placerat. Fusce posuere sem libero, ac tincidunt libero mattis nec. Duis lacinia lorem nec volutpat ullamcorper. In hac habitasse platea dictumst. Fusce arcu arcu, hendrerit eget dolor sed, faucibus dictum elit. Aliquam sit amet libero tortor. Vestibulum sed dolor convallis, facilisis diam id, imperdiet justo. Pellentesque interdum massa lorem, et commodo neque mattis ac. Vestibulum nisi dolor, interdum ac lectus vitae, lobortis molestie ligula.</pre>
+
+			<h4>Line-wrapped</h4>
+
+				<pre class="noframe wrap">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+Maecenas eget ullamcorper enim. Curabitur pharetra nisl eget mauris pulvinar molestie. Maecenas semper justo ac tempor molestie. Quisque at odio fermentum, commodo dolor id, placerat lacus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In et condimentum lectus, sit amet ultrices orci.
+
+Quisque lobortis purus metus, non pretium augue commodo ac. Nunc volutpat pulvinar placerat. Fusce posuere sem libero, ac tincidunt libero mattis nec. Duis lacinia lorem nec volutpat ullamcorper. In hac habitasse platea dictumst. Fusce arcu arcu, hendrerit eget dolor sed, faucibus dictum elit. Aliquam sit amet libero tortor. Vestibulum sed dolor convallis, facilisis diam id, imperdiet justo. Pellentesque interdum massa lorem, et commodo neque mattis ac. Vestibulum nisi dolor, interdum ac lectus vitae, lobortis molestie ligula.</pre>
+
+	<h2>Quote Block Elements</h2>
+
+		<h3>Plain Quote</h3>
+
+			<h4>Simple (No Inner Paragraphs)</h4>
+
+				<blockquote>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec venenatis mi vel volutpat rutrum. Duis scelerisque lacus nisi, vel tempus odio iaculis et. Quisque a purus feugiat, mattis ipsum id, condimentum neque. Aenean a tincidunt augue. Morbi eros metus, varius nec molestie tempus, ornare et nunc. Proin lacinia mauris id augue facilisis, nec suscipit tellus consequat. Proin dictum rutrum vestibulum. </blockquote>
+
+			<h4>Advanced (Inner Paragraphs)</h4>
+
+				<figure>
+					<blockquote><p>Cras in pharetra lorem. Maecenas vitae ultricies libero. Vestibulum id magna in nisi iaculis condimentum. Curabitur et quam justo. Cras vel lectus nec massa dignissim aliquet ac sit amet justo. Pellentesque in sodales odio. Morbi adipiscing commodo auctor. Integer dapibus nulla id nibh eleifend faucibus. Pellentesque id augue gravida, hendrerit leo quis, consequat augue.</p>
+
+					<p>Quisque enim nisl, tempus faucibus gravida quis, mollis.</p></blockquote>
+
+					<figcaption>Curabitur, 2014-04-20.</figcaption>
+				</figure>
+
+</div> <!-- end content -->
+
+</div> <!-- end main -->
+
+<div id="footer-sep"></div>
+
+<div id="footer"><div id="footer-content"><div>
+	<a href="https://wiki.wesnoth.org/StartingPoints">Site Map</a> &#8226; <a href="http://status.wesnoth.org/">Site Status</a><br />
+	Copyright &copy; 2003&ndash;2017 by <a rel="author" href="https://wiki.wesnoth.org/Project">The Battle for Wesnoth Project</a>.<br />
+	Site design Copyright &copy; 2017 by Ignacio R. Morelle.
+</div></div></div>
+
+<script src="/wesmere/js/retina.min.js"></script>
+
+</body>
+</html>
+
+<!-- kate: indent-mode normal; indent-width 2; tab-width 2; space-indent off; show-tabs off; -->

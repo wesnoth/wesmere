@@ -1,0 +1,44 @@
+/*
+ * Styled widget style prototypes and definitions
+ *
+ * codename Wesmere - Next-gen Wesnoth.org stylesheet
+ * Copyright (C) 2016 - 2017 by Ignacio R. Morelle <shadowm@wesnoth.org>
+ *
+ * See LICENSE for usage terms.
+ */
+
+$wesmere-button-shadow-outer:				1px 1px 2px 0px rgba(#000,0.2);
+$wesmere-button-shadow-inner:				inset 0px 0px 0px 1px $glamdrol-darkbg;
+$wesmere-button-shadow-pressed:				inset 0px 4px 8px 0px $wui-text-navlink;
+
+$wesmere-button-shadows:					$wesmere-button-shadow-outer, $wesmere-button-shadow-inner;
+
+%wesmere-button-base-styles {
+	display: inline-block;
+
+	font-size: $measurement-sub;
+	text-align: center;
+
+	padding: $measurement-small/2 $measurement-small;
+
+	@extend %standard-transitions;
+	outline: none;
+}
+
+%wesmere-button-normal-styles {
+	color: #322;
+	text-shadow: 0px 1px 1px #ddd;
+}
+
+%wesmere-button-highlight-styles {
+	color: $link-color;
+	text-decoration: none; // :link/:visited value set by global <a> styling
+}
+
+%wesmere-button-hover-styles {
+	background: linear-gradient(to bottom, rgba($wui-text-navlink, 0.05), rgba($wui-text-navlink, 0.3));
+}
+
+%wesmere-button-active-styles {
+	background: linear-gradient(to bottom, rgba($wui-text-navlink, 0.15), rgba($wui-text-navlink, 0.4));
+}

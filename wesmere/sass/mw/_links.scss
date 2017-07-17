@@ -1,0 +1,134 @@
+/*
+ * Link type icons for MediaWiki
+ *
+ * codename Wesmere - Next-gen Wesnoth.org stylesheet
+ * Copyright (C) 2011 - 2017 by Ignacio R. Morelle <shadowm@wesnoth.org>
+ *
+ * See LICENSE for usage terms.
+ */
+
+// Key:   Font Awesome icon id
+// Value: List of extensions associated with the icon
+$wesmere-file-icons: (
+	// Image files
+	file-image-o: ("png", "bmp",
+				   "jpg", "jpeg", /*"jpe", "jfif", "jif", "jfi",*/
+				   "gif", /*"mng",*/
+				   /*"tiff", "tif", "tga", "raw",*/
+				   "xcf", "psd", "ora", "kra"),
+
+	// Audio files
+	volume-up: ("wav", "flac",
+				"ogg", /*"mp3", "aac", "wma",*/
+				/*"mid", "rmi",
+				"mod", "xm", "stm", "s3m"*/),
+
+	// Video files
+	video-camera: ("avi", "mp4", /*"mpg", "mpeg", "mpv", "wmv",*/
+				   "ogv", "ogm", "mkv"),
+
+	// Code files
+	code: ("cfg", "lua", "map", "mask", "pbl",
+		   "cpp", /*"cxx", "c++", "cc",*/ "h", /*"hh", "hxx",*/ "hpp", "ipp", "tpp",
+		   "c", "sh", "py", "pl", "cmd", "bat", "js"),
+
+	// Miscellaneous
+	file-pdf-o: ("pdf"),
+);
+
+$wesmere-always-internal-domains: (
+	"wesnoth.org",
+	"www.wesnoth.org",
+	// Consider this external to more easily spot improper wiki links
+	//"wiki.wesnoth.org",
+	"forums.wesnoth.org",
+	"gettext.wesnoth.org",
+	"units.wesnoth.org",
+);
+
+// These need to use actual FA vars for reasos (Sass y u no varname eval???).
+// We also emit directives used by our CSS postprocessor scripts to detect that
+// these FA icons should be compiled.
+$wesmere-proto-icons: (
+	"https://":			($fa-var-lock,					lock),
+	//"ftp://":			($fa-var-file,					file),
+	"mailto:":			($fa-var-envelope,				envelope),
+	//"news:":			($fa-var-newspaper-o,			newspaper-o),
+	"irc://":			($fa-var-commenting,			commenting),
+	"ircs://":			($fa-var-commenting,			commenting),
+);
+
+$wesmere-link-icon-padding: 0.25em;
+
+%wesmere-link-icon {
+	@extend .fa;
+	padding-right: $wesmere-link-icon-padding;
+}
+
+%wesmere-link-icon-right {
+	@extend .fa;
+	padding-left: $wesmere-link-icon-padding;
+}
+
+@mixin wesmere-mw-file-link($extensions, $fa-icon-id) {
+	@each $ext in $extensions {
+		a.external[href$=".#{$ext}"],
+		a.external[href$=".#{to-upper-case($ext)}"] {
+			&:before {
+				@extend %wesmere-link-icon;
+				@extend .fa-#{$fa-icon-id}; /* CSSPOST .fa-#{$fa-icon-id} */
+			}
+
+			// Remove protocol icon if any
+			&:after {
+				display: none;
+			}
+		}
+	}
+}
+
+#content {
+	a.external:after {
+		@extend %wesmere-link-icon-right;
+		content: $fa-var-external-link; /* CSSPOST .fa-external-link */
+		padding-right: 0.3em;
+	}
+
+	@each $proto-schema, $fa-icon-info in $wesmere-proto-icons {
+		a.external[href^="#{$proto-schema}"]:after {
+			@extend %wesmere-link-icon-right;
+			content: nth($fa-icon-info, 1); /* CSSPOST .fa-#{nth($fa-icon-info, 2)} */
+		}
+	}
+
+	@each $fa-icon-id, $extlist in $wesmere-file-icons {
+		@include wesmere-mw-file-link($extlist, $fa-icon-id);
+	}
+
+	@each $domain in $wesmere-always-internal-domains {
+		a.external[href^="http://#{$domain}"]:before,
+		a.external[href^="http://#{$domain}"]:after,
+		a.external[href^="https://#{$domain}"]:before,
+		a.external[href^="https://#{$domain}"]:after {
+			display: none;
+		}
+	}
+}
+
+.plainlinks a.external {
+	&:before, &:after {
+		display: none!important;
+	}
+}
+
+a.new {
+	&:link, &:visited {
+		color: $link-red-color;
+		text-decoration: none;
+	}
+
+	&:hover, &:active {
+		color: $link-red-hover-color;
+		text-decoration: underline;
+	}
+}

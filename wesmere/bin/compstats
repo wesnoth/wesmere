@@ -1,0 +1,37 @@
+#!/usr/bin/python3
+'''
+Compression Comparator for codename "Iris"
+
+By Ignacio R. Morelle <shadowm2006@gmail.com>
+
+To the extent possible under law, the author has waived all copyright
+and related or neighboring rights to this software.
+<https://creativecommons.org/publicdomain/zero/1.0/>
+'''
+
+import os, sys
+
+def comp2(path1, path2):
+    s1, s2 = os.stat(path1).st_size, os.stat(path2).st_size
+
+    comp_ratio = 100.0 - (100.0 * s2 / s1)
+    delta = s1 - s2
+
+    print((
+        "{0} [{2:.2f} KiB] => {1} [{3:.2f} KiB] {4:.2f}% size delta "+
+        "[{5:.2f} KiB]").format(
+            os.path.basename(path1),
+            os.path.basename(path2),
+            s1/1024, s2/1024,
+            comp_ratio, delta/1024))
+
+
+if __name__ == '__main__':
+    try:
+        if len(sys.argv) - 1 != 2:
+            sys.exit("Need two path arguments!")
+        comp2(sys.argv[1], sys.argv[2])
+    except FileNotFoundError as err:
+        sys.exit("Could not stat {0}, aborting!\n".format(err.filename))
+
+# kate: indent-mode normal; encoding utf-8; space-indent on;

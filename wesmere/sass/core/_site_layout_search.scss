@@ -1,0 +1,67 @@
+/*
+ * Site layout search box styles
+ *
+ * codename Wesmere - Next-gen Wesnoth.org stylesheet
+ * Copyright (C) 2011 - 2017 by Ignacio R. Morelle <shadowm@wesnoth.org>
+ *
+ * See LICENSE for usage terms.
+ */
+
+//
+// The site search box requires Font Awesome, which is not included in the mini
+// version of the stylesheet. This file exists so the mini version does not
+// need to define the search box styles.
+//
+
+#sitesearch {
+	float: right;
+
+	margin: $measurement-small/2 0;
+
+	@include media-tiny-screen-constraint {
+		font-size: $measurement-sub;
+		margin: 1.1*$measurement-small/2 0;
+	}
+
+	$searchbox-padding: $measurement-small;
+
+	form {
+		position: relative;
+	}
+
+	.search-icon {
+		position: absolute;
+		// Emulate padding of the search box element
+		margin: $searchbox-padding*0.5 $searchbox-padding*0.75;
+
+		@extend .fa;
+		@extend .fa-search;
+		font-size: 1.4em;
+	}
+
+	input {
+		@extend %standard-transitions;
+
+		font-size: $measurement-sub;
+		line-height: 1.3;
+
+		border: none;
+		border-radius: $radius-large;
+
+		padding: $searchbox-padding;
+		padding-left: $searchbox-padding*4.5;
+
+		// NOTE: Bad a11y, but it is needed because Chrome's default outline
+		//       is semi-rectangular, looks bad against the round border, and
+		//       is a completely different color anyway.
+		outline: none;
+
+		&:hover, &:focus {
+			box-shadow: 0px 0px 8px 2px $wui-text-navlink;
+		}
+
+		&:focus {
+			box-shadow: 0px 0px 6px 4px $wui-text-navlink;
+		}
+	}
+}

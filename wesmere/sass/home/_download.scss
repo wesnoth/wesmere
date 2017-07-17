@@ -1,0 +1,445 @@
+/*
+ * Download buttons for the home page
+ *
+ * codename Wesmere - Next-gen Wesnoth.org stylesheet
+ * Copyright (C) 2011 - 2017 by Ignacio R. Morelle <shadowm@wesnoth.org>
+ *
+ * See LICENSE for usage terms.
+ */
+
+/*****************************************************************************
+ *                                DOWNLOAD BUTTONS                           *
+ *****************************************************************************/
+
+#download-recommended {
+	text-align: center;
+	vertical-align: middle;
+
+	margin: $measurement-sub;
+	margin-right: 0;
+
+	@include media-small-screen-constraint {
+		margin-left: 0;
+	}
+}
+
+.download-button,
+.steam-button {
+	display: block;
+	outline: none;
+
+	font-size: 1.6em;
+	line-height: 1.2;
+	text-align: left;
+
+	width: 11em;
+
+	margin:  0 auto;
+	padding: $measurement-small;
+	border-radius: $radius-minor;
+
+	@extend %standard-transitions;
+}
+
+// Set spacing between items
+.steam-button {
+	margin-top: 1em;
+}
+
+#download-extra {
+	padding-top: 1em;
+}
+
+@mixin wesnoth-bigbutton-normal-frame($border, $shadow-outer-botleft, $shadow-inner-topright, $shadow-inner-botleft, $light-inner-topright) {
+	border: 2px solid $border;
+
+	box-shadow:        0px  0px 2px 1px $shadow-outer-botleft,			// bottom-left outer shadow
+	            inset -1px  1px 0px 1px $shadow-inner-topright,			// top-right inner shadow
+	            inset  1px -1px 0px 1px $shadow-inner-botleft,			// bottom-left inner shadow
+	            inset -2px  2px 0px 2px $light-inner-topright;			// top-right inner highlight
+}
+
+.download-button {
+	$bg-normal-start:						#03141e;
+	$bg-normal-end:							#082739;
+
+	$bg-hover-start:						#021321;
+	$bg-hover-mid1:							#093547;
+	$bg-hover-mid2:							#063757;
+	$bg-hover-end:							#04223b;
+
+	background: $bg-normal-start; // legacy browsers
+	background: linear-gradient(to right, $bg-normal-start, $bg-normal-end 80%);
+
+	@include wesnoth-bigbutton-normal-frame($wui-text-navlink,
+	                                        #000,
+	                                        $bg-normal-end,
+	                                        $bg-normal-start,
+	                                        #1c5179);
+
+	&:link, &:visited, &:active {
+		text-shadow: 0px -1px 0px #000;
+		color:       $wui-text-gold;
+
+		text-decoration: none;
+	}
+
+	&:hover, &:focus {
+		text-shadow: 0px -1px 0px #000, 0px 0px 8px #8ef;
+		color:       $wui-text-normal;
+
+		background: $bg-hover-end; // legacy browsers
+		background: linear-gradient(to right, $bg-hover-start, $bg-hover-mid1, $bg-hover-mid2, $bg-hover-end);
+
+		@include wesnoth-bigbutton-normal-frame(lighten($wui-text-navlink, 10%),
+		                                        #000,
+		                                        $bg-hover-start,
+		                                        $bg-hover-end,
+		                                        #0d608e);
+	}
+}
+
+.steam-button {
+	$steam-color:						#171a21;
+	$steam-color-highlight:				$steam-color+#202020;
+	$steam-color-highlight-focus:		$steam-color+#303030;
+	$steam-color-highlight-focus-2:		$steam-color+#404040;
+	$steam-color-highlight-focus-3:		$steam-color+#505050;
+	$steam-border:						#999ca0;
+
+	background: $steam-color; // legacy browsers
+	background: linear-gradient(to right, $steam-color, $steam-color-highlight 80%);
+
+	@include wesnoth-bigbutton-normal-frame($steam-border,
+	                                        #000,
+	                                        $steam-color,
+	                                        $steam-color,
+	                                        $steam-color-highlight-focus-2);
+
+	&:link, &:visited, &:active {
+		text-shadow: 0px -1px 0px #000;
+		color:       #ddd;
+
+		text-decoration: none;
+	}
+
+	&:hover, &:focus {
+		text-shadow: 0px -1px 0px #000, 0px 0px 8px #def;
+		color:       #fff;
+
+		background: $steam-color-highlight; // legacy browsers
+		background: linear-gradient(to right, lighten($steam-color, 5%), $steam-color-highlight-focus 80%);
+
+		@include wesnoth-bigbutton-normal-frame(lighten($steam-border, 10%),
+		                                        #000,
+		                                        $steam-color,
+		                                        $steam-color,
+		                                        $steam-color-highlight-focus-3);
+	}
+}
+
+.download-button,
+.steam-button {
+	&:active {
+		box-shadow:        0px 0px 2px 1px #000,
+					inset -1px 1px 3px 3px #000;
+	}
+}
+
+.download-text,
+.download-big {
+	display: block;
+}
+
+.download-arrow,
+.steam-icon {
+	@extend .fa;
+	@extend .fa-fw;
+	@extend .fa-download;
+	@extend .fa-2x;
+
+	float: left;
+	margin: 0 0.2em 0 0;
+	line-height: 1.2;
+}
+
+.steam-icon {
+	@extend .fa-steam;
+}
+
+.download-big {
+	font-family: 'Lucida Grande', 'Trebuchet MS', 'DejaVu Sans Condensed', Arial, sans-serif;
+	font-weight: bold;
+
+	// Try to center text on the Steam button since it's only one line.
+	.steam-button & {
+		line-height: 2.2;
+	}
+}
+
+.download-desc {
+	font-size: $measurement-small;
+
+	&:link, &:visited {
+		color: darken($wui-text-gold, 6%);
+	}
+}
+
+#download-extra {
+	font-size:  $measurement-sub;
+}
+
+// Adjust styles on sufficiently small viewports since we can't really assume
+// the 11em min-width fits.
+
+/*****************************************************************************
+ *                                DOWNLOAD SECTION                           *
+ *****************************************************************************/
+
+.downloads, .downloads li {
+	padding: 0 1em 0 0;
+}
+
+.downloads {
+	display: block;
+	text-align: center;
+	margin: 0 auto;
+
+	li {
+		margin:  0;
+		padding: 0;
+		display: inline-block;
+		vertical-align: text-top;
+	}
+
+	a, .size, .note, .os {
+		display: block;
+	}
+
+	a {
+		font-size: 1.25em;
+		padding: $measurement-paragraph-spacing $measurement-sub;
+
+		text-decoration: none;
+
+		@extend %standard-transitions;
+
+		&:hover, &:active {
+			color: $link-hover-color;
+		}
+	}
+
+	.size,
+	.note {
+		font-size: 0.75em;
+		color: $wui-border-dark;
+		line-height: 1;
+	}
+
+	.os {
+		font-weight: bold;
+	}
+}
+
+ul.downloads-more {
+	@extend small;
+	text-align: center;
+	display: block;
+
+	&,
+	& li {
+		margin: 0;
+		padding: 0;
+	}
+
+	& li {
+		display: inline-block;
+
+		&:not(:first-child)::before {
+			content: "\a0|\a0";
+			color: $wui-border-dark;
+		}
+	}
+}
+
+/*
+ * Download section platform icons (Font Awesome)
+ */
+.downloadicon {
+	@extend .fa;
+	@extend .fa-fw;
+	@extend .fa-3x;
+
+	margin: 0 auto 0.2em;
+	display: block;
+	color: $text-emphasis;
+
+	a:hover &,
+	a:active & {
+		color: inherit;
+	}
+
+	&-windows {
+		@extend .fa-windows;
+	}
+
+	&-apple {
+		@extend .fa-apple;
+	}
+
+	&-ios {
+		@extend .fa-apple;
+	}
+
+	&-android {
+		@extend .fa-android;
+	}
+
+	&-linux {
+		@extend .fa-linux;
+	}
+
+	&-src {
+		@extend .fa-archive;
+	}
+}
+
+.download-desc-warning {
+	@extend .fa;
+	@extend .fa-exclamation-triangle;
+}
+
+/*****************************************************************************
+ *                        RELEASE BRANCH SELECTION SWITCH                    *
+ *****************************************************************************/
+
+$bswitch-bg: rgba($wui-text-navlink, 0.15);
+
+.branch-switchbar {
+	float: right;
+	margin-top: $measurement-paragraph-spacing; // same as h2
+
+	background: $bswitch-bg;
+	border: 1px solid $wui-text-navlink;
+	border-radius: $radius-minor;
+
+	box-shadow: $wesmere-button-shadow-outer;
+
+	padding: 1px;
+}
+
+.branch-switch {
+	@extend %wesmere-button-base-styles;
+
+	min-width: 9.6em;
+
+	/*border: 1px solid $bswitch-bg;*/
+	margin-left: 1px;
+	border-left: 1px solid $wui-text-navlink;
+
+	&-off {
+		background: linear-gradient(to bottom, rgba($wui-text-navlink, 0.15), rgba($wui-text-navlink, 0.4));
+	}
+
+	&:first-child {
+		margin-left: 0;
+		border-left: none;
+
+		border-radius: $radius-minor 0 0 $radius-minor;
+	}
+
+	&:last-child {
+		border-radius: 0 $radius-minor $radius-minor 0;
+	}
+
+	&:link, &:visited {
+		@extend %wesmere-button-normal-styles;
+	}
+
+	&:hover, &:active, &-on:link, &-on:visited {
+		@extend %wesmere-button-highlight-styles;
+	}
+
+	&:hover {
+		@extend %wesmere-button-hover-styles;
+	}
+
+	&:active, &-on {
+		@extend %wesmere-button-active-styles;
+
+		box-shadow: $wesmere-button-shadow-pressed;
+	}
+}
+
+.branch-desc {
+	color: #766;
+	font-size: $measurement-sub;
+	padding-left: 0.5em;
+}
+
+.branch-icon-stable,
+.branch-icon-dev {
+	@extend .fa;
+	@extend .fa-fw;
+	@extend .fa-lg;
+}
+
+.branch-icon-stable {
+	@extend .fa-gamepad;
+}
+
+.branch-icon-dev {
+	@extend .fa-gears;
+}
+
+// Render the branch selector as a vertical stack of buttons on tiny
+// screens. This requires some adjustments to the visuals.
+@include media-tiny-screen-constraint {
+	.branch-switchbar,
+	.branch-switch {
+		display: block;
+		float: none;
+		clear: both;
+	}
+
+	.branch-switch {
+		border-left: none;
+		border-top: 1px solid $wui-text-navlink;
+		margin-left: 0;
+		margin-top: 1px;
+	}
+
+	.branch-switch:first-child {
+		border-radius: $radius-minor $radius-minor 0 0;
+		border-top: none;
+		margin-top: 0;
+	}
+	.branch-switch:last-child {
+		border-radius: 0 0 $radius-minor $radius-minor;
+	}
+}
+
+table.sysreqs {
+	border: solid 1px $glamdrol-darkbg;
+	width: 100%;
+
+	th, td {
+		border-bottom: solid 1px $glamdrol-darkbg;
+	}
+
+	td {
+		border-color: $wesmere-page-bg;
+	}
+
+	tr:last-child td {
+		border: none;
+	}
+
+	th {
+		background: darken($glamdrol-darkbg, 10%);
+	}
+
+	thead th {
+		text-align: left;
+	}
+}

@@ -1,0 +1,30 @@
+/*
+ * Minimal stylesheet for status.wesnoth.org
+ * <https://github.com/shikadilord/valen>
+ *
+ * codename Wesmere - Next-gen Wesnoth.org stylesheet
+ * Copyright (C) 2011 - 2017 by Ignacio R. Morelle <shadowm@wesnoth.org>
+ *
+ * Portions from codename Iris
+ * Copyright (C) 2014 - 2017 by Ignacio R. Morelle <shadowm@wesnoth.org>
+ *
+ * Portions from codename Westin - Wesnoth 1.12 Press Release stylesheet
+ * Copyright (C) 2014 by Ignacio R. Morelle <shadowm@wesnoth.org>
+ *
+ * See LICENSE for usage terms.
+ */
+
+@import "version";
+
+/*! Wesmere mini.css v#{$wesmere-version} (GNU GPL v2+) */
+
+@import "3rdparty/normalize";
+
+@import "defs";
+
+@import "core/base";
+@import "core/a11y";
+@import "core/inline";
+@import "core/lists";
+@import "core/blocks";
+@import "core/site_layout";

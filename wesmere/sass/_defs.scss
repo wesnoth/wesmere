@@ -1,0 +1,235 @@
+/*
+ * Common constants and mixins for Sass
+ *
+ * codename Wesmere - Next-gen Wesnoth.org stylesheet
+ * Copyright (C) 2011 - 2017 by Ignacio R. Morelle <shadowm@wesnoth.org>
+ *
+ * See LICENSE for usage terms.
+ */
+
+/*****************************************************************************
+ *                                  CONSTANTS                                *
+ *****************************************************************************/
+
+/* The basis of all measurements */
+$wesmere-base-font-size:					14px;
+
+$measurement-std:							1.3em;
+$measurement-sub:							0.9em;
+$measurement-sub2:							0.8em;
+$measurement-small:							0.6em;
+
+$measurement-paragraph-spacing-unitless:	1.7;
+$measurement-paragraph-spacing:				1em * $measurement-paragraph-spacing-unitless / 2;
+
+$measurement-centerbox-width:				66em;
+
+$radius-std:								6px;
+$radius-minor:								4px;
+$radius-large:								16px;
+
+$text-std:									#333;
+$text-emphasis:								#222;
+$text-emphasis-extra:						#111;
+$text-quote:								#555;
+$text-fade:									#888;
+
+$link-color:								#25a;
+$link-hover-color:							#36f;
+$link-light-color:							#58f;
+$link-red-color:							#a52;
+$link-red-hover-color:						#f63;
+
+$glamdrol-bg:								#fffbf0;
+$glamdrol-fg:								#111;
+$glamdrol-darkbg:							#e7d9c0;
+
+$wesmere-hr:								darken($glamdrol-darkbg, 20%);
+$wesmere-page-bg:							#f3ead8;
+/* glamdrol-darkbg blended 50% over wesmere-page-bg */
+$wesmere-page-bg-shade:						#ede1cc;
+$wesmere-page-bg-size:						5%;
+$wesmere-page-bg-small-size:				0.8em;
+$wesmere-page-bg-small-on-page-width:		($measurement-centerbox-width - 3);
+
+$iris-selection-bg:							#36b;
+$iris-selection-fg:							#fff;
+
+/* In-game dialog bg colors */
+$wui-dialog-bg:								#0a0e16;
+
+$wui-gradient-start:						#0f1421;
+$wui-gradient-end:							#161e31;
+$wui-border-light:							#a27f44;
+$wui-border-dark:							#724f2e;
+$wui-selection-bg:							#153550;
+
+$wui-text-normal:							#ddd;
+$wui-text-gold:								#bcb088;
+$wui-text-navlink:							#b48648;
+
+$wui-menu-bg:								#e9dbc2;
+
+$list-bullet-color:							$link-color;
+$selection-bg:								$link-color;
+$selection-fg:								$iris-selection-fg;
+
+$print-border-color:						#ccc;
+
+/*****************************************************************************
+ *                               BASE CLASSES                                *
+ *****************************************************************************/
+
+%content-font {
+	font-family: 'Open Sans', Verdana, 'DejaVu Sans', Arial, sans-serif;
+}
+
+%title-font {
+	font-family: Montaga, Junicode, 'Times New Roman', serif;
+	font-weight: 400;
+}
+
+%bold {
+	color: $text-emphasis;
+	font-weight: bold;
+}
+
+%monospace {
+	font-family: Consolas, Inconsolata, Monaco, 'Courier New', monospace;
+}
+
+%border-box-sizing {
+	-moz-box-sizing:    border-box; // legacy
+	-webkit-box-sizing: border-box; // legacy
+	box-sizing:         border-box;
+}
+
+/*****************************************************************************
+ *                                 MEDIA RULES                               *
+ *****************************************************************************/
+
+@mixin media-tiny-screen-constraint {
+	@media only screen and (max-width: 499px) {
+		@content;
+	}
+}
+
+@mixin media-not-tiny-screen-constraint {
+	@media screen and (min-width: 500px) {
+		@content;
+	}
+}
+
+@mixin media-small-screen-constraint {
+	@media only screen and (max-width: 699px) {
+		@content;
+	}
+}
+
+@mixin media-not-small-screen-constraint {
+	@media screen and (min-width: 700px) {
+		@content;
+	}
+}
+
+/*****************************************************************************
+ *                         TRANSITIONS & TRANSFORMS                          *
+ *****************************************************************************/
+
+@mixin css-transitions($value) {
+	-webkit-transition: $value;
+	-moz-transition:    $value;
+	-o-transition:      $value;
+	transition:         $value;
+}
+
+%standard-transitions {
+	@include css-transitions(120ms);
+}
+
+%slow-transitions {
+	@include css-transitions(500ms);
+}
+
+%no-transitions {
+	-webkit-transition: none;
+	-moz-transition:    none;
+	-o-transition:      none;
+	transition:         none;
+}
+
+@mixin css-transition-properties($prop-list) {
+	-webkit-transition-property: $prop-list;
+	-moz-transition-property:    $prop-list;
+	-o-transition-property:      $prop-list;
+	transition-property:         $prop-list;
+}
+
+%transition-border-color-only {
+	@include css-transition-properties(border-color);
+}
+
+%transition-decorative-properties-only {
+	@include css-transition-properties((color, text-shadow, background));
+}
+
+// An absolutely positioned box that is fully centered
+%absolute-pos-center-x-y {
+	position: absolute;
+	left:     50%;
+	top:      50%;
+
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform:    translate(-50%, -50%);
+	-ms-transform:     translate(-50%, -50%);
+	-o-transform:      translate(-50%, -50%);
+	transform:         translate(-50%, -50%);
+}
+
+/*****************************************************************************
+ *                                  GRADIENTS                                *
+ *****************************************************************************/
+
+@mixin wesmere-center-faded-border($directions) {
+	border: 0 solid $wesmere-hr;
+
+	@each $dir in $directions {
+		border-#{$dir}-width: 1px;
+	}
+
+	border-image: linear-gradient(to right, rgba($wui-text-navlink, 0.1), rgba($wui-text-navlink, 0.6), rgba($wui-text-navlink, 0.1)) 1;
+}
+
+@mixin wesmere-left-faded-border($directions) {
+	border: 0 solid $wesmere-hr;
+
+	@each $dir in $directions {
+		border-#{$dir}-width: 1px;
+	}
+
+	border-image: linear-gradient(to right, rgba($wui-text-navlink, 0.6), rgba($wui-text-navlink, 0.1)) 1;
+}
+
+@mixin wesmere-gradient-background-base($background-rgb, $shadow-rgb, $gradient-size: $wesmere-page-bg-size) {
+	background: $background-rgb;
+
+	$bg-start: rgba($shadow-rgb, 1.0);
+	$bg-alend: rgba($shadow-rgb, 0.0);
+	$bg-opend: $background-rgb;
+
+	background: -webkit-linear-gradient(left,     $bg-start, $bg-alend $gradient-size),
+	            -webkit-linear-gradient(right,    $bg-start, $bg-opend $gradient-size);
+	background:    -moz-linear-gradient(left,     $bg-start, $bg-alend $gradient-size),
+	               -moz-linear-gradient(right,    $bg-start, $bg-opend $gradient-size);
+	background:         linear-gradient(to right, $bg-start, $bg-alend $gradient-size),
+	                    linear-gradient(to left,  $bg-start, $bg-opend $gradient-size);
+}
+
+@mixin wesmere-gradient-background($background-rgb, $shadow-rgb) {
+	@include wesmere-gradient-background-base($background-rgb, $shadow-rgb);
+	// Shrink the gradient on small viewports so that it doesn't reach behind
+	// the content region.
+	@media only screen and (max-width: $wesmere-page-bg-small-on-page-width) {
+		@include wesmere-gradient-background-base($background-rgb, $shadow-rgb, $wesmere-page-bg-small-size);
+	}
+}

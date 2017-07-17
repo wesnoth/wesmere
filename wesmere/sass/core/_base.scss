@@ -1,0 +1,85 @@
+/*
+ * Common styles
+ *
+ * codename Wesmere - Next-gen Wesnoth.org stylesheet
+ * Copyright (C) 2011 - 2017 by Ignacio R. Morelle <shadowm@wesnoth.org>
+ *
+ * codename Westin - Wesnoth 1.12 Press Release stylesheet
+ * Copyright (C) 2014 by Ignacio R. Morelle <shadowm@wesnoth.org>
+ *
+ * See LICENSE for usage terms.
+ */
+
+html {
+	margin:  0;
+	padding: 0;
+	overflow-x: hidden;
+	overflow-y: scroll;
+
+	@extend %content-font;
+	font-size: $wesmere-base-font-size;
+	color: #333;
+
+	@include wesmere-gradient-background($wesmere-page-bg, $glamdrol-darkbg);
+}
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+//
+// Unrecognized selectors cause the whole ruleset to be dropped, so we are
+// forced to specify the ruleset twice.
+//
+// ::selection is not standard and Firefox's implementation is still
+// prefixed as of Fx 29 for that reason.
+//
+
+@mixin selection-properties() {
+	background: $selection-bg;
+	color: $selection-fg;
+	text-shadow: none;
+}
+
+::-moz-selection { @include selection-properties(); }
+::selection      { @include selection-properties(); }
+
+// Ensure links are still highlighted.
+a::-moz-selection       { color: #ff0; }
+a:hover::-moz-selection { color: #f60; }
+a::selection            { color: #ff0; }
+a:hover::selection      { color: #f60; }
+
+#content,
+#footer,
+#main {
+	line-height: $measurement-paragraph-spacing-unitless;
+}
+
+p,
+ul, ol,
+.mw-content-ltr ul, .mw-content-ltr ol,
+.mw-content-rtl ul, .mw-content-rtl ol,
+pre {
+	margin: $measurement-paragraph-spacing 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: $measurement-paragraph-spacing 0 0;
+}
+
+h1 {
+	margin-top: 0;
+}
+
+.reset      { clear: both;          }
+.fr         { float: right;         }
+.fl         { float: left;          }
+
+.scrollable { overflow: auto;       }
+
+.center     { text-align: center;   }
+.leftalign  { text-align: left;     }
+.rightalign { text-align: right;    }
+.wrap       { white-space:pre-wrap; }

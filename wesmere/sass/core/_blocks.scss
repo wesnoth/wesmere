@@ -1,0 +1,153 @@
+/*
+ * Block element styles
+ *
+ * codename Wesmere - Next-gen Wesnoth.org stylesheet
+ * Copyright (C) 2011 - 2017 by Ignacio R. Morelle <shadowm@wesnoth.org>
+ *
+ * codename Westin - Wesnoth 1.12 Press Release stylesheet
+ * Copyright (C) 2014 by Ignacio R. Morelle <shadowm@wesnoth.org>
+ *
+ * See LICENSE for usage terms.
+ */
+
+hr {
+	@extend .reset;
+
+	margin: $measurement-sub 0;
+	height: 1px;
+
+	@include wesmere-center-faded-border('top');
+}
+
+img {
+	border: none;
+	max-width: 100%;
+	height: auto;
+	vertical-align: middle;
+}
+
+.fa {
+	vertical-align: middle;
+}
+
+.noframe {
+	border: none;
+}
+
+pre, tt, code, kbd, samp {
+	@extend %monospace;
+}
+
+pre, code, kbd {
+	background: $wesmere-page-bg-shade;
+	border: 1px solid $wesmere-hr;
+}
+
+pre {
+	margin: $measurement-paragraph-spacing 0;
+	padding: $measurement-small;
+	overflow: auto;
+	white-space: pre;
+
+	border-style: dashed;
+
+	//background: $glamdrol-darkbg;
+	color: $text-emphasis;
+}
+
+pre.noframe {
+	padding: 0;
+}
+
+code, kbd {
+	padding: $measurement-small / 3;
+}
+
+kbd kbd {
+	border: none;
+	background: transparent;
+}
+
+code {
+	border: 1px dashed $wesmere-hr;
+}
+
+figure {
+	margin: 0;
+}
+
+figcaption {
+	@extend .center;
+	@extend small;
+}
+
+$blockquote-decoration-size:			16em; // 28ex
+$blockquote-decoration-height:			0.40em;
+
+blockquote {
+	position: relative;
+
+	min-height: $blockquote-decoration-size*0.20;
+
+	margin-left:  2em;
+	padding:      0.7em;
+	padding-left: 8*0.7em;
+
+	color:       $text-quote;
+
+	// Eliminate extra padding around initial and final paragraphs in advanced
+	// blockquote cases.
+	& > p:first-child {
+		margin-top: 0;
+	}
+	& > p:last-child {
+		margin-bottom: 0;
+	}
+}
+
+blockquote::before {
+	$blockquote-decoration-height: 90px;
+
+	position:     absolute;
+	height:       $blockquote-decoration-height;
+	max-height:   $blockquote-decoration-height;
+	margin-left: -$blockquote-decoration-height;
+	margin-top:  -0.08em;
+	overflow:     hidden;
+
+	@extend %title-font;
+
+	content:     "“";
+	font-size:   $blockquote-decoration-size;
+	line-height: 1;
+
+	color: $wesmere-hr;
+	opacity: 0.6;
+}
+
+.noframe {
+	background:			transparent;
+	border:				0!important;
+	border-radius:		0!important;
+	box-shadow:			none!important;
+	color:				inherit;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table, th, td {
+	// This is for legacy border=1 tables floating around the wiki, which
+	// really should be converted to use class='wikitable' instead.
+	border-color: $wesmere-hr;
+}
+
+th {
+	color: $text-emphasis;
+	font-weight: bold;
+}
+
+th, td {
+	padding: 0.2em 0.4em;
+}

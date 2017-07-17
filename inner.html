@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montaga%7COpen+Sans:400,400i,700,700i" type="text/css" />
+	<link rel="icon" type="image/png" href="/wesmere/img/favicon-32.png" sizes="32x32" />
+	<link rel="icon" type="image/png" href="/wesmere/img/favicon-16.png" sizes="16x16" />
+	<link rel="stylesheet" type="text/css" href="/wesmere/css/wesmere.css" />
+
+	<title>Wesmere Wiki Styles Test Page</title>
+
+	<script src="/wesmere/js/jquery-3.2.1.min.js"></script>
+
+	<script src="/wesmere/js/modernizr.js"></script>
+
+	<script src="/wesmere/js/wiki.js"></script>
+</head>
+
+<body>
+
+<div id="main">
+
+<div id="nav" role="banner">
+<div class="centerbox">
+
+	<div id="logo">
+		<a href="/"><img alt="Wesnoth logo" src="/wesmere/img/logo-minimal-64.png" width="64" height="64" data-retina /></a>
+	</div>
+
+	<ul id="navlinks" role="navigation">
+		<li><a href="/">Home</a></li>
+		<li><a href="https://forums.wesnoth.org/viewforum.php?f=62">News</a></li>
+		<li><a href="https://wiki.wesnoth.org/Play">Play</a></li>
+		<li><a href="https://wiki.wesnoth.org/Create">Create</a></li>
+		<li><a href="https://forums.wesnoth.org/">Forums</a></li>
+		<li><a href="https://wiki.wesnoth.org/Project">About</a></li>
+	</ul>
+
+	<div id="sitesearch" role="search">
+		<form method="get" action="/mw/index.php">
+			<i class="search-icon" aria-hidden="true"></i>
+			<input id="searchbox" type="search" name="search" placeholder="Search" value="" title="Search this site [Alt+Shift+f]" accesskey="f" tabindex="1" />
+		</form>
+	</div>
+
+	<div class="reset"></div>
+</div>
+</div>
+
+<div id="content" class="mw-content" role="main">
+	<a id="top"></a>
+
+
+	<div id="wm-wiki-toolbar" role="navigation">
+
+		<ul class="wm-toolbar" role="menu"
+			><li id="ca-nstab-user" class="selected"><a href="/mw/index.php/User:Shadowmaster/WikiTest" title="View the user page [c]" accesskey="c"><i class="wm-toolbar-icon" aria-hidden="true"></i><span class="sr-label">User page</span></a></li
+			><li id="ca-talk" class="new"><a href="/mw/index.php?title=User_talk:Shadowmaster/WikiTest&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page [t]" accesskey="t"><i class="wm-toolbar-icon" aria-hidden="true"></i><span class="sr-label">Discussion</span></a></li
+			><li id="ca-edit"><a href="/mw/index.php?title=User:Shadowmaster/WikiTest&amp;action=edit" title="Edit this page [e]" accesskey="e"><i class="wm-toolbar-icon" aria-hidden="true"></i><span class="sr-label">Edit</span></a></li
+			><li id="ca-history"><a href="/mw/index.php?title=User:Shadowmaster/WikiTest&amp;action=history" title="Past revisions of this page [h]" accesskey="h"><i class="wm-toolbar-icon" aria-hidden="true"></i><span class="sr-label">History</span></a></li
+			><li id="ca-unwatch" class="mw-watchlink"><a href="/mw/index.php?title=User:Shadowmaster/WikiTest&amp;action=unwatch" title="Remove this page from your watchlist [w]" accesskey="w"><i class="wm-toolbar-icon" aria-hidden="true"></i><span class="sr-label">Unwatch</span></a></li
+			><li id="wm-places-menu" class="wm-dropdown"><a class="wm-dropdown-trigger" href="#" title="Places"><i class="wm-toolbar-icon" aria-hidden="true"></i><span class="sr-label" role="button">Places</span></a><ul class="wm-dropdown-menu" role="menu"
+				><li id="n-mainpage-description"><a href="/mw/index.php/Main_Page" title="Visit the main page [z]" accesskey="z"><i class="wm-toolbar-icon" aria-hidden="true"></i><span>Main page</span></a></li
+				><li id="n-recentchanges"><a href="/mw/index.php/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r"><i class="wm-toolbar-icon" aria-hidden="true"></i><span>Recent changes</span></a></li
+				><li id="n-randompage"><a href="/mw/index.php/Special:Random" title="Load a random page [x]" accesskey="x"><i class="wm-toolbar-icon" aria-hidden="true"></i><span>Random page</span></a></li
+				><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" title="The place to find out"><i class="wm-toolbar-icon" aria-hidden="true"></i><span>Help</span></a></li></ul
+			><li id="wm-advanced-menu" class="wm-dropdown"><a class="wm-dropdown-trigger" href="#" title="Advanced"><i class="wm-toolbar-icon" aria-hidden="true"></i><span class="sr-label" role="button">Advanced</span></a><ul class="wm-dropdown-menu" role="menu"
+				><li id="ca-delete"><a href="/mw/index.php?title=User:Shadowmaster/WikiTest&amp;action=delete" title="Delete this page [d]" accesskey="d"><i class="wm-toolbar-icon" aria-hidden="true"></i><span>Delete</span></a></li
+				><li id="ca-move"><a href="/mw/index.php/Special:MovePage/User:Shadowmaster/WikiTest" title="Move this page [m]" accesskey="m"><i class="wm-toolbar-icon" aria-hidden="true"></i><span>Move</span></a></li
+				><li id="ca-unprotect"><a href="/mw/index.php?title=User:Shadowmaster/WikiTest&amp;action=unprotect" title="Change protection of this page [=]" accesskey="="><i class="wm-toolbar-icon" aria-hidden="true"></i><span>Change protection</span></a></li
+				><li id="t-whatlinkshere"><a href="/mw/index.php/Special:WhatLinksHere/User:Shadowmaster/WikiTest" title="A list of all wiki pages that link here [j]" accesskey="j"><i class="wm-toolbar-icon" aria-hidden="true"></i><span>What links here</span></a></li
+				><li id="t-recentchangeslinked"><a href="/mw/index.php/Special:RecentChangesLinked/User:Shadowmaster/WikiTest" title="Recent changes in pages linked from this page [k]" accesskey="k"><i class="wm-toolbar-icon" aria-hidden="true"></i><span>Related changes</span></a></li
+				><li id="t-contributions"><a href="/mw/index.php/Special:Contributions/Shadowmaster" title="A list of contributions by this user"><i class="wm-toolbar-icon" aria-hidden="true"></i><span>User contributions</span></a></li
+				><li id="t-log"><a href="/mw/index.php/Special:Log/Shadowmaster"><i class="wm-toolbar-icon" aria-hidden="true"></i><span>Logs</span></a></li><li id="t-blockip"><a href="/mw/index.php/Special:Block/Shadowmaster"><i class="wm-toolbar-icon" aria-hidden="true"></i><span>Block user</span></a></li
+				><li id="t-userrights"><a href="/mw/index.php/Special:UserRights/Shadowmaster"><i class="wm-toolbar-icon" aria-hidden="true"></i><span>User rights management</span></a></li
+				><li id="t-upload"><a href="/mw/index.php/Special:Upload" title="Upload files [u]" accesskey="u"><i class="wm-toolbar-icon" aria-hidden="true"></i><span>Upload file</span></a></li
+				><li id="t-specialpages"><a href="/mw/index.php/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q"><i class="wm-toolbar-icon" aria-hidden="true"></i><span>Special pages</span></a></li
+				><li id="t-permalink"><a href="/mw/index.php?title=User:Shadowmaster/WikiTest&amp;oldid=58593" title="Permanent link to this revision of the page"><i class="wm-toolbar-icon" aria-hidden="true"></i><span>Permanent link</span></a></li
+				><li id="t-info"><a href="/mw/index.php?title=User:Shadowmaster/WikiTest&amp;action=info" title="More information about this page"><i class="wm-toolbar-icon" aria-hidden="true"></i><span>Page information</span></a></li
+			></ul
+		></ul>
+		<ul class="wm-toolbar" role="menu"
+			><li id="wm-account-menu" class="wm-dropdown"><a class="wm-dropdown-trigger" href="/mw/index.php/User:Shadowmaster" title="Your account"><i class="wm-toolbar-icon" aria-hidden="true"></i><span role="button">Shadowmaster</span></a><ul class="wm-dropdown-menu" role="menu"
+				><li id="pt-userpage"><a href="/mw/index.php/User:Shadowmaster" dir="auto" title="Your user page [.]" accesskey="."><i class="wm-toolbar-icon" aria-hidden="true"></i><span>Shadowmaster</span></a></li
+				><li id="pt-mytalk"><a href="/mw/index.php/User_talk:Shadowmaster" title="Your talk page [n]" accesskey="n"><i class="wm-toolbar-icon" aria-hidden="true"></i><span>Talk</span></a></li
+				><li id="pt-preferences"><a href="/mw/index.php/Special:Preferences" title="Your preferences"><i class="wm-toolbar-icon" aria-hidden="true"></i><span>Preferences</span></a></li
+				><li id="pt-watchlist"><a href="/mw/index.php/Special:Watchlist" title="A list of pages you are monitoring for changes [l]" accesskey="l"><i class="wm-toolbar-icon" aria-hidden="true"></i><span>Watchlist</span></a></li
+				><li id="pt-mycontris"><a href="/mw/index.php/Special:Contributions/Shadowmaster" title="A list of your contributions [y]" accesskey="y"><i class="wm-toolbar-icon" aria-hidden="true"></i><span>Contributions</span></a></li
+				><li id="pt-logout"><a href="/mw/index.php?title=Special:UserLogout&amp;returnto=User%3AShadowmaster%2FWikiTest" title="Log out"><i class="wm-toolbar-icon" aria-hidden="true"></i><span>Log out</span></a></li
+			></ul
+		></ul
+	></div> <!-- wm-wiki-toolbar -->
+
+	<h1 class="firstHeading" lang="en">User:Shadowmaster/WikiTest</h1>
+
+	<div id="bodyContent">
+					<div id="siteSub">From Wesnoth</div>
+				<div id="contentSub"><span class="subpages">&lt; <a href="/User:Shadowmaster" title="User:Shadowmaster">User:Shadowmaster</a></span></div>
+
+<!-- start wikipage -->
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><p>Proin placerat, lorem sed auctor consequat, augue ipsum interdum odio, consectetur sollicitudin enim odio vitae dui. In interdum urna et mauris pharetra commodo. In vulputate nunc sem, in accumsan mauris tincidunt non. Maecenas consequat varius ultricies. Vivamus vel elementum justo. Aenean eu auctor arcu. Nunc ut quam eu dolor pharetra blandit. Integer gravida est eu est euismod, sit amet finibus arcu placerat. Maecenas tristique pellentesque neque, ac finibus erat viverra sit amet. Sed neque tortor, venenatis vehicula odio sed, vehicula pellentesque massa.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Section_1_-_Basic_Elements"><span class="tocnumber">1</span> <span class="toctext">Section 1 - Basic Elements</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Section_1a"><span class="tocnumber">1.1</span> <span class="toctext">Section 1a</span></a>
+<ul>
+<li class="toclevel-3 tocsection-3"><a href="#Section_1a-a"><span class="tocnumber">1.1.1</span> <span class="toctext">Section 1a-a</span></a>
+<ul>
+<li class="toclevel-4 tocsection-4"><a href="#Section_1a-a-a"><span class="tocnumber">1.1.1.1</span> <span class="toctext">Section 1a-a-a</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="#Section_2_-_Lists"><span class="tocnumber">2</span> <span class="toctext">Section 2 - Lists</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Section_3_-_Block_Elements"><span class="tocnumber">3</span> <span class="toctext">Section 3 - Block Elements</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#Section_4_-_Tables"><span class="tocnumber">4</span> <span class="toctext">Section 4 - Tables</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Section_1_-_Basic_Elements">Section 1 - Basic Elements</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mw/index.php?title=User:Shadowmaster/WikiTest&amp;action=edit&amp;section=1" title="Edit section: Section 1 - Basic Elements">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="thumb tright"><div>
+<p><a rel="nofollow" class="external text" href="http://www.wesnoth.org/wiki-images/wesnoth-map-1.12.jpg"><img src="http://www.wesnoth.org/wiki-images/wesnoth-map-1.12-175.jpg" alt="wesnoth-map-1.12-175.jpg"/></a>
+</p>
+<div class="thumbcaption">The Great Continent</div></div>
+</div>
+<p>Lorem <mark>ipsum</mark> dolor sit amet, <a rel="nofollow" class="external text" href="http://localhost/">consectetur adipiscing elit</a>. Proin feugiat, ante sed <abbr title="Dolor">placerat tincidunt</abbr>, eros dui pretium '<i>risus</i>, ut <i>sollicitudin dui libero a turpis</i>. <a rel="nofollow" class="external text" href="https://www.wesnoth.org/">Nullam augue tortor</a>, ullamcorper id sem ut, <a href="/mw/index.php/Play" title="Play">commodo condimentum</a> tortor. <ins>Maecenas ullamcorper turpis mollis risus pretium, non faucibus nunc mattis.</ins> Donec odio velit, auctor eget purus nec, rutrum mollis tellus: <cite>Morbi Facilisis Ultricies Dictum</cite>. Nulla non faucibus odio. Quisque <s>non tempor diam</s>, tempus eleifend velit. Maecenas eu pharetra tortor. <del>Vivamus vel dui mollis, faucibus nisl laoreet, iaculis eros.</del> <small>Duis aenean magna id lorem...</small> In dium at? (<time>2011-11-12</time>)
+</p>
+<hr />
+<p>Vestibulum <i><b>ultricies lorem quis</b></i> arcu tincidunt, a <dfn title="VDC">Venenatis Diam Consectetur</dfn>: <q>Mauris vitae vulputate lectus.</q> Duis nec sem at diam sodales pulvinar. Pellentesque auctor facilisis <abbr title="Tortor Vitae Condimentum">TVC</abbr>. Mauris nec euismod justo. <a rel="nofollow" class="external text" href="mailto:test@localhost">Nullam ut blandit</a> nibh, at pulvinar lectus. Integer dictum lorem quis elementum tempor. Duis pulvinar neque vitae odio luctus fringilla. Cras non scelerisque enim. In ut est rutrum, lobortis arcu euismod, pulvinar justo. Sed vitae sem auctor, dignissim magna non, faucibus mauris. Curabitur sit amet justo urna.
+</p><p><a rel="nofollow" class="external text" href="https://github.com/wesnoth/wesnoth/blob/master/data/core/images/items/bomb.png">Image link</a><br />
+<a rel="nofollow" class="external text" href="https://github.com/wesnoth/wesnoth/blob/master/data/core/images/items/bomb.jpg">Image link 2</a><br />
+<a rel="nofollow" class="external text" href="https://github.com/wesnoth/wesnoth/blob/master/data/core/images/items/bomb.bmp">Image link 3</a><br />
+<a rel="nofollow" class="external text" href="https://github.com/wesnoth/wesnoth/blob/master/data/core/images/items/bomb.tga">Image link 4</a><br />
+<a rel="nofollow" class="external text" href="https://github.com/wesnoth/wesnoth/blob/master/data/core/images/items/bomb.tiff">Image link 5</a><br />
+<a rel="nofollow" class="external text" href="https://github.com/wesnoth/wesnoth/blob/master/data/core/images/items/bomb.gif">Image link 6</a><br />
+<a rel="nofollow" class="external text" href="https://github.com/wesnoth/wesnoth/blob/master/data/core/images/items/bomb.xcf">Layered image link 1</a><br />
+<a rel="nofollow" class="external text" href="https://github.com/wesnoth/wesnoth/blob/master/data/core/images/items/bomb.psd">Layered mage link 2</a><br />
+<a rel="nofollow" class="external text" href="https://github.com/wesnoth/wesnoth/blob/master/data/core/images/items/bomb.ora">Layered mage link 3</a><br />
+<a rel="nofollow" class="external text" href="https://github.com/wesnoth/wesnoth/blob/master/data/core/images/items/bomb.kra">Layered mage link 4</a><br />
+<a rel="nofollow" class="external text" href="https://github.com/wesnoth/wesnoth/blob/master/data/core/music/breaking_the_chains.ogg">Audio link</a><br />
+<a rel="nofollow" class="external text" href="https://github.com/wesnoth/wesnoth/blob/master/data/core/music/breaking_the_chains.wav">Audio link 2</a><br />
+<a rel="nofollow" class="external text" href="https://github.com/wesnoth/wesnoth/blob/master/data/core/music/breaking_the_chains.mp3">Audio link 3</a><br />
+<a rel="nofollow" class="external text" href="https://github.com/wesnoth/wesnoth/blob/master/data/core/thisdoesnotexist.ogm">Video link</a><br />
+<a rel="nofollow" class="external text" href="https://github.com/wesnoth/wesnoth/blob/master/data/core/thisdoesnotexist.avi">Video link 2</a><br />
+<a rel="nofollow" class="external text" href="https://github.com/wesnoth/wesnoth/blob/master/data/core/thisdoesnotexist.pdf">PDF link</a><br />
+<a rel="nofollow" class="external text" href="https://github.com/wesnoth/wesnoth/blob/master/data/core/thisdoesnotexist.PDF">PDF link 2</a><br />
+<a rel="nofollow" class="external text" href="https://github.com/wesnoth/wesnoth/blob/master/src/wesnoth.cpp">C++ link</a><br />
+<a rel="nofollow" class="external text" href="https://github.com/wesnoth/wesnoth/blob/master/data/lua/wml-tags.lua">Lua link</a><br />
+<a rel="nofollow" class="external text" href="https://github.com/wesnoth/wesnoth/blob/master/data/_main.cfg">WML link</a><br />
+<a rel="nofollow" class="external text" href="mailto:test@localhost">Email link</a><br />
+<a rel="nofollow" class="external text" href="news:testetestestestestest">Newsgroup link</a><br />
+<a rel="nofollow" class="external text" href="http://localhost/">Unencrypted http link</a><br />
+<a rel="nofollow" class="external text" href="https://localhost/">Encrypted http link</a><br />
+<a rel="nofollow" class="external text" href="ftp://localhost/">FTP link</a>
+<a rel="nofollow" class="external text" href="irc://chat.freenode.net/#wesnoth">IRC link</a>
+<a rel="nofollow" class="external text" href="ircs://chat.freenode.net/#wesnoth">IRC link 2</a>
+</p><p>Indentation levels
+</p>
+<dl><dd> Sed porttitor velit id luctus scelerisque.
+<dl><dd> Phasellus ullamcorper risus et libero placerat, sed molestie risus consectetur.
+<dl><dd> Nunc vulputate nisi varius rhoncus pellentesque.
+<dl><dd> Nullam laoreet ligula a urna suscipit rutrum.
+<dl><dd> Proin et turpis nec purus aliquam ornare.</dd></dl></dd></dl></dd></dl></dd></dl></dd></dl>
+<h3><span class="mw-headline" id="Section_1a">Section 1a</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mw/index.php?title=User:Shadowmaster/WikiTest&amp;action=edit&amp;section=2" title="Edit section: Section 1a">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<h4><span class="mw-headline" id="Section_1a-a">Section 1a-a</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mw/index.php?title=User:Shadowmaster/WikiTest&amp;action=edit&amp;section=3" title="Edit section: Section 1a-a">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<h5><span class="mw-headline" id="Section_1a-a-a">Section 1a-a-a</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mw/index.php?title=User:Shadowmaster/WikiTest&amp;action=edit&amp;section=4" title="Edit section: Section 1a-a-a">edit</a><span class="mw-editsection-bracket">]</span></span></h5>
+<div class="thumb tleft"><div>
+<p><a rel="nofollow" class="external text" href="http://www.wesnoth.org/images/sshots/wesnoth-1.11.11-1.jpg"><img src="http://www.wesnoth.org/images/sshots/wesnoth-1.11.11-1-175.jpg" alt="wesnoth-1.11.11-1-175.jpg"/></a>
+</p>
+<div class="thumbcaption">Closing the Gates</div></div>
+</div>
+<p>Cras rutrum erat quis malesuada lacinia. Mauris sollicitudin leo nec malesuada pulvinar. Phasellus vulputate, turpis quis imperdiet facilisis, libero tellus sollicitudin felis, at hendrerit sapien magna non tortor. Quisque laoreet vitae sem ac tincidunt. Mauris varius congue egestas. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque et odio at urna bibendum auctor quis ac sapien. Nam id fermentum magna. Aenean dignissim tincidunt nisi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Fusce ultricies urna et hendrerit bibendum. In iaculis tellus non nisl consectetur, vel pellentesque magna viverra. Vestibulum eu metus a libero tincidunt varius. Duis nisl ligula, aliquet vitae blandit ut, commodo at libero.
+</p>
+<h2><span class="mw-headline" id="Section_2_-_Lists">Section 2 - Lists</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mw/index.php?title=User:Shadowmaster/WikiTest&amp;action=edit&amp;section=5" title="Edit section: Section 2 - Lists">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Bullet list:
+</p>
+<ul><li> Item 1</li>
+<li> Item 2</li>
+<li> Item 3
+<ul><li> Subitem 3A</li>
+<li> Subitem 3B
+<ul><li> Infraitem 3Ba</li>
+<li> Infraitem 3Bb
+<ul><li> Butts</li>
+<li> Butts</li>
+<li> Butts</li></ul></li></ul></li></ul></li>
+<li> Item 4
+<ul><li> Subitem 4A</li></ul></li>
+<li> Item 5</li></ul>
+<p>Numbered list:
+</p>
+<ol><li> Item 1</li>
+<li> Item 2
+<ol><li> Subitem 2A</li>
+<li> Subitem 2B
+<ol><li> Infraitem 3Ba</li>
+<li> Infraitem 3Bb
+<ol><li> Butts</li>
+<li> Butts</li>
+<li> Butts</li></ol></li></ol></li></ol></li>
+<li> Item 4
+<ol><li> Subitem 4A</li></ol></li>
+<li> Item 5</li></ol>
+<p>Definition list:
+</p>
+<dl><dt>Item A</dt>
+<dd> Pellentesque tincidunt nunc eu dolor maximus, vel mollis arcu facilisis.</dd>
+<dt>Item B</dt>
+<dd> Cras nec odio nec arcu euismod cursus tempus ac purus.</dd>
+<dt>Item C</dt>
+<dd> Maecenas quis nulla dapibus justo sagittis posuere non vitae orci.</dd>
+<dd> Fusce ut nisl mattis, elementum justo sit amet, porta justo.</dd>
+<dd> Nam quis dolor ac arcu aliquam aliquam sed non risus.</dd>
+<dt>Item D</dt>
+<dt>Item E</dt>
+<dd> Proin et turpis nec purus aliquam ornare.</dd></dl>
+<h2><span class="mw-headline" id="Section_3_-_Block_Elements">Section 3 - Block Elements</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mw/index.php?title=User:Shadowmaster/WikiTest&amp;action=edit&amp;section=6" title="Edit section: Section 3 - Block Elements">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Code box:
+</p>
+<pre>#include &lt;stdio.h&gt;
+
+int main(int argc, char** argv)
+{
+    printf("Hello world!\n");
+    return 0;
+}
+</pre>
+<p>Inline code <code>std::find(a.begin(), a.end(), "butts");</code> and <code>hostnames.i.guess.localhost</code>?
+(Okay, this is not a block element, but still.)
+</p>
+<blockquote>
+<p>I think, therefore, I am.
+</p><p>-- Will Smith, I'm pretty sure.
+</p>
+</blockquote>
+<p>Syntax-highlighted block:
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre><span></span><span class="kd">local</span> <span class="n">old_unit_status</span> <span class="o">=</span> <span class="n">wesnoth</span><span class="p">.</span><span class="n">theme_items</span><span class="p">.</span><span class="n">unit_status</span>
+<span class="k">function</span> <span class="nc">wesnoth</span><span class="p">.</span><span class="nf">theme_items</span><span class="p">.</span><span class="n">unit_status</span><span class="p">()</span>
+    <span class="kd">local</span> <span class="n">_</span> <span class="o">=</span> <span class="n">wesnoth</span><span class="p">.</span><span class="n">textdomain</span> <span class="s2">&quot;</span><span class="s">mydomain&quot;</span>
+    <span class="kd">local</span> <span class="n">u</span> <span class="o">=</span> <span class="n">wesnoth</span><span class="p">.</span><span class="n">get_displayed_unit</span><span class="p">()</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">u</span> <span class="k">then</span> <span class="k">return</span> <span class="p">{}</span> <span class="k">end</span>
+    <span class="kd">local</span> <span class="n">s</span> <span class="o">=</span> <span class="n">old_unit_status</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">u</span><span class="p">.</span><span class="n">status</span><span class="p">.</span><span class="n">entangled</span> <span class="k">then</span>
+        <span class="nb">table.insert</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="p">{</span> <span class="s2">&quot;</span><span class="s">element&quot;</span><span class="p">,</span> <span class="p">{</span>
+            <span class="n">image</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">entangled.png&quot;</span><span class="p">,</span>
+            <span class="n">tooltip</span> <span class="o">=</span> <span class="n">_</span><span class="s2">&quot;</span><span class="s">entangled: This unit is entangled. It cannot move but it can still attack.&quot;</span>
+        <span class="p">}</span> <span class="p">})</span>
+    <span class="k">end</span>
+    <span class="k">return</span> <span class="n">s</span>
+<span class="k">end</span>
+
+<span class="c1">---</span>
+<span class="c1">-- Fake NPC AI logic.</span>
+<span class="c1">---</span>
+
+<span class="c1">---</span>
+<span class="c1">-- [npc_bird_behavior]</span>
+<span class="c1">--     types=... # list of unit types that will be considered for movement</span>
+<span class="c1">--     side=...  # side whose units will be considered; defaults to the current</span>
+<span class="c1">--               # playing side</span>
+<span class="c1">--     x1,y1=... # top left corner of the movement area</span>
+<span class="c1">--     x2,y2=... # bottom right corner of the movement area</span>
+<span class="c1">-- [/npc_bird_behavior]</span>
+<span class="c1">---</span>
+<span class="k">function</span> <span class="nc">wesnoth</span><span class="p">.</span><span class="nf">wml_actions</span><span class="p">.</span><span class="n">npc_bird_behavior</span><span class="p">(</span><span class="n">cfg</span><span class="p">)</span>
+	<span class="kd">local</span> <span class="n">map_w</span><span class="p">,</span> <span class="n">map_h</span><span class="p">,</span> <span class="n">map_border</span> <span class="o">=</span> <span class="n">wesnoth</span><span class="p">.</span><span class="n">get_map_size</span><span class="p">()</span>
+
+	<span class="kd">local</span> <span class="k">function</span> <span class="nf">do_error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+		<span class="n">helper</span><span class="p">.</span><span class="n">wml_error</span><span class="p">(</span><span class="s2">&quot;</span><span class="s">[npc_bird_behavior]: &quot;</span> <span class="o">..</span> <span class="n">msg</span><span class="p">)</span>
+	<span class="k">end</span>
+
+	<span class="k">if</span> <span class="n">map_border</span> <span class="o">~=</span> <span class="mi">1</span> <span class="k">then</span>
+		<span class="n">do_error</span><span class="p">(</span><span class="s2">&quot;</span><span class="s">maps with border_size != 1 are not supported yet&quot;</span><span class="p">)</span>
+	<span class="k">end</span>
+
+	<span class="kd">local</span> <span class="k">function</span> <span class="nf">on_board</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+		<span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">map_w</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">y</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">y</span> <span class="o">&lt;=</span> <span class="n">map_h</span><span class="p">)</span>
+	<span class="k">end</span>
+
+	<span class="kd">local</span> <span class="n">types</span> <span class="o">=</span> <span class="n">cfg</span><span class="p">.</span><span class="n">types</span> <span class="ow">or</span> <span class="n">do_error</span><span class="p">(</span><span class="s2">&quot;</span><span class="s">no unit types specified&quot;</span><span class="p">)</span>
+
+	<span class="kd">local</span> <span class="n">side_num</span> <span class="o">=</span> <span class="n">cfg</span><span class="p">.</span><span class="n">side</span> <span class="ow">or</span> <span class="n">wesnoth</span><span class="p">.</span><span class="n">current</span><span class="p">.</span><span class="n">side</span>
+
+	<span class="kd">local</span> <span class="n">x1</span> <span class="o">=</span> <span class="n">cfg</span><span class="p">.</span><span class="n">x1</span> <span class="ow">or</span> <span class="mi">1</span>
+	<span class="kd">local</span> <span class="n">y1</span> <span class="o">=</span> <span class="n">cfg</span><span class="p">.</span><span class="n">y1</span> <span class="ow">or</span> <span class="mi">1</span>
+
+	<span class="kd">local</span> <span class="n">x2</span> <span class="o">=</span> <span class="n">cfg</span><span class="p">.</span><span class="n">x2</span> <span class="ow">or</span> <span class="n">map_w</span>
+	<span class="kd">local</span> <span class="n">y2</span> <span class="o">=</span> <span class="n">cfg</span><span class="p">.</span><span class="n">y2</span> <span class="ow">or</span> <span class="n">map_h</span>
+
+	<span class="k">if</span> <span class="ow">not</span> <span class="n">on_board</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span><span class="n">y1</span><span class="p">)</span> <span class="k">then</span>
+		<span class="n">do_error</span><span class="p">(</span><span class="nb">string.format</span><span class="p">(</span><span class="s2">&quot;</span><span class="s">(x1, y1) is (%d, %d), which is not on map (%d x %d)&quot;</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">map_w</span><span class="p">,</span> <span class="n">map_h</span><span class="p">))</span>
+	<span class="k">end</span>
+	<span class="k">if</span> <span class="ow">not</span> <span class="n">on_board</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span><span class="n">y2</span><span class="p">)</span> <span class="k">then</span>
+		<span class="n">do_error</span><span class="p">(</span><span class="nb">string.format</span><span class="p">(</span><span class="s2">&quot;</span><span class="s">(x2, y2) is (%d, %d), which is not on map (%d x %d)&quot;</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">map_w</span><span class="p">,</span> <span class="n">map_h</span><span class="p">))</span>
+	<span class="k">end</span>
+
+	<span class="kd">local</span> <span class="k">function</span> <span class="nf">in_npc_region</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+		<span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="n">x1</span> <span class="ow">and</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">x2</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">y</span> <span class="o">&gt;=</span> <span class="n">y1</span> <span class="ow">and</span> <span class="n">y</span> <span class="o">&lt;=</span> <span class="n">y2</span><span class="p">)</span>
+	<span class="k">end</span>
+
+	<span class="c1">-- wesnoth.message(string.format(&quot;moving birds in area ((%d, %d), (%d, %d))&quot;, x1, y1, x2, y2))</span>
+
+	<span class="c1">--</span>
+	<span class="c1">-- Store required units</span>
+	<span class="c1">--</span>
+
+	<span class="kd">local</span> <span class="n">npcs</span> <span class="o">=</span> <span class="n">wesnoth</span><span class="p">.</span><span class="n">get_units</span> <span class="p">{</span>
+		<span class="nb">type</span> <span class="o">=</span> <span class="n">types</span><span class="p">,</span> <span class="n">side</span> <span class="o">=</span> <span class="n">side_num</span><span class="p">,</span>
+		<span class="n">x</span> <span class="o">=</span> <span class="nb">string.format</span><span class="p">(</span><span class="s2">&quot;</span><span class="s">1-%d&quot;</span><span class="p">,</span> <span class="n">map_w</span><span class="p">),</span>
+		<span class="n">y</span> <span class="o">=</span> <span class="nb">string.format</span><span class="p">(</span><span class="s2">&quot;</span><span class="s">1-%d&quot;</span><span class="p">,</span> <span class="n">map_h</span><span class="p">)</span>
+	<span class="p">}</span>
+
+	<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">npc</span> <span class="k">in</span> <span class="nb">ipairs</span><span class="p">(</span><span class="n">npcs</span><span class="p">)</span> <span class="k">do</span>
+		<span class="k">if</span> <span class="ow">not</span> <span class="n">in_npc_region</span><span class="p">(</span><span class="n">npc</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">npc</span><span class="p">.</span><span class="n">y</span><span class="p">)</span> <span class="k">then</span>
+			<span class="n">wesnoth</span><span class="p">.</span><span class="n">wml_actions</span><span class="p">.</span><span class="n">kill</span> <span class="p">{</span>
+				<span class="n">x</span> <span class="o">=</span> <span class="n">npc</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">npc</span><span class="p">.</span><span class="n">y</span><span class="p">,</span>
+				<span class="n">animate</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="n">fire_event</span> <span class="o">=</span> <span class="kc">true</span>
+			<span class="p">}</span>
+		<span class="k">elseif</span> <span class="n">npc</span><span class="p">.</span><span class="n">moves</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">then</span>
+			<span class="kd">local</span> <span class="n">move_steps</span> <span class="o">=</span> <span class="n">npc</span><span class="p">.</span><span class="n">moves</span>
+			<span class="kd">local</span> <span class="n">oob</span> <span class="o">=</span> <span class="kc">false</span>
+			<span class="kd">local</span> <span class="n">endpoint</span> <span class="o">=</span> <span class="p">{</span> <span class="n">x</span> <span class="o">=</span> <span class="n">npc</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">npc</span><span class="p">.</span><span class="n">y</span> <span class="p">}</span>
+			<span class="kd">local</span> <span class="n">path</span> <span class="o">=</span> <span class="p">{</span> <span class="n">x</span> <span class="o">=</span> <span class="n">npc</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">npc</span><span class="p">.</span><span class="n">y</span><span class="p">,</span> <span class="n">direction</span> <span class="o">=</span> <span class="n">helper</span><span class="p">.</span><span class="n">rand</span><span class="p">(</span><span class="s2">&quot;</span><span class="s">n,s,ne,nw,se,sw&quot;</span><span class="p">)</span> <span class="p">}</span>
+
+			<span class="c1">-- TODO: quit the course when encountering a unit?</span>
+			<span class="c1">--</span>
+			<span class="c1">-- Perhaps we should also use proper pathfinding instead of</span>
+			<span class="c1">-- blindly testing each individual hex in the chosen direction,</span>
+			<span class="c1">-- but we&#39;d somehow need to override movement costs for units</span>
+			<span class="c1">-- in impassable terrain (e.g. Shaxthal Worms in cave wall,</span>
+			<span class="c1">-- regular birds on Impassable mountains).</span>
+
+			<span class="k">for</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">move_steps</span><span class="p">,</span> <span class="mi">1</span> <span class="k">do</span>
+				<span class="k">if</span> <span class="n">oob</span> <span class="k">then</span> <span class="k">break</span> <span class="k">end</span>
+
+				<span class="kd">local</span> <span class="n">target</span> <span class="o">=</span> <span class="n">wesnoth</span><span class="p">.</span><span class="n">get_locations</span><span class="p">({</span>
+					<span class="p">{</span> <span class="s2">&quot;</span><span class="s">filter_adjacent_location&quot;</span><span class="p">,</span> <span class="p">{</span>
+						<span class="n">adjacent</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">-&quot;</span> <span class="o">..</span> <span class="n">path</span><span class="p">.</span><span class="n">direction</span><span class="p">,</span>
+						<span class="n">x</span> <span class="o">=</span> <span class="n">endpoint</span><span class="p">.</span><span class="n">x</span><span class="p">,</span>
+						<span class="n">y</span> <span class="o">=</span> <span class="n">endpoint</span><span class="p">.</span><span class="n">y</span>
+					<span class="p">}</span> <span class="p">}</span>
+				<span class="p">})[</span><span class="mi">1</span><span class="p">]</span>
+
+				<span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="n">target</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="ow">not</span> <span class="n">in_npc_region</span><span class="p">(</span><span class="n">target</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">target</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span> <span class="k">then</span>
+					<span class="n">oob</span> <span class="o">=</span> <span class="kc">true</span>
+				<span class="k">else</span>
+					<span class="n">path</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">path</span><span class="p">.</span><span class="n">x</span> <span class="o">..</span> <span class="nb">string.format</span><span class="p">(</span><span class="s2">&quot;</span><span class="s">,%d&quot;</span><span class="p">,</span> <span class="n">target</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+					<span class="n">path</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">path</span><span class="p">.</span><span class="n">y</span> <span class="o">..</span> <span class="nb">string.format</span><span class="p">(</span><span class="s2">&quot;</span><span class="s">,%d&quot;</span><span class="p">,</span> <span class="n">target</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+
+					<span class="n">endpoint</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">target</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+					<span class="n">endpoint</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">target</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+					<span class="n">npc</span><span class="p">.</span><span class="n">moves</span> <span class="o">=</span> <span class="n">npc</span><span class="p">.</span><span class="n">moves</span> <span class="o">-</span> <span class="mi">1</span>
+				<span class="k">end</span>
+			<span class="k">end</span>
+
+			<span class="c1">-- Move the bird</span>
+
+			<span class="n">wesnoth</span><span class="p">.</span><span class="n">extract_unit</span><span class="p">(</span><span class="n">npc</span><span class="p">)</span>
+
+			<span class="c1">-- wesnoth.message(string.format(&quot;x = %s; y = %s&quot;, path.x, path.y))</span>
+
+			<span class="kd">local</span> <span class="n">npc_cfg</span> <span class="o">=</span> <span class="n">npc</span><span class="p">.</span><span class="n">__cfg</span>
+
+			<span class="n">wesnoth</span><span class="p">.</span><span class="n">wml_actions</span><span class="p">.</span><span class="n">move_unit_fake</span> <span class="p">{</span>
+				<span class="nb">type</span> <span class="o">=</span> <span class="n">npc_cfg</span><span class="p">.</span><span class="n">type</span><span class="p">,</span>
+				<span class="n">gender</span> <span class="o">=</span> <span class="n">npc_cfg</span><span class="p">.</span><span class="n">gender</span><span class="p">,</span>
+				<span class="n">variation</span> <span class="o">=</span> <span class="n">npc_cfg</span><span class="p">.</span><span class="n">variation</span><span class="p">,</span>
+				<span class="n">image_mods</span> <span class="o">=</span> <span class="n">npc</span><span class="p">.</span><span class="n">image_mods</span><span class="p">,</span>
+				<span class="n">side</span> <span class="o">=</span> <span class="n">npc_cfg</span><span class="p">.</span><span class="n">side</span><span class="p">,</span>
+				<span class="n">x</span> <span class="o">=</span> <span class="n">path</span><span class="p">.</span><span class="n">x</span><span class="p">,</span>
+				<span class="n">y</span> <span class="o">=</span> <span class="n">path</span><span class="p">.</span><span class="n">y</span>
+			<span class="p">}</span>
+
+			<span class="c1">-- Birds found moving out of their movement area</span>
+			<span class="c1">-- are not restored</span>
+
+			<span class="k">if</span> <span class="ow">not</span> <span class="n">oob</span> <span class="k">then</span>
+				<span class="n">npc</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">npc</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">wesnoth</span><span class="p">.</span><span class="n">find_vacant_tile</span><span class="p">(</span><span class="n">endpoint</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">endpoint</span><span class="p">.</span><span class="n">y</span><span class="p">)</span>
+				<span class="n">npc</span><span class="p">.</span><span class="n">facing</span> <span class="o">=</span> <span class="n">path</span><span class="p">.</span><span class="n">direction</span>
+
+				<span class="n">wesnoth</span><span class="p">.</span><span class="n">put_unit</span><span class="p">(</span><span class="n">npc</span><span class="p">)</span>
+			<span class="k">end</span>
+
+			<span class="c1">-- TODO: fire moveto or death events accordingly</span>
+
+			<span class="n">wesnoth</span><span class="p">.</span><span class="n">wml_actions</span><span class="p">.</span><span class="n">redraw</span> <span class="p">{}</span>
+
+		<span class="k">end</span>
+	<span class="k">end</span>
+
+<span class="k">end</span>
+</pre></div>
+<h2><span class="mw-headline" id="Section_4_-_Tables">Section 4 - Tables</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mw/index.php?title=User:Shadowmaster/WikiTest&amp;action=edit&amp;section=7" title="Edit section: Section 4 - Tables">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Pretty table:
+</p>
+<table class="wikitable">
+<tr>
+<th>key
+</th>
+<th>type
+</th>
+<th>default
+</th>
+<th>description
+</th></tr>
+<tr>
+<td> id
+</td>
+<td> <a href="/mw/index.php/GUIVariable#string" title="GUIVariable">string</a>
+</td>
+<td> mandatory
+</td>
+<td> Unique id for this window.
+</td></tr>
+<tr>
+<td> description
+</td>
+<td> <a href="/mw/index.php/GUIVariable#t_string" title="GUIVariable">t_string</a>
+</td>
+<td> mandatory
+</td>
+<td> Unique translatable name for this window.
+</td></tr>
+<tr>
+<td> resolution
+</td>
+<td> <a href="/mw/index.php/GUIVariable#section" title="GUIVariable">section</a>
+</td>
+<td> mandatory
+</td>
+<td> The definitions of the window in various resolutions.
+</td></tr></table>
+<p>Ugly bordered table:
+</p>
+<table border="1">
+<tr>
+<th>key
+</th>
+<th>type
+</th>
+<th>default
+</th>
+<th>description
+</th></tr>
+<tr>
+<td> id
+</td>
+<td> <a href="/mw/index.php/GUIVariable#string" title="GUIVariable">string</a>
+</td>
+<td> mandatory
+</td>
+<td> Unique id for this gui (theme).
+</td></tr>
+<tr>
+<td> description
+</td>
+<td> <a href="/mw/index.php/GUIVariable#t_string" title="GUIVariable">t_string</a>
+</td>
+<td> mandatory
+</td>
+<td> Unique translatable name for this gui.
+</td></tr>
+<tr>
+<td> widget_definitions
+</td>
+<td> <a href="/mw/index.php/GUIVariable#section" title="GUIVariable">section</a>
+</td>
+<td> mandatory
+</td>
+<td> The definitions of all <a href="#widget_list">widgets</a>.
+</td></tr>
+<tr>
+<td> window
+</td>
+<td> <a href="/mw/index.php/GUIVariable#section" title="GUIVariable">section</a>
+</td>
+<td> mandatory
+</td>
+<td> The definitions of all <a href="#window_list">windows</a>.
+</td></tr>
+<tr>
+<td> settings
+</td>
+<td> <a href="/mw/index.php/GUIVariable#section" title="GUIVariable">section</a>
+</td>
+<td> mandatory
+</td>
+<td> The settings for the gui.
+</td></tr></table>
+<p>Borderless table:
+</p>
+<table>
+<tr>
+<th>key
+</th>
+<th>type
+</th>
+<th>default
+</th>
+<th>description
+</th></tr>
+<tr>
+<td> id
+</td>
+<td> <a href="/mw/index.php/GUIVariable#string" title="GUIVariable">string</a>
+</td>
+<td> mandatory
+</td>
+<td> The unique id of the group (unique in this window).
+</td></tr>
+<tr>
+<td> fixed_width
+</td>
+<td> <a href="/mw/index.php/GUIVariable#bool" title="GUIVariable">bool</a>
+</td>
+<td> false
+</td>
+<td> Should widget in this group have the same width.
+</td></tr>
+<tr>
+<td> fixed_height
+</td>
+<td> <a href="/mw/index.php/GUIVariable#bool" title="GUIVariable">bool</a>
+</td>
+<td> false
+</td>
+<td> Should widget in this group have the same height.
+</td></tr></table>
+
+<!--
+NewPP limit report
+Cached time: 20170708204820
+Cache expiry: 86400
+Dynamic content: false
+CPU time usage: 0.009 seconds
+Real time usage: 0.244 seconds
+Preprocessor visited node count: 68/1000000
+Preprocessor generated node count: 116/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+-->
+
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 - -total
+-->
+
+<!-- Saved in parser cache with key mw-mw_:pcache:idhash:6435-0!*!0!!en!*!* and timestamp 20170708204820 and revision id 58596
+ -->
+</div>		<!-- end wikipage -->
+
+						<div class="printfooter">Retrieved from "<a dir="ltr" href="https://wiki.wesnoth.org/index.php?title=User:Shadowmaster/WikiTest&amp;oldid=58584">https://wiki.wesnoth.org/index.php?title=User:Shadowmaster/WikiTest&amp;oldid=58584</a>"</div>
+						<div id="catlinks" class="catlinks catlinks-allhidden" data-mw="interface"></div>				<!-- end wikipage -->
+
+					<div id="lastmod"> This page was last modified on 3 June 2017, at 00:26.</div>
+					<div class="visualClear"></div>
+			</div>
+</div> <!-- end content -->
+
+</div> <!-- end main -->
+
+<div id="footer-sep"></div>
+
+<div id="footer"><div id="footer-content"><div>
+	<a href="https://wiki.wesnoth.org/StartingPoints">Site Map</a> &#8226; <a href="http://status.wesnoth.org/">Site Status</a><br />
+	Copyright &copy; 2003&ndash;2017 by <a rel="author" href="https://wiki.wesnoth.org/Project">The Battle for Wesnoth Project</a>.<br />
+	Site design Copyright &copy; 2017 by Ignacio R. Morelle.
+</div></div></div>
+
+<script src="/wesmere/js/retina.min.js"></script>
+
+</body>
+</html>
+
+<!-- kate: indent-mode normal; indent-width 2; tab-width 2; space-indent off; show-tabs off; -->

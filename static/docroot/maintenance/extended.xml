@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../../template_inside.xsl"?>
+<document>
+	<title>Server Repairs</title>
+	<content>
+		<h1>Server Repairs</h1>
+
+		<p>Wesnoth.org is currently down for repairs. Please try again later.</p>
+
+		<p>You might be interested in checking out our <b>#wesnoth</b> <abbr title="Internet Relay Chat">IRC</abbr> channel on <b>irc.freenode.net</b> (<a href="https://webchat.freenode.net/?channels=wesnoth">webchat link</a>) or <a href="https://twitter.com/Wesnoth">following @Wesnoth on Twitter</a> for progress updates!</p>
+
+		<ul>
+			<li><a href="http://status.wesnoth.org/">Site status report</a></li>
+			<li><a href="https://www.wesnoth.org/">Back to the home page</a></li>
+		</ul>
+
+	</content>
+</document>
+
+<!-- kate: indent-mode normal; indent-width 2; tab-width 2; space-indent off; show-tabs off; -->

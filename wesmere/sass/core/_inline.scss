@@ -1,0 +1,94 @@
+/*
+ * Inline element styles
+ *
+ * codename Wesmere - Next-gen Wesnoth.org stylesheet
+ * Copyright (C) 2011 - 2017 by Ignacio R. Morelle <shadowm@wesnoth.org>
+ *
+ * codename Westin - Wesnoth 1.12 Press Release stylesheet
+ * Copyright (C) 2014 by Ignacio R. Morelle <shadowm@wesnoth.org>
+ *
+ * See LICENSE for usage terms.
+ */
+
+strong, b, .bold {
+	@extend %bold;
+}
+
+em, i, q, cite, .italic {
+	font-style: italic;
+}
+
+small {
+	font-size: $measurement-sub;
+}
+
+a {
+	&:link, &:visited {
+		color: $link-color;
+		text-decoration: none;
+	}
+
+	&:hover, &:active {
+		color: $link-hover-color;
+		text-decoration: underline;
+	}
+
+	strong, b, .old {
+		color: inherit;
+	}
+}
+
+abbr, acronym, dfn {
+	cursor:         help;
+	font-variant:   normal;
+	letter-spacing: normal;
+	text-decoration: underline dotted;
+	//border-bottom:  1px dotted #333;
+
+	&:hover {
+		background: $glamdrol-darkbg;
+	}
+}
+
+ins {
+	text-decoration: underline;
+	color: #080;
+}
+
+del, s {
+	text-decoration: line-through;
+	color: $text-quote;
+}
+
+del {
+	color: #800;
+}
+
+mark {
+	background: #8f8;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	@extend %title-font;
+	color: #111;
+}
+
+h2 {
+	// Chrome needs an explicit border width of 0 for border-image to not be
+	// applied on a given border. (Last checked on v50.)
+	border-width: 0 0 1px;
+	border-bottom: 1px solid $wesmere-hr;
+	border-image: linear-gradient(to right, rgba($wui-text-navlink, 0.6), rgba($wui-text-navlink, 0.1)) 1;
+}
+
+h5, h6 {
+	color: #222;
+}
+
+h1 { font-size: 185%; }
+h2 { font-size: 160%; }
+h3 { font-size: 140%; }
+
+h4 { font-size: 125%; }
+h5 { font-size: 115%; }
+h6 { font-size: 100%; }

@@ -1,0 +1,33 @@
+{
+	"name": "Wesmere",
+	"description": "New Wesnoth.org site design",
+	"author": [
+		"Ignacio R. Morelle (shadowm)"
+	],
+	"version": "1.0.0-RC1",
+	"url": "https://www.wesnoth.org/",
+	"license-name": "TBD",
+	"type": "skin",
+	"requires": {
+		"MediaWiki": ">= 1.27.0"
+	},
+	"ValidSkinNames": {
+		"wesmere": "Wesmere"
+	},
+	"ResourceModules": {
+		"skins.wesmere.js": {
+			"scripts": [
+				"js/wiki.js"
+			]
+		}
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "../../wesmere",
+		"remoteSkinPath": "../../wesmere"
+	},
+	"AutoloadClasses": {
+		"SkinWesmere": "SkinWesmere.php",
+		"WesmereTemplate": "WesmereTemplate.php"
+	},
+	"manifest_version": 1
+}

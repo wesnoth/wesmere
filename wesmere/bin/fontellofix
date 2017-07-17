@@ -1,0 +1,87 @@
+#!/usr/bin/python3
+'''
+Fix Fontello configuration to match vanilla Font Awesome codepoints
+
+codename Wesmere - Next-gen Wesnoth.org stylesheet
+Copyright (C) 2017 by Ignacio R. Morelle <shadowm@wesnoth.org>
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along
+with this program; if not, see <http://www.gnu.org/licenses/>.
+'''
+
+import argparse
+import json
+import re, os, sys
+
+FA_VARIABLES_SCSS = "scss/_variables.scss"
+
+def scss_to_character_map(scss):
+    "Reads Font Awesome's _variables.scss and returns a dictionary of icon "
+    "ids mapped to character values."
+    char_map = {}
+    with open(scss, "r", encoding="utf-8") as lines:
+        for line in lines:
+            match = re.fullmatch(r'''
+                \$\s*
+                fa-var-([A-Za-z0-9_-]+)
+                \s* : \s*
+                ["\']  \\([0-9A-Fa-f]+)  ["\']
+                \s* ; \s*
+                ''', line, flags=re.X)
+            if match:
+                char_map[match.group(1)] = int(match.group(2), 16)
+    return char_map
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-f, --font-awesome-base", dest="font_awesome_base", nargs=1, required=True)
+    parser.add_argument("config_file", metavar="CONFIG_FILE", nargs=1)
+    #
+    # Parse command line arguments
+    #
+    args = parser.parse_args()
+    fa_base = args.font_awesome_base[0]
+    if not os.path.isdir(fa_base):
+        sys.exit("Font directory {} does not exist or is not a directory.".format(fa_base))
+    #
+    # Parse _variables.scss
+    #
+    icons = {}
+    try:
+        vars_path = fa_base + "/" + FA_VARIABLES_SCSS
+        full_icons = scss_to_character_map(vars_path)
+        if not full_icons:
+            sys.exit("Could not parse " + vars_path + " -- unspecified error.")
+    except FileNotFoundError as err:
+        sys.exit("Could not open {} for reading: {}".format(err.filename, err.strerror))
+    #
+    # Process config.json
+    #
+    count = 0
+    with open(args.config_file[0], "r", encoding="utf-8") as config_file:
+        cfg = json.load(config_file)
+        for glyph in cfg["glyphs"]:
+            if glyph["src"] != "fontawesome":
+                continue
+            css_id = glyph["css"]
+            if css_id in full_icons.keys() and glyph["code"] != full_icons[css_id]:
+                print("  codepoint '{}' {} -> {}".format(glyph["css"], glyph["code"], full_icons[css_id]), file=sys.stderr)
+                glyph["code"] = full_icons[css_id]
+                count = count + 1
+    if count:
+        with open(args.config_file[0], "w", encoding="utf-8") as output_file:
+            json.dump(cfg, output_file, indent="\t", sort_keys=True)
+            print("{} codepoints fixed.".format(count))
+
+# kate: indent-mode normal; encoding utf-8; space-indent on;

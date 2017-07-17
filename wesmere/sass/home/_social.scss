@@ -1,0 +1,234 @@
+/*
+ * Social media link styles
+ *
+ * codename Wesmere - Next-gen Wesnoth.org stylesheet
+ * Copyright (C) 2016 - 2017 by Ignacio R. Morelle <shadowm@wesnoth.org>
+ *
+ * See LICENSE for usage terms.
+ */
+
+$sbutton-bg:								rgba($wui-text-navlink, 0.15);
+$twitter-bird-color:						#1da1f2;
+$facebook-brand-color:						#4267b2;
+
+#nav {
+	position: relative;
+}
+
+#sociallinks {
+	// Positioned into the logo area (but see below).
+	position: absolute;
+	bottom: 100%;
+	right: 0;
+
+	&, li, a {
+		display: block;
+		margin:  0;
+		padding: 0;
+	}
+
+	li {
+		float: left;
+		padding-bottom: 1px;
+
+		@include media-small-screen-constraint {
+			float: none;
+			padding-bottom: 0px;
+
+			&:last-child {
+				padding-bottom: 1px;
+			}
+		}
+
+		&:first-child a {
+			border-top-left-radius: $radius-std;
+		}
+	}
+
+	a {
+		background: rgba($wui-dialog-bg, 0.8);
+		text-shadow: none;
+
+		padding: $measurement-small/2 $measurement-small;
+
+		transition-duration: 200ms;
+
+		&:link, &:visited {
+			color: #eee;
+		}
+
+		&:hover {
+			background: #fff;
+			text-shadow: none;
+		}
+	}
+
+	// We really run out of space around the logo on small viewports, so we're
+	// forced to take a less elegant approach and reflow the whole thing into
+	// the page layout making sure it fits right in below the navlinks somehow.
+	@include media-tiny-screen-constraint {
+		position: static;
+
+		//border-top: solid 1px $wui-border-dark;
+
+		&, li, a {
+			display: inline-block;
+		}
+
+		li:first-child a {
+			border-top-left-radius: 0;
+		}
+
+		a {
+			background: none;
+		}
+	}
+}
+
+.twitter-icon,
+.github-icon,
+.facebook-icon,
+.discord-icon {
+	@extend .fa;
+	@extend .fa-lg;
+	@extend .fa-fw;
+}
+
+.twitter-icon {
+	@extend .fa-twitter;
+}
+
+.facebook-icon {
+	@extend .fa-facebook-official;
+}
+
+.github-icon {
+	@extend .fa-github;
+}
+
+// Need id selector to override base #nav a styles (_site_layout.scss). At his
+// point I'm regretting not spamming classes everywhere.
+#sociallinks {
+	.twitter-button:hover {
+		color: $twitter-bird-color;
+	}
+
+	.facebook-button:hover {
+		color: $facebook-brand-color;
+	}
+
+	.github-button:hover {
+		color: #222;
+	}
+}
+
+// Discord is a tricky one because as of this writing (July 1 2017), Font
+// Awesome does not have an icon for it, so we're forced to use the official
+// branding SVG files and inline them so as to not add to the page load queue.
+// This is both a curse and a blessing -- we get high DPI support for free, but
+// compatibility with older browsers suffers. We also have to figure out
+// magic measurements that don't make it look out of place compared to the FA
+// icons by ourselves, which isn't great either.
+
+#sociallinks {
+	.discord-button {
+		background-image: $svg-discord-icon-mono;
+	}
+
+	.discord-button:hover {
+		background-image: $svg-discord-icon-color;
+	}
+
+	.discord-button, .discord-button:hover {
+		background-repeat:   no-repeat;
+		background-position: 50% 65%;
+		background-size:     (4em/3); /* FA _larger.scss */
+	}
+}
+
+//
+// Big button versions of the social media links for the home page's communtiy
+// section at the end.
+//
+
+#social-trail {
+	text-align: center;
+	padding: $measurement-sub 0 $measurement-sub*2;
+
+	@include media-tiny-screen-constraint {
+		padding: 0 0 $measurement-sub;
+	}
+}
+
+.social-buttons-group {
+	display: inline-block;
+	vertical-align: text-top;
+	margin: 0 $measurement-small;
+
+	@include media-tiny-screen-constraint {
+		display: block;
+		margin: $measurement-small;
+	}
+}
+
+.github-bigbutton,
+.discord-bigbutton {
+	border-radius: 4px; // Matches Facebook and Twitter buttons
+
+	display: inline-block;
+	padding: $measurement-small $measurement-sub;
+
+	text-align: left;
+
+	// We can't use this because it'll look inconsistent with the Twitter and
+	// Facebook widgets, which do not have transitions and are provided by
+	// iframe documents.
+	//@extend %standard-transitions;
+
+	&:hover, &:active {
+		text-decoration: none;
+	}
+}
+
+.github-bigbutton {
+	background: #24292e;
+	// The GH logo glyph has too much horizontal padding around, so we can't
+	// have padding of our own to its left if we want the button layout to look
+	// even vaguely symmetrical padding-wise. Ergo, we substract an approximate
+	// value that should be roughly equal to the glyph's padding.
+	padding-left: $measurement-sub - $measurement-small;
+
+	& > span {
+		font-weight: bold;
+		font-size: 1.1em;
+	}
+
+	& > i {
+		font-size: 3em;
+	}
+
+	#social-trail &,
+	.github-icon {
+		color: #fff;
+	}
+
+	&:hover, &:active {
+		background: #0f0e0f;
+	}
+}
+
+#social-trail .discord-bigbutton {
+	background: $color-discord-logo;
+	background: $color-discord-logo $svg-discord-logo-white 50% 65% / auto 3em no-repeat;
+
+	width:  8em;
+	height: 2.25em;
+
+	&:link, &:visited {
+		color: #fff;
+	}
+
+	&:hover, &:active {
+		background-color: darken($color-discord-logo, 5%);
+	}
+}

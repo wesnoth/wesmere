@@ -1,0 +1,117 @@
+/*
+ * Navigational element styles for MediaWiki
+ *
+ * codename Wesmere - Next-gen Wesnoth.org stylesheet
+ * Copyright (C) 2011 - 2017 by Ignacio R. Morelle <shadowm@wesnoth.org>
+ *
+ * See LICENSE for usage terms.
+ */
+
+/*****************************************************************************
+ *                              BREADCRUMBS                                  *
+ *****************************************************************************/
+
+#contentSub {
+	font-size: $measurement-sub;
+	color: $wui-border-light;
+
+	// Push content downwards in non-content pages that for one reason or
+	// another don't start with an element that has a margin (e.g. <p>).
+	margin-bottom: $measurement-paragraph-spacing;
+	padding-left: 1em;
+}
+
+/*****************************************************************************
+ *                           CATEGORIES DISPLAY                              *
+ *****************************************************************************/
+
+.catlinks {
+	@extend %mw-box-colors-basic;
+	margin: 0.6em 0;
+	padding: 0.6em;
+
+	clear: both;
+
+	ul,
+	li {
+		display: inline;
+		margin: 0;
+		padding: 0;
+	}
+
+	li {
+		padding: 0 0.4em;
+		// HACK: Override color from a builtin MediaWiki style
+		border-color: $wesmere-hr;
+	}
+
+	li:first-child {
+		padding-left: 0em;
+	}
+}
+
+.catlinks-allhidden {
+	display: none;
+}
+
+
+/*****************************************************************************
+ *                     ARTICLE TABLE OF CONTENTS SECTION                     *
+ *****************************************************************************/
+
+#toc,
+.toc {
+	display: inline-block; // IE < 8
+	display: table;
+
+	// Nullify global <table> style in cases where the TOC is wrapped in a
+	// table because the page author was on acid (e.g. wiki.w.o/Create).
+	// TODO: Fix pages instead
+	border-collapse: separate;
+
+	@extend %mw-box-colors-basic;
+	padding: $measurement-sub2/2 $measurement-sub2;
+
+	h2 {
+		display: inline;
+		padding: 0;
+		// Explicit width of 0 needed to disable border-image on older Chrome/Safari.
+		border-bottom: 0;
+		font-size: 1.25em;
+	}
+
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style-type:  none;
+		list-style-image: none;
+
+		ul {
+			// Override nested list geometry.
+			margin: 0;
+			padding: 0;
+
+			// Same specifity as MW's internal stylesheet rules for this
+			// element so we can actually override them.
+			.mw-content-ltr & {
+				margin-left: 1em;
+			}
+
+			.mw-content-rtl & {
+				margin-right: 1em;
+			}
+		}
+	}
+}
+
+.tocnumber,
+.toctext {
+	display: table-cell;
+	text-decoration: inherit;
+}
+
+.tocnumber {
+	color: $text-std;
+	padding-right: 0.5em;
+}
+

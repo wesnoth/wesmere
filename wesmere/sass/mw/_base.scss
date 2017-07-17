@@ -1,0 +1,138 @@
+/*
+ * Core MediaWiki styles
+ *
+ * codename Wesmere - Next-gen Wesnoth.org stylesheet
+ * Copyright (C) 2011 - 2017 by Ignacio R. Morelle <shadowm@wesnoth.org>
+ *
+ * See LICENSE for usage terms.
+ */
+
+%mw-box-colors-basic {
+	border: 1px solid $wesmere-hr;
+	background: $wesmere-page-bg-shade;
+}
+
+%mw-box-measurements-std {
+	padding: $measurement-sub2;
+}
+
+.visualClear {
+	clear: both;
+}
+
+#siteSub,
+.printfooter,
+#lastmod {
+	@extend small;
+}
+
+/*
+ * Thumbnails
+ */
+
+div.thumb {
+	margin: $measurement-paragraph-spacing;
+
+	font-size: $measurement-sub;
+	// NOTE: should be 2x .thumbcaption's top margin. This is here to cover
+	//       some non-standard uses of .thumb (e.g. in
+	//       <https://wiki.wesnoth.org/Races>). See also the hr rule below.
+	line-height: $measurement-small*2;
+	text-align: center;
+
+	& > div {
+		@extend %mw-box-measurements-std;
+		@extend %mw-box-colors-basic;
+
+		// These properties are set by the .thumb parent in a gallery (see
+		// below)
+		li.gallerybox & {
+			background: none;
+			border:     none;
+			padding:    0;
+		}
+	}
+
+	li.gallerybox & {
+		@extend %mw-box-colors-basic;
+	}
+
+	p {
+		margin: 0;
+	}
+
+	hr {
+		margin: $measurement-small 0 $measurement-small/2;
+	}
+
+	// HACK: "Collapse" margins of stacked floated thumbnails.
+	&.tleft + &.tleft,
+	&.tright + &.tright {
+		margin-top: -$measurement-paragraph-spacing;
+	}
+
+	// HACK: "Collapse" margins of floated thumbnails directly following an
+	//       <hr> (rare case, probably almost never going to happen).
+	hr + &.tleft,
+	hr + &.tright {
+		margin-top: 0;
+	}
+}
+
+// Override MW style that uses the text direction class.
+.mw-content-ltr,
+.mw-content-rtl {
+	.thumbcaption {
+		margin-top: $measurement-small;
+		text-align: center;
+	}
+}
+
+div.tleft,
+div.tright {
+	// Borders are used to set a margin
+	margin-bottom: 0;
+	// Clear H2 borders around
+	border-bottom: solid 1em $wesmere-page-bg;
+}
+
+// Extra "margin" between stacked floated thumbnails
+div.tleft + div.tleft,
+div.tright + div.tright {
+	padding-top: $measurement-paragraph-spacing;
+}
+
+div.tleft {
+	clear: left;
+	float: left;
+	// Borders are used to set a margin
+	margin-left: 0;
+	// Clear H2 borders around
+	border-right: solid 1.4em $wesmere-page-bg;
+}
+
+div.tright {
+	clear: right;
+	float: right;
+	// Borders are used to set a margin
+	margin-right: 0;
+	// Clear H2 borders around
+	border-left: solid 1.4em $wesmere-page-bg;
+}
+
+@include media-small-screen-constraint {
+	div.tleft,
+	div.tright {
+		clear: none;
+		float: none;
+		border: none;
+
+		// Re-set margin box of a non-floating thumb
+		margin: $measurement-paragraph-spacing;
+
+		& > div {
+			display: inline-block;
+		}
+	}
+}
+

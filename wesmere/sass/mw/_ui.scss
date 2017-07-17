@@ -1,0 +1,483 @@
+/*
+ * UI elements for MediaWiki
+ *
+ * codename Wesmere - Next-gen Wesnoth.org stylesheet
+ * Copyright (C) 2011 - 2017 by Ignacio R. Morelle <shadowm@wesnoth.org>
+ *
+ * See LICENSE for usage terms.
+ */
+
+// Remove cruft we don't need in our self-hosted wiki
+#siteSub,
+.printfooter {
+	display: none;
+}
+
+.mw-editsection {
+	@extend %content-font;
+	// Use an absolute font size instead of the size of the containing h*
+	// element (why does MW emit this as a child of the h* element anyway??)
+	// to make these consistent across the same page.
+	font-size: $wesmere-base-font-size;
+	font-weight: normal;
+	display: inline-block;
+}
+
+#lastmod {
+	clear: both;
+	// Keep the page timestamp at the end of the content block visually
+	// separate from the content.
+	margin-top: $measurement-paragraph-spacing;
+	text-align: right;
+	color: $wui-border-light;
+
+	@include media-tiny-screen-constraint {
+		text-align: center;
+	}
+}
+
+#wikifooter {
+	float: right;
+}
+
+#siteNotice {
+	margin-top: $measurement-sub; // same as #content padding-top
+	padding: $measurement-small;
+
+	border: solid 1px #ea0;
+	background: #fc6;
+	text-align: center;
+
+	p:first-child {
+		margin-top: 0;
+	}
+
+	p:last-child {
+		margin-bottom: 0;
+	}
+}
+
+#mw-read-only-warning strong {
+	color: #d22;
+}
+
+/*****************************************************************************
+ *                            ARTICLE EDIT TOOLBAR                           *
+ *****************************************************************************/
+
+//$wm-wiki-toolbar-bg: rgba($wui-text-navlink, 0.15);
+$wm-wiki-toolbar-bg: $wui-menu-bg;
+
+#wm-wiki-toolbar {
+	float:  right;
+	margin: $measurement-paragraph-spacing/2 0; // same as h1 divided by 2
+
+	@include media-small-screen-constraint {
+		float:      none;
+		text-align: center;
+	}
+}
+
+.wm-toolbar {
+	display: inline-block;
+
+	list-style-type: none;
+	list-style-image: none;
+
+	background: $wm-wiki-toolbar-bg;
+	border: 1px solid $wui-text-navlink;
+	border-radius: $radius-minor;
+	box-shadow: $wesmere-button-shadow-outer;
+
+	margin: 0;
+	padding: 1px;
+
+	& + & {
+		margin-left: 0.5em;
+	}
+
+	li {
+		@extend %wesmere-button-base-styles;
+		background: linear-gradient(to bottom, rgba($wui-text-navlink, 0.15), rgba($wui-text-navlink, 0.4));
+
+		padding: 0;
+		margin-left: 1px;
+		border-left: 1px solid $wui-text-navlink;
+
+		&:first-child {
+			margin-left: 0;
+			// Explicit width of 0 needed to disable border-image on older Chrome/Safari.
+			border-left: 0;
+
+			border-radius: $radius-minor 0 0 $radius-minor;
+		}
+
+		&:last-child {
+			border-radius: 0 $radius-minor $radius-minor 0;
+		}
+
+		& > a {
+			display: inline-block;
+			padding: 0.2em 0.4em;
+
+			outline: none;
+
+			&:link, &:visited {
+				@extend %wesmere-button-normal-styles;
+			}
+
+			&:hover, &:active {
+				@extend %wesmere-button-highlight-styles;
+			}
+
+			&:hover {
+				@extend %wesmere-button-hover-styles;
+			}
+
+			&:active {
+				@extend %wesmere-button-active-styles;
+
+				box-shadow: $wesmere-button-shadow-pressed;
+			}
+		}
+
+		&.wm-dropdown-visible > a {
+			&:link, &:visited, &:hover, &:active {
+				@extend %wesmere-button-highlight-styles;
+				@extend %wesmere-button-active-styles;
+				box-shadow: $wesmere-button-shadow-pressed;
+			}
+		}
+
+		// NOTE: Disabled toolbar redlinks since they stick out like a sore
+		//       thumb. Might bring them back someday if people want them.
+		/*
+		&.new > a {
+			&:link, &:visited {
+				color: darken($link-red-color, 10%);
+			}
+
+			&:hover, &:active {
+				color: $link-red-color;
+			}
+		}
+		*/
+	}
+}
+
+$wesmere-wm-wiki-toolbar-icons: (
+	// Icon class id				FA icon id
+	ca-nstab:						file-text,
+	ca-nstab-main:					file-text,
+	ca-nstab-user:					address-book,
+	ca-nstab-template:				file-text-o,
+	ca-nstab-category:				folder-open,
+	ca-nstab-help:					question-circle,
+	ca-nstab-special:				cogs,
+	ca-nstab-mediawiki:				cogs,
+	ca-nstab-project:				globe,
+	ca-nstab-image:					picture-o,
+	ca-nstab-media:					paperclip,
+	ca-talk:						comments,
+	ca-edit:						pencil,
+	ca-addsection:					commenting,
+	ca-history:						clock-o,
+	ca-delete:						trash,
+	ca-move:						arrows,
+	ca-protect:						lock,
+	ca-unprotect:					unlock,
+	ca-watch:						eye,
+	ca-unwatch:						eye-slash,
+	ca-viewsource:					code,
+	pt-userpage:					address-book,
+	pt-mytalk:						comment,
+	pt-preferences:					sliders,
+	pt-watchlist:					eye,
+	pt-mycontris:					th-list,
+	pt-logout:						sign-out,
+	pt-login:						sign-in,
+	pt-createaccount:				pencil-square-o,
+	t-log:							list-alt,
+	t-blockip:						ban,
+	t-userrights:					id-card,
+	t-whatlinkshere:				link,
+	t-recentchangeslinked:			history, // FIXME
+	t-contributions:				th-list, // FIXME
+	t-upload:						upload,
+	t-specialpages:					cog,
+	t-permalink:					bookmark, // FIXME
+	t-info:							info-circle,
+	n-mainpage-description:			home,
+	n-recentchanges:				calendar,
+	n-randompage:					random,
+	n-help:							question-circle,
+	feedlinks:						rss-square,
+	wm-places-menu:					map-signs,
+	wm-advanced-menu:				wrench,
+	wm-account-menu:				user,
+	wm-extra-menu:					ellipsis-v,
+);
+
+.wm-toolbar-icon {
+	@extend .fa;
+	@extend .fa-lg;
+	@extend .fa-fw;
+
+	@each $wm-icon-id, $fa-icon-id in $wesmere-wm-wiki-toolbar-icons {
+		// Need to be very specific in order to let icons apply to dropdown
+		// menu items correctly instead of the parent item taking over.
+		##{$wm-icon-id} > a > & {
+			@extend .fa-#{$fa-icon-id}; /* CSSPOST .fa-#{$fa-icon-id} */
+		}
+	}
+}
+
+.wm-dropdown {
+	position: relative;
+}
+
+.wm-dropdown-menu {
+	display: block;
+	position: absolute;
+	// a11y -- Initially display offscreen for screen readers
+	top: -9999px;
+	left: -9999px;
+	opacity: 0;
+
+	// We can't transition all properties because of the absolute position
+	// change between states.
+	transition: opacity 250ms;
+
+	margin: 0;
+	margin-left: -$radius-minor;
+	padding: 0;
+
+	background: $wui-menu-bg;
+	border: 1px solid $wui-text-navlink;
+	border-radius: $radius-minor;
+	box-shadow: $wesmere-button-shadow-outer;
+
+	li {
+		display: block;
+		white-space: nowrap;
+		padding: 0;
+		margin: 0;
+
+		width: auto;
+
+		text-align: left;
+		font-size: 1em;
+
+		background: transparent;
+
+		border-radius: 0;
+
+		// Similar to hr
+		border: 0 solid $wesmere-hr;
+		border-top-width: 1px;
+		border-image: linear-gradient(to right, rgba($wui-text-navlink, 0.1), rgba($wui-text-navlink, 0.6), rgba($wui-text-navlink, 0.1)) 1;
+
+		a {
+			display: block;
+
+			& > i {
+				padding-right: 0.25em;
+			}
+		}
+
+		&:first-child,
+		&:last-child {
+			border-radius: 0;
+		}
+
+		&:first-child {
+			// Explicit width of 0 needed to disable border-image on older Chrome/Safari.
+			border-top: 0;
+		}
+	}
+}
+
+.wm-dropdown-visible .wm-dropdown-menu,
+.no-js .wm-dropdown:hover .wm-dropdown-menu,
+.client-nojs .wm-dropdown:hover .wm-dropdown-menu {
+	// a11y -- Bring into view
+	top: 100%;
+	left: 0;
+	opacity: 1;
+	display: block!important;
+	margin-top: -1px;
+	z-index: 1;
+}
+
+// Hide feed icon set by MW's internal stylesheet
+
+a.feedlink {
+	background: none;
+}
+
+/*****************************************************************************
+ *                          SPECIAL PAGES UI STYLES                          *
+ *****************************************************************************/
+
+.mw-search-profile-tabs,
+fieldset#mw-searchoptions {
+	@extend %mw-box-colors-basic;
+}
+
+fieldset#mw-searchoptions {
+	border-top: none;
+
+	div.divider {
+		border-color: $wesmere-hr;
+	}
+}
+
+ul#filetoc {
+	background: $glamdrol-darkbg;
+	border: solid 1px $wesmere-hr;
+}
+
+table.mw_metadata {
+	@extend small;
+	@extend table.wikitable;
+}
+
+.mw-changeslist-legend {
+	border-color: $wesmere-hr;
+}
+
+#pagehistory li {
+	border-color: transparent;
+
+	&.selected {
+		background: $wesmere-page-bg-shade;
+		border-color: $wesmere-hr;
+	}
+}
+
+// TODO: Check why using & + & above seems to create invalid CSS if any at all.
+#pagehistory li.selected + li.selected {
+	border-top-color: transparent;
+}
+
+td {
+	&.diff-context {
+		background: #f6f6f6;
+	}
+
+	// Fix virtually-invisible diff markers resulting from similarities with our
+	// page color scheme.
+	&.diff-context {
+		border-color: #ccc;
+	}
+
+	&.diff-deletedline {
+		border-color: #ffab89;
+		background: #ffe7db;
+
+		.diffchange {
+			background: #ffd0b5;
+			color: #a00;
+		}
+	}
+
+	&.diff-addedline {
+		border-color: #20c588;
+		background: #bbf6ca;
+
+		.diffchange {
+			background: #7e9;
+			color: #060;
+		}
+	}
+
+	&.diff-context, &.diff-deletedline, &.diff-addedline {
+		border-style: dashed;
+		border-left-style: solid;
+		// Use monospace font for increased readability.
+		@extend %monospace;
+	}
+}
+
+//
+// Preferences
+//
+
+$mw-preferences-border-radius: $radius-minor;
+
+.client-js #preftoc {
+	clear: both;
+	margin: $measurement-small 0 0 $mw-preferences-border-radius;
+	padding: 0;
+
+	display: inline-block;
+	position: relative;
+
+	li {
+		display: inline-block;
+		position: relative;
+
+		background: $glamdrol-darkbg; // $wui-menu-bg;
+		top: 1px;
+
+		border-bottom: 1px solid $wesmere-hr;
+
+		a {
+			display: inline-block;
+			border: 1px solid transparent;
+			border-bottom: none;
+		}
+
+		&:first-child,
+		&:first-child a {
+			border-top-left-radius: $mw-preferences-border-radius;
+		}
+
+		&:last-child,
+		&:last-child a {
+			border-top-right-radius: $mw-preferences-border-radius;
+		}
+	}
+
+	li, a {
+		display: inline-block;
+	}
+
+	li.selected {
+		background: $wesmere-page-bg-shade;
+		border-bottom-color: $wesmere-page-bg-shade;
+
+		a {
+			border-radius: $mw-preferences-border-radius $mw-preferences-border-radius 0 0;
+			border-color: $wesmere-hr;
+		}
+	}
+
+	a {
+		padding: $measurement-small/2 $measurement-small;
+		outline: none; // FIXME: a11y
+		text-decoration: none;
+
+		&:hover {
+			background: rgba(#fff, 0.25);
+		}
+	}
+}
+
+#preferences {
+	background: $wesmere-page-bg-shade;
+	border: 1px solid $wesmere-hr;
+	border-radius: $mw-preferences-border-radius;
+
+	padding: $measurement-small;
+
+	fieldset {
+		border-style: solid none none;
+		@include wesmere-left-faded-border('top');
+	}
+
+	.htmlform-tip {
+		@extend small;
+		color: $wui-border-dark;
+	}
+}

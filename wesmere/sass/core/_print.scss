@@ -1,0 +1,39 @@
+/*
+ * General printed media styles
+ *
+ * codename Wesmere - Next-gen Wesnoth.org stylesheet
+ * Copyright (C) 2011 - 2017 by Ignacio R. Morelle <shadowm@wesnoth.org>
+ *
+ * See LICENSE for usage terms.
+ */
+
+#nav,
+#footer-sep {
+	display: none;
+}
+
+#footer {
+	border-top: none;
+}
+
+h2 {
+	border-image: none;
+	border-bottom: solid 1px $print-border-color;
+}
+
+pre, code, kbd {
+	border: none;
+}
+
+blockquote::before {
+	color: $print-border-color;
+}
+
+hr {
+	border-image: none;
+	border-color: $print-border-color;
+}
+
+table, th, td {
+	border-color: $print-border-color;
+}

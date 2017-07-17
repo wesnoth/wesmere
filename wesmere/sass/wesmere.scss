@@ -1,0 +1,49 @@
+/*
+ * codename Wesmere - Next-gen Wesnoth.org stylesheet
+ * Copyright (C) 2011 - 2017 by Ignacio R. Morelle <shadowm@wesnoth.org>
+ *
+ * Portions from codename Iris
+ * Copyright (C) 2014 - 2017 by Ignacio R. Morelle <shadowm@wesnoth.org>
+ *
+ * Portions from codename Westin - Wesnoth 1.12 Press Release stylesheet
+ * Copyright (C) 2014 by Ignacio R. Morelle <shadowm@wesnoth.org>
+ *
+ * See LICENSE for usage terms.
+ */
+
+@import "version";
+
+/*! wesmere.css v#{$wesmere-version} (GNU GPL v2+) */
+
+@import "3rdparty/normalize";
+@import "3rdparty/font-awesome/scss/font-awesome";
+
+@import "defs";
+@import "nonfree/assets";
+
+@import "core/base";
+@import "core/a11y";
+@import "core/inline";
+@import "core/lists";
+@import "core/blocks";
+@import "core/forms";
+@import "core/site_layout";
+@import "core/site_layout_search";
+@import "core/widget_proto";
+
+@import "home/site_home";
+@import "home/download";
+@import "home/social";
+
+@import "mw/base";
+@import "mw/ui";
+@import "mw/nav";
+@import "mw/links";
+@import "mw/tables";
+@import "mw/codebox";
+@import "mw/wesnoth";
+
+@media print {
+	@import "core/print";
+	@import "mw/print";
+}

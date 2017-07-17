@@ -1,0 +1,22 @@
+# HTML toolchain output
+/static/**/*.html
+/static/**/*.min.js
+/maintenance/
+/index.html
+
+# Stylesheet toolchain temporary files/dirs
+.csspost/
+.sass-cache/
+
+# Stylesheet toolchain output
+/wesmere/css/*.css
+/wesmere/css/*.css.map
+/wesmere/js/*.js.gz
+/wesmere/js/*.min.js
+!/wesmere/js/jquery*.min.js
+
+# Development machine cruft -- not found in production
+/mw/
+/valen
+.kdev4/
+*.kdev4

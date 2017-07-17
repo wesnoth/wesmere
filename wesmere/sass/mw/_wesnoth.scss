@@ -1,0 +1,68 @@
+/*
+ * Special Wesnoth.org wiki styles
+ *
+ * codename Wesmere - Next-gen Wesnoth.org stylesheet
+ * Copyright (C) 2011 - 2017 by Ignacio R. Morelle <shadowm@wesnoth.org>
+ *
+ * See LICENSE for usage terms.
+ */
+
+// Used by the ReferenceWML sidebar in particular (with additional inline
+// styles).
+table.reference-sidebar {
+	float:         right;
+	width:         260px;
+	margin-left:   2em;
+	margin-bottom: 1em;
+/* 	padding:       $measurement-small; */
+
+	border-collapse: separate;
+	border-radius:   $radius-minor;
+
+	$inside-bg:      lighten($wesmere-page-bg, 5%);
+	$outside-bg:     lighten($wesmere-page-bg, 8%);
+
+	background:  $outside-bg;
+	color:       $wui-border-light;
+
+	font-size: $measurement-sub;
+
+	@include media-small-screen-constraint {
+		width: 200px;
+	}
+
+	@include media-tiny-screen-constraint {
+		float:  none;
+		width:  auto;
+		border: none;
+		margin: 0;
+	}
+
+	tr, td {
+		vertical-align: top;
+	}
+
+	td {
+		//background: $inside-bg;
+		border:     solid 1px $outside-bg;
+	}
+
+	tr:not(:first-child) td {
+		border-top: solid 1px $wesmere-page-bg;
+	}
+
+	p {
+		margin: $measurement-small/2 0;
+	}
+
+	.editlink {
+		float: right;
+		font-size: $measurement-sub;
+
+		a::after {
+			display: none!important;
+		}
+	}
+
+
+}

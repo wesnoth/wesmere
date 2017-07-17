@@ -1,0 +1,39 @@
+#
+# Wesmere master Apache config file
+#
+# Modules required: mod_rewrite, mod_headers
+#
+
+Options -MultiViews
+
+RewriteEngine On
+RewriteBase /wesmere/
+
+# Version suffixes in .css or .js files that don't actually exist are used to
+# skip caches after major upgrades. Note that we want to proceed with the
+# compressed content rules below after resolving the actual path!
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}.gz !-f
+RewriteRule ^(css|js)/([A-Za-z0-9-]+)-[0-9.]+\.(css|js)$ /wesmere/$1/$2.$3 [QSA]
+
+# Serve .css.gz and .js.gz files from disk if present. Don't let mod_deflate
+# re-compress them in the response.
+
+AddEncoding x-gzip .gz
+
+<FilesMatch "\.css\.gz$">
+	ForceType text/css
+	SetEnv no-gzip 1
+</FilesMatch>
+
+<FilesMatch "\.js\.gz$">
+	ForceType text/javascript
+	SetEnv no-gzip 1
+</FilesMatch>
+
+<IfDefine !WESMERE_USE_PLAIN_RESOURCES>
+	RewriteCond %{HTTP:accept-encoding} gzip
+	RewriteCond %{REQUEST_FILENAME}.gz -f
+	RewriteRule ^(css|js)/(.*)\.(css|js)$ /wesmere/$1/$2.$3.gz [L,QSA]
+</IfDefine>
