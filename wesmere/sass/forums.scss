@@ -1,0 +1,160 @@
+/*
+ * Wesmere supplement for forums.wesnoth.org
+ * Copyright (C) 2013 - 2017 by Ignacio Riquelme Morelle <shadowm2006@gmail.com>
+ *
+ * codename Wesmere - Next-gen Wesnoth.org stylesheet
+ * Copyright (C) 2011 - 2017 by Ignacio R. Morelle <shadowm@wesnoth.org>
+ *
+ * Portions from codename Iris
+ * Copyright (C) 2014 - 2017 by Ignacio R. Morelle <shadowm@wesnoth.org>
+ *
+ * Portions from codename Westin - Wesnoth 1.12 Press Release stylesheet
+ * Copyright (C) 2014 by Ignacio R. Morelle <shadowm@wesnoth.org>
+ *
+ * See LICENSE for usage terms.
+ */
+
+@import "version";
+
+/*! Wesmere forums.css v#{$wesmere-version} (GNU GPL v2+) */
+
+@import "3rdparty/font-awesome/scss/font-awesome";
+
+@import "defs";
+@import "core/site_layout";
+@import "core/site_layout_search";
+
+// We need to set the root element's measurements to Wesmere's so
+// #content/#wrap's can match the rest of Wesmere without using complicated
+// math and assumptions. There is a child element under #wrap that resets the
+// font measurement back to phpBB's. Fortunately, all the styles supported as
+// of this writing (July 2017 and phpBB 3.0) use the exact same base font size!
+html,
+body {
+	font-size: $wesmere-base-font-size;
+}
+
+html {
+	background: #F5F7FA; // NOTE: works with prosilver only.
+}
+
+// Font family is irrelevant for overall measurements, so restrict it to the
+// Wesmere header portion so we don't have to duplicate the respective phpBB
+// style's font family selections in this stylesheet.
+#wesmere-embed {
+	@extend %content-font;
+	color:       $text-std;
+	// #main rule from core/_base.scss.
+	line-height: $measurement-paragraph-spacing-unitless;
+
+	img {
+		vertical-align: middle;
+	}
+}
+
+#wrap {
+	padding: $measurement-sub;
+	border-radius: $radius-std;
+	border: solid 1px #E6E9ED; // NOTE: works with prosilver only.
+	background: #fff;          // NOTE: works with prosilver only.
+}
+
+//
+// Override a few conflicting phpBB styles.
+//
+
+$phpbb-prosilver-base-font-size: 10px;
+
+body {
+	background: transparent;
+	padding: 0;
+}
+
+#wesmere-embed {
+	div#logo {
+		padding: 0;
+	}
+
+	input {
+		font-family: inherit;
+		cursor:      unset;
+	}
+}
+
+#wrap {
+	font-size: 10px; // prosilver, subsilver2, AcidTech all use this.
+}
+
+/*****************************************************************************
+ *                     RELEASE ANNOUNCEMENT BBCODES STYLING                  *
+ *****************************************************************************/
+
+.ra-clear {
+	clear: both;
+}
+
+.ra-ctl {
+	float: right;
+}
+
+.ra-ctl a {
+	font-weight: bold;
+	font-size: 80%;
+}
+
+.ra-section,
+.ra-warn,
+.ra-issue {
+	margin-left: 1em;
+	border: 1px dashed #bbb;
+}
+
+.ra-section {
+	border-color: rgba(0,0,0,0.2);
+	background: #ddd;
+	background: rgba(255,255,255,0.2);
+}
+
+.ra-header {
+	display: block;
+	font-weight: bold;
+	font-size: 106%;
+	padding: 0.4em;
+}
+
+.ra-warn {
+	border-color: rgba(255,128,0,0.4);
+	background: #fc6;
+	background: rgba(255,128,0,0.2);
+}
+
+.ra-warn .ra-header {
+	color: #b40;
+}
+
+.ra-issue {
+	border-color: rgba(0,0,0,0.2);
+	background: #fcc;
+	background: rgba(255,204,204,0.4);
+}
+
+.ra-issue .ra-header {
+	color: #a00;
+}
+
+.ra-contents {
+	margin: 0.6em 0 0;
+	padding: 0.4em;
+}
+
+.ra-floatshot {
+	margin: 0.4em;
+}
+
+.ra-floatleft {
+	float: left;
+}
+
+.ra-floatright {
+	float: right;
+}
