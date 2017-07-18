@@ -527,7 +527,7 @@ set_error_handler('trap');
 			<div id="support">
 				<h2>Join</h2><span id="bgsupport"></span>
 
-				<p>With a vast community with tens of thousands of players and over 36,000 posts in our forums, help resources for new and experienced players alike abound.</p>
+				<p>With a vast community with tens of thousands of players and over 520,000 posts in our forums, help resources for new and experienced players alike abound.</p>
 
 				<ul>
 					<li><a href="https://forums.wesnoth.org/">Official Forums</a></li>
