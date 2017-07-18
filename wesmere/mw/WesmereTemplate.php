@@ -231,7 +231,7 @@ class WesmereTemplate extends BaseTemplate
 		<a href="https://www.wesnoth.org/"><img alt="Wesnoth logo" src="<?php $this->getSkin()->wesmerePrefix ?>/wesmere/img/logo-minimal-64.png" width="64" height="64" data-retina /></a>
 	</div>
 
-	<ul id="navlinks" role="navigation">
+	<ul id="navlinks">
 		<li><a href="https://www.wesnoth.org/">Home</a></li>
 		<li><a href="https://forums.wesnoth.org/viewforum.php?f=62">News</a></li>
 		<li><a href="https://wiki.wesnoth.org/Play">Play</a></li>
@@ -343,7 +343,7 @@ class WesmereTemplate extends BaseTemplate
 
 	protected function wesmereWikiToolbar()
 	{
-		?><div id="wm-wiki-toolbar" role="navigation toolbar"><?php
+		?><div id="wm-wiki-toolbar" role="toolbar"><?php
 		$this->startToolbar('Wiki');
 
 		foreach (array_merge($this->namespaceToolbar(), $this->pageToolbar()) as $key => $item)
@@ -488,7 +488,7 @@ class WesmereTemplate extends BaseTemplate
 			echo ' title="' . htmlspecialchars($tooltip) . '"';
 		}
 
-		echo ' role="button" aria-haspopup="menu"><i class="wm-toolbar-icon" aria-hidden="true"></i><span';
+		echo ' role="button"><i class="wm-toolbar-icon" aria-hidden="true"></i><span';
 
 		if (!$show_label)
 		{

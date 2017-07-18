@@ -61,7 +61,7 @@ with this program; if not, see <http://www.gnu.org/licenses/>.
 		<a href="/"><img alt="Wesnoth logo" src="/wesmere/img/logo-minimal-64.png" width="64" height="64" data-retina="1" /></a>
 	</div>
 
-	<ul id="navlinks" role="navigation">
+	<ul id="navlinks">
 		<li><a href="/">Home</a></li>
 		<li><a href="https://forums.wesnoth.org/viewforum.php?f=62">News</a></li>
 		<li><a href="https://wiki.wesnoth.org/Play">Play</a></li>
