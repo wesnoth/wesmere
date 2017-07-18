@@ -6,7 +6,7 @@
 	],
 	"version": "1.0.0-RC2",
 	"url": "https://www.wesnoth.org/",
-	"license-name": "TBD",
+	"license-name": "GNU GPL v2+",
 	"type": "skin",
 	"requires": {
 		"MediaWiki": ">= 1.27.0"
