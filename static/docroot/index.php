@@ -58,7 +58,7 @@ $config = [
 
 	// Steam store app link for the game. If missing (e.g. commented out), the
 	// big button for downloading from Steam will not be emitted.
-	'steam-store-link' => '#',
+	//'steam-store-link' => '#',
 
 	'wip-branch-message' => '<p><i class="download-desc-warning" aria-hidden="true"></i> <strong style="color:#d41">New players are advised to choose the stable version instead.</strong></p>',
 ];
@@ -346,12 +346,14 @@ set_error_handler('trap');
 							<span class="download-desc">&nbsp;</span>
 						</span>
 					</a>
+					<?php if (isset($config['steam-store-link'])) { ?>
 					<a class="steam-button" role="button" href="#">
 						<span class="download-text">
 							<span class="steam-icon" aria-hidden="true"></span>
 							<span class="download-big">Get on Steam!</span>
 						</span>
 					</a>
+					<?php } ?>
 					<div id="download-extra">
 						<a href="/start/1.12/">Release notes</a>
 					</div>
