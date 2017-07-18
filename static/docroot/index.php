@@ -196,8 +196,8 @@ $branches = [
 			],
 			'graphics' =>
 			[
-				'800x600 or larger screen<sup>2</sup>',
-				'1024x768 or larger screen<sup>2</sup>',
+				'800x600 or larger screen',
+				'1024x768 or larger screen',
 			],
 			'input' => 'Keyboard and mouse required',
 		]
