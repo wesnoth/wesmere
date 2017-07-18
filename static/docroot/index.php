@@ -28,7 +28,7 @@ if (php_sapi_name() !== "cli")
 }
 
 $show_build = gethostname() === "hanacore";
-$build_version = "1.0.0-RC1";
+$build_version = "1.0.0-RC2";
 
 $use_css_versioning = true;
 $css_version = "1.0.0";
