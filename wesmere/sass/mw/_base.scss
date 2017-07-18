@@ -26,6 +26,11 @@
 	@extend small;
 }
 
+.navtemplate {
+	@extend %mw-box-colors-basic;
+	padding: $measurement-sub2/2 $measurement-sub2;
+}
+
 /*
  * Thumbnails
  */
