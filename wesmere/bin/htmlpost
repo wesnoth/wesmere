@@ -23,7 +23,6 @@ import argparse
 import re
 import io, os, sys
 
-from jsmin import jsmin
 from pathlib import Path
 
 # The simplified HTML 5 charset meta tag
@@ -32,25 +31,16 @@ CHARSET_META = '<meta charset="utf-8">'
 def read_include(inc_path, minify_js=True):
     try:
         path = inc_path
-        own_minify = False
         if minify_js and path.endswith(".js") and not path.endswith(".min.js"):
             basepath = path[:-len(".js")]
             if Path(basepath + ".min.js").is_file():
                 path = basepath + ".min.js"
                 #print("use minified {1} for {0}".format(inc_path, path))
             else:
-                own_minify = True
+                print("WARNING: no minified version of {1} found for {0}".format(inc_path, path))
         with open(path, "r", encoding="utf-8") as js:
             contents = js.read()
             pre_size = len(contents.encode("utf-8"))
-            if own_minify:
-                contents = jsmin(contents)
-                post_size = len(contents.encode("utf-8"))
-                print("read {} {:.2f} KiB => wrote {:.2f} KiB ({:.2f}% delta {:.2f} KiB)".format(
-                      path, pre_size/1024, post_size/1024,
-                      100.0 - (100.0 * post_size/pre_size), (pre_size - post_size)/1024))
-            #else:
-            #    print("read {} {:.2f} KiB".format(path, pre_size/1024))
         return contents
     except FileNotFoundError as err:
         sys.exit("Could not open Javascript include {0}, aborting.\n".format(err.filename))
