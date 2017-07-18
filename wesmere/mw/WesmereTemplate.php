@@ -228,7 +228,7 @@ class WesmereTemplate extends BaseTemplate
 <div class="centerbox">
 
 	<div id="logo">
-		<a href="https://www.wesnoth.org/"><img alt="Wesnoth logo" src="<?php $this->getSkin()->wesmerePrefix ?>/wesmere/img/logo-minimal-64.png" width="64" height="64" data-retina /></a>
+		<a href="https://www.wesnoth.org/"><img alt="Wesnoth logo" src="<?php echo $this->getSkin()->wesmerePrefix ?>/wesmere/img/logo-minimal-64.png" width="64" height="64" data-retina /></a>
 	</div>
 
 	<ul id="navlinks">
@@ -332,7 +332,7 @@ class WesmereTemplate extends BaseTemplate
 	Site design Copyright &copy; 2017 by Ignacio R. Morelle.
 </div></div></div>
 
-<script src="<?php $this->getSkin()->wesmerePrefix ?>/wesmere/js/retina.min.js"></script>
+<script src="<?php echo $this->getSkin()->wesmerePrefix ?>/wesmere/js/retina.min.js"></script>
 
 <?php
 		$this->printTrail();
