@@ -7,7 +7,8 @@
  * See LICENSE for usage terms.
  */
 
-table.wikitable {
+table.wikitable,
+table.mw_metadata {
 	// These styles are overly specific in order to overrule MW's internal
 	// stylesheet (it keeps happening).
 
