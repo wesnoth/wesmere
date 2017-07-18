@@ -18,7 +18,7 @@ html {
 
 	@extend %content-font;
 	font-size: $wesmere-base-font-size;
-	color: #333;
+	color:     $text-std;
 
 	@include wesmere-gradient-background($wesmere-page-bg, $glamdrol-darkbg);
 }

@@ -176,25 +176,3 @@
 #navlinks {
 	flex: 1 1 auto;
 }
-
-/*****************************************************************************
- *                              FLEXBOX FOOTER                               *
- *****************************************************************************/
-
-// A.k.a. adjusting the footer position in short pages so as to force it to
-// rest at the bottom of the viewport.
-
-html, body {
-	height: 100%;
-}
-
-.flexbox {
-	body {
-		display:        flex;
-		flex-direction: column;
-	}
-
-	#main {
-		flex: 1 0 auto;
-	}
-}
