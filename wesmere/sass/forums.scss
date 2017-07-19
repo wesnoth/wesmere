@@ -21,6 +21,9 @@
 @import "3rdparty/font-awesome/scss/font-awesome";
 
 @import "defs";
+
+$measurement-centerbox-width: 86em;
+
 @import "core/site_layout";
 @import "core/site_layout_search";
 
