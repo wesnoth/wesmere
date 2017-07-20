@@ -8,6 +8,7 @@
  */
 
 table.wikitable,
+table.mw-datatable,
 table.mw_metadata {
 	// These styles are overly specific in order to overrule MW's internal
 	// stylesheet (it keeps happening).
@@ -30,6 +31,10 @@ table.mw_metadata {
 	td {
 		background: $glamdrol-bg;
 	}
+}
+
+table.mw-datatable > tbody > tr:hover > td {
+	background: #fff;
 }
 
 // TODO: table.gallery, div.gallerybox
