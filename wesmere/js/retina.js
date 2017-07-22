@@ -4,7 +4,8 @@
  * Copyright 2014 Imulus, LLC
  * Released under the MIT license
  *
- * Modified for Wesmere to whitelist Retina-aware img elements
+ * Modified for Wesmere to whitelist Retina-aware img elements and allow
+ * images across wesnoth.org subdomains.
  *
  * Retina.js is an open source script that makes it easy to serve
  * high-resolution images to devices with retina displays.
@@ -105,6 +106,10 @@
     RetinaImagePath.confirmed_paths = [];
 
     RetinaImagePath.prototype.is_external = function() {
+        // Special case for wesnoth.org and its subdomain mayhem
+        if (document.domain.match(/^(?:[^.]*\.)?wesnoth\.org$/)) {
+            return !!!this.path.match(/^https?\:\/\/(?:[^.]*\.)?wesnoth\.org/);
+        }
         return !!(this.path.match(/^https?\:/i) && !this.path.match('//' + document.domain) );
     };
 
