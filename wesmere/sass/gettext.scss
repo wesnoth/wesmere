@@ -1,0 +1,300 @@
+/*
+ * Wesnoth language statistics application stylesheet supplement
+ * <https://github.com/wesnoth/website/gettext.wesnoth.org/>
+ *
+ * codename Wesmere - Next-gen Wesnoth.org stylesheet
+ * Copyright (C) 2011 - 2017 by Ignacio R. Morelle <shadowm@wesnoth.org>
+ *
+ * Portions from codename Iris
+ * Copyright (C) 2014 - 2017 by Ignacio R. Morelle <shadowm@wesnoth.org>
+ *
+ * Portions from codename Westin - Wesnoth 1.12 Press Release stylesheet
+ * Copyright (C) 2014 by Ignacio R. Morelle <shadowm@wesnoth.org>
+ *
+ * See LICENSE for usage terms.
+ */
+
+@import "version";
+
+/*! Wesmere gettext.css v#{$wesmere-version} (GNU GPL v2+) */
+
+@import "defs";
+
+//
+// This is a supplementary stylesheet applied on top of the main Wesmere
+// proper, so we don't need anything else besides shared variables and
+// library utilities.
+//
+
+html {
+	overflow-x: auto;
+}
+
+.centerbox,
+#content,
+#footer-content {
+	// Need some extra space for the stats table to display in its full glory.
+	max-width: 76em;
+}
+
+$gettext-options-base-color: $wui-border-light;
+
+#gettext-display-options {
+	position: relative;
+
+	margin:   0 0 $measurement-paragraph-spacing;
+	padding:  $measurement-small $measurement-sub;
+
+	/*border: 1px solid $wesmere-hr; */
+	background: $glamdrol-bg;
+	border-radius: $radius-minor;
+}
+
+#lastmod {
+	position: absolute;
+	top:      0;
+	right:    0;
+
+	margin:   0;
+	padding:  $measurement-paragraph-spacing;
+
+	background: inherit;
+	border-radius: inherit;
+
+	@include media-small-screen-constraint {
+		position: static;
+		padding: 0;
+		background: transparent;
+		text-align: center;
+	}
+}
+
+fieldset {
+	margin:  0;
+	padding: $measurement-small/2 0 0;
+
+	& + & {
+		margin-top: $measurement-small;
+	}
+
+	border-style: solid none none;
+	@include wesmere-left-faded-border('top');
+
+	& > dl.display-options,
+	& > ul.gettext-switch {
+		font-size: $measurement-sub;
+	}
+}
+
+fieldset,
+legend {
+	padding-left: 0;
+}
+
+dl.display-options {
+	margin: 0;
+
+	dt, dd {
+		display: inline;
+		margin: 0;
+	}
+
+	dt {
+		color: $gettext-options-base-color;
+		font-weight: normal;
+		padding-right: 0.25em;
+	}
+}
+
+#orderby {
+	margin-left: 1em;
+}
+
+#orderby,
+#version {
+	float: left;
+
+	@include media-small-screen-constraint {
+		float: none;
+		margin: 0;
+	}
+}
+
+#package-set {
+	clear: both;
+}
+
+ul.gettext-switch {
+	display: inline-block;
+
+	&,
+	& li {
+		margin: 0;
+		padding: 0;
+	}
+
+	& li {
+		display: inline-block;
+
+		&:not(:last-child)::after {
+			content: "\a0|\a0";
+			color: $gettext-options-base-color;
+		}
+	}
+}
+
+table.gettext-stats {
+	width: 100%;
+
+	background: $wesmere-page-bg;
+	border: solid 1px $wesmere-page-bg;
+
+	th, td {
+		border: solid 1px $wesmere-page-bg;
+		border-left: none;
+		border-right: none;
+	}
+
+	th {
+		background: $glamdrol-darkbg;
+	}
+
+	td {
+		background: $glamdrol-bg;
+	}
+
+	img {
+		max-width: none;
+		height: 3ex;
+	}
+
+	code {
+		padding: 0;
+		background: transparent;
+		border: none;
+		color: inherit;
+	}
+
+	& > tbody > tr:nth-child(even) > td {
+		background: lighten($wesmere-page-bg, 4%);
+	}
+}
+
+.translated,
+.fuzzy,
+.untranslated {
+	text-align: right;
+}
+
+th.translated,
+tfoot td.translated {
+	color: #184;
+}
+
+th.fuzzy,
+tfoot td.fuzzy {
+	color: #d80;
+}
+
+th.untranslated,
+tfoot td.untranslated {
+	color: #b44;
+}
+
+th.percent,
+th.graph {
+	text-align: center;
+}
+
+th.title {
+	text-align: left;
+}
+
+.textdomain-name,
+.language-name {
+	width: 100%;
+}
+
+.textdomain-file {
+	font-weight: bold;
+
+	/*&::after {
+		content: " ›";
+	}*/
+}
+
+.rank {
+	text-align: center;
+}
+
+.strcount,
+.percent,
+.graph {
+	text-align: right;
+}
+
+td.percent {
+	background: lighten($glamdrol-bg, 2%)!important;
+}
+
+table.gettext-stats > tbody > tr:nth-child(even) > td.percent {
+	background: lighten($wesmere-page-bg, 6%)!important;
+}
+
+tr.officialness-separator > td {
+	background: $wesmere-page-bg;
+}
+
+td.invalidstats {
+	color: #d66;
+	font-weight: bold;
+}
+
+tr.potstats,
+tr.teamstats {
+	font-weight: bold;
+
+	& > td {
+		background: $glamdrol-darkbg;
+	}
+}
+
+.stats-bar {
+	display: inline-block;
+	height: 18px;
+	vertical-align: middle;
+}
+
+$wesmere-gettext-graph-colors: (
+	green:			#295,
+	blue:			#e90,
+	red:			#c55,
+);
+
+@each $color-name, $base-color in $wesmere-gettext-graph-colors {
+	.#{$color-name}-bar {
+		background: $base-color;
+	}
+}
+
+.error-message,
+.ui-message {
+	padding: $measurement-small $measurement-sub;
+	text-align: center;
+
+	border-radius: $radius-minor;
+}
+
+.error-message {
+	background: #c55;
+	color: #fff;
+}
+
+.ui-message {
+	background: $glamdrol-bg;
+}
+
+.message-heading {
+	font-weight: bold;
+	font-size: 1.1em;
+}
