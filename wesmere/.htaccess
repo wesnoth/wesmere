@@ -37,16 +37,3 @@ AddEncoding x-gzip .gz
 	RewriteCond %{REQUEST_FILENAME}.gz -f
 	RewriteRule ^(css|js)/(.*)\.(css|js)$ /wesmere/$1/$2.$3.gz [L,QSA]
 </IfDefine>
-
-# Cross-domain resource policy for font files
-
-<IfModule !mod_headers.c>
-	Error "Wesmere resource configuration cannot be applied."
-</IfModule>
-
-<IfModule mod_headers.c>
-	<FilesMatch ".(eot|ttf|otf|woff|woff2)">
-		SetEnvIf Origin "http(s)?://.*(localhost|wesnoth\.org)$" AccessControlAllowOrigin=$0
-		Header set Access-Control-Allow-Origin %{AccessControlAllowOrigin}e env=AccessControlAllowOrigin
-	</FilesMatch>
-</IfModule>
