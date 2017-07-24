@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE xml:stylesheet[
+	<!ENTITY ndash       "&#8211;">
+]>
+<?xml-stylesheet type="text/xsl" href="../../template_inside.xsl"?>
+<document>
+	<title>Add-ons Server</title>
+	<content>
+		<h1>Wesnoth Add-ons Server</h1>
+
+		<p>The Wesnoth game client can connect to and download add-ons from the add-ons server using the <b>Add-ons</b> option from the main menu.</p>
+
+		<p>Additionally, for reference purposes, archival of retired instances of the add-ons server for older game versions, and people who cannot use the game client for technical reasons or otherwise, we have made this web directory of current and past add-ons server instances available. You may have a look at the list of add-ons available from each one and optionally download their contents from here.</p>
+
+		<h2>Current instances</h2>
+
+		<ul>
+			<li><a href="1.12/">Stable 1.12</a> <span>(1.11.10&ndash;1.12.x)</span></li>
+			<li><a href="1.13/">Development 1.13</a> <span>(1.13.0&ndash;1.13.x)</span></li>
+			<li><a href="1.10/">Old stable 1.10</a> <span>(1.9.0&ndash;1.10.x)</span></li>
+			<li><a href="trunk/">Testing instance</a> <span>(no versions)</span></li>
+		</ul>
+
+		<h2>Retired instances</h2>
+
+		<ul>
+			<!--<li><a href="1.13/">Development 1.13</a> <span>(1.13.0&ndash;1.13.x)</span></li>-->
+			<!--<li><a href="1.12/">Old stable 1.12</a> <span>(1.11.10&ndash;1.12.x)</span></li>-->
+			<li><a href="1.11/">Development 1.11</a> <span>(1.11.0&ndash;1.11.9)</span></li>
+			<li><a href="1.8/">Old stable 1.8</a> <span>(1.7.8&ndash;1.8.x)</span></li>
+			<li><a href="1.7/">Development 1.7</a> <span>(1.7.0&ndash;1.7.7)</span></li>
+			<li><a href="1.6/">Old stable 1.6</a> <span>(1.5.13 &ndash;1.6.x)</span></li>
+			<li><a href="1.5/">Development 1.5</a> <span>(1.5.0 &ndash;1.5.12)</span></li>
+			<li><a href="1.4/">Old stable 1.4</a> <span>(1.3.14 &ndash;1.4.x)</span></li>
+			<li><a href="1.2/">Old stable 1.2</a> <span>(1.1.11 &ndash;1.2.x)</span></li>
+		</ul>
+
+	</content>
+</document>
+
+<!-- kate: indent-mode normal; indent-width 2; tab-width 2; space-indent off; show-tabs off; -->
+
