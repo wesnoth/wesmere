@@ -30,6 +30,7 @@ with this program; if not, see <http://www.gnu.org/licenses/>.
 <xsl:output method="html" encoding="utf-8" indent="yes" />
 
 <xsl:variable name="wesmere-css-version" select="'1.0.0'"/>
+<xsl:variable name="wesmere-resource-prefix" select="'@HTMLPOST:PREFIX@'"/>
 
 <xsl:template match="/">
 <xsl:text disable-output-escaping="yes">&lt;!DOCTYPE html&gt;</xsl:text>
@@ -39,15 +40,15 @@ with this program; if not, see <http://www.gnu.org/licenses/>.
 	<meta name="viewport" content="width=device-width,initial-scale=1" />
 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montaga%7COpen+Sans:400,400i,700,700i" type="text/css" />
-	<link rel="icon" type="image/png" href="/wesmere/img/favicon-32.png" sizes="32x32" />
-	<link rel="icon" type="image/png" href="/wesmere/img/favicon-16.png" sizes="16x16" />
-	<link rel="stylesheet" type="text/css" href="/wesmere/css/wesmere-{$wesmere-css-version}.css" />
+	<link rel="icon" type="image/png" href="{$wesmere-resource-prefix}/wesmere/img/favicon-32.png" sizes="32x32" />
+	<link rel="icon" type="image/png" href="{$wesmere-resource-prefix}/wesmere/img/favicon-16.png" sizes="16x16" />
+	<link rel="stylesheet" type="text/css" href="{$wesmere-resource-prefix}/wesmere/css/wesmere-{$wesmere-css-version}.css" />
 
 	<title><xsl:value-of select="document/title"/> - The Battle for Wesnoth</title>
 
-	<script src="/wesmere/js/jquery-3.2.1.min.js"></script>
+	<script src="{$wesmere-resource-prefix}/wesmere/js/jquery-3.2.1.min.js"></script>
 
-	<script src="/wesmere/js/modernizr.js"></script>
+	<script src="{$wesmere-resource-prefix}/wesmere/js/modernizr.js"></script>
 </head>
 
 <body>
@@ -58,11 +59,11 @@ with this program; if not, see <http://www.gnu.org/licenses/>.
 <div class="centerbox">
 
 	<div id="logo">
-		<a href="/"><img alt="Wesnoth logo" src="/wesmere/img/logo-minimal-64.png" width="64" height="64" data-retina="1" /></a>
+		<a href="https://www.wesnoth.org/"><img alt="Wesnoth logo" src="{$wesmere-resource-prefix}/wesmere/img/logo-minimal-64.png" width="64" height="64" data-retina="1" /></a>
 	</div>
 
 	<ul id="navlinks">
-		<li><a href="/">Home</a></li>
+		<li><a href="https://www.wesnoth.org/">Home</a></li>
 		<li><a href="https://forums.wesnoth.org/viewforum.php?f=62">News</a></li>
 		<li><a href="https://wiki.wesnoth.org/Play">Play</a></li>
 		<li><a href="https://wiki.wesnoth.org/Create">Create</a></li>
@@ -95,7 +96,7 @@ with this program; if not, see <http://www.gnu.org/licenses/>.
 	Site design Copyright &copy; 2017 by Ignacio R. Morelle.
 </div></div></div>
 
-<script src="/wesmere/js/retina.min.js"></script>
+<script src="{$wesmere-resource-prefix}/wesmere/js/retina.min.js"></script>
 
 </body>
 </html>
