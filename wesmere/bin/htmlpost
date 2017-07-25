@@ -21,12 +21,16 @@ with this program; if not, see <http://www.gnu.org/licenses/>.
 
 import argparse
 import re
+import socket
 import io, os, sys
 
 from pathlib import Path
 
 # The simplified HTML 5 charset meta tag
 CHARSET_META = '<meta charset="utf-8">'
+
+# Resource prefix for production systems
+RESOURCE_PREFIX = 'https://www.wesnoth.org' if socket.gethostname() != 'hanacore' else ''
 
 def read_include(inc_path, minify_js=True):
     try:
@@ -47,6 +51,7 @@ def read_include(inc_path, minify_js=True):
 
 def apply_transforms(line, minify_js=True):
     line = re.sub(r'<meta\s+http-equiv=[\'"]Content-Type[\'"].*>', CHARSET_META, line, flags=re.IGNORECASE)
+    line = re.sub(r'@\s*HTMLPOST:PREFIX\s*@', RESOURCE_PREFIX, line)
     ex = re.compile(r'@\s*HTMLPOST:INCLUDE\s+([^\s]+)\s*@')
     match = ex.search(line)
     if match:
