@@ -56,7 +56,7 @@ def apply_transforms(line, minify_js=True):
     match = ex.search(line)
     if match:
         inc_path = match.group(1)
-        line = ex.sub(read_include(inc_path, minify_js), line)
+        line = line[:match.start()] + read_include(inc_path, minify_js) + line[match.end():]
     return line
 
 
