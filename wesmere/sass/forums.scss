@@ -38,7 +38,11 @@ body {
 }
 
 html {
-	background: #F5F7FA; // NOTE: works with prosilver only.
+	background: #F5F7FA; // prosilver/subsilver2
+}
+
+.acidtech {
+	background: #22242a;
 }
 
 // Font family is irrelevant for overall measurements, so restrict it to the
@@ -60,6 +64,16 @@ html {
 	border-radius: $radius-std;
 	border: solid 1px #E6E9ED; // NOTE: works with prosilver only.
 	background: #fff;          // NOTE: works with prosilver only.
+
+	.subsilver2 &,
+	.acidtech & {
+		padding: $measurement-small 0;
+	}
+
+	.acidtech & {
+		border: none;
+		background: inherit;
+	}
 }
 
 //
