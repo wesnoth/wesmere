@@ -108,7 +108,7 @@
     RetinaImagePath.prototype.is_external = function() {
         // Special case for wesnoth.org and its subdomain mayhem
         if (document.domain.match(/^(?:[^.]*\.)?wesnoth\.org$/)) {
-            return !!!this.path.match(/^https?\:\/\/(?:[^.]*\.)?wesnoth\.org/);
+            return !this.path.match(/^(?:\/[^\/]|https?\:\/\/(?:[^.]*\.)?wesnoth\.org)/);
         }
         return !!(this.path.match(/^https?\:/i) && !this.path.match('//' + document.domain) );
     };
