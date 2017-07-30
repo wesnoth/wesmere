@@ -239,6 +239,13 @@ $strip-padding:							$measurement-sub;
 	position:       relative;
 	height:         0;
 	overflow:       hidden;
+}
+
+#showcase-video-container,
+#showcase-screenshot-container,
+#showcase-screenshot-placeholder {
+	// The placeholder element needs to have a solid background too so it can
+	// be visibly faded out when transitioning from non-screenshot items.
 	background:     $wui-dialog-bg;
 }
 
@@ -259,12 +266,17 @@ $strip-padding:							$measurement-sub;
 }
 
 #showcase-video-container iframe,
-#showcase-screenshot-container img {
+#showcase-screenshot-container img,
+#showcase-screenshot-placeholder {
 	position: absolute;
 	top:      0;
 	left:     0;
 	width:    100%;
 	height:   100%;
+}
+
+#showcase-screenshot-placeholder {
+	display:  block;
 }
 
 #showcase-loading {

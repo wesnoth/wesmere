@@ -99,12 +99,10 @@
 		switch (obj.type) {
 			case "pic":
 				if (obj.type !== prevType) {
-					$showcaseParent.html("<div id='showcase-screenshot-container'><a title='Click to enlarge'><img alt='' hidden/></a><div id='showcase-loading' aria-hidden='true' hidden><div>" + spinnerSvg + "</div></div></div>");
+					$showcaseParent.html("<div id='showcase-screenshot-container'><a title='Click to enlarge'><span id='showcase-screenshot-placeholder'/></a><div id='showcase-loading' aria-hidden='true' hidden><div>" + spinnerSvg + "</div></div></div>");
 					$loadAnim = $showcaseParent.find("#showcase-loading");
 					$imgContainer = $showcaseParent.find("a");
 				}
-
-				var xFade = obj.type === prevType;
 
 				$curScreenshot = $imgContainer.children();
 				$newScreenshot = $("<img alt='" + obj.alt + "'/>");
@@ -118,7 +116,7 @@
 					loadDone = true;
 					$loadAnim.hide();
 					$imgContainer.attr("href", obj.href);
-					$curScreenshot.fadeOut(xFade ? containerFade : 0, function() {
+					$curScreenshot.fadeOut(containerFade, function() {
 						$curScreenshot.remove();
 						$curScreenshot = $newScreenshot = null;
 					});
