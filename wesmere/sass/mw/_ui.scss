@@ -122,6 +122,8 @@ $wm-wiki-toolbar-bg: $wui-menu-bg;
 
 			outline: none;
 
+			@extend %unselectable;
+
 			&:link, &:visited {
 				@extend %wesmere-button-normal-styles;
 			}

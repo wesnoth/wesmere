@@ -104,6 +104,13 @@ $print-border-color:						#ccc;
 	box-sizing:         border-box;
 }
 
+%unselectable {
+	-webkit-user-select: none;
+	-moz-user-select:    none;
+	-ms-user-select:     none;
+	user-select:         none;
+}
+
 /*****************************************************************************
  *                                 MEDIA RULES                               *
  *****************************************************************************/
