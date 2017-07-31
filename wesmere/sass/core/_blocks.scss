@@ -40,7 +40,7 @@ pre, tt, code, kbd, samp {
 
 pre, code, kbd {
 	background: $wesmere-page-bg-shade;
-	border: 1px solid $wesmere-hr;
+	border: 1px dashed $wesmere-hr;
 }
 
 pre {
@@ -49,9 +49,6 @@ pre {
 	overflow: auto;
 	white-space: pre;
 
-	border-style: dashed;
-
-	//background: $glamdrol-darkbg;
 	color: $text-emphasis;
 }
 
@@ -63,13 +60,13 @@ code, kbd {
 	padding: $measurement-small / 3;
 }
 
+kbd {
+	border-style: solid;
+}
+
 kbd kbd {
 	border: none;
 	background: transparent;
-}
-
-code {
-	border: 1px dashed $wesmere-hr;
 }
 
 figure {
