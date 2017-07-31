@@ -93,6 +93,7 @@ body {
 		padding: 0;
 	}
 
+	form,
 	input {
 		font-family: inherit;
 		cursor:      unset;
@@ -101,6 +102,21 @@ body {
 
 #wrap {
 	font-size: 10px; // prosilver, subsilver2, AcidTech all use this.
+}
+
+//
+// Normalize bits that are of particular relevance to us and aren't already
+// covered by phpBB's styles:
+//
+
+[type="search"] {
+	-webkit-appearance: textfield;
+	outline-offset: -2px;
+}
+
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
+	-webkit-appearance: none;
 }
 
 /*****************************************************************************

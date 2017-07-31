@@ -23,36 +23,89 @@
 		margin: 1.1*$measurement-small/2 0;
 	}
 
-	$searchbox-padding: $measurement-small;
-
 	form {
-		position: relative;
+		// The form element defines the measurements for all its descendants.
+		position:  relative;
+		font-size: $measurement-sub;
+	}
+
+	$searchbox-padding:      $measurement-small;
+	$searchbox-icon-padding: $measurement-small/4;
+	$searchbox-icon-size:    1.4em; // Relative to form.
+	$searchbox-icon-pos:     right;
+
+	// Need to override any button styling from MW or phpBB below, hence the
+	// barrage of seemingly superfluous selectors and properties.
+	a.search-button,
+	button.search-button {
+		background:  transparent;
+		border:      none;
+		color:       $wesmere-searchbox-fg;
+		text-shadow: none;
+		cursor:      pointer;
+		outline:     none;
+
+		@extend %unselectable;
+
+		font:    inherit;
+		margin:  0;
+		padding: $searchbox-icon-padding;
+		display: inline-block;
+		float:   left;
+	}
+
+	.search-icon,
+	.advsearch-icon {
+		@extend .fa;
+		@extend .fa-fw;
+		font-size: $searchbox-icon-size;
+		vertical-align: baseline;
 	}
 
 	.search-icon {
-		position: absolute;
-		// Emulate padding of the search box element
-		margin: $searchbox-padding*0.5 $searchbox-padding*0.75;
-
-		@extend .fa;
 		@extend .fa-search;
-		font-size: 1.4em;
+	}
+
+	.advsearch-icon {
+		@extend .fa-bars;
+	}
+
+	#searchbox-controls {
+		display:  block;
+		position: absolute;
+		top:      $searchbox-padding/2;
+		#{$searchbox-icon-pos}: 0;
+
+		margin-#{$searchbox-icon-pos}: $searchbox-padding;
+	}
+
+	//
+	// The forum version of the form has the additional icon for the advanced
+	// search page and we can't figure that out using CSS alone without making
+	// the markup structure *extremely* unwieldy, hence the need for some
+	// configurability here using a class selector.
+	//
+
+	$searchbox-icon-count: 1;
+
+	@mixin searchbox-icons-padding($direction, $icon-count) {
+		padding-#{$direction}: ($searchbox-padding*1.25 + $icon-count * (4*$searchbox-icon-padding + $searchbox-icon-size));
 	}
 
 	input {
 		@extend %standard-transitions;
 
-		font-size: $measurement-sub;
-		line-height: 1.3;
+		font-size: inherit;
+		line-height: 1.2;
 
 		border: none;
 		border-radius: $radius-large;
 
-		background: #fff;
-		color:      $text-std;
+		background: $wesmere-searchbox-bg-faded;
+		color:      $wesmere-searchbox-fg;
 
-		padding: $searchbox-padding;
-		padding-left: $searchbox-padding*4.5;
+		padding: $searchbox-padding 1em;
+		@include searchbox-icons-padding($searchbox-icon-pos, 1);
 
 		// NOTE: Bad a11y, but it is needed because Chrome's default outline
 		//       is semi-rectangular, looks bad against the round border, and
@@ -60,11 +113,18 @@
 		outline: none;
 
 		&:hover, &:focus {
-			box-shadow: 0px 0px 8px 2px $wui-text-navlink;
+			box-shadow: inset 0px 0px 2px 1px $wesmere-searchbox-hover,
+			                  0px 0px 2px 1px $wesmere-searchbox-hover;
 		}
 
 		&:focus {
-			box-shadow: 0px 0px 6px 4px $wui-text-navlink;
+			background: $wesmere-searchbox-bg;
+			box-shadow: inset 0px 0px 2px 1px $wesmere-searchbox-hover,
+			                  0px 0px 4px 1px $wesmere-searchbox-focus;
 		}
+	}
+
+	input.has-advanced-search {
+		@include searchbox-icons-padding($searchbox-icon-pos, 2);
 	}
 }
