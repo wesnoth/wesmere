@@ -38,7 +38,7 @@ pre, tt, code, kbd, samp {
 	@extend %monospace;
 }
 
-pre, code, kbd {
+pre, code, code.mw-highlight, kbd {
 	background: $wesmere-page-bg-shade;
 	border: 1px dashed $wesmere-hr;
 }
