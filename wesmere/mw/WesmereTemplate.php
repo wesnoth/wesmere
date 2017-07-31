@@ -119,10 +119,6 @@ class WesmereTemplate extends BaseTemplate
 		$this->data['wm_adv_urls'] = [];
 		$this->data['wm_user_urls'] = [];
 		$this->data['wm_extra_urls'] = [];
-
-		// Debugging
-		// TODO: disable for production
-		$this->data['wm_debug_log'] = [];
 	}
 
 	protected function namespaceToolbar()
@@ -153,11 +149,6 @@ class WesmereTemplate extends BaseTemplate
 	protected function extraToolbar()
 	{
 		return $this->data['wm_extra_urls'];
-	}
-
-	protected function wmDebug($entry)
-	{
-		$this->data['wm_debug_log'][] = $entry;
 	}
 
 	/**
@@ -261,14 +252,7 @@ class WesmereTemplate extends BaseTemplate
 	?></div>
 <?php } ?>
 
-<div id="content" class="mw-content" role="main"><?php
-	// TODO: disable in production
-	foreach ($this->data['wm_debug_log'] as $dbg_text)
-	{
-		echo '<p class="wm-debug">' . $dbg_text . '</p>';
-	}
-
-?>
+<div id="content" class="mw-content" role="main">
 	<a id="top"></a>
 	<?php $this->wesmereWikiToolbar() ?>
 	<h1 class="firstHeading" lang="<?php $this->text('pageLanguage') ?>"><?php
