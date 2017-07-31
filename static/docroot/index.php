@@ -31,7 +31,7 @@ $show_build = gethostname() === "hanacore";
 $build_version = "1.1.0-dev";
 
 $use_css_versioning = true;
-$css_version = "1.0.0";
+$css_version = "1.1.0";
 
 $config = [
 	// Fallback OS labels for when one isn't specified by a file entry.
