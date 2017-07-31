@@ -210,6 +210,8 @@ $facebook-brand-color:						#4267b2;
 	#social-trail &,
 	.github-icon {
 		color: #fff;
+		// The GitHub icon has a very weird baseline, so we can't use it.
+		vertical-align: middle;
 	}
 
 	&:hover, &:active {
