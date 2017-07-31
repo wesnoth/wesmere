@@ -266,13 +266,13 @@ tr.teamstats {
 }
 
 $wesmere-gettext-graph-colors: (
-	green:			#295,
-	blue:			#e90,
-	red:			#c55,
+	"green":		#295,
+	"blue":			#e90,
+	"red":			#c55,
 );
 
 @each $color-name, $base-color in $wesmere-gettext-graph-colors {
-	.#{$color-name}-bar {
+	.#{unquote($color-name)}-bar {
 		background: $base-color;
 	}
 }
