@@ -254,6 +254,10 @@ tr.potstats,
 tr.teamstats {
 	font-weight: bold;
 
+	& > th {
+		text-align: left;
+	}
+
 	& > td {
 		background: $glamdrol-darkbg;
 	}
