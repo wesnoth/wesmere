@@ -74,6 +74,12 @@ $list-bullet-color:							$link-color;
 $selection-bg:								$link-color;
 $selection-fg:								$iris-selection-fg;
 
+$wesmere-searchbox-bg:						#393b46;
+$wesmere-searchbox-bg-faded:				darken($wesmere-searchbox-bg, 2%);
+$wesmere-searchbox-fg:						$wui-text-normal;
+$wesmere-searchbox-hover:					$wui-text-navlink;
+$wesmere-searchbox-focus:					lighten($wesmere-searchbox-hover, 10%);
+
 $print-border-color:						#ccc;
 
 /*****************************************************************************

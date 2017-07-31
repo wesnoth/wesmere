@@ -74,7 +74,13 @@ with this program; if not, see <http://www.gnu.org/licenses/>.
 	<div id="sitesearch" role="search">
 		<form method="get" action="https://wiki.wesnoth.org/">
 			<i class="search-icon" aria-hidden="true"></i>
-			<input id="searchbox" type="search" name="search" placeholder="Search" title="Search this site [Alt+Shift+f]" accesskey="f" tabindex="1" />
+			<input id="searchbox" type="search" name="search" placeholder="Search" title="Search this wiki [Alt+Shift+f]" accesskey="f" tabindex="1" />
+			<span id="searchbox-controls">
+				<button id="search-go" class="search-button" type="submit" title="Search" tabindex="2">
+					<i class="search-icon" aria-hidden="true"></i>
+					<span class="sr-label">Search this wiki</span>
+				</button>
+			</span>
 		</form>
 	</div>
 
