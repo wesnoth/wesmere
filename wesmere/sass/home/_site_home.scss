@@ -27,7 +27,7 @@
 #homebg1 {
 	$banner-vertical-gradient: linear-gradient(to top, $wui-gradient-start, rgba($wui-gradient-start,0.8) 1em, rgba($wui-gradient-start,0) 3em);
 
-	background: $wui-gradient-start url('../img/front-background.jpg') 50% 40% / 1920px auto no-repeat scroll;
+	background: $wui-gradient-start url('../img/front-background.jpg') 50% 40% / 1920px no-repeat;
 	background-image: $banner-vertical-gradient,
 	                  url('../img/front-background.jpg');
 
