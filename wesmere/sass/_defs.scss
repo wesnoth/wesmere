@@ -14,6 +14,8 @@
 /* The basis of all measurements */
 $wesmere-base-font-size:					14px;
 
+$wesmere-min-high-dpi-factor:				1.25;
+
 $measurement-std:							1.3em;
 $measurement-sub:							0.9em;
 $measurement-sub2:							0.8em;
@@ -171,6 +173,17 @@ $print-border-color:						#ccc;
 	}
 }
 
+@mixin media-high-dpi-screen {
+	@media
+	(-webkit-min-device-pixel-ratio: $wesmere-min-high-dpi-factor),
+	(min--moz-device-pixel-ratio: $wesmere-min-high-dpi-factor), // Firefox 15 and earlier
+	(min-device-pixel-ratio: $wesmere-min-high-dpi-factor), // ????
+	(min-resolution: ($wesmere-min-high-dpi-factor*96)dpi),
+	(min-resolution: ($wesmere-min-high-dpi-factor)dppx) {
+		@content;
+	}
+}
+
 /*****************************************************************************
  *                         TRANSITIONS & TRANSFORMS                          *
  *****************************************************************************/
@@ -270,5 +283,56 @@ $print-border-color:						#ccc;
 	// the content region.
 	@media only screen and (max-width: $wesmere-page-bg-small-on-page-width) {
 		@include wesmere-gradient-background-base($background-rgb, $shadow-rgb, $wesmere-page-bg-small-size);
+	}
+}
+
+/*****************************************************************************
+ *                  RETINA-AWARE CSS-SPECIFIED IMAGE ELEMENT                 *
+ *****************************************************************************/
+
+%css-image-base {
+	display: inline-block;
+	width:   100%;
+
+	// Can't use this and have working margins. Just make sure there's no
+	// text content in this and the other elements.
+	//font-size:    0;
+	line-height:    0;
+	vertical-align: middle;
+
+	background-size: 100%;
+	background-position: 50%;
+	background-repeat: no-repeat;
+}
+
+@mixin responsive-high-dpi-image($url, $url-2x, $width, $height) {
+	@extend %css-image-base;
+
+	max-width:  $width*1px;
+	max-height: $height*1px;
+
+	background-image: $url;
+
+	@include media-high-dpi-screen {
+		background-image: $url-2x;
+	}
+
+	& > span {
+		display: block;
+		height:  0;
+		padding-top: ($height/$width * 100%);
+	}
+}
+
+@mixin fixed-size-high-dpi-image($url, $url-2x, $width, $height) {
+	@extend %css-image-base;
+
+	width:  $width*1px;
+	height: $height*1px;
+
+	background-image: $url;
+
+	@include media-high-dpi-screen {
+		background-image: $url-2x;
 	}
 }

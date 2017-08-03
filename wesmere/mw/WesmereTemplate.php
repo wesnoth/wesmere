@@ -219,7 +219,7 @@ class WesmereTemplate extends BaseTemplate
 <div class="centerbox">
 
 	<div id="logo">
-		<a href="https://www.wesnoth.org/"><img alt="Wesnoth logo" src="<?php echo $this->getSkin()->wesmerePrefix ?>/wesmere/img/logo-minimal-64.png" width="64" height="64" data-retina /></a>
+		<a href="https://www.wesnoth.org/" role="img" aria-label="Wesnoth logo"></a>
 	</div>
 
 	<ul id="navlinks">
@@ -320,8 +320,6 @@ class WesmereTemplate extends BaseTemplate
 	Copyright &copy; 2003&ndash;2017 by <a rel="author" href="https://wiki.wesnoth.org/Project">The Battle for Wesnoth Project</a>. Powered by <a href="https://www.mediawiki.org/">MediaWiki</a>.<br />
 	Site design Copyright &copy; 2017 by Ignacio R. Morelle.
 </div></div></div>
-
-<script src="<?php echo $this->getSkin()->wesmerePrefix ?>/wesmere/js/retina.min.js"></script>
 
 <?php
 		$this->printTrail();

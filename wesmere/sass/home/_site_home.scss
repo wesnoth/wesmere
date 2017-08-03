@@ -43,15 +43,17 @@
 	position: relative;
 	border-bottom: #000 1px solid;
 
-	img {
-		margin: 2em 0;
+	#biglogo {
+		@include responsive-high-dpi-image(url('../img/logo-large.png'), url('../img/logo-large@2x.png'), 600, 200);
+
+		margin: 2em auto;
 
 		@include media-small-screen-constraint {
-			margin: 2% 0;
+			margin: 2% auto;
 		}
 
 		@include media-tiny-screen-constraint {
-			margin: 0;
+			margin: 0.5em auto;
 		}
 	}
 }

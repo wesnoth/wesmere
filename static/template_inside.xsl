@@ -59,7 +59,7 @@ with this program; if not, see <http://www.gnu.org/licenses/>.
 <div class="centerbox">
 
 	<div id="logo">
-		<a href="https://www.wesnoth.org/"><img alt="Wesnoth logo" src="{$wesmere-resource-prefix}/wesmere/img/logo-minimal-64.png" width="64" height="64" data-retina="1" /></a>
+		<a href="https://www.wesnoth.org/" role="img" aria-label="Wesnoth logo"></a>
 	</div>
 
 	<ul id="navlinks">
@@ -101,8 +101,6 @@ with this program; if not, see <http://www.gnu.org/licenses/>.
 	Copyright &copy; 2003&ndash;2017 by <a rel="author" href="https://wiki.wesnoth.org/Project">The Battle for Wesnoth Project</a>.<br />
 	Site design Copyright &copy; 2017 by Ignacio R. Morelle.
 </div></div></div>
-
-<script src="{$wesmere-resource-prefix}/wesmere/js/retina.min.js"></script>
 
 </body>
 </html>
