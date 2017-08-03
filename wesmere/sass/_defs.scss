@@ -145,6 +145,15 @@ $print-border-color:						#ccc;
 	}
 }
 
+@mixin touch-action($value) {
+	-ms-touch-action: $value; // IE 10 only
+	touch-action:     $value;
+}
+
+%touch-button-behavior {
+	@include touch-action(manipulation);
+}
+
 /*****************************************************************************
  *                                 MEDIA RULES                               *
  *****************************************************************************/

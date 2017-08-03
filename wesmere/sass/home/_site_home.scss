@@ -393,6 +393,7 @@ $strip-padding:							$measurement-sub;
 	overflow: hidden;
 
 	a {
+		@extend %touch-button-behavior;
 		text-decoration: none;
 
 		& > img {
@@ -418,8 +419,12 @@ $strip-padding:							$measurement-sub;
 }
 
 .screenshots-arrow {
+	@extend %unselectable;
+	@extend %touch-button-behavior;
+
 	background: rgba($wesmere-page-bg, 0.25);
 	text-shadow: 0px 0px 2px rgba(#000,0.5);
+	outline: none;
 
 	display: block;
 	position: absolute;

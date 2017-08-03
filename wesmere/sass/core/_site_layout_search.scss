@@ -39,14 +39,15 @@
 	// barrage of seemingly superfluous selectors and properties.
 	a.search-button,
 	button.search-button {
+		@extend %unselectable;
+		@extend %touch-button-behavior;
+
 		background:  transparent;
 		border:      none;
 		color:       $wesmere-searchbox-fg;
 		text-shadow: none;
 		cursor:      pointer;
 		outline:     none;
-
-		@extend %unselectable;
 
 		font:    inherit;
 		margin:  0;
