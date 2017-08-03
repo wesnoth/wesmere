@@ -24,6 +24,7 @@
 	}
 
 	form {
+		display:   inline-block;
 		// The form element defines the measurements for all its descendants.
 		position:  relative;
 		font-size: $measurement-sub;
