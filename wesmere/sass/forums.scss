@@ -77,6 +77,11 @@ html {
 	}
 }
 
+.wrap {
+	// phpBB 3.1/3.2 only.
+	max-width: none;
+}
+
 //
 // Override a few conflicting phpBB styles.
 //
