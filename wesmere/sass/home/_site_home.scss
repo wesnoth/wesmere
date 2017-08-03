@@ -28,8 +28,10 @@
 	$banner-vertical-gradient: linear-gradient(to top, $wui-gradient-start, rgba($wui-gradient-start,0.8) 1em, rgba($wui-gradient-start,0) 3em);
 
 	background: $wui-gradient-start url('../img/front-background.jpg') 50% 40% / 1920px no-repeat;
+
 	background-image: $banner-vertical-gradient,
 	                  url('../img/front-background.jpg');
+	background-position: bottom, 50% 40%;
 
 	@media only screen and (min-width: 1921px) {
 		// The reason there's a lot of copy-and-paste here is that Sass does
@@ -38,6 +40,8 @@
 		              linear-gradient(to right, $wui-gradient-start calc((100% - 1920px)/2), rgba($wui-gradient-start, 0) calc(1em + (100% - 1920px)/2)),
 		              linear-gradient(to left, $wui-gradient-start calc((100% - 1920px)/2), rgba($wui-gradient-start, 0) calc(1em + (100% - 1920px)/2)),
 		              url('../img/front-background.jpg');
+		background-position: bottom, left, right, 50% 40%;
+		background-size: auto, auto, auto, 1920px;
 	}
 
 	position: relative;
