@@ -114,14 +114,14 @@
 		outline: none;
 
 		&:hover, &:focus {
-			box-shadow: inset 0px 0px 2px 1px $wesmere-searchbox-hover,
-			                  0px 0px 2px 1px $wesmere-searchbox-hover;
+			box-shadow: inset 0px 0px 1px 1px $wesmere-searchbox-hover,
+			                  0px 0px 4px 1px $wesmere-searchbox-hover;
 		}
 
 		&:focus {
 			background: $wesmere-searchbox-bg;
-			box-shadow: inset 0px 0px 2px 1px $wesmere-searchbox-hover,
-			                  0px 0px 4px 1px $wesmere-searchbox-focus;
+			box-shadow: inset 0px 0px 1px 1px $wesmere-searchbox-focus,
+			                  0px 0px 6px 1px $wesmere-searchbox-focus;
 		}
 
 		@include placeholder-styles {
