@@ -54,6 +54,11 @@
 		padding: $searchbox-icon-padding;
 		display: inline-block;
 		float:   left;
+
+		&:hover, &:active, &:focus {
+			color:       #fff;
+			text-shadow: 0px 0px 4px #fff;
+		}
 	}
 
 	.search-icon,
@@ -69,7 +74,7 @@
 	}
 
 	.advsearch-icon {
-		@extend .fa-bars;
+		@extend .fa-cog;
 	}
 
 	#searchbox-controls {
