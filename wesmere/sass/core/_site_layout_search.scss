@@ -122,6 +122,11 @@
 			box-shadow: inset 0px 0px 2px 1px $wesmere-searchbox-hover,
 			                  0px 0px 4px 1px $wesmere-searchbox-focus;
 		}
+
+		@include placeholder-styles {
+			opacity: 0.54; // Matches Firefox 55.0b14
+			color:   $wesmere-searchbox-fg;
+		}
 	}
 
 	input.has-advanced-search {

@@ -117,6 +117,32 @@ $print-border-color:						#ccc;
 	user-select:         none;
 }
 
+@mixin placeholder-styles {
+	&::-webkit-input-placeholder {
+		@content;
+	}
+
+	// Firefox 19+
+	&::-moz-input-placeholder {
+		@content;
+	}
+
+	// Older Firefox
+	&:-moz-placeholder {
+		@content;
+	}
+
+	// IE 10 - Edge
+	&:-ms-input-placeholder {
+		@content;
+	}
+
+	// Chrome 57+, Firefox 51+
+	&::placeholder {
+		@content;
+	}
+}
+
 /*****************************************************************************
  *                                 MEDIA RULES                               *
  *****************************************************************************/
