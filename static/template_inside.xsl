@@ -88,7 +88,16 @@ with this program; if not, see <http://www.gnu.org/licenses/>.
 </div>
 
 <div id="content" role="main">
-	<xsl:copy-of select="document/content/* | document/content/text()" />
+	<xsl:apply-templates select="document/content/* | document/content/text()"/>
+
+	<xsl:if test="document/@is-maintenance-page">
+		<p>In the meantime, you might be interested in checking out our <a href="https://discord.gg/tSmJS2E"><b>official Discord server</b></a>, our <abbr title="Internet Relay Chat">IRC</abbr> channel <a href="https://webchat.freenode.net/?channels=wesnoth"><b>#wesnoth</b></a> on <code class="noframe">irc.freenode.net</code>, or following <a href="https://twitter.com/Wesnoth"><b>@Wesnoth</b></a> on Twitter for status updates!</p>
+
+		<ul>
+			<li><a href="http://status.wesnoth.org/">Site status report</a></li>
+			<li><a href="https://www.wesnoth.org/">Back to the home page</a></li>
+		</ul>
+	</xsl:if>
 </div> <!-- end content -->
 
 </div> <!-- end main -->
@@ -104,6 +113,41 @@ with this program; if not, see <http://www.gnu.org/licenses/>.
 </body>
 </html>
 </xsl:template>
+
+<xsl:template match="@* | node()">
+	<xsl:copy>
+		<xsl:apply-templates select="@* | node()"/>
+	</xsl:copy>
+</xsl:template>
+
+<!-- An hr element missing top padding designed to complement images -->
+
+<xsl:template match="//img-bottom-border">
+	<hr>
+		<xsl:apply-templates select="@*"/>
+		<xsl:attribute name="style">margin-top: 0; margin-left: auto; margin-right: auto; max-width: 600px</xsl:attribute>
+	</hr>
+</xsl:template>
+
+<!-- Rebase img elements to work across wesnoth.org subdomains -->
+
+<xsl:template match="//img">
+	<xsl:copy>
+		<xsl:apply-templates select="@*"/>
+	</xsl:copy>
+</xsl:template>
+
+<xsl:template match="//img/@src">
+	<xsl:choose>
+		<xsl:when test="starts-with(., '/') and not(starts-with(., '//'))">
+			<xsl:attribute name="src"><xsl:value-of select="concat($wesmere-resource-prefix, .)"/></xsl:attribute>
+		</xsl:when>
+		<xsl:otherwise>
+			<xsl:attribute name="src"><xsl:value-of select="."/></xsl:attribute>
+		</xsl:otherwise>
+	</xsl:choose>
+</xsl:template>
+
 </xsl:stylesheet>
 
 <!-- kate: indent-mode normal; indent-width 2; tab-width 2; space-indent off; show-tabs off; -->
