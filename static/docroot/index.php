@@ -306,7 +306,7 @@ set_error_handler('trap');
 
 	<div id="homebg1">
 		<div id="intro" role="banner">
-			<a id="biglogo" href="/" role="img" aria-label="Wesnoth logo"><span></span></a>
+			<a id="biglogo" href="/" aria-label="Wesnoth logo"><span aria-hidden="true"></span></a>
 
 			<div id="nav">
 				<ul id="navlinks">

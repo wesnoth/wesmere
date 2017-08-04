@@ -59,7 +59,7 @@ with this program; if not, see <http://www.gnu.org/licenses/>.
 <div class="centerbox">
 
 	<div id="logo">
-		<a href="https://www.wesnoth.org/" role="img" aria-label="Wesnoth logo"></a>
+		<a href="https://www.wesnoth.org/" aria-label="Wesnoth logo"></a>
 	</div>
 
 	<ul id="navlinks">
