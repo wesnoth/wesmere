@@ -151,9 +151,11 @@ ul.navbar {
 
 	// Unit sprites are pixel art and are usually not larger than 72x72, so we
 	// can use this information try to set a uniform size for table cells.
-	img {
-		width:  72px;
-		height: 72px;
+	// This only applies to the unit tree pages -- in the unit details page we
+	// want the sprites to be displayed at their full size.
+	.wmlunits-tree & img {
+		max-width:  72px;
+		max-height: 72px;
 	}
 }
 
