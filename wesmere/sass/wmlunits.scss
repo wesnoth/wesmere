@@ -130,8 +130,12 @@ ul.navbar {
 	li {
 		color: black;
 		font-weight: bold;
-		margin: 0px;
-		padding: 0px;
+		margin: 0;
+		padding: 0;
+
+		&.overviewlink {
+			margin-top: 2em;
+		}
 	}
 
 	div.popupmenu a {
@@ -145,8 +149,8 @@ ul.navbar {
 	display: inline;
 	float:   left;
 
-	// Unit sprites are pixel art and is usually not larger than 72x72, so we
-	// can use this information to set a uniform size for table cells.
+	// Unit sprites are pixel art and are usually not larger than 72x72, so we
+	// can use this information try to set a uniform size for table cells.
 	img {
 		width:  72px;
 		height: 72px;
@@ -157,13 +161,15 @@ ul.navbar {
  *                                 UNITS TABLE                               *
  *****************************************************************************/
 
+$units-table-border: $glamdrol-bg;
+$units-table-bg:     $wesmere-page-bg-shade;
+
 table.units {
 	$min-unit-level: 0;
 	$max-unit-level: 5;
 	$base-unit-cell-color: desaturate($wesmere-page-bg, 15%);
 
-	border: none;
-	border-spacing: 0;
+	border: 1px solid $units-table-border;
 
 	width: 100%;
 
@@ -182,24 +188,33 @@ table.units {
 }
 
 td.empty {
-	background: $glamdrol-bg;
+	background: $units-table-bg;
 }
 
-// FIXME in wmlunits: This is currently td, should be th.
-td.raceheader {
+.raceheader {
 	font-size: 1.25em;
 	font-weight: bold;
 	text-align: center;
 
-	border: 1px solid $glamdrol-bg;
+	border: 1px solid $units-table-border;
 	background: $glamdrol-darkbg;
-	color:      $wui-border-dark;
+
+	a {
+		&:link, &:visited {
+			color: $wui-border-dark;
+		}
+
+		&:hover, &:active {
+			color: $wui-border-light;
+			text-decoration: none;
+		}
+	}
 }
 
 .unitcell {
 	font-size: $measurement-sub;
 
-	border: 1px solid $glamdrol-bg;
+	border: 1px solid $units-table-border;
 
 	// Align contents to the cell top unless it's a cell that spans more than
 	// one unit advancement branch -- those should be centered.
@@ -212,9 +227,9 @@ td.raceheader {
 		font-weight: bold;
 	}
 
-	/*& > br {
+	.attributes > div {
 		clear: both;
-	}*/
+	}
 }
 
 // The level label/box next to each unit's name.
@@ -252,16 +267,23 @@ div.i {
 table.unitinfo {
 	margin: $measurement-paragraph-spacing 0;
 
-	// Remove padding from Information section elements on the very left
-	// (which are <td> instead of <th> for some reason -- FIXME in wmlunits).
-	td:first-child {
-		padding-left: 0;
-	}
-
 	th {
 		text-align: left;
 		font-weight: normal;
 		white-space: nowrap;
+	}
+
+	// Remove outer padding from cells at the very left or right.
+	// FIXME: RTL support.
+	td,
+	th {
+		&:first-child {
+			padding-left: 0;
+		}
+
+		&:last-child {
+			padding-right: 0;
+		}
 	}
 }
 
@@ -367,31 +389,31 @@ td.val {
  *****************************************************************************/
 
 table.overview {
-	width: 60%;
+	width: 100%;
 	margin: 0 auto;
 
-	border-spacing: 0;
-	border: 1px solid #000;
+	background: $wesmere-page-bg;
+	border: solid 1px $wesmere-page-bg;
+
+	th, td {
+		border: solid 1px $wesmere-page-bg;
+	}
 
 	th {
+		background: $glamdrol-darkbg;
 		text-align: center;
-		padding: 1em;
-		border-bottom: 2px solid #000;
 	}
 
 	td {
-		border-bottom: 1px solid #000;
+		background: $glamdrol-bg;
+		text-align: right;
+
+		&:first-child {
+			text-align: left;
+		}
 	}
 
 	a.error {
-		color: red;
-	}
-}
-
-table.overview td {
-	text-align: right;
-
-	&:first-child {
-		text-align: left;
+		color: #c55;
 	}
 }
