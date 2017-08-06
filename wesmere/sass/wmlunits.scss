@@ -1,0 +1,397 @@
+/*
+ * Wesnoth units database stylesheet supplement
+ * <https://github.com/wesnoth/wesnoth/data/tools/wmlunits>
+ *
+ * codename Wesmere - Next-gen Wesnoth.org stylesheet
+ * Copyright (C) 2011 - 2017 by Ignacio R. Morelle <shadowm@wesnoth.org>
+ *
+ * Portions from codename Iris
+ * Copyright (C) 2014 - 2017 by Ignacio R. Morelle <shadowm@wesnoth.org>
+ *
+ * Portions from codename Westin - Wesnoth 1.12 Press Release stylesheet
+ * Copyright (C) 2014 by Ignacio R. Morelle <shadowm@wesnoth.org>
+ *
+ * Portions from wmlunits - Wesnoth units database
+ * Copyright (C) 2003 - 2017 by The Battle for Wesnoth Project
+ *
+ * See LICENSE for usage terms.
+ */
+
+@import "version";
+
+/*! Wesmere wmlunits.css v#{$wesmere-version} (GNU GPL v2+) */
+
+@import "defs";
+
+//
+// This is a supplementary stylesheet applied on top of the main Wesmere
+// proper, so we don't need anything else besides shared variables and
+// library utilities.
+//
+
+h1 {
+	text-align: center;
+}
+
+.centerbox,
+#content,
+#footer-content {
+	// Need some extra space for the units database to display in its full glory.
+	max-width: 76em;
+}
+
+$wmlunits-sidebar-width: 9em;
+
+/*****************************************************************************
+ *                             GENERAL PAGE LAYOUT                           *
+ *****************************************************************************/
+
+div.main {
+	margin-top: 0;
+	margin-left: $wmlunits-sidebar-width;
+	padding-left: $measurement-small;
+	border-left: 1px solid $wesmere-hr;
+}
+
+// There's a good reason this is an element.class selector -- another element
+// reuses the same class later. (FIXME in wmlunits script.)
+div.navbar {
+	width: $wmlunits-sidebar-width;
+	float: left;
+	overflow: hidden;
+}
+
+.popuptrigger {
+	.popupmenu {
+		display: none;
+	}
+
+	&:hover .popupmenu {
+		display: block;
+	}
+}
+
+.popupmenu {
+	position: absolute;
+
+	margin-left: 8.5em;
+	margin-top: -2em;
+
+	padding: $measurement-small/2 $measurement-small;
+
+	background: $wui-menu-bg;
+	border: 1px solid $wui-text-navlink;
+	border-radius: $radius-minor;
+	box-shadow: 1px 1px 2px 0px rgba(#000, 0.2);
+
+	& > div {
+		color: $wui-border-dark;
+		font-size: 1.25em;
+		margin-bottom: $measurement-small/2;
+
+		// Chrome needs an explicit border width of 0 for border-image to not be
+		// applied on a given border. (Last checked on v50.)
+		border-width: 0 0 1px;
+		border-bottom: 1px solid $wesmere-hr;
+		border-image: linear-gradient(to right, rgba($wui-text-navlink, 0.6), rgba($wui-text-navlink, 0.1)) 1;
+	}
+
+	a {
+		text-decoration: none;
+	}
+}
+
+.unitmenu {
+	margin-left: 1em;
+	font-size: $measurement-sub;
+}
+
+ul.navbar {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+	a {
+		color: $wui-border-light;
+		font-size: 1.25em;
+		font-weight: bold;
+		cursor: pointer; // FIXME: Probable sign of iffy markup
+
+		&:hover, &:active {
+			color: $wui-border-dark;
+			text-decoration: none;
+		}
+
+		&.unitmenu {
+			font-size: 1.10em;
+		}
+	}
+
+	li {
+		color: black;
+		font-weight: bold;
+		margin: 0px;
+		padding: 0px;
+	}
+
+	div.popupmenu a {
+		font-size: 1.10em;
+	}
+}
+
+// Container for a unit sprite used in the unit list and detail pages.
+.pic {
+	border:  none;
+	display: inline;
+	float:   left;
+
+	// Unit sprites are pixel art and is usually not larger than 72x72, so we
+	// can use this information to set a uniform size for table cells.
+	img {
+		width:  72px;
+		height: 72px;
+	}
+}
+
+/*****************************************************************************
+ *                                 UNITS TABLE                               *
+ *****************************************************************************/
+
+table.units {
+	$min-unit-level: 0;
+	$max-unit-level: 5;
+	$base-unit-cell-color: desaturate($wesmere-page-bg, 15%);
+
+	border: none;
+	border-spacing: 0;
+
+	width: 100%;
+
+	%unit-column-width {
+		width: 16%;
+	}
+
+	@for $i from $min-unit-level through $max-unit-level {
+		//$j: ($max-unit-level - $i);
+
+		.col#{$i} {
+			@extend %unit-column-width;
+			background: adjust-color($base-unit-cell-color, $hue: -10*($i), $saturation: -10*($i));
+		}
+	}
+}
+
+td.empty {
+	background: $glamdrol-bg;
+}
+
+// FIXME in wmlunits: This is currently td, should be th.
+td.raceheader {
+	font-size: 1.25em;
+	font-weight: bold;
+	text-align: center;
+
+	border: 1px solid $glamdrol-bg;
+	background: $glamdrol-darkbg;
+	color:      $wui-border-dark;
+}
+
+.unitcell {
+	font-size: $measurement-sub;
+
+	border: 1px solid $glamdrol-bg;
+
+	// Align contents to the cell top unless it's a cell that spans more than
+	// one unit advancement branch -- those should be centered.
+	&:not([rowspan]) {
+		vertical-align: top;
+	}
+
+	& > a {
+		font-size: 1.25em;
+		font-weight: bold;
+	}
+
+	/*& > br {
+		clear: both;
+	}*/
+}
+
+// The level label/box next to each unit's name.
+div.l {
+	float: right;
+
+	padding: $measurement-small/4 $measurement-small/2;
+
+	font-size: $measurement-sub;
+	color: $wui-border-light;
+}
+
+// The completely redundant (FIXME: needs to be fixed in wmlunits) 'i' icon
+// link next to each unit's name, which is also a link pointing to the same
+// place, the individual unit's details page.
+div.i {
+	display: none!important; // FIXME just remove this crap entirely.
+	float: left;
+
+	a {
+		display: inline-block;
+
+		font-weight: bold;
+		padding: $measurement-small/4 $measurement-small;
+
+		border: 1px solid #fff;
+		color: #8080ff;
+	}
+}
+
+/*****************************************************************************
+ *                             UNIT DETAILS PAGE                             *
+ *****************************************************************************/
+
+table.unitinfo {
+	margin: $measurement-paragraph-spacing 0;
+
+	// Remove padding from Information section elements on the very left
+	// (which are <td> instead of <th> for some reason -- FIXME in wmlunits).
+	td:first-child {
+		padding-left: 0;
+	}
+
+	th {
+		text-align: left;
+		font-weight: normal;
+		white-space: nowrap;
+	}
+}
+
+// Column layout.
+// TODO: Use Flexbox here.
+div.unit-columns {
+	width: 51em;
+	float: left;
+	margin: 0 0 0 1em;
+
+	i {
+		font-size: 1.4em;
+		font-style: normal;
+	}
+
+	h1 {
+		text-align: left;
+	}
+
+	h2 > small {
+		// Unneeded because this is required by the h2 font style in Wesmere.
+		/*font-weight: normal;*/
+		font-size: $measurement-sub2;
+	}
+}
+
+div.unit-column-left {
+	width: 30em;
+	float: left;
+}
+
+div.unit-column-right {
+	margin-left: 1em;
+	width: 20em;
+	float: right;
+}
+
+div.portrait {
+	$portrait-width:  200px;
+	$portrait-height: 200px;
+
+    height: $portrait-height;
+
+	// Background image div used for the upscaled sprite backdrop. The image
+	// path is set by inline CSS in the markup.
+	& > div {
+		position: absolute;
+		height:   $portrait-height;
+		width:    $portrait-width;
+
+		opacity: 0.25;
+
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+
+	// The actual unit portrait, present only if applicable.
+	& > img {
+		position: absolute;
+		height: $portrait-height;
+	}
+}
+
+table.attacks .col1 {
+	width: 7em;
+}
+
+table.resistances {
+	.col1,
+	.col5 {
+		width: 5em;
+	}
+
+	.col3 {
+		width: 4em;
+	}
+}
+
+table.resistances img,
+table.terrain img {
+	height: 36px;
+}
+
+table.terrain th.numheader {
+	text-align: right;
+}
+
+td.grayed {
+	color: gray;
+}
+
+td.num {
+    text-align: right;
+}
+
+td.val {
+    font-weight: bold;
+}
+
+/*****************************************************************************
+ *                        DEBUG REPORT / "OVERVIEW" PAGE                     *
+ *****************************************************************************/
+
+table.overview {
+	width: 60%;
+	margin: 0 auto;
+
+	border-spacing: 0;
+	border: 1px solid #000;
+
+	th {
+		text-align: center;
+		padding: 1em;
+		border-bottom: 2px solid #000;
+	}
+
+	td {
+		border-bottom: 1px solid #000;
+	}
+
+	a.error {
+		color: red;
+	}
+}
+
+table.overview td {
+	text-align: right;
+
+	&:first-child {
+		text-align: left;
+	}
+}
