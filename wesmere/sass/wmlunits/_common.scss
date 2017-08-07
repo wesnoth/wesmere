@@ -38,6 +38,10 @@ div.navbar {
 	overflow: hidden;
 }
 
+#lastmod {
+	margin: 0 0 $measurement-sub auto;
+}
+
 //
 // Column layout -- Flexbox mode
 //
@@ -59,7 +63,6 @@ div.navbar {
 		padding-right: $wmlunits-sidebar-padding;
 		flex: 0 0 auto;
 	}
-
 }
 
 ul.navbar {
