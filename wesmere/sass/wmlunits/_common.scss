@@ -19,6 +19,9 @@ $wmlunits-sidebar-width: 9em;
 	max-width: 76em;
 }
 
+//
+// Column layout -- normal mode
+//
 div.main {
 	margin-top: 0;
 	margin-left: $wmlunits-sidebar-width;
@@ -32,6 +35,30 @@ div.navbar {
 	width: $wmlunits-sidebar-width;
 	float: left;
 	overflow: hidden;
+}
+
+//
+// Column layout -- Flexbox mode
+//
+
+.flexbox {
+	&.wmlunits-tree #content,
+	&.wmlunits-unit #content {
+		display: flex;
+		flex-flow: row nowrap;
+	}
+
+	div.main,
+	div.navbar {
+		margin: 0;
+		float: none;
+	}
+
+	div.navbar {
+		padding-right: $measurement-small;
+		flex: 0 0 auto;
+	}
+
 }
 
 .popuptrigger {
