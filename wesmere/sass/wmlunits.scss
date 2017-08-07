@@ -289,9 +289,10 @@ table.unitinfo {
 	}
 }
 
-// Column layout.
-// TODO: Use Flexbox here.
-div.unit-columns {
+//
+// Column layout -- regular mode
+//
+.unit-columns {
 	width: 51em;
 	float: left;
 	margin: 0 0 0 1em;
@@ -308,15 +309,45 @@ div.unit-columns {
 	}
 }
 
-div.unit-column-left {
+.unit-column-left {
 	width: 30em;
 	float: left;
 }
 
-div.unit-column-right {
+.unit-column-right {
 	margin-left: 1em;
 	width: 20em;
 	float: right;
+}
+
+//
+// Column layout -- Flexbox mode
+//
+.flexbox {
+	.unit-columns {
+		display: flex;
+		flex-flow: row wrap;
+		width: auto;
+	}
+
+	.unit-column-left,
+	.unit-column-right {
+		float: none;
+		margin: 0;
+	}
+
+	.unit-column-left {
+		width: 64%;
+		padding-right: 1em;
+	}
+
+	.unit-column-right {
+		width: 33%;
+	}
+
+	.terrain {
+		width: 100%;
+	}
 }
 
 div.portrait {
