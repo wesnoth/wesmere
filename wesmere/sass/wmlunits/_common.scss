@@ -68,6 +68,8 @@ ul.navbar {
 	padding: 0;
 
 	a {
+		display: block;
+
 		color: $wui-border-light;
 		font-size: 1.25em;
 		font-weight: bold;
@@ -83,7 +85,7 @@ ul.navbar {
 		}
 	}
 
-	li {
+	& > li {
 		margin: 0;
 		padding: 0;
 
@@ -92,10 +94,6 @@ ul.navbar {
 		&.overviewlink {
 			margin-top: 2em;
 		}
-	}
-
-	div.popupmenu a {
-		font-size: 1.10em;
 	}
 }
 
@@ -109,7 +107,8 @@ ul.navbar {
 	}
 }
 
-.popupmenu {
+div.popupmenu, // FIXME: Needed by the legacy Language menu markup!
+ul.popupmenu {
 	position: absolute;
 
 	margin-left: ($wmlunits-sidebar-width + $wmlunits-sidebar-padding);
@@ -122,7 +121,12 @@ ul.navbar {
 	border-radius: $radius-minor;
 	box-shadow: 1px 1px 2px 0px rgba(#000, 0.2);
 
-	& > div {
+	& > li {
+		display: block;
+	}
+
+	& > div, // FIXME: Needed by the legacy Language menu markup!
+	& > li:first-child {
 		color: $wui-border-dark;
 		font-size: 1.25em;
 		margin-bottom: $measurement-small/2;
@@ -135,6 +139,7 @@ ul.navbar {
 	}
 
 	a {
+		font-size: 1.10em;
 		text-decoration: none;
 	}
 }
