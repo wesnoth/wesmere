@@ -29,10 +29,6 @@
 // library utilities.
 //
 
-h1 {
-	text-align: center;
-}
-
 .centerbox,
 #content,
 #footer-content {
@@ -165,6 +161,10 @@ ul.navbar {
 
 $units-table-border: $glamdrol-bg;
 $units-table-bg:     $wesmere-page-bg-shade;
+
+.wmlunits-tree h1 {
+	text-align: center;
+}
 
 table.units {
 	$min-unit-level: 0;
@@ -301,10 +301,6 @@ div.unit-columns {
 		font-style: normal;
 	}
 
-	h1 {
-		text-align: left;
-	}
-
 	h2 > small {
 		// Unneeded because this is required by the h2 font style in Wesmere.
 		/*font-weight: normal;*/
@@ -402,8 +398,16 @@ table.overview {
 	}
 
 	th {
-		background: $glamdrol-darkbg;
 		text-align: center;
+	}
+
+	tfoot th {
+		text-align: left;
+	}
+
+	th,
+	tfoot td {
+		background: $glamdrol-darkbg;
 	}
 
 	td {
