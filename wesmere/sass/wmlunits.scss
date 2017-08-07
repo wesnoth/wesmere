@@ -363,7 +363,7 @@ table.resistances {
 
 table.resistances img,
 table.terrain img {
-	height: 36px;
+	max-width: 36px;
 }
 
 table.terrain th.numheader {
