@@ -244,24 +244,6 @@ div.l {
 	color: $wui-border-light;
 }
 
-// The completely redundant (FIXME: needs to be fixed in wmlunits) 'i' icon
-// link next to each unit's name, which is also a link pointing to the same
-// place, the individual unit's details page.
-div.i {
-	display: none!important; // FIXME just remove this crap entirely.
-	float: left;
-
-	a {
-		display: inline-block;
-
-		font-weight: bold;
-		padding: $measurement-small/4 $measurement-small;
-
-		border: 1px solid #fff;
-		color: #8080ff;
-	}
-}
-
 /*****************************************************************************
  *                             UNIT DETAILS PAGE                             *
  *****************************************************************************/
