@@ -10,7 +10,8 @@
  * See LICENSE for usage terms.
  */
 
-$wmlunits-sidebar-width: 9em;
+$wmlunits-sidebar-width:   9em;
+$wmlunits-sidebar-padding: $measurement-small;
 
 .centerbox,
 #content,
@@ -25,7 +26,7 @@ $wmlunits-sidebar-width: 9em;
 div.main {
 	margin-top: 0;
 	margin-left: $wmlunits-sidebar-width;
-	padding-left: $measurement-small;
+	padding-left: $wmlunits-sidebar-padding;
 	border-left: 1px solid $wesmere-hr;
 }
 
@@ -55,10 +56,47 @@ div.navbar {
 	}
 
 	div.navbar {
-		padding-right: $measurement-small;
+		padding-right: $wmlunits-sidebar-padding;
 		flex: 0 0 auto;
 	}
 
+}
+
+ul.navbar {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+	a {
+		color: $wui-border-light;
+		font-size: 1.25em;
+		font-weight: bold;
+		cursor: pointer; // FIXME: Probable sign of iffy markup
+
+		&:hover, &:active {
+			color: $wui-border-dark;
+			text-decoration: none;
+		}
+
+		&.unitmenu {
+			font-size: 1.10em;
+		}
+	}
+
+	li {
+		margin: 0;
+		padding: 0;
+
+		font-weight: bold;
+
+		&.overviewlink {
+			margin-top: 2em;
+		}
+	}
+
+	div.popupmenu a {
+		font-size: 1.10em;
+	}
 }
 
 .popuptrigger {
@@ -74,7 +112,7 @@ div.navbar {
 .popupmenu {
 	position: absolute;
 
-	margin-left: 8.5em;
+	margin-left: ($wmlunits-sidebar-width + $wmlunits-sidebar-padding);
 	margin-top: -2em;
 
 	padding: $measurement-small/2 $measurement-small;
@@ -104,43 +142,6 @@ div.navbar {
 .unitmenu {
 	margin-left: 1em;
 	font-size: $measurement-sub;
-}
-
-ul.navbar {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-
-	a {
-		color: $wui-border-light;
-		font-size: 1.25em;
-		font-weight: bold;
-		cursor: pointer; // FIXME: Probable sign of iffy markup
-
-		&:hover, &:active {
-			color: $wui-border-dark;
-			text-decoration: none;
-		}
-
-		&.unitmenu {
-			font-size: 1.10em;
-		}
-	}
-
-	li {
-		color: black;
-		font-weight: bold;
-		margin: 0;
-		padding: 0;
-
-		&.overviewlink {
-			margin-top: 2em;
-		}
-	}
-
-	div.popupmenu a {
-		font-size: 1.10em;
-	}
 }
 
 // Container for a unit sprite used in the unit list and detail pages.
