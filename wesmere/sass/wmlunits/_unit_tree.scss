@@ -1,0 +1,96 @@
+/*
+ * Unit tree styles for the Wesnoth units database
+ *
+ * codename Wesmere - Next-gen Wesnoth.org stylesheet
+ * Copyright (C) 2017 by Ignacio R. Morelle <shadowm@wesnoth.org>
+ *
+ * Portions from wmlunits - Wesnoth units database
+ * Copyright (C) 2003 - 2017 by The Battle for Wesnoth Project
+ *
+ * See LICENSE for usage terms.
+ */
+
+$units-table-border: $glamdrol-bg;
+$units-table-bg:     $wesmere-page-bg-shade;
+
+.wmlunits-tree h1 {
+	text-align: center;
+}
+
+table.units {
+	$min-unit-level: 0;
+	$max-unit-level: 5;
+	$base-unit-cell-color: desaturate($wesmere-page-bg, 15%);
+
+	border: 1px solid $units-table-border;
+
+	width: 100%;
+
+	%unit-column-width {
+		width: 16%;
+	}
+
+	@for $i from $min-unit-level through $max-unit-level {
+		//$j: ($max-unit-level - $i);
+
+		.col#{$i} {
+			@extend %unit-column-width;
+			background: adjust-color($base-unit-cell-color, $hue: -10*($i), $saturation: -10*($i));
+		}
+	}
+}
+
+td.empty {
+	background: $units-table-bg;
+}
+
+.raceheader {
+	font-size: 1.25em;
+	font-weight: bold;
+	text-align: center;
+
+	border: 1px solid $units-table-border;
+	background: $glamdrol-darkbg;
+
+	a {
+		&:link, &:visited {
+			color: $wui-border-dark;
+		}
+
+		&:hover, &:active {
+			color: $wui-border-light;
+			text-decoration: none;
+		}
+	}
+}
+
+.unitcell {
+	font-size: $measurement-sub;
+
+	border: 1px solid $units-table-border;
+
+	// Align contents to the cell top unless it's a cell that spans more than
+	// one unit advancement branch -- those should be centered.
+	&:not([rowspan]) {
+		vertical-align: top;
+	}
+
+	& > a {
+		font-size: 1.25em;
+		font-weight: bold;
+	}
+
+	.attributes > div {
+		clear: both;
+	}
+}
+
+// The level label/box next to each unit's name.
+div.l {
+	float: right;
+
+	padding: $measurement-small/4 $measurement-small/2;
+
+	font-size: $measurement-sub;
+	color: $wui-border-light;
+}

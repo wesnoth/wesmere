@@ -1,0 +1,49 @@
+/*
+ * Build report/overview page styles for the Wesnoth units database
+ *
+ * codename Wesmere - Next-gen Wesnoth.org stylesheet
+ * Copyright (C) 2017 by Ignacio R. Morelle <shadowm@wesnoth.org>
+ *
+ * Portions from wmlunits - Wesnoth units database
+ * Copyright (C) 2003 - 2017 by The Battle for Wesnoth Project
+ *
+ * See LICENSE for usage terms.
+ */
+
+table.overview {
+	width: 100%;
+	margin: 0 auto;
+
+	background: $wesmere-page-bg;
+	border: solid 1px $wesmere-page-bg;
+
+	th, td {
+		border: solid 1px $wesmere-page-bg;
+	}
+
+	th {
+		text-align: center;
+	}
+
+	tfoot th {
+		text-align: left;
+	}
+
+	th,
+	tfoot td {
+		background: $glamdrol-darkbg;
+	}
+
+	td {
+		background: $glamdrol-bg;
+		text-align: right;
+
+		&:first-child {
+			text-align: left;
+		}
+	}
+
+	a.error {
+		color: #c55;
+	}
+}
