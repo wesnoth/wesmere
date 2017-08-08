@@ -159,12 +159,18 @@ ul.popupmenu {
 	display: inline;
 	float:   left;
 
+	$unit-sprite-size: 72px;
+
 	// Unit sprites are pixel art and are usually not larger than 72x72, so we
 	// can use this information try to set a uniform size for table cells.
 	// This only applies to the unit tree pages -- in the unit details page we
 	// want the sprites to be displayed at their full size.
 	.wmlunits-tree & img {
-		max-width:  72px;
-		max-height: 72px;
+		max-width:  $unit-sprite-size;
+		max-height: $unit-sprite-size;
+	}
+
+	.spritebg {
+		background-size: $unit-sprite-size;
 	}
 }
