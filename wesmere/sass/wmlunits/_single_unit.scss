@@ -186,3 +186,17 @@ td.num {
 td.val {
     font-weight: bold;
 }
+
+$unit-rating-colors: (
+	"green":		#184,
+	"olive":		#640,
+	"yellow":		#d70,
+	"red":			#b44,
+	"gray":			#666,
+);
+
+@each $color-name, $base-color in $unit-rating-colors {
+	.rating-#{unquote($color-name)} {
+		color: $base-color;
+	}
+}
