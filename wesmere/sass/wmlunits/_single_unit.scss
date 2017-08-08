@@ -33,13 +33,21 @@ table.unitinfo {
 	}
 }
 
+$wmlunits-unit-col-width-left:     30em;
+$wmlunits-unit-col-width-right:    22em;
+
+$wmlunits-unit-col-width-left-pc:  60%;
+$wmlunits-unit-col-width-right-pc: 33%;
+
+$wmlunits-unit-col-margin:         2*$measurement-small;
+
 //
 // Column layout -- regular mode
 //
 .unit-columns {
-	width: 51em;
+	width: $wmlunits-unit-col-width-left+$wmlunits-unit-col-width-right+2*$wmlunits-unit-col-margin;
 	float: left;
-	margin: 0 0 0 1em;
+	margin: 0;
 
 	i {
 		font-size: 1.4em;
@@ -54,13 +62,14 @@ table.unitinfo {
 }
 
 .unit-column-left {
-	width: 30em;
+	margin-right: $wmlunits-unit-col-margin;
+	width: $wmlunits-unit-col-width-left;
 	float: left;
 }
 
 .unit-column-right {
-	margin-left: 1em;
-	width: 20em;
+	margin-left: $wmlunits-unit-col-margin;
+	width: $wmlunits-unit-col-width-right;
 	float: right;
 }
 
@@ -82,12 +91,14 @@ table.unitinfo {
 	}
 
 	.unit-column-left {
-		width: 64%;
-		padding-right: 1em;
+		width: $wmlunits-unit-col-width-left-pc;
+		padding-right: $wmlunits-unit-col-margin;
 	}
 
 	.unit-column-right {
-		width: 33%;
+		width: $wmlunits-unit-col-width-right-pc;
+		padding-left: $wmlunits-unit-col-margin;
+		min-width: $wmlunits-unit-col-width-right;
 	}
 
 	.terrain {
@@ -137,13 +148,31 @@ table.resistances {
 	}
 }
 
+$damage-or-terrain-image-width: 36px;
+
 table.resistances img,
 table.terrain img {
-	max-width: 36px;
+	max-width: $damage-or-terrain-image-width;
 }
 
-table.terrain th.numheader {
-	text-align: right;
+table.terrain {
+	.col0 {
+		width: $damage-or-terrain-image-width;
+	}
+
+	.col2,
+	.col3 {
+		width: 20%;
+	}
+
+	th.mvtcost,
+	td.mvtcost {
+		text-align: center;
+	}
+
+	th.numheader {
+		text-align: right;
+	}
 }
 
 td.grayed {

@@ -11,13 +11,13 @@
  */
 
 $wmlunits-sidebar-width:   9em;
-$wmlunits-sidebar-padding: $measurement-small;
+$wmlunits-sidebar-padding: $measurement-small*2;
 
 .centerbox,
 #content,
 #footer-content {
 	// Need some extra space for the units database to display in its full glory.
-	max-width: 76em;
+	max-width: 82em;
 }
 
 //
@@ -60,6 +60,7 @@ div.navbar {
 	}
 
 	div.navbar {
+		width: auto;
 		padding-right: $wmlunits-sidebar-padding;
 		flex: 0 0 auto;
 	}
