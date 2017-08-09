@@ -115,7 +115,7 @@ div.popupmenu, // FIXME: Needed by the legacy Language menu markup!
 ul.popupmenu {
 	position: absolute;
 
-	margin-left: ($wmlunits-sidebar-width + $wmlunits-sidebar-padding);
+	margin-left: ($wmlunits-sidebar-width);
 	margin-top: -2em;
 
 	padding: $measurement-small/2 $measurement-small;
