@@ -80,8 +80,26 @@ td.empty {
 		font-weight: bold;
 	}
 
-	.attributes > div {
-		clear: both;
+	.attributes {
+		& > div {
+			clear: both;
+		}
+
+		th,
+		td {
+			font-weight: normal;
+			text-align: left;
+			padding: 0 0 0 $measurement-small;
+		}
+
+		th {
+			color: $wui-border-dark;
+		}
+
+		td {
+			padding-right: 0;
+			text-align: right;
+		}
 	}
 }
 
