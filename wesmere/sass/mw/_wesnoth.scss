@@ -63,6 +63,53 @@ table.reference-sidebar {
 			display: none!important;
 		}
 	}
+}
 
+// Used to display a list of translated versions of a wiki page.
+.wikilangbox {
+	display: table;
 
+	border: $wesmere-hr 1px solid;
+
+	margin: $measurement-paragraph-spacing auto;
+
+	.fa {
+		vertical-align: middle;
+	}
+
+	ul {
+		&,
+		& li {
+			display: inline-block;
+			margin:  0;
+			padding: 0;
+		}
+
+		& li:not(:last-child)::after {
+			content: "\a0|\a0";
+			color: $wesmere-hr;
+		}
+	}
+}
+
+.wikilangs-caption,
+.wikilangs {
+	display: table-cell;
+	padding: $measurement-small/2 $measurement-small;
+
+	text-align: center;
+	vertical-align: middle;
+
+	background: $wesmere-page-bg-shade;
+}
+
+/* CSSPOST .fa-globe */
+
+.wikilangs-caption {
+	@extend %bold;
+
+	min-width: 3em;
+
+	background:  $glamdrol-darkbg;
+	border-right: 1px solid $wesmere-hr;
 }

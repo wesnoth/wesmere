@@ -14,6 +14,9 @@ $wesmere-button-shadow-pressed:				inset 0px 4px 8px 0px $wui-text-navlink;
 $wesmere-button-shadows:					$wesmere-button-shadow-outer, $wesmere-button-shadow-inner;
 
 %wesmere-button-base-styles {
+	@extend %standard-transitions;
+	@extend %touch-button-behavior;
+
 	display: inline-block;
 
 	font-size: $measurement-sub;
@@ -21,7 +24,6 @@ $wesmere-button-shadows:					$wesmere-button-shadow-outer, $wesmere-button-shado
 
 	padding: $measurement-small/2 $measurement-small;
 
-	@extend %standard-transitions;
 	outline: none;
 }
 

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../../template_inside.xsl"?>
+<document>
+	<title>Forbidden</title>
+	<content>
+		<h1>403 — Forbidden</h1>
+
+		<div class="center">
+			<img src="/wesmere/img/misc/403-delfador.png" width="325" height="500" alt="Portrait of Delfador"/><img-bottom-border/>
+
+			<p class="bold">You shall not obtain passage to the specified location or resource.</p>
+
+			<ul>
+				<li><a href="https://www.wesnoth.org/">Back to the home page</a></li>
+			</ul>
+		</div>
+
+	</content>
+</document>
+
+<!-- kate: indent-mode normal; indent-width 2; tab-width 2; space-indent off; show-tabs off; -->

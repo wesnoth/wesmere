@@ -28,10 +28,10 @@ if (php_sapi_name() !== "cli")
 }
 
 $show_build = gethostname() === "hanacore";
-$build_version = "1.0.0";
+$build_version = "1.1.0";
 
 $use_css_versioning = true;
-$css_version = "1.0.0";
+$css_version = "1.1.0";
 
 $config = [
 	// Fallback OS labels for when one isn't specified by a file entry.
@@ -306,7 +306,7 @@ set_error_handler('trap');
 
 	<div id="homebg1">
 		<div id="intro" role="banner">
-			<a href="/"><img src="/wesmere/img/logo-large.png" alt="The Battle for Wesnoth" width="600" height="200" data-retina /></a>
+			<a id="biglogo" href="/" aria-label="Wesnoth logo"><span aria-hidden="true"></span></a>
 
 			<div id="nav">
 				<ul id="navlinks">
@@ -591,6 +591,5 @@ set_error_handler('trap');
 </div></div></div>
 
 <script>@ HTMLPOST:INCLUDE bits/smooth.js @</script>
-<script src="/wesmere/js/retina.min.js"></script>
 </body>
 </html>

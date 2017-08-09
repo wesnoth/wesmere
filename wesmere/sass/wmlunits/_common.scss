@@ -1,0 +1,176 @@
+/*
+ * General page layout and shared elements for the Wesnoth units database
+ *
+ * codename Wesmere - Next-gen Wesnoth.org stylesheet
+ * Copyright (C) 2017 by Ignacio R. Morelle <shadowm@wesnoth.org>
+ *
+ * Portions from wmlunits - Wesnoth units database
+ * Copyright (C) 2003 - 2017 by The Battle for Wesnoth Project
+ *
+ * See LICENSE for usage terms.
+ */
+
+$wmlunits-sidebar-width:   9em;
+$wmlunits-sidebar-padding: $measurement-small*2;
+
+.centerbox,
+#content,
+#footer-content {
+	// Need some extra space for the units database to display in its full glory.
+	max-width: 82em;
+}
+
+//
+// Column layout -- normal mode
+//
+div.main {
+	margin-top: 0;
+	margin-left: $wmlunits-sidebar-width;
+	padding-left: $wmlunits-sidebar-padding;
+	border-left: 1px solid $wesmere-hr;
+}
+
+// There's a good reason this is an element.class selector -- another element
+// reuses the same class later. (FIXME in wmlunits script.)
+div.navbar {
+	width: $wmlunits-sidebar-width;
+	float: left;
+	overflow: hidden;
+}
+
+#lastmod {
+	margin: 0 0 $measurement-sub auto;
+}
+
+//
+// Column layout -- Flexbox mode
+//
+
+.flexbox {
+	&.wmlunits-tree #content,
+	&.wmlunits-unit #content {
+		display: flex;
+		flex-flow: row nowrap;
+	}
+
+	div.main,
+	div.navbar {
+		margin: 0;
+		float: none;
+	}
+
+	div.navbar {
+		width: auto;
+		padding-right: $wmlunits-sidebar-padding;
+		flex: 0 0 auto;
+	}
+}
+
+ul.navbar {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+	a {
+		display: block;
+
+		color: $wui-border-light;
+		font-size: 1.25em;
+		font-weight: bold;
+		cursor: pointer; // FIXME: Probable sign of iffy markup
+
+		&:hover, &:active {
+			color: $wui-border-dark;
+			text-decoration: none;
+		}
+
+		&.unitmenu {
+			font-size: 1.10em;
+		}
+	}
+
+	& > li {
+		margin: 0;
+		padding: 0;
+
+		font-weight: bold;
+
+		&.overviewlink {
+			margin-top: 2em;
+		}
+	}
+}
+
+.popuptrigger {
+	.popupmenu {
+		display: none;
+	}
+
+	&:hover .popupmenu {
+		display: block;
+	}
+}
+
+div.popupmenu, // FIXME: Needed by the legacy Language menu markup!
+ul.popupmenu {
+	position: absolute;
+
+	margin-left: ($wmlunits-sidebar-width);
+	margin-top: -2em;
+
+	padding: $measurement-small/2 $measurement-small;
+
+	background: $wui-menu-bg;
+	border: 1px solid $wui-text-navlink;
+	border-radius: $radius-minor;
+	box-shadow: 1px 1px 2px 0px rgba(#000, 0.2);
+
+	& > li {
+		display: block;
+	}
+
+	& > div, // FIXME: Needed by the legacy Language menu markup!
+	& > li:first-child {
+		color: $wui-border-dark;
+		font-size: 1.25em;
+		margin-bottom: $measurement-small/2;
+
+		// Chrome needs an explicit border width of 0 for border-image to not be
+		// applied on a given border. (Last checked on v50.)
+		border-width: 0 0 1px;
+		border-bottom: 1px solid $wesmere-hr;
+		border-image: linear-gradient(to right, rgba($wui-text-navlink, 0.6), rgba($wui-text-navlink, 0.1)) 1;
+	}
+
+	a {
+		font-size: 1.10em;
+		text-decoration: none;
+	}
+}
+
+.unitmenu {
+	margin-left: 1em;
+	font-size: $measurement-sub;
+}
+
+// Container for a unit sprite used in the unit list and detail pages.
+.pic {
+	border:  none;
+	display: inline;
+	float:   left;
+
+	$unit-sprite-size: 72px;
+
+	// Unit sprites are pixel art and are usually not larger than 72x72, so we
+	// can use this information try to set a uniform size for table cells.
+	// This only applies to the unit tree pages -- in the unit details page we
+	// want the sprites to be displayed at their full size.
+	.wmlunits-tree & img {
+		max-width:  $unit-sprite-size;
+		max-height: $unit-sprite-size;
+	}
+
+	.spritebg {
+		background-size: $unit-sprite-size;
+	}
+}

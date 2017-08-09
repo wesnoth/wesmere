@@ -85,10 +85,16 @@
 }
 
 #logo {
-	float: left;
+	float:      left;
+	text-align: left;
 
-	a {
+	& > a {
+		@include fixed-size-high-dpi-image(url('../img/logo-minimal-64.png'), url('../img/logo-minimal-64@2x.png'), 64, 64);
 		padding: 0;
+	}
+
+	@include media-small-screen-constraint {
+		text-align: center;
 	}
 }
 

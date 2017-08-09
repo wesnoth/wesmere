@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../../template_inside.xsl"?>
+<document>
+	<title>Not Found</title>
+	<content>
+		<h1>404 — Not Found</h1>
+
+		<div class="center">
+			<img src="/wesmere/img/misc/404-burin.png" width="300" height="330" alt="Portrait of Burin the Lost"/><img-bottom-border/>
+
+			<p class="bold">You seem lost. There is nothing of value to be found at this URL.</p>
+
+			<ul>
+				<li><a href="https://www.wesnoth.org/">Back to the home page</a></li>
+			</ul>
+		</div>
+
+	</content>
+</document>
+
+<!-- kate: indent-mode normal; indent-width 2; tab-width 2; space-indent off; show-tabs off; -->

@@ -14,6 +14,8 @@
 /* The basis of all measurements */
 $wesmere-base-font-size:					14px;
 
+$wesmere-min-high-dpi-factor:				1.25;
+
 $measurement-std:							1.3em;
 $measurement-sub:							0.9em;
 $measurement-sub2:							0.8em;
@@ -74,6 +76,12 @@ $list-bullet-color:							$link-color;
 $selection-bg:								$link-color;
 $selection-fg:								$iris-selection-fg;
 
+$wesmere-searchbox-bg:						#393b46;
+$wesmere-searchbox-bg-faded:				darken($wesmere-searchbox-bg, 2%);
+$wesmere-searchbox-fg:						$wui-text-normal;
+$wesmere-searchbox-hover:					$wui-text-navlink;
+$wesmere-searchbox-focus:					lighten($wesmere-searchbox-hover, 5%);
+
 $print-border-color:						#ccc;
 
 /*****************************************************************************
@@ -111,6 +119,41 @@ $print-border-color:						#ccc;
 	user-select:         none;
 }
 
+@mixin placeholder-styles {
+	&::-webkit-input-placeholder {
+		@content;
+	}
+
+	// Firefox 19+
+	&::-moz-input-placeholder {
+		@content;
+	}
+
+	// Older Firefox
+	&:-moz-placeholder {
+		@content;
+	}
+
+	// IE 10 - Edge
+	&:-ms-input-placeholder {
+		@content;
+	}
+
+	// Chrome 57+, Firefox 51+
+	&::placeholder {
+		@content;
+	}
+}
+
+@mixin touch-action($value) {
+	-ms-touch-action: $value; // IE 10 only
+	touch-action:     $value;
+}
+
+%touch-button-behavior {
+	@include touch-action(manipulation);
+}
+
 /*****************************************************************************
  *                                 MEDIA RULES                               *
  *****************************************************************************/
@@ -135,6 +178,17 @@ $print-border-color:						#ccc;
 
 @mixin media-not-small-screen-constraint {
 	@media screen and (min-width: 700px) {
+		@content;
+	}
+}
+
+@mixin media-high-dpi-screen {
+	@media
+	(-webkit-min-device-pixel-ratio: $wesmere-min-high-dpi-factor),
+	(min--moz-device-pixel-ratio: $wesmere-min-high-dpi-factor), // Firefox 15 and earlier
+	(min-device-pixel-ratio: $wesmere-min-high-dpi-factor), // ????
+	(min-resolution: ($wesmere-min-high-dpi-factor*96)dpi),
+	(min-resolution: ($wesmere-min-high-dpi-factor)dppx) {
 		@content;
 	}
 }
@@ -238,5 +292,56 @@ $print-border-color:						#ccc;
 	// the content region.
 	@media only screen and (max-width: $wesmere-page-bg-small-on-page-width) {
 		@include wesmere-gradient-background-base($background-rgb, $shadow-rgb, $wesmere-page-bg-small-size);
+	}
+}
+
+/*****************************************************************************
+ *                  RETINA-AWARE CSS-SPECIFIED IMAGE ELEMENT                 *
+ *****************************************************************************/
+
+%css-image-base {
+	display: inline-block;
+	width:   100%;
+
+	// Can't use this and have working margins. Just make sure there's no
+	// text content in this and the other elements.
+	//font-size:    0;
+	line-height:    0;
+	vertical-align: middle;
+
+	background-size: 100%;
+	background-position: 50%;
+	background-repeat: no-repeat;
+}
+
+@mixin responsive-high-dpi-image($url, $url-2x, $width, $height) {
+	@extend %css-image-base;
+
+	max-width:  $width*1px;
+	max-height: $height*1px;
+
+	background-image: $url;
+
+	@include media-high-dpi-screen {
+		background-image: $url-2x;
+	}
+
+	& > span {
+		display: block;
+		height:  0;
+		padding-top: ($height/$width * 100%);
+	}
+}
+
+@mixin fixed-size-high-dpi-image($url, $url-2x, $width, $height) {
+	@extend %css-image-base;
+
+	width:  $width*1px;
+	height: $height*1px;
+
+	background-image: $url;
+
+	@include media-high-dpi-screen {
+		background-image: $url-2x;
 	}
 }

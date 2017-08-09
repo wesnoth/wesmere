@@ -27,9 +27,11 @@
 #homebg1 {
 	$banner-vertical-gradient: linear-gradient(to top, $wui-gradient-start, rgba($wui-gradient-start,0.8) 1em, rgba($wui-gradient-start,0) 3em);
 
-	background: $wui-gradient-start url('../img/front-background.jpg') 50% 40% / 1920px auto no-repeat scroll;
+	background: $wui-gradient-start url('../img/front-background.jpg') 50% 40% / 1920px no-repeat;
+
 	background-image: $banner-vertical-gradient,
 	                  url('../img/front-background.jpg');
+	background-position: bottom, 50% 40%;
 
 	@media only screen and (min-width: 1921px) {
 		// The reason there's a lot of copy-and-paste here is that Sass does
@@ -38,20 +40,24 @@
 		              linear-gradient(to right, $wui-gradient-start calc((100% - 1920px)/2), rgba($wui-gradient-start, 0) calc(1em + (100% - 1920px)/2)),
 		              linear-gradient(to left, $wui-gradient-start calc((100% - 1920px)/2), rgba($wui-gradient-start, 0) calc(1em + (100% - 1920px)/2)),
 		              url('../img/front-background.jpg');
+		background-position: bottom, left, right, 50% 40%;
+		background-size: auto, auto, auto, 1920px;
 	}
 
 	position: relative;
 	border-bottom: #000 1px solid;
 
-	img {
-		margin: 2em 0;
+	#biglogo {
+		@include responsive-high-dpi-image(url('../img/logo-large.png'), url('../img/logo-large@2x.png'), 600, 200);
+
+		margin: 2em auto;
 
 		@include media-small-screen-constraint {
-			margin: 2% 0;
+			margin: 2% auto;
 		}
 
 		@include media-tiny-screen-constraint {
-			margin: 0;
+			margin: 0.5em auto;
 		}
 	}
 }
@@ -387,6 +393,7 @@ $strip-padding:							$measurement-sub;
 	overflow: hidden;
 
 	a {
+		@extend %touch-button-behavior;
 		text-decoration: none;
 
 		& > img {
@@ -412,8 +419,12 @@ $strip-padding:							$measurement-sub;
 }
 
 .screenshots-arrow {
+	@extend %unselectable;
+	@extend %touch-button-behavior;
+
 	background: rgba($wesmere-page-bg, 0.25);
 	text-shadow: 0px 0px 2px rgba(#000,0.5);
+	outline: none;
 
 	display: block;
 	position: absolute;

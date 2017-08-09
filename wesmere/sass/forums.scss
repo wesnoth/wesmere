@@ -24,6 +24,7 @@
 
 $measurement-centerbox-width: 86em;
 
+@import "core/a11y";
 @import "core/site_layout";
 @import "core/site_layout_search";
 
@@ -76,6 +77,11 @@ html {
 	}
 }
 
+.wrap {
+	// phpBB 3.1/3.2 only.
+	max-width: none;
+}
+
 //
 // Override a few conflicting phpBB styles.
 //
@@ -92,6 +98,7 @@ body {
 		padding: 0;
 	}
 
+	form,
 	input {
 		font-family: inherit;
 		cursor:      unset;
@@ -100,6 +107,21 @@ body {
 
 #wrap {
 	font-size: 10px; // prosilver, subsilver2, AcidTech all use this.
+}
+
+//
+// Normalize bits that are of particular relevance to us and aren't already
+// covered by phpBB's styles:
+//
+
+[type="search"] {
+	-webkit-appearance: textfield;
+	outline-offset: -2px;
+}
+
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
+	-webkit-appearance: none;
 }
 
 /*****************************************************************************
