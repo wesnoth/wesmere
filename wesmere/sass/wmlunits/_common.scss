@@ -64,6 +64,10 @@ div.navbar {
 		padding-right: $wmlunits-sidebar-padding;
 		flex: 0 0 auto;
 	}
+
+	div.main {
+		flex: 1 0 auto;
+	}
 }
 
 ul.navbar {
