@@ -154,8 +154,18 @@ ul.popupmenu {
 	}
 }
 
+// Remove extraneous outer padding on language menu elements caused by a
+// global table rule from core Wesmere.
+#languages_menu td {
+	padding: 0;
+
+	& + td {
+		padding-left: 1.5em;
+	}
+}
+
 .unitmenu {
-	margin-left: 1em;
+	padding-left: 1em;
 	font-size: $measurement-sub;
 }
 
