@@ -106,11 +106,13 @@ ul.navbar {
 }
 
 .popuptrigger {
-	.popupmenu {
-		display: none;
-	}
+	@extend %touch-button-behavior;
+}
 
-	&:hover .popupmenu {
+.popupmenu {
+	display: none;
+
+	.no-js .popupcontainer:hover > & {
 		display: block;
 	}
 }
