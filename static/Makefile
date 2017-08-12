@@ -26,7 +26,8 @@ html_files= \
 	docroot/maintenance/forums.html \
 	docroot/maintenance/wiki.html \
 	docroot/maintenance/extended.html \
-	docroot/addons/index.html
+	docroot/addons/index.html \
+	docroot/units/index.html
 
 js_files = \
 	bits/downloads.min.js \
