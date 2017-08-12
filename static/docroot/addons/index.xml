@@ -4,6 +4,7 @@
 ]>
 <?xml-stylesheet type="text/xsl" href="../../template_inside.xsl"?>
 <document>
+	<subsite url="https://addons.wesnoth.org/">Add-ons</subsite>
 	<title>Add-ons Server</title>
 	<content>
 		<h1>Wesnoth Add-ons Server</h1>

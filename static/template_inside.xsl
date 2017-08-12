@@ -63,6 +63,12 @@ with this program; if not, see <http://www.gnu.org/licenses/>.
 	</div>
 
 	<ul id="navlinks">
+		<xsl:if test="document/subsite">
+			<li><a>
+				<xsl:attribute name="href"><xsl:value-of select="document/subsite/@url"/></xsl:attribute>
+				<xsl:copy-of select="document/subsite/text()"/>
+			</a></li>
+		</xsl:if>
 		<li><a href="https://www.wesnoth.org/">Home</a></li>
 		<li><a href="https://forums.wesnoth.org/viewforum.php?f=62">News</a></li>
 		<li><a href="https://wiki.wesnoth.org/Play">Play</a></li>
