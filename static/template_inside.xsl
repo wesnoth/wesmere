@@ -46,6 +46,8 @@ with this program; if not, see <http://www.gnu.org/licenses/>.
 
 	<title><xsl:value-of select="document/title"/> - The Battle for Wesnoth</title>
 
+	<xsl:if test="document/style"><xsl:copy-of select="document/style"/></xsl:if>
+
 	<script src="{$wesmere-resource-prefix}/wesmere/js/jquery-3.2.1.min.js"></script>
 
 	<script src="{$wesmere-resource-prefix}/wesmere/js/modernizr.js"></script>
