@@ -106,6 +106,12 @@ $wmlunits-unit-col-margin:         2*$measurement-small;
 	}
 }
 
+// The unit sprite is floated and needs a margin from the heading below to
+// match the paragraph accompanying it.
+h1 + .pic {
+	margin-top: $measurement-paragraph-spacing;
+}
+
 div.portrait {
 	$portrait-width:  200px;
 	$portrait-height: 200px;
