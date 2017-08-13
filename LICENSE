@@ -2,6 +2,16 @@ The Wesmere stylesheet, MediaWiki skin, and accompanying Javascript, HTML, PHP
 and XSLT template code are all provided under the terms of the GNU General
 Public License version 2, or (at your option) any later version.
 
+The `wesmere/sass/nonfree/` directory includes non-free compiled assets which
+are not essential for the site design and may be safely removed if needed,
+with only some minor loss of functionality.
+
+This source code tree contains additional material licensed under other
+open source software licenses, including but not limited to:
+
+* [Modernizr](https://modernizr.com/) (MIT)
+* [FontAwesome](http://fontawesome.io/license/) (multiple licenses)
+
 A copy of the GNU General Public License version 2 is provided below for
 reference.
 _______________________________________________________________________________
