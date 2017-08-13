@@ -120,6 +120,7 @@ ul.navbar {
 div.popupmenu, // FIXME: Needed by the legacy Language menu markup!
 ul.popupmenu {
 	position: absolute;
+	z-index:  1000;
 
 	margin-left: ($wmlunits-sidebar-width);
 	margin-top: -2em;
