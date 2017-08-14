@@ -119,6 +119,12 @@ $print-border-color:						#ccc;
 	user-select:         none;
 }
 
+@mixin column-layout($col-params) {
+	-webkit-columns: $col-params;
+	-moz-columns:    $col-params;
+	columns:         $col-params;
+}
+
 @mixin placeholder-styles {
 	&::-webkit-input-placeholder {
 		@content;

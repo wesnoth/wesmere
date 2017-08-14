@@ -117,8 +117,7 @@ ul.navbar {
 	}
 }
 
-div.popupmenu, // FIXME: Needed by the legacy Language menu markup!
-ul.popupmenu {
+div.popupmenu {
 	position: absolute;
 	z-index:  1000;
 
@@ -132,27 +131,41 @@ ul.popupmenu {
 	border-radius: $radius-minor;
 	box-shadow: 1px 1px 2px 0px rgba(#000, 0.2);
 
-	& > li {
+	& > ul,
+	& > ul > li {
 		display: block;
+		margin:  0;
+		padding: 0;
 	}
 
-	& > div, // FIXME: Needed by the legacy Language menu markup!
-	& > li:first-child {
-		color: $wui-border-dark;
-		font-size: 1.25em;
-		margin-bottom: $measurement-small/2;
+	& > ul {
+		@include column-layout(3);
 
-		// Chrome needs an explicit border width of 0 for border-image to not be
-		// applied on a given border. (Last checked on v50.)
-		border-width: 0 0 1px;
-		border-bottom: 1px solid $wesmere-hr;
-		border-image: linear-gradient(to right, rgba($wui-text-navlink, 0.6), rgba($wui-text-navlink, 0.1)) 1;
+		@include media-small-screen-constraint {
+			@include column-layout(2);
+		}
+
+		@include media-tiny-screen-constraint {
+			@include column-layout(1);
+		}
 	}
 
 	a {
 		font-size: 1.10em;
 		text-decoration: none;
 	}
+}
+
+.popupheader {
+	color: $wui-border-dark;
+	font-size: 1.25em;
+	margin-bottom: $measurement-small/2;
+
+	// Chrome needs an explicit border width of 0 for border-image to not be
+	// applied on a given border. (Last checked on v50.)
+	border-width: 0 0 1px;
+	border-bottom: 1px solid $wesmere-hr;
+	border-image: linear-gradient(to right, rgba($wui-text-navlink, 0.6), rgba($wui-text-navlink, 0.1)) 1;
 }
 
 // Remove extraneous outer padding on language menu elements caused by a
