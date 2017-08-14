@@ -15,7 +15,7 @@ RewriteBase /wesmere/
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME}.gz !-f
-RewriteRule ^(css|js)/([A-Za-z0-9-]+)-[0-9.]+\.(css|js)$ /wesmere/$1/$2.$3 [QSA]
+RewriteRule ^(css|js|fonts)/([A-Za-z0-9-]+)-[0-9.]+\.(css|js|eot|svg|ttf|woff2?)$ /wesmere/$1/$2.$3 [QSA]
 
 # Serve .css.gz and .js.gz files from disk if present. Don't let mod_deflate
 # re-compress them in the response.
