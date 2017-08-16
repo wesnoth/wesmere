@@ -128,11 +128,11 @@ $wm-wiki-toolbar-bg: $wui-menu-bg;
 				@extend %wesmere-button-normal-styles;
 			}
 
-			&:hover, &:active {
+			&:hover, &:active, &:focus {
 				@extend %wesmere-button-highlight-styles;
 			}
 
-			&:hover {
+			&:hover, &:focus {
 				@extend %wesmere-button-hover-styles;
 			}
 

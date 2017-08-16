@@ -356,11 +356,11 @@ $bswitch-bg: rgba($wui-text-navlink, 0.15);
 		@extend %wesmere-button-normal-styles;
 	}
 
-	&:hover, &:active, &-on:link, &-on:visited {
+	&:hover, &:active, &:focus, &-on:link, &-on:visited {
 		@extend %wesmere-button-highlight-styles;
 	}
 
-	&:hover {
+	&:hover, &:focus {
 		@extend %wesmere-button-hover-styles;
 	}
 
