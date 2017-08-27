@@ -81,6 +81,7 @@ $wmlunits-unit-col-margin:         2*$measurement-small;
 		display: flex;
 		flex-flow: row wrap;
 		width: auto;
+		float: none;
 	}
 
 	.unit-column-left,
