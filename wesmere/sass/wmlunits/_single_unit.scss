@@ -41,6 +41,9 @@ $wmlunits-unit-col-width-right-pc: 33%;
 
 $wmlunits-unit-col-margin:         2*$measurement-small;
 
+$portrait-width:                   200px;
+$portrait-height:                  200px;
+
 //
 // Column layout -- regular mode
 //
@@ -73,6 +76,11 @@ $wmlunits-unit-col-margin:         2*$measurement-small;
 	float: right;
 }
 
+#unit-portraits {
+	width: $portrait-width;
+	float: left;
+}
+
 //
 // Column layout -- Flexbox mode
 //
@@ -102,6 +110,17 @@ $wmlunits-unit-col-margin:         2*$measurement-small;
 		min-width: $wmlunits-unit-col-width-right;
 	}
 
+	#unit-desc,
+	#unit-portraits {
+		min-width: 0;
+		flex: 1 1;
+		width: auto;
+	}
+
+	#unit-portraits {
+		flex: 0 0 $portrait-width;
+	}
+
 	.terrain {
 		width: 100%;
 	}
@@ -115,13 +134,10 @@ $wmlunits-unit-col-margin:         2*$measurement-small;
 // The unit sprite is floated and needs a margin from the heading below to
 // match the paragraph accompanying it.
 h1 + .pic {
-	margin-top: $measurement-paragraph-spacing;
+	margin: $measurement-paragraph-spacing $measurement-paragraph-spacing 0 0;
 }
 
 div.portrait {
-	$portrait-width:  200px;
-	$portrait-height: 200px;
-
     height: $portrait-height;
 
 	// Background image div used for the upscaled sprite backdrop. The image
