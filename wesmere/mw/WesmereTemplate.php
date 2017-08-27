@@ -482,7 +482,8 @@ class WesmereTemplate extends BaseTemplate
 			echo ' class="sr-label"';
 		}
 
-		echo '>' . htmlspecialchars($label) . '</span></a>';
+		echo '>' . htmlspecialchars($label) . '</span>' .
+		     '<i class="wm-toolbar-dropdown-marker" aria-hidden="true"></i></a>';
 
 		if (!empty($items))
 		{
@@ -515,12 +516,13 @@ class WesmereTemplate extends BaseTemplate
 	{
 		// Don't do anything special if no Wesmere-specific options are
 		// provided.
-		if(!isset($options['wm-haveicon']) && !isset($options['wm-showlabel']))
+		if(!isset($options['wm-haveicon']) && !isset($options['wm-isdropdown']) && !isset($options['wm-showlabel']))
 		{
 			return parent::makeLink($key, $item, $options);
 		}
 
 		$have_icon = isset($options['wm-haveicon']) ? $options['wm-haveicon'] : false;
+		$is_dropdown = isset($options['wm-isdropdown']) ? $options['wm-isdropdown'] : false;
 		$show_label = isset($options['wm-showlabel']) ? $options['wm-showlabel'] : true;
 		$roles = isset($options['wm-aria-roles']) ? $options['wm-aria-roles'] : null;
 
@@ -548,6 +550,11 @@ class WesmereTemplate extends BaseTemplate
 			//       it's more maintainable than copying the entire makeLink()
 			//       implementation here.
 			$html = str_replace('<span', '<i class="wm-toolbar-icon" aria-hidden="true"></i><span', $html);
+		}
+
+		if ($is_dropdown)
+		{
+			$html = str_replace('</span>', '</span><i class="wm-toolbar-dropdown-marker" aria-hidden="true"></i>', $html);
 		}
 
 		return $html;

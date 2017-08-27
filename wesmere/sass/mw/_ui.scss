@@ -238,6 +238,28 @@ $wesmere-wm-wiki-toolbar-icons: (
 	position: relative;
 }
 
+.wm-toolbar-dropdown-marker {
+	@extend .fa;
+	@extend .fa-chevron-down;
+
+	font-size: $measurement-small;
+	vertical-align: middle;
+	padding-left: $measurement-small;
+
+	// Alternative implementation where the arrow sits on the bottom right
+	// corner of the button over the icon instead of to the right of it.
+	/*
+	.sr-label + & {
+		position: absolute;
+
+		right: 0;
+		bottom: 0;
+
+		margin: $measurement-small/2;
+	}
+	*/
+}
+
 .wm-dropdown-menu {
 	display: block;
 	position: absolute;
