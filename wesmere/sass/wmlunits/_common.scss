@@ -12,6 +12,7 @@
 
 $wmlunits-sidebar-width:   9em;
 $wmlunits-sidebar-padding: $measurement-small*2;
+$wmlunits-menu-h-offset:   ($wmlunits-sidebar-width + $wmlunits-sidebar-padding/3);
 
 .centerbox,
 #content,
@@ -35,7 +36,6 @@ div.main {
 div.navbar {
 	width: $wmlunits-sidebar-width;
 	float: left;
-	overflow: hidden;
 }
 
 //
@@ -57,12 +57,23 @@ div.navbar {
 
 	div.navbar {
 		width: auto;
-		padding-right: $wmlunits-sidebar-padding;
 		flex: 0 0 auto;
+
+		// The Flexbox version of the layout can have this stretch to the
+		// bottom of the page, so we can add more styles that will look good
+		// and not broken.
+		background: $wui-menu-bg;
+		border-radius: $radius-minor;
+		border: 1px solid $wesmere-hr;
+
+		& > ul > li > a {
+			padding-right: $wmlunits-sidebar-padding;
+		}
 	}
 
 	div.main {
 		flex: 1 1 auto;
+		border-left: none;
 	}
 }
 
@@ -71,21 +82,37 @@ ul.navbar {
 	margin: 0;
 	padding: 0;
 
+	font-size: 1.1em;
+	font-weight: bold;
+
 	a {
+		@extend %touch-button-behavior;
+		outline: none;
+
 		display: block;
+		padding: 0 $measurement-small;
 
-		color: $wui-border-light;
-		font-size: 1.25em;
-		font-weight: bold;
-		cursor: pointer; // FIXME: Probable sign of iffy markup
-
-		&:hover, &:active {
+		&:link, &:visited {
+			@extend %wesmere-button-normal-styles;
 			color: $wui-border-dark;
-			text-decoration: none;
+		}
+
+		&:hover, &:active, &:focus, &.menu-visible {
+			@extend %wesmere-button-highlight-styles;
+			color: $link-color;
+		}
+
+		&:hover, &:focus {
+			@extend %wesmere-button-hover-styles;
+		}
+
+		&:active, &.menu-visible {
+			@extend %wesmere-button-active-styles;
+			box-shadow: $wesmere-button-shadow-pressed;
 		}
 
 		&.unitmenu {
-			font-size: 1.10em;
+			padding-left: 1em+$measurement-small;
 		}
 	}
 
@@ -93,7 +120,16 @@ ul.navbar {
 		margin: 0;
 		padding: 0;
 
-		font-weight: bold;
+		position: relative;
+
+		&:first-child {
+			// Explicit width of 0 needed to disable border-image on older Chrome/Safari.
+			border-top: 0;
+		}
+
+		&:first-child > a {
+			border-top-left-radius: $radius-minor;
+		}
 
 		&.overviewlink {
 			margin-top: 2em;
@@ -101,31 +137,35 @@ ul.navbar {
 	}
 }
 
-.popuptrigger {
-	@extend %touch-button-behavior;
-}
-
-.popupmenu {
-	display: none;
-
-	.no-js .popupcontainer:hover > & {
-		display: block;
-	}
-}
-
 div.popupmenu {
+	display:  block;
 	position: absolute;
-	z-index:  1000;
+	// a11y -- Initially display offscreen for screen readers
+	top:     -9999px;
+	left:    -9999px;
+	opacity:  0;
 
-	margin-left: ($wmlunits-sidebar-width);
-	margin-top: -2em;
+	// We can't transition all properties because of the absolute position
+	// change between states.
+	transition: opacity 250ms;
 
-	padding: $measurement-small/2 $measurement-small;
+	margin-top:  -$radius-minor;
+	margin-left: -1px;
 
 	background: $wui-menu-bg;
 	border: 1px solid $wui-text-navlink;
 	border-radius: $radius-minor;
 	box-shadow: 1px 1px 2px 0px rgba(#000, 0.2);
+
+	.no-js .popupcontainer:hover > &,
+	.menu-visible + & {
+		// a11y -- Bring into view
+		top:  0;
+		left: 100%;
+		opacity: 1;
+		display: block!important;
+		z-index: 1;
+	}
 
 	& > ul,
 	& > ul > li {
@@ -135,33 +175,33 @@ div.popupmenu {
 	}
 
 	& > ul {
-		@include column-layout(3);
-
-		@include media-small-screen-constraint {
-			@include column-layout(2);
-		}
+		@include column-layout(2);
+		@include column-gap(0);
+		@include column-rule(solid 1px $wesmere-hr);
 
 		@include media-tiny-screen-constraint {
 			@include column-layout(1);
 		}
+
+		// Chrome needs an explicit border width of 0 for border-image to not be
+		// applied on a given border. (Last checked on v50.)
+		border-width: 0 0 1px;
+		border-top: 1px solid $wesmere-hr;
+		border-image: linear-gradient(to right, rgba($wui-text-navlink, 0.1), rgba($wui-text-navlink, 0.6), rgba($wui-text-navlink, 0.1)) 1;
 	}
 
-	a {
-		font-size: 1.10em;
-		text-decoration: none;
+	& > ul > li {
+		// FIXME
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
 	}
 }
 
 .popupheader {
+	display: block; // It's an <a> for race menus, so...
 	color: $wui-border-dark;
-	font-size: 1.25em;
-	margin-bottom: $measurement-small/2;
-
-	// Chrome needs an explicit border width of 0 for border-image to not be
-	// applied on a given border. (Last checked on v50.)
-	border-width: 0 0 1px;
-	border-bottom: 1px solid $wesmere-hr;
-	border-image: linear-gradient(to right, rgba($wui-text-navlink, 0.6), rgba($wui-text-navlink, 0.1)) 1;
+	text-align: center;
 }
 
 // Remove extraneous outer padding on language menu elements caused by a
@@ -169,14 +209,9 @@ div.popupmenu {
 #languages_menu td {
 	padding: 0;
 
-	& + td {
-		padding-left: 1.5em;
+	&:not(:last-child) > a {
+		padding-right: 1em;
 	}
-}
-
-.unitmenu {
-	padding-left: 1em;
-	font-size: $measurement-sub;
 }
 
 // Container for a unit sprite used in the unit list and detail pages.

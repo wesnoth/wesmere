@@ -125,6 +125,18 @@ $print-border-color:						#ccc;
 	columns:         $col-params;
 }
 
+@mixin column-gap($length) {
+	-webkit-column-gap: $length;
+	-moz-column-gap:    $length;
+	column-gap:         $length;
+}
+
+@mixin column-rule($style) {
+	-webkit-column-rule: $style;
+	-moz-column-rule:    $style;
+	column-rule:         $style;
+}
+
 @mixin placeholder-styles {
 	&::-webkit-input-placeholder {
 		@content;
