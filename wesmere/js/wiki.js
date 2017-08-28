@@ -18,12 +18,14 @@
 
 	function adjustDropdownPos($ddMenu)
 	{
+		var margin = 4; // CSS margin-left*-1
+
 		// Ignore a previous offset we may have set here.
 		$ddMenu.attr("style", "");
+		$ddMenu.css("min-width", $ddMenu.parent().outerWidth() + margin*2 - 1);
 
 		var pos  = $ddMenu.offset(),
-		    width = $ddMenu.innerWidth(),
-		    margin = 6; // CSS margin-left*-1
+		    width = $ddMenu.innerWidth();
 
 		if (pos.left + $ddMenu.outerWidth() > document.body.clientWidth) {
 			// Align to the right edge of the button instead of the left.
