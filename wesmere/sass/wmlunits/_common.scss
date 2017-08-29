@@ -61,10 +61,6 @@ div.navbar {
 	div.navbar {
 		width: auto;
 		flex: 0 0 auto;
-
-		& > ul > li > a {
-			padding-right: $wmlunits-sidebar-padding;
-		}
 	}
 
 	div.main {
@@ -87,6 +83,7 @@ ul.navbar {
 		border: 1px solid transparent;
 		border-style: solid none;
 
+		clear: both;
 		display: block;
 		padding: 0 $measurement-small;
 
@@ -112,6 +109,12 @@ ul.navbar {
 
 		&.unitmenu {
 			padding-left: 1em+$measurement-small;
+		}
+
+		&.popuptrigger::after {
+			float: right;
+			margin-left: 0.5em;
+			content: "›";
 		}
 	}
 
