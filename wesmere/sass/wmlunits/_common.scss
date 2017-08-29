@@ -25,17 +25,21 @@ $wmlunits-menu-h-offset:   ($wmlunits-sidebar-width + $wmlunits-sidebar-padding/
 // Column layout -- normal mode
 //
 div.main {
-	margin-top: 0;
 	margin-left: $wmlunits-sidebar-width;
 	padding-left: $wmlunits-sidebar-padding;
-	border-left: 1px solid $wesmere-hr;
 }
 
 // There's a good reason this is an element.class selector -- another element
 // reuses the same class later. (FIXME in wmlunits script.)
 div.navbar {
+	margin-top: $measurement-paragraph-spacing/2; // same as h1 divided by 2
+
 	width: $wmlunits-sidebar-width;
 	float: left;
+
+	background: $wui-menu-bg;
+	border-radius: $radius-minor;
+	border: 1px solid $wesmere-hr;
 }
 
 //
@@ -51,7 +55,6 @@ div.navbar {
 
 	div.main,
 	div.navbar {
-		margin: 0;
 		float: none;
 	}
 
@@ -59,19 +62,13 @@ div.navbar {
 		width: auto;
 		flex: 0 0 auto;
 
-		// The Flexbox version of the layout can have this stretch to the
-		// bottom of the page, so we can add more styles that will look good
-		// and not broken.
-		background: $wui-menu-bg;
-		border-radius: $radius-minor;
-		border: 1px solid $wesmere-hr;
-
 		& > ul > li > a {
 			padding-right: $wmlunits-sidebar-padding;
 		}
 	}
 
 	div.main {
+		margin-left: 0;
 		flex: 1 1 auto;
 		border-left: none;
 	}
@@ -82,24 +79,25 @@ ul.navbar {
 	margin: 0;
 	padding: 0;
 
-	font-size: 1.1em;
 	font-weight: bold;
 
 	a {
 		@extend %touch-button-behavior;
 		outline: none;
+		border: 1px solid transparent;
+		border-style: solid none;
 
 		display: block;
 		padding: 0 $measurement-small;
 
 		&:link, &:visited {
 			@extend %wesmere-button-normal-styles;
-			color: $wui-border-dark;
 		}
 
 		&:hover, &:active, &:focus, &.menu-visible {
 			@extend %wesmere-button-highlight-styles;
 			color: $link-color;
+			border-color: $wesmere-hr;
 		}
 
 		&:hover, &:focus {
@@ -109,6 +107,7 @@ ul.navbar {
 		&:active, &.menu-visible {
 			@extend %wesmere-button-active-styles;
 			box-shadow: $wesmere-button-shadow-pressed;
+			border-top-color: $wui-border-light;
 		}
 
 		&.unitmenu {
@@ -122,13 +121,14 @@ ul.navbar {
 
 		position: relative;
 
-		&:first-child {
-			// Explicit width of 0 needed to disable border-image on older Chrome/Safari.
-			border-top: 0;
+		&:first-child > a {
+			border-top: none;
+			padding-top: 1px;
 		}
 
-		&:first-child > a {
-			border-top-left-radius: $radius-minor;
+		& > a:link,
+		& > a:visited {
+			color: $wui-border-dark;
 		}
 
 		&.overviewlink {
@@ -172,6 +172,7 @@ div.popupmenu {
 		display: block;
 		margin:  0;
 		padding: 0;
+		font-weight: normal;
 	}
 
 	& > ul {
@@ -179,38 +180,64 @@ div.popupmenu {
 		@include column-gap(0);
 		@include column-rule(solid 1px $wesmere-hr);
 
-		@include media-tiny-screen-constraint {
+		@include media-small-screen-constraint {
 			@include column-layout(1);
 		}
 
 		// Chrome needs an explicit border width of 0 for border-image to not be
 		// applied on a given border. (Last checked on v50.)
-		border-width: 0 0 1px;
+		border-width: 1px 0 0;
 		border-top: 1px solid $wesmere-hr;
 		border-image: linear-gradient(to right, rgba($wui-text-navlink, 0.1), rgba($wui-text-navlink, 0.6), rgba($wui-text-navlink, 0.1)) 1;
 	}
 
-	& > ul > li {
-		// FIXME
+	a {
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
+
+		font-size: $measurement-sub;
+		max-width: 22em;
+
+		@include media-not-small-screen-constraint {
+			max-width: 38vw;
+		}
 	}
 }
 
-.popupheader {
+ul.navbar a.popupheader,
+ul.navbar div.popupheader {
 	display: block; // It's an <a> for race menus, so...
 	color: $wui-border-dark;
 	text-align: center;
+	border: none;
+	padding: 1px;
+	font-size: 1em;
 }
 
 // Remove extraneous outer padding on language menu elements caused by a
 // global table rule from core Wesmere.
-#languages_menu td {
-	padding: 0;
+#languages_menu {
+	div.popupheader {
+		padding: 1px 0;
+		// Chrome needs an explicit border width of 0 for border-image to not be
+		// applied on a given border. (Last checked on v50.)
+		border-width: 0 0 1px;
+		border-bottom: 1px solid $wesmere-hr;
+		border-image: linear-gradient(to right, rgba($wui-text-navlink, 0.1), rgba($wui-text-navlink, 0.6), rgba($wui-text-navlink, 0.1)) 1;
+	}
 
-	&:not(:last-child) > a {
-		padding-right: 1em;
+	td {
+		padding: 0;
+		font-weight: normal;
+
+		& + td {
+			border-left: 1px solid $wesmere-hr;
+		}
+
+		&:not(:last-child) > a {
+			padding-right: 1em;
+		}
 	}
 }
 
