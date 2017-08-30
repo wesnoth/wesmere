@@ -97,16 +97,16 @@ $portrait-height:                  200px;
 	.unit-column-right {
 		float: none;
 		margin: 0;
+		width: auto;
 		flex: 1 0 auto;
 	}
 
 	.unit-column-left {
-		width: $wmlunits-unit-col-width-left-pc;
+		flex-grow: 3;
 		padding-right: $wmlunits-unit-col-margin;
 	}
 
 	.unit-column-right {
-		width: $wmlunits-unit-col-width-right-pc;
 		padding-left: $wmlunits-unit-col-margin;
 		min-width: $wmlunits-unit-col-width-right;
 	}
