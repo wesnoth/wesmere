@@ -87,6 +87,20 @@ ul.navbar {
 		display: block;
 		padding: 0 $measurement-small;
 
+		&.popuptrigger {
+			// Reserve space for the dropdown caret
+			padding-right: $measurement-small+1em;
+		}
+
+		&.popuptrigger::after {
+			position: absolute;
+			top:      0;
+			right:    0;
+			padding: 0 0.5em 0 0;
+			content: "›";
+			text-align: right;
+		}
+
 		&:link, &:visited {
 			@extend %wesmere-button-normal-styles;
 		}
@@ -109,12 +123,6 @@ ul.navbar {
 
 		&.unitmenu {
 			padding-left: 1em+$measurement-small;
-		}
-
-		&.popuptrigger::after {
-			float: right;
-			margin-left: 0.5em;
-			content: "›";
 		}
 	}
 
