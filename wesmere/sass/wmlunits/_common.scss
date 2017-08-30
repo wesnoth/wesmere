@@ -191,6 +191,10 @@ div.popupmenu {
 		@include column-gap(0);
 		@include column-rule(solid 1px $wesmere-hr);
 
+		&.nocolumns {
+			@include column-layout(1);
+		}
+
 		@include media-small-screen-constraint {
 			@include column-layout(1);
 		}
