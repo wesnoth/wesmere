@@ -22,6 +22,7 @@ html_files= \
 	docroot/errors/403.html \
 	docroot/errors/404.html \
 	docroot/errors/500.html \
+	docroot/errors/503.html \
 	docroot/maintenance/all.html \
 	docroot/maintenance/forums.html \
 	docroot/maintenance/wiki.html \

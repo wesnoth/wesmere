@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../../template_inside.xsl"?>
+<document>
+	<title>Service Unavailable</title>
+	<content>
+		<h1>503 — Service Unavailable</h1>
+
+		<div class="center">
+			<img src="/wesmere/img/misc/503-ladoc.png" width="340" height="470" alt="Portrait of Sir Ladoc"/><img-bottom-border/>
+
+			<p class="bold">This page is currently unavailable due to ongoing maintenance work. Try again at a later time.</p>
+
+			<p>If the problem persists, report this to the Wesnoth.org administration via our <a href="https://discord.gg/tSmJS2E"><b>official Discord server</b></a>, our <abbr title="Internet Relay Chat">IRC</abbr> channel <a href="https://webchat.freenode.net/?channels=wesnoth"><b>#wesnoth</b></a> on <code class="noframe">irc.freenode.net</code>, or tweeting <a href="https://twitter.com/Wesnoth"><b>@Wesnoth</b></a> on Twitter. Make sure to provide as much information in your report as possible, including the actions you performed that led to this result.</p>
+
+			<ul>
+				<li><a href="https://www.wesnoth.org/">Back to the home page</a></li>
+			</ul>
+		</div>
+
+	</content>
+</document>
+
+<!-- kate: indent-mode normal; indent-width 2; tab-width 2; space-indent off; show-tabs off; -->
