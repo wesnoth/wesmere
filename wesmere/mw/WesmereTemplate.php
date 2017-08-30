@@ -237,9 +237,9 @@ class WesmereTemplate extends BaseTemplate
 				echo wfMessage( 'searchsuggest-search' )->text()
 			?>" value="<?php
 				echo $this->get( 'search', '' )
-			?>" title="Search this wiki [Alt+Shift+f]" accesskey="f" tabindex="1" />
+			?>" title="Search this wiki [Alt+Shift+f]" accesskey="f" />
 			<span id="searchbox-controls">
-				<button id="search-go" class="search-button" type="submit" title="Search" tabindex="2">
+				<button id="search-go" class="search-button" type="submit" title="Search">
 					<i class="search-icon" aria-hidden="true"></i>
 					<span class="sr-label">Search this wiki</span>
 				</button>
