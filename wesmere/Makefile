@@ -30,6 +30,7 @@ js_files = \
 	$(js_out_dir)/jquery-3.2.1.min.js.gz \
 	$(js_out_dir)/modernizr.js.gz
 
+font_ver = 1.1.1
 font_cfg = fonts/fontello-config.json
 fontawesome = $(sass_in_dir)/3rdparty/font-awesome
 
@@ -49,7 +50,7 @@ css: cssdir
 	@$(SASS) $(SASSFLAGS) -C --update $(sass_in_dir):$(sass_out_dir)
 	@for css in $(sass_out_dir)/*.css; do \
 		echo "  CSSPOST     $$css"; \
-		sed -ri 's:fonts/(fontawesome-webfont)\.([^?]+)\?:fonts/\1-min.\2?:g' $$css; \
+		sed -ri 's:fonts/(fontawesome-webfont)\.([^?]+)\?:fonts/\1-min-$(font_ver).\2?:g' $$css; \
 		fn=`basename $$css`; \
 		cssgz=$(css_out_dir)/$$fn.gz; \
 		echo "  CSSPACK     $$cssgz"; \

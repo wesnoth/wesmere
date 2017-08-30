@@ -229,6 +229,18 @@
       "src": "fontawesome"
     },
     {
+      "uid": "fe6697b391355dec12f3d86d6d490397",
+      "css": "chevron-up",
+      "code": 61559,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "ccddff8e8670dcd130e3cb55fdfc2fd0",
+      "css": "chevron-down",
+      "code": 61560,
+      "src": "fontawesome"
+    },
+    {
       "uid": "e99461abfef3923546da8d745372c995",
       "css": "cog",
       "code": 61459,
