@@ -316,7 +316,7 @@ class WesmereTemplate extends BaseTemplate
 <div id="footer-sep"></div>
 
 <div id="footer"><div id="footer-content"><div>
-	<a href="https://wiki.wesnoth.org/StartingPoints">Site Map</a> &#8226; <a href="http://status.wesnoth.org/">Site Status</a><br />
+	<a href="https://wiki.wesnoth.org/StartingPoints">Site Map</a> &#8226; <a href="https://status.wesnoth.org/">Site Status</a><br />
 	Copyright &copy; 2003&ndash;2017 by <a rel="author" href="https://wiki.wesnoth.org/Project">The Battle for Wesnoth Project</a>. Powered by <a href="https://www.mediawiki.org/">MediaWiki</a>.<br />
 	Site design Copyright &copy; 2017 by Ignacio R. Morelle.
 </div></div></div>

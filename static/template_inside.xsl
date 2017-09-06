@@ -102,7 +102,7 @@ with this program; if not, see <http://www.gnu.org/licenses/>.
 		<p>In the meantime, you might be interested in checking out our <a href="https://discord.gg/tSmJS2E"><b>official Discord server</b></a>, our <abbr title="Internet Relay Chat">IRC</abbr> channel <a href="https://webchat.freenode.net/?channels=wesnoth"><b>#wesnoth</b></a> on <code class="noframe">irc.freenode.net</code>, or following <a href="https://twitter.com/Wesnoth"><b>@Wesnoth</b></a> on Twitter for status updates!</p>
 
 		<ul>
-			<li><a href="http://status.wesnoth.org/">Site status report</a></li>
+			<li><a href="https://status.wesnoth.org/">Site status report</a></li>
 			<li><a href="https://www.wesnoth.org/">Back to the home page</a></li>
 		</ul>
 	</xsl:if>
@@ -113,7 +113,7 @@ with this program; if not, see <http://www.gnu.org/licenses/>.
 <div id="footer-sep"></div>
 
 <div id="footer"><div id="footer-content"><div>
-	<a href="https://wiki.wesnoth.org/StartingPoints">Site Map</a> &#8226; <a href="http://status.wesnoth.org/">Site Status</a><br />
+	<a href="https://wiki.wesnoth.org/StartingPoints">Site Map</a> &#8226; <a href="https://status.wesnoth.org/">Site Status</a><br />
 	Copyright &copy; 2003&ndash;2017 by <a rel="author" href="https://wiki.wesnoth.org/Project">The Battle for Wesnoth Project</a>.<br />
 	Site design Copyright &copy; 2017 by Ignacio R. Morelle.
 </div></div></div>
