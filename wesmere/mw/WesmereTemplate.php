@@ -87,6 +87,7 @@ class WesmereTemplate extends BaseTemplate
 
 		$this->advanced_page_actions = [
 			'delete',
+			'undelete',
 			'move',
 			'protect', 'unprotect',
 			'viewsource',
