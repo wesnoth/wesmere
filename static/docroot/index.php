@@ -136,7 +136,7 @@ $branches = [
 				'1024x768 or larger screen<sup>2</sup>',
 			],
 			'input' => 'Keyboard and mouse required',
-			'footer' => '<sup>1</sup> Ubuntu 12.04 is supported only when <a href="https://forums.wesnoth.org/viewtopic.php?p=585449#p585449">building from source with non-default options</a><br/><sup>2</sup> Retina hardware is not properly supported on Apple macOS by 1.12.x and causes issues.',
+			'footer' => '<sup>1</sup> Ubuntu 12.04 is supported only when <a href="https://forums.wesnoth.org/viewtopic.php?p=585449#p585449">building from source with non-default options</a>.<br/><sup>2</sup> Retina hardware is not properly supported on Apple macOS by 1.12.x and causes issues.',
 		],
 	],
 	'dev' =>
