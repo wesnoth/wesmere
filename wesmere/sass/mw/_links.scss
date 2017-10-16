@@ -74,8 +74,10 @@ $wesmere-link-icon-padding: 0.25em;
 
 @mixin wesmere-mw-file-link($extensions, $fa-icon-id) {
 	@each $ext in $extensions {
-		a.external[href$=".#{$ext}"],
-		a.external[href$=".#{to-upper-case($ext)}"] {
+		a.external[href$=".#{$ext}"][href^="http"],
+		a.external[href$=".#{$ext}"][href^="ftp"],
+		a.external[href$=".#{to-upper-case($ext)}"][href^="http"],
+		a.external[href$=".#{to-upper-case($ext)}"][href^="ftp"] {
 			&:before {
 				@extend %wesmere-link-icon;
 				@extend .fa-#{$fa-icon-id}; /* CSSPOST .fa-#{$fa-icon-id} */
