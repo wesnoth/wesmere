@@ -154,7 +154,7 @@ $branches = [
 
 		'description' => '<p>The <b>development</b> version of Wesnoth is geared towards veteran players and content creators who wish to try out the latest additions to the game. Updates are not guaranteed to be stable and may include game-breaking changes.</p>',
 
-		'update-announcement' => 'https://forums.wesnoth.org/viewtopic.php?t=46094',
+		'update-announcement' => 'https://forums.wesnoth.org/viewtopic.php?t=47054',
 
 		'files-url-prefix' => 'https://sourceforge.net/projects/wesnoth/files/wesnoth/wesnoth-1.13.10',
 
