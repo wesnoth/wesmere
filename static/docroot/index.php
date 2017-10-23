@@ -63,6 +63,11 @@ $config = [
 	'wip-branch-message' => '<p><i class="download-desc-warning" aria-hidden="true"></i> <strong style="color:#d41">New players are advised to choose the stable version instead.</strong></p>',
 ];
 
+// iOS is a special case for us because it needs to be used on the Download
+// button despite not being from the stable branch as of this writing, so we
+// need a hidden entry on stable with the same URL as dev.
+$ios_appstore_url = 'https://itunes.apple.com/us/app/battle-for-wesnoth-hd/id575852062';
+
 $branches = [
 	'stable' =>
 	[
@@ -101,10 +106,12 @@ $branches = [
 				'os'    => 'linux',
 				'url'   => 'https://wiki.wesnoth.org/WesnothBinariesLinux',
 			],
-			/*[
+			[
 				'os'    => 'ios',
-				'url'   => '#',
-			],*/
+				// It's actually 1.13.x, we need it for the Download button!
+				'nover' => true,
+				'url'   => $ios_appstore_url,
+			],
 			[
 				'os'    => 'android',
 				'url'   => 'https://play.google.com/store/apps/details?id=it.alessandropira.wesnoth112',
@@ -172,6 +179,10 @@ $branches = [
 			[
 				'os'    => 'linux',
 				'url'   => 'https://wiki.wesnoth.org/WesnothBinariesLinux',
+			],
+			[
+				'os'    => 'ios',
+				'url'   => $ios_appstore_url,
 			],
 		],
 
