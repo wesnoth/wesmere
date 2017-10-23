@@ -63,7 +63,8 @@
 	function arrowHtml(direction)
 	{
 		return "<a class='screenshots-arrow' role='button' id='screenshots-" +
-		       direction + "' href='#' title='Scroll " + direction + "'><i aria-hidden='true'/></a>";
+		       direction + "' href='#' title='Scroll " + direction + "'><i aria-hidden='true'/>" +
+			   "<span class='sr-label'>Scroll " + direction + "</span></a>";
 	}
 
 	var listHtml = "";
