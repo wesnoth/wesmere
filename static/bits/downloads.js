@@ -23,7 +23,11 @@
 		$section.find(".downloads > li").each(function(i) {
 			var sizeElem = $(this).find(".size")[0],
 			    sizeText = null,
-			    $link = $(this).find("a");
+			    $link = $(this).find("a"),
+			    // Special case for iOS since it version can change completely
+			    // independently of mainline and it started its lifecycle in
+			    // 2017 as a dev branch fork.
+			    noVersion = $(this).data("version-agnostic") !== undefined;
 
 			if (sizeElem) {
 				// Make whitespace in the size label non-breaking.
@@ -33,7 +37,8 @@
 			res[this.className] = {
 				label:		$link.children(".os")[0].innerHTML,
 				url:		$link[0].href,
-				size:		sizeText
+				size:		sizeText,
+				noVersion:	noVersion
 			};
 		});
 
@@ -82,8 +87,12 @@
 		    $downButt = $recBox.children(".download-button");
 
 		$downButt.attr("href", defBranch.files[platform].url);
-		$downButt.find(".download-desc").html(
-			defBranch.files[platform].label + " &#8212; " + defBranch.number);
+
+		var buttLabel = !defBranch.files[platform].noVersion
+		                ? defBranch.files[platform].label + " &#8212; " + defBranch.number
+		                : "Wesnoth for " + defBranch.files[platform].label;
+
+		$downButt.find(".download-desc").html(buttLabel);
 	}
 
 	//

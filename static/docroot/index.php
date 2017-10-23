@@ -422,6 +422,8 @@ set_error_handler('trap');
 							$os = $file['os'];
 							$os_label = isset($file['label']) ? $file['label'] : $config['default-os-labels'][$os];
 							$url = $file['url'];
+							$hidden = isset($file['hidden']) ? $file['hidden'] : false;
+							$nover = isset($file['nover']) ? $file['nover'] : false;
 
 							if (!empty($url) && $url[0] == '@')
 							{
@@ -429,7 +431,7 @@ set_error_handler('trap');
 								$url = substr_replace($url, $prefix, 0, 1);
 							}
 
-							echo '<li class="' . htmlspecialchars($os) . '"><a href="' . htmlspecialchars($url) . '">';
+							echo '<li class="' . htmlspecialchars($os) . '"' . ($hidden ? ' style="display:none"' : '') . ($nover ? ' data-version-agnostic' : '') . '><a href="' . htmlspecialchars($url) . '">';
 							echo '<i class="downloadicon downloadicon-' . htmlspecialchars($os) . '" aria-hidden="true"></i>';
 							echo '<span class="os">' . $os_label . '</span>';
 
