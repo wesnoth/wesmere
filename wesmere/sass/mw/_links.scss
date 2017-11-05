@@ -114,7 +114,7 @@ $wesmere-link-icon-padding: 0.25em;
 		a.external[href^="http://#{$domain}"]:after,
 		a.external[href^="https://#{$domain}"]:before,
 		a.external[href^="https://#{$domain}"]:after {
-			display: none;
+			display: none!important;
 		}
 	}
 }
