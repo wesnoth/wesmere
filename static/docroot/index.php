@@ -168,8 +168,8 @@ $branches = [
 			[
 				'os'    => 'apple',
 				'label' => 'macOS (10.7+)',
-				'size'  => '418.9',
-				'url'   => '@/Wesnoth_1.13.10.dmg/download',
+				'size'  => '418.7',
+				'url'   => '@/Wesnoth_1.13.10a.dmg/download',
 			],
 			[
 				'os'    => 'src',
