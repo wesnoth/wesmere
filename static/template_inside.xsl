@@ -99,7 +99,7 @@ with this program; if not, see <http://www.gnu.org/licenses/>.
 	<xsl:apply-templates select="document/content/* | document/content/text()"/>
 
 	<xsl:if test="document/@is-maintenance-page">
-		<p>In the meantime, you might be interested in checking out our <a href="https://discord.gg/tSmJS2E"><b>official Discord server</b></a>, our <abbr title="Internet Relay Chat">IRC</abbr> channel <a href="https://webchat.freenode.net/?channels=wesnoth"><b>#wesnoth</b></a> on <code class="noframe">irc.freenode.net</code>, or following <a href="https://twitter.com/Wesnoth"><b>@Wesnoth</b></a> on Twitter for status updates!</p>
+		<p>In the meantime, you might be interested in checking out our <a href="https://discord.gg/battleforwesnoth"><b>official Discord server</b></a>, our <abbr title="Internet Relay Chat">IRC</abbr> channel <a href="https://webchat.freenode.net/?channels=wesnoth"><b>#wesnoth</b></a> on <code class="noframe">irc.freenode.net</code>, or following <a href="https://twitter.com/Wesnoth"><b>@Wesnoth</b></a> on Twitter for status updates!</p>
 
 		<ul>
 			<li><a href="https://status.wesnoth.org/">Site status report</a></li>
