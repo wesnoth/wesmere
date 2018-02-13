@@ -1,7 +1,7 @@
 <?php
 /*
  * codename Wesmere - Next-gen Wesnoth.org stylesheet
- * Copyright (C) 2011 - 2017 by Ignacio R. Morelle <shadowm@wesnoth.org>
+ * Copyright (C) 2011 - 2018 by Ignacio R. Morelle <shadowm@wesnoth.org>
  *
  * See LICENSE for usage terms.
  */

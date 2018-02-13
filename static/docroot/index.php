@@ -3,7 +3,7 @@
 # Wesnoth.org home page PHP template
 #
 # codename Wesmere - Next-gen Wesnoth.org stylesheet
-# Copyright (C) 2011 - 2017 by Ignacio R. Morelle <shadowm@wesnoth.org>
+# Copyright (C) 2011 - 2018 by Ignacio R. Morelle <shadowm@wesnoth.org>
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -599,8 +599,8 @@ set_error_handler('trap');
 
 <div id="footer"><div id="footer-content"><div>
 	<a href="https://wiki.wesnoth.org/StartingPoints">Site Map</a> &#8226; <a href="https://status.wesnoth.org/">Site Status</a><br />
-	Copyright &copy; 2003&ndash;2017 by <a rel="author" href="https://wiki.wesnoth.org/Project">The Battle for Wesnoth Project</a>. Supported by <a href="http://www.jexiste.fr/">Jexiste</a>.<br />
-	Site design Copyright &copy; 2017 by Ignacio R. Morelle.
+	Copyright &copy; 2003&ndash;2018 by <a rel="author" href="https://wiki.wesnoth.org/Project">The Battle for Wesnoth Project</a>. Supported by <a href="http://www.jexiste.fr/">Jexiste</a>.<br />
+	Site design Copyright &copy; 2017&ndash;2018 by Ignacio R. Morelle.
 </div></div></div>
 
 <script>@ HTMLPOST:INCLUDE bits/smooth.js @</script>
