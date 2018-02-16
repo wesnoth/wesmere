@@ -2,10 +2,10 @@
 # GNU Makefile for building codename Wesmere
 #
 # codename Wesmere - Next-gen Wesnoth.org stylesheet
-# Copyright (C) 2011 - 2018 by Ignacio R. Morelle <shadowm@wesnoth.org>
+# Copyright (C) 2011 - 2018 by Iris Morelle <shadowm@wesnoth.org>
 #
 # codename Iris
-# Copyright (C) 2014 - 2017 by Ignacio R. Morelle <shadowm@wesnoth.org>
+# Copyright (C) 2014 - 2017 by Iris Morelle <shadowm@wesnoth.org>
 #
 
 SASS               := sass
