@@ -167,7 +167,7 @@ $branches = [
 			],
 			[
 				'os'    => 'apple',
-				'label' => 'macOS (10.7+)',
+				'label' => 'macOS (10.8+)',
 				'size'  => '424.1',
 				'url'   => '@/Wesnoth_1.13.11.dmg/download',
 			],
@@ -190,7 +190,7 @@ $branches = [
 		[
 			'platform' =>
 			[
-				'Microsoft Windows 7 SP1 or later<br />Apple macOS 10.7 or later<br />Ubuntu 14.04 or compatible',
+				'Microsoft Windows 7 SP1 or later<br />Apple macOS 10.8 or later<br />Ubuntu 14.04 or compatible',
 				'Microsoft Windows 10<br />Apple macOS 10.10 or later<br />Ubuntu 16.04 or compatible',
 			],
 			'processor' =>
