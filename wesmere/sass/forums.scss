@@ -100,6 +100,14 @@ html {
 		border-radius: 0;
 		border: none;
 	}
+
+	.responsive-search {
+		// HACK:
+		// !important fight with prosilver responsive.css. Wesmere's header
+		// has its own search box so we don't need prosilver's search button
+		// to pop up on small viewports.
+		display: none!important;
+	}
 }
 
 //
