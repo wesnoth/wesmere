@@ -82,6 +82,26 @@ html {
 	max-width: none;
 }
 
+
+//
+// phpBB 3.2 responsive styles compatibility
+//
+@media (max-width: 700px) {
+	#content {
+		padding: $measurement-sub*1.5 0 0;
+	}
+
+	#wrap {
+		// Horizontal 5px margin from prosilver responsive.css. Without it
+		// the content overflows horizontally. Not a bug in Wesmere but
+		// rather some quirk in prosilver's design. (Negative margins on
+		// a child of #wrap?)
+		padding: 0 5px;
+		border-radius: 0;
+		border: none;
+	}
+}
+
 //
 // Override a few conflicting phpBB styles.
 //
