@@ -86,6 +86,15 @@ html {
 //
 // phpBB 3.2 responsive styles compatibility
 //
+
+@media only screen and (max-width: 1220px), only screen and (max-device-width: 1220px) {
+	.wrap {
+		// Eliminate extra margin that interferes with the Wesmere
+		// content/navbar alignment and denies us some horizontal space.
+		margin: 0;
+	}
+}
+
 @media (max-width: 700px) {
 	#content {
 		padding: $measurement-sub*1.5 0 0;
