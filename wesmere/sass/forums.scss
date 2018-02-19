@@ -82,6 +82,11 @@ html {
 	max-width: none;
 }
 
+.acidtech .navbar {
+	// Eliminate negative margin that interfers with the Wesmere content/navbar
+	// alignment.
+	margin: 0;
+}
 
 //
 // phpBB 3.2 responsive styles compatibility
