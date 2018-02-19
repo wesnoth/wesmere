@@ -105,7 +105,8 @@ html {
 		padding: $measurement-sub*1.5 0 0;
 	}
 
-	#wrap {
+	#wrap,
+	.acidtech #wrap {
 		// Horizontal 5px margin from prosilver responsive.css. Without it
 		// the content overflows horizontally. Not a bug in Wesmere but
 		// rather some quirk in prosilver's design. (Negative margins on
