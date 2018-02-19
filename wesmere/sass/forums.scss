@@ -82,12 +82,6 @@ html {
 	max-width: none;
 }
 
-.acidtech .navbar {
-	// Eliminate negative margin that interfers with the Wesmere content/navbar
-	// alignment.
-	margin: 0;
-}
-
 //
 // phpBB 3.2 responsive styles compatibility
 //
@@ -122,6 +116,14 @@ html {
 		// has its own search box so we don't need prosilver's search button
 		// to pop up on small viewports.
 		display: none!important;
+	}
+}
+
+@media (min-width: 701px) {
+	.acidtech .navbar {
+		// Eliminate negative margin that interfers with the Wesmere content/navbar
+		// alignment.
+		margin: 0;
 	}
 }
 
