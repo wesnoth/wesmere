@@ -150,8 +150,11 @@ body {
 	}
 }
 
-#wrap {
-	font-size: 10px; // prosilver, subsilver2, AcidTech all use this.
+#wrap,
+.copyright {
+	// prosilver, subsilver2, AcidTech all use this. prosilver SE for 3.2 has
+	// the copyright section outside #wrap, however.
+	font-size: 10px;
 }
 
 //
