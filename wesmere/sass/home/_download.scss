@@ -101,10 +101,10 @@
 
 .steam-button {
 	$steam-color:						#171a21;
-	$steam-color-highlight:				$steam-color+#202020;
-	$steam-color-highlight-focus:		$steam-color+#303030;
-	$steam-color-highlight-focus-2:		$steam-color+#404040;
-	$steam-color-highlight-focus-3:		$steam-color+#505050;
+	$steam-color-highlight:				lighten($steam-color, 10%);
+	$steam-color-highlight-focus:		lighten($steam-color, 15%);
+	$steam-color-highlight-focus-2:		lighten($steam-color, 25%);
+	$steam-color-highlight-focus-3:		lighten($steam-color, 30%);
 	$steam-border:						#999ca0;
 
 	background: $steam-color; // legacy browsers
