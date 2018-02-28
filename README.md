@@ -20,8 +20,7 @@ Build Requirements
 ------------------
 
 The package names listed below are aimed at Debian users. The only supported
-build environments at this time are Debian 8 (Jessie), Debian 9 (Stretch), and
-Debian Buster.
+build environments at this time are Debian 9 (Stretch), and Debian Buster.
 
 **Mandatory**
 
