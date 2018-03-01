@@ -61,20 +61,25 @@
 		}
 	}
 
+	// Font Awesome classes are optional because forums.css does not include it
+	// as phpBB 3.2 provides its own. The markup for the forums' navbar is more
+	// verbose and has to include the classes itself as a result (see also
+	// ticket #12).
+
 	.search-icon,
 	.advsearch-icon {
-		@extend .fa;
-		@extend .fa-fw;
+		@extend .fa !optional;
+		@extend .fa-fw !optional;
 		font-size: $searchbox-icon-size;
 		vertical-align: baseline;
 	}
 
 	.search-icon {
-		@extend .fa-search;
+		@extend .fa-search !optional;
 	}
 
 	.advsearch-icon {
-		@extend .fa-cog;
+		@extend .fa-cog !optional;
 	}
 
 	#searchbox-controls {
