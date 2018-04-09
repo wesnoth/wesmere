@@ -340,6 +340,14 @@ a.feedlink {
 	background: none;
 }
 
+// Hide account name on tiny viewports to save up space
+
+@include media-tiny-screen-constraint {
+	#wm-account-menu > a > span {
+		display: none;
+	}
+}
+
 /*****************************************************************************
  *                          SPECIAL PAGES UI STYLES                          *
  *****************************************************************************/
