@@ -63,6 +63,11 @@
 		//console.log("Branch " + id + ":" + JSON.stringify( branches[branches.length - 1] ));
 	});
 
+	if (branches.length == 0) {
+		// Shouldn't happen unless someone broke the page.
+		return;
+	}
+
 	//
 	// Identify default download
 	//
@@ -123,6 +128,11 @@
 		$fadeOutTargets.fadeOut(fadeDuration, function(){
 			$fadeInTarget.fadeIn(fadeDuration);
 		});
+	}
+
+	if (branches.length == 1) {
+		$branchSections[branches[0].id].children("h3").hide();
+		return;
 	}
 
 	var $dParent = $("<div class='branch-switchbar' role='toolbar' />");
