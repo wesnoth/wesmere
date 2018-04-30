@@ -58,7 +58,7 @@ $config = [
 
 	// Steam store app link for the game. If missing (e.g. commented out), the
 	// big button for downloading from Steam will not be emitted.
-	//'steam-store-link' => '#',
+	'steam-store-link' => 'https://store.steampowered.com/app/599390',
 
 	'wip-branch-message' => '<p><i class="download-desc-warning" aria-hidden="true"></i> <strong style="color:#d41">New players are advised to choose the stable version instead.</strong></p>',
 ];
