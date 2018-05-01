@@ -251,3 +251,105 @@ body {
 .ra-floatright {
 	float: right;
 }
+
+#ra-steam,
+#ra-press {
+	margin: $measurement-sub;
+	margin-top: 0;
+	float: right;
+	clear: right;
+}
+
+#ra-press > a,
+#ra-steam .steam-button {
+	@extend %standard-transitions;
+
+	display: block;
+
+	font-size:   1.4em;
+	line-height: 1.2;
+	text-align:  left;
+	width:       11em;
+	margin:      0 auto;
+	padding:     $measurement-small;
+
+	border-radius: $radius-minor;
+}
+
+#ra-press > a,
+#ra-steam .download-big {
+	font-family: 'Lucida Grande', 'Trebuchet MS', 'DejaVu Sans Condensed', Arial, sans-serif;
+	font-weight: bold;
+}
+
+#ra-press > a {
+	$ra-color:								#295;
+	$ra-color-highlight:					lighten($ra-color, 5%);
+	$ra-color-highlight-focus:				lighten($ra-color, 10%);
+
+	background: #295;
+	background: linear-gradient(to right, $ra-color, $ra-color-highlight 80%);
+	text-align: center;
+
+	&:link, &:visited, &:active {
+		text-shadow: 0px -1px 0px #000;
+		color:       #ddd;
+
+		text-decoration: none;
+	}
+
+	&:hover, &:focus {
+		text-shadow: 0px -1px 0px #000, 0px 0px 8px #def;
+		color:       #fff;
+
+		background: $ra-color-highlight; // legacy browsers
+		background: linear-gradient(to right, lighten($ra-color, 5%), $ra-color-highlight-focus 80%);
+	}
+
+	&:active {
+		box-shadow: inset -1px 1px 3px 3px darken($ra-color, 5%);
+	}
+}
+
+#ra-steam {
+	.steam-button {
+		$steam-color:						#171a21;
+		$steam-color-highlight:				lighten($steam-color, 10%);
+		$steam-color-highlight-focus:		lighten($steam-color, 15%);
+		$steam-color-highlight-focus-2:		lighten($steam-color, 25%);
+		$steam-color-highlight-focus-3:		lighten($steam-color, 30%);
+
+		background: $steam-color; // legacy browsers
+		background: linear-gradient(to right, $steam-color, $steam-color-highlight 80%);
+
+		&:link, &:visited, &:active {
+			text-shadow: 0px -1px 0px #000;
+			color:       #ddd;
+
+			text-decoration: none;
+		}
+
+		&:hover, &:focus {
+			text-shadow: 0px -1px 0px #000, 0px 0px 8px #def;
+			color:       #fff;
+
+			background: $steam-color-highlight; // legacy browsers
+			background: linear-gradient(to right, lighten($steam-color, 5%), $steam-color-highlight-focus 80%);
+		}
+
+		&:active {
+			box-shadow: inset -1px 1px 3px 3px #000;
+		}
+	}
+
+	.steam-icon {
+		float: left;
+		margin: 0 0.2em 0 0;
+		line-height: 0.8;
+	}
+
+	.download-big {
+		display: block;
+		line-height: 1.6;
+	}
+}
