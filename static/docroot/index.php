@@ -366,7 +366,7 @@ set_error_handler('trap');
 					</a>
 					<?php } ?>
 					<div id="download-extra">
-						<a href="/start/1.14/">Release notes</a>
+						<a href="<?php echo htmlspecialchars($branches['stable']['release-notes']['url']) ?>">Release notes</a>
 					</div>
 					<script>
 						(function($){
