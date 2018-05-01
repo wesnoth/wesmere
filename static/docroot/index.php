@@ -88,18 +88,18 @@ $branches = [
 		[
 			[
 				'os'    => 'windows',
-				'size'  => '353.0',
+				'size'  => '403.1',
 				'url'   => '@/wesnoth-1.14.0-win32.exe/download',
 			],
 			[
 				'os'    => 'apple',
-				'label' => 'macOS (10.6+)',
-				'size'  => '391.2',
+				'label' => 'macOS (10.8+)',
+				'size'  => '447.0',
 				'url'   => '@/Wesnoth_1.14.0.dmg/download',
 			],
 			[
 				'os'    => 'src',
-				'size'  => '387.9',
+				'size'  => '442.2',
 				'url'   => '@/wesnoth-1.14.0.tar.bz2/download',
 			],
 			[
