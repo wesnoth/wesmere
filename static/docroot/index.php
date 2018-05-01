@@ -72,35 +72,35 @@ $branches = [
 	'stable' =>
 	[
 		'label'       => 'Stable',
-		'version'     => '1.12.6',
-		'url'         => 'https://wiki.wesnoth.org/Download#Stable_.281.12_branch.29',
+		'version'     => '1.14.0',
+		'url'         => 'https://wiki.wesnoth.org/Download#Stable_.281.14_branch.29',
 		'recommended' => true,
 
 		'description' => '<p>The <b>stable</b> version of Wesnoth is recommended for new and veteran players and content creators on all platforms, as it offers a well-supported and extensively-tested experience, with new releases delivering bug fixes and translation updates.</p>',
 
-		'update-announcement' => 'https://forums.wesnoth.org/viewtopic.php?t=44175',
+		'update-announcement' => 'https://forums.wesnoth.org/viewtopic.php?t=00000',
 
-		'release-notes' => [ 'url' => '/start/1.12/', 'label' => 'Release notes for 1.12' ],
+		'release-notes' => [ 'url' => '/start/1.14/', 'label' => 'Release notes for 1.14' ],
 
-		'files-url-prefix' => 'https://sourceforge.net/projects/wesnoth/files/wesnoth-1.12/wesnoth-1.12.6',
+		'files-url-prefix' => 'https://sourceforge.net/projects/wesnoth/files/wesnoth-1.14/wesnoth-1.14.0',
 
 		'files' =>
 		[
 			[
 				'os'    => 'windows',
 				'size'  => '353.0',
-				'url'   => '@/wesnoth-1.12.6-win32.exe/download',
+				'url'   => '@/wesnoth-1.14.0-win32.exe/download',
 			],
 			[
 				'os'    => 'apple',
 				'label' => 'macOS (10.6+)',
 				'size'  => '391.2',
-				'url'   => '@/Wesnoth_1.12.6.dmg/download',
+				'url'   => '@/Wesnoth_1.14.0.dmg/download',
 			],
 			[
 				'os'    => 'src',
 				'size'  => '387.9',
-				'url'   => '@/wesnoth-1.12.6.tar.bz2/download',
+				'url'   => '@/wesnoth-1.14.0.tar.bz2/download',
 			],
 			[
 				'os'    => 'linux',
@@ -108,8 +108,6 @@ $branches = [
 			],
 			[
 				'os'    => 'ios',
-				// It's actually 1.13.x, we need it for the Download button!
-				'nover' => true,
 				'url'   => $ios_appstore_url,
 			],
 			[
@@ -122,12 +120,12 @@ $branches = [
 		[
 			'platform' =>
 			[
-				'Microsoft Windows XP SP3 or later<br />Apple macOS 10.6 or later<br />Ubuntu 12.04 or compatible<sup>1</sup>',
-				'Microsoft Windows 7 SP1 or later<br />Apple macOS 10.10 or later<br />Ubuntu 14.04 or compatible',
+				'Microsoft Windows 7 SP1 or later<br />Apple macOS 10.8 or later<br />Ubuntu 16.04 or compatible',
+				'Microsoft Windows 10<br />Apple macOS 10.10 or later<br />Ubuntu 18.04 or compatible',
 			],
 			'processor' =>
 			[
-				'Single-core 1.3 GHz or better', 'Dual-core 2.0 GHz or better'
+				'Dual-core 2.0 GHz or better', 'Dual-core 3.2 GHz or better'
 			],
 			'memory' =>
 			[
@@ -135,46 +133,46 @@ $branches = [
 			],
 			'storage' =>
 			[
-				'700 MB free', '2 GB free'
+				'800 MB free', '2 GB free'
 			],
 			'graphics' =>
 			[
-				'800x480 or larger screen<sup>2</sup>',
-				'1024x768 or larger screen<sup>2</sup>',
+				'800x600 or larger screen',
+				'1024x768 or larger screen',
 			],
 			'input' => 'Keyboard and mouse required',
-			'footer' => '<sup>1</sup> Ubuntu 12.04 is supported only when <a href="https://forums.wesnoth.org/viewtopic.php?p=585449#p585449">building from source with non-default options</a>.<br/><sup>2</sup> Retina hardware is not properly supported on Apple macOS by 1.12.x and causes issues.',
 		],
 	],
+	/*
 	'dev' =>
 	[
 		'label'       => 'Development',
-		'version'     => '1.13.14',
-		'url'         => 'https://wiki.wesnoth.org/Download#Development_.281.13_branch.29',
+		'version'     => '1.15.0',
+		'url'         => 'https://wiki.wesnoth.org/Download#Development_.281.15_branch.29',
 
 		'description' => '<p>The <b>development</b> version of Wesnoth is geared towards veteran players and content creators who wish to try out the latest additions to the game. Updates are not guaranteed to be stable and may include game-breaking changes.</p>',
 
-		'update-announcement' => 'https://forums.wesnoth.org/viewtopic.php?t=47999',
+		'update-announcement' => 'https://forums.wesnoth.org/viewtopic.php?t=00000',
 
-		'files-url-prefix' => 'https://sourceforge.net/projects/wesnoth/files/wesnoth/wesnoth-1.13.14',
+		'files-url-prefix' => 'https://sourceforge.net/projects/wesnoth/files/wesnoth/wesnoth-1.15.0',
 
 		'files' =>
 		[
 			[
 				'os'    => 'windows',
-				'size'  => '395.9',
-				'url'   => '@/wesnoth-1.13.14-win32.exe/download',
+				'size'  => '000.0',
+				'url'   => '@/wesnoth-1.15.0-win32.exe/download',
 			],
 			[
 				'os'    => 'apple',
 				'label' => 'macOS (10.8+)',
-				'size'  => '439.1',
-				'url'   => '@/Wesnoth_1.13.14.dmg/download',
+				'size'  => '000.0',
+				'url'   => '@/Wesnoth_1.15.0.dmg/download',
 			],
 			[
 				'os'    => 'src',
-				'size'  => '434.9',
-				'url'   => '@/wesnoth-1.13.14.tar.bz2/download',
+				'size'  => '000.0',
+				'url'   => '@/wesnoth-1.15.0.tar.bz2/download',
 			],
 			[
 				'os'    => 'linux',
@@ -191,7 +189,7 @@ $branches = [
 			'platform' =>
 			[
 				'Microsoft Windows 7 SP1 or later<br />Apple macOS 10.8 or later<br />Ubuntu 16.04 or compatible',
-				'Microsoft Windows 10<br />Apple macOS 10.10 or later<br />Ubuntu 16.04 or compatible',
+				'Microsoft Windows 10<br />Apple macOS 10.10 or later<br />Ubuntu 18.04 or compatible',
 			],
 			'processor' =>
 			[
@@ -213,6 +211,7 @@ $branches = [
 			'input' => 'Keyboard and mouse required',
 		]
 	],
+	*/
 ];
 
 //
@@ -366,7 +365,7 @@ set_error_handler('trap');
 					</a>
 					<?php } ?>
 					<div id="download-extra">
-						<a href="/start/1.12/">Release notes</a>
+						<a href="/start/1.14/">Release notes</a>
 					</div>
 					<script>
 						(function($){
