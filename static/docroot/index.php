@@ -389,9 +389,8 @@ set_error_handler('trap');
 
 					<ul>
 						<li>Units hand-animated in a vibrant pixel art style, with semi-realistic portraits used for dialog.</li>
-						<!--1.12--><li>16 singleplayer campaigns and 46 multiplayer maps to choose from.</li>
-						<!--1.14   <li>17 singleplayer campaigns and 55 multiplayer maps to choose from.</li>-->
-						<li>Over 200 unit types in six major factions, all with distinctive abilities, weapons and spells.</li>
+						<li>17 singleplayer campaigns and 55 multiplayer maps to choose from.</li>
+						<li>Over 200 unit types in seven major factions, all with distinctive abilities, weapons and spells.</li>
 						<li>Face off against other players over the Internet, or challenge your friends over a private/local network or hot-seat.</li>
 						<li>Translated into over 30 different languages.</li>
 						<li>Highly moddable engine combining <a href="https://wiki.wesnoth.org/ReferenceWML">WML</a> and <a href="https://www.lua.org/">Lua</a> scripting</li>
