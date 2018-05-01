@@ -357,7 +357,7 @@ set_error_handler('trap');
 						</span>
 					</a>
 					<?php if (isset($config['steam-store-link'])) { ?>
-					<a class="steam-button" role="button" href="#">
+					<a class="steam-button" role="button" href="<?php echo htmlspecialchars($config['steam-store-link']) ?>">
 						<span class="download-text">
 							<span class="steam-icon" aria-hidden="true"></span>
 							<span class="download-big">Get on Steam!</span>
