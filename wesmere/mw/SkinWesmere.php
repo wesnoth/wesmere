@@ -53,8 +53,7 @@ class SkinWesmere extends SkinTemplate
 		$out->addHeadItem('favicon16', '<link rel="icon" type="image/png" href="'.$this->wesmerePrefix.'/wesmere/img/favicon-16.png" sizes="16x16" />');
 		$out->addHeadItem('ga',
 			'<!-- Google Analytics -->
-<script type="text/javascript">
-
+<script>
   var _gaq = _gaq || [];
   _gaq.push(["_setAccount", "UA-1872754-3"]);
   _gaq.push(["_trackPageview"]);
@@ -64,7 +63,6 @@ class SkinWesmere extends SkinTemplate
     ga.src = ("https:" == document.location.protocol ? "https://ssl" : "http://www") + ".google-analytics.com/ga.js";
     var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ga, s);
   })();
-
 </script>');
 	}
 
