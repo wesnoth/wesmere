@@ -78,7 +78,7 @@ $branches = [
 
 		'description' => '<p>The <b>stable</b> version of Wesnoth is recommended for new and veteran players and content creators on all platforms, as it offers a well-supported and extensively-tested experience, with new releases delivering bug fixes and translation updates.</p>',
 
-		'update-announcement' => 'https://forums.wesnoth.org/viewtopic.php?t=00000',
+		'update-announcement' => 'https://forums.wesnoth.org/viewtopic.php?t=48059',
 
 		'release-notes' => [ 'url' => '/start/1.14/', 'label' => 'Release notes for 1.14' ],
 
@@ -377,7 +377,7 @@ set_error_handler('trap');
 
 				<div id="showcase">
 					<div id="showcase-current">
-						<iframe id="showcase-object" width="854" height="480" src="https://www.youtube.com/embed/KbYsOwgLJfY" frameborder="0" allowfullscreen></iframe>
+						<iframe id="showcase-object" width="854" height="480" src="https://www.youtube.com/embed/xDDKImYOIvA" frameborder="0" allowfullscreen></iframe>
 					</div>
 
 					<script>@ HTMLPOST:INCLUDE bits/gallery.js @</script>

@@ -38,9 +38,7 @@
 	    screenshotExt = ".jpg",
 	    screenshotThumbSuffix = "192",
 	    screenshotSeries = [
-			{ ver: "1.12.0", count: 9  }, // There's 13 screenshots but the 10th doesn't exist.
-			{ ver: "1.12.4", count: 4  },
-			{ ver: "1.12.5", count: 2  }
+			{ ver: "1.14.0", count: 12  }
 		];
 
 	var trailerUrl = $("#showcase-object").attr("src");
