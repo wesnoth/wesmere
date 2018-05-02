@@ -32,7 +32,11 @@
 	line-height: 1.2;
 	text-align: left;
 
-	width: 11em;
+	width: 11.5em;
+
+	// Don't let overlong button labels overflow.
+	white-space: nowrap;
+	overflow:    hidden;
 
 	margin:  0 auto;
 	padding: $measurement-small;
