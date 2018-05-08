@@ -19,6 +19,10 @@ ul {
 	list-style-image: $bullet-light;
 }
 
+ol {
+	list-style-image: none;
+}
+
 ul,
 ol {
 	// The class selector is needed to override some MediaWiki built-ins.
