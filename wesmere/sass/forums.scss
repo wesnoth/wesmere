@@ -258,6 +258,11 @@ body {
 	margin-top: 0;
 	float: right;
 	clear: right;
+
+	@include media-tiny-screen-constraint {
+		float: none;
+		clear: both;
+	}
 }
 
 #ra-press > a,
