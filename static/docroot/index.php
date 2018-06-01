@@ -568,20 +568,9 @@ set_error_handler('trap');
 			</div>
 
 			<div class="social-buttons-group">
-				<div id="twitter-widget">
-					<a href="https://twitter.com/Wesnoth" class="twitter-follow-button" data-size="large" data-dnt="true" data-show-count="false">Follow @Wesnoth</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-				</div>
-				<div id="facebook-widget">
-					<div id="fb-root"></div>
-					<script>(function(d, s, id) {
-						var js, fjs = d.getElementsByTagName(s)[0];
-						if (d.getElementById(id)) return;
-						js = d.createElement(s); js.id = id;
-						js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7";
-						fjs.parentNode.insertBefore(js, fjs);
-					}(document, 'script', 'facebook-jssdk'));</script>
-					<div class="fb-like" data-href="https://www.facebook.com/Battle-for-Wesnoth-1671354243186470/" data-layout="button_count" data-action="like" data-show-faces="false" data-size="large" data-share="true"></div>
-				</div>
+				<a class="twitter-bigbutton" href="https://twitter.com/wesnoth" title="Follow @Wesnoth on Twitter"><i class="twitter-icon"></i><span class="sr-label">Twitter</span></a>
+
+				<a class="facebook-bigbutton" href="https://www.facebook.com/Battle-for-Wesnoth-1671354243186470/" title="Wesnoth on Facebook"><i class="facebook-icon-2"></i><span class="sr-label">Facebook</span></a>
 			</div>
 
 			<div class="social-buttons-group">

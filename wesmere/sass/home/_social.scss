@@ -88,6 +88,7 @@ $facebook-brand-color:						#4267b2;
 .twitter-icon,
 .github-icon,
 .facebook-icon,
+.facebook-icon-2,
 .discord-icon {
 	@extend .fa;
 	@extend .fa-lg;
@@ -100,6 +101,10 @@ $facebook-brand-color:						#4267b2;
 
 .facebook-icon {
 	@extend .fa-facebook-official;
+}
+
+.facebook-icon-2 {
+	@extend .fa-facebook;
 }
 
 .github-icon {
@@ -163,7 +168,7 @@ $facebook-brand-color:						#4267b2;
 .social-buttons-group {
 	display: inline-block;
 	vertical-align: text-top;
-	margin: 0 $measurement-small;
+	margin: 0 $measurement-small/2;
 
 	@include media-tiny-screen-constraint {
 		display: block;
@@ -171,8 +176,20 @@ $facebook-brand-color:						#4267b2;
 	}
 }
 
+// These two are a special case because they inhabit the same group.
+
+.twitter-bigbutton {
+	margin-right: $measurement-small/2;
+}
+
+.facebook-bigbutton {
+	margin-left: $measurement-small/2;
+}
+
 .github-bigbutton,
-.discord-bigbutton {
+.discord-bigbutton,
+.twitter-bigbutton,
+.facebook-bigbutton {
 	border-radius: 4px; // Matches Facebook and Twitter buttons
 
 	display: inline-block;
@@ -190,6 +207,38 @@ $facebook-brand-color:						#4267b2;
 	}
 }
 
+.github-bigbutton,
+.twitter-bigbutton,
+.facebook-bigbutton {
+	& > i {
+		font-size: 3em;
+	}
+
+	#social-trail &,
+	.github-icon,
+	.twitter-icon,
+	.facebook-icon-2 {
+		color: #fff;
+		vertical-align: middle;
+	}
+}
+
+.twitter-bigbutton {
+	background: #1b95e0;
+
+	&:hover, &:active {
+		background: #0c7abf;
+	}
+}
+
+.facebook-bigbutton {
+	background: #4267b2;
+
+	&:hover, &:active {
+		background: #365899;
+	}
+}
+
 .github-bigbutton {
 	background: #24292e;
 	// The GH logo glyph has too much horizontal padding around, so we can't
@@ -203,17 +252,6 @@ $facebook-brand-color:						#4267b2;
 		font-size: 1.1em;
 	}
 
-	& > i {
-		font-size: 3em;
-	}
-
-	#social-trail &,
-	.github-icon {
-		color: #fff;
-		// The GitHub icon has a very weird baseline, so we can't use it.
-		vertical-align: middle;
-	}
-
 	&:hover, &:active {
 		background: #0f0e0f;
 	}
@@ -225,6 +263,8 @@ $facebook-brand-color:						#4267b2;
 
 	width:  8em;
 	height: 2.25em;
+
+	vertical-align: middle;
 
 	&:link, &:visited {
 		color: #fff;

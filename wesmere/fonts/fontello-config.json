@@ -449,6 +449,12 @@
       "css": "expand",
       "code": 61541,
       "src": "fontawesome"
+    },
+    {
+      "uid": "8e04c98c8f5ca0a035776e3001ad2638",
+      "css": "facebook",
+      "code": 61594,
+      "src": "fontawesome"
     }
   ]
 }
