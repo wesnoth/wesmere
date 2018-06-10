@@ -112,7 +112,7 @@ $branches = [
 			],
 			[
 				'os'    => 'android',
-				'url'   => 'https://play.google.com/store/apps/details?id=it.alessandropira.wesnoth112',
+				'url'   => 'https://play.google.com/store/apps/details?id=it.alessandropira.wesnoth114',
 			],
 		],
 
