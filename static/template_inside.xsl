@@ -29,7 +29,7 @@ with this program; if not, see <http://www.gnu.org/licenses/>.
 
 <xsl:output method="html" encoding="utf-8" indent="yes" />
 
-<xsl:variable name="wesmere-css-version" select="'1.1.2'"/>
+<xsl:variable name="wesmere-css-version" select="'1.1.6'"/>
 <xsl:variable name="wesmere-resource-prefix" select="'@HTMLPOST:PREFIX@'"/>
 
 <xsl:template match="/">
