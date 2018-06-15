@@ -163,6 +163,10 @@ $facebook-brand-color:						#4267b2;
 	@include media-tiny-screen-constraint {
 		padding: 0 0 $measurement-sub;
 	}
+
+	a {
+		transition-duration: 200ms;
+	}
 }
 
 .social-buttons-group {
