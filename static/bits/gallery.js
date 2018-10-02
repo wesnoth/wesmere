@@ -34,7 +34,7 @@
 	// Screenshots gallery data
 	//
 
-	var screenshotPrefix = "https://www.wesnoth.org/images/sshots/wesnoth-",
+	var screenshotPrefix = "/images/sshots/wesnoth-",
 	    screenshotExt = ".jpg",
 	    screenshotThumbSuffix = "192",
 	    screenshotSeries = [
