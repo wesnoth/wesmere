@@ -22,6 +22,10 @@ class SkinWesmere extends SkinTemplate
 		{
 			$this->wesmerePrefix = "https://www.wesnoth.org";
 		}
+		elseif ($_SERVER["HTTP_HOST"] == "wiki.wesnoth.net")
+		{
+			$this->wesmerePrefix = "//www.wesnoth.net";
+		}
 	}
 
 	/**
