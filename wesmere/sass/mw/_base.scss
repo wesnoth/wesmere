@@ -31,6 +31,15 @@
 	padding: $measurement-sub2/2 $measurement-sub2;
 }
 
+a.mw-selflink {
+	 @extend %bold;
+
+	&:hover, &:active {
+		color: unset;
+		text-decoration: unset;
+	}
+}
+
 // The syntax highlighting plugin tends to interact badly with codebox around
 // floated elements (e.g. the ReferenceWML sidebar).
 .mw-highlight {
