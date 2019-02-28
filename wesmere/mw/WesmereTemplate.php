@@ -235,7 +235,7 @@ class WesmereTemplate extends BaseTemplate
 	<div id="sitesearch" role="search">
 		<form method="get" action="<?php $this->text('wgScript') ?>">
 			<input id="searchbox" type="search" name="search" placeholder="<?php
-				echo wfMessage( 'searchsuggest-search' )->text()
+				echo wfMessage( 'search' )->text()
 			?>" value="<?php
 				echo $this->get( 'search', '' )
 			?>" title="Search this wiki [Alt+Shift+f]" accesskey="f" />
