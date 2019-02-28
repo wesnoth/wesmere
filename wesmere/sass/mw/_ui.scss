@@ -513,3 +513,12 @@ $mw-preferences-border-radius: $radius-minor;
 		color: $wui-border-dark;
 	}
 }
+
+.mw-cookiewarning-container {
+	top: unset;
+	bottom: 0;
+}
+
+.mw-cookiewarning-dismiss {
+	float: right;
+}
