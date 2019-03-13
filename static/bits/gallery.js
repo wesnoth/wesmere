@@ -2,7 +2,7 @@
  * Screenshots gallery for the Wesnoth.org home page
  *
  * codename Wesmere - Next-gen Wesnoth.org stylesheet
- * Copyright (C) 2011 - 2018 by Iris Morelle <shadowm@wesnoth.org>
+ * Copyright (C) 2011 - 2019 by Iris Morelle <shadowm@wesnoth.org>
  *
  * See LICENSE for usage terms.
  */
