@@ -21,3 +21,15 @@
 /valen
 .kdev4/
 *.kdev4
+/addons/
+/errors/
+/maintenance/
+/units/
+/bin/
+/eclipse
+/gettext
+/start
+/macro-reference.html
+/template.html
+/valen.html
+/.htaccess
