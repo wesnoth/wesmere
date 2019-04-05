@@ -51,8 +51,6 @@ $facebook-brand-color:						#4267b2;
 
 		padding: $measurement-small/2 $measurement-small;
 
-		transition-duration: 200ms;
-
 		&:link, &:visited {
 			color: #eee;
 		}
@@ -163,10 +161,6 @@ $facebook-brand-color:						#4267b2;
 
 	@include media-tiny-screen-constraint {
 		padding: 0 0 $measurement-sub;
-	}
-
-	a {
-		transition-duration: 200ms;
 	}
 }
 
@@ -309,4 +303,9 @@ $facebook-brand-color:						#4267b2;
 	&:hover, &:active {
 		background-color: darken($color-discord-logo, 5%);
 	}
+}
+#sociallinks a,
+#social-trail a,
+#donate-box a {
+	transition-duration: 200ms;
 }
