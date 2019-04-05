@@ -30,7 +30,7 @@ js_files = \
 	$(js_out_dir)/jquery-3.2.1.min.js.gz \
 	$(js_out_dir)/modernizr.js.gz
 
-font_ver = 1.1.6
+font_ver = 1.1.7
 font_cfg = fonts/fontello-config.json
 fontawesome = $(sass_in_dir)/3rdparty/font-awesome
 
