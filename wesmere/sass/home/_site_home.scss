@@ -166,7 +166,8 @@
 
 #support,
 #contribute,
-#download {
+#download,
+#donate {
 	position: relative;
 }
 
@@ -186,9 +187,14 @@
 	@extend .fa-download;
 }
 
+#bgdonate {
+	@extend .fa-usd;
+}
+
 #bgsupport,
 #bgcontrib,
-#bgdownload {
+#bgdownload,
+#bgdonate {
 	@extend .fa;
 	@extend .fa-5x;
 	@extend .fr;
@@ -612,12 +618,18 @@ $strip-padding:							$measurement-sub;
 		align-items: flex-start;
 	}
 
-	#description {
+	#description,
+	#donate-info {
 		flex: 2 1;
 	}
 
-	#download-recommended {
+	#download-recommended,
+	#donate-box {
 		flex: 1 0;
+	}
+
+	#donate-box {
+		text-align: center;
 	}
 
 	#news,

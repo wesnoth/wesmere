@@ -89,7 +89,8 @@ $facebook-brand-color:						#4267b2;
 .github-icon,
 .facebook-icon,
 .facebook-icon-2,
-.discord-icon {
+.discord-icon,
+.liberapay-icon {
 	@extend .fa;
 	@extend .fa-lg;
 	@extend .fa-fw;
@@ -193,7 +194,8 @@ $facebook-brand-color:						#4267b2;
 .github-bigbutton,
 .discord-bigbutton,
 .twitter-bigbutton,
-.facebook-bigbutton {
+.facebook-bigbutton,
+.liberapay-bigbutton {
 	border-radius: 4px; // Matches Facebook and Twitter buttons
 
 	display: inline-block;
@@ -213,7 +215,8 @@ $facebook-brand-color:						#4267b2;
 
 .github-bigbutton,
 .twitter-bigbutton,
-.facebook-bigbutton {
+.facebook-bigbutton,
+.liberapay-bigbutton {
 	& > i {
 		font-size: 3em;
 	}
@@ -251,13 +254,42 @@ $facebook-brand-color:						#4267b2;
 	// value that should be roughly equal to the glyph's padding.
 	padding-left: $measurement-sub - $measurement-small;
 
+	&:hover, &:active {
+		background: #0f0e0f;
+	}
+}
+
+.github-bigbutton,
+.liberapay-bigbutton {
 	& > span {
 		font-weight: bold;
 		font-size: 1.1em;
 	}
+}
+
+.liberapay-bigbutton {
+	// Taken from the LP widget Javascript
+	$liberapay-text-color: #1a171b;
+	$liberapay-bg-color-normal: #f6c915;
+	$liberapay-bg-color-hover: #fbce1a;
+
+	background: $liberapay-bg-color-normal;
+
+	&:link, &:visited {
+		color: $liberapay-text-color;
+	}
 
 	&:hover, &:active {
-		background: #0f0e0f;
+		background: $liberapay-bg-color-hover;
+	}
+
+	& > i {
+		background: $svg-liberapay-logo 25% 50% / auto 1em no-repeat;
+		height: 0.75em;
+	}
+
+	& > span {
+		vertical-align: 0.25em;
 	}
 }
 
