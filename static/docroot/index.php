@@ -569,7 +569,7 @@ set_error_handler('trap');
 					<p id="donate-info">If you would like to donate to the project, you can do so on Liberapay, or by purchasing the game on iOS. Wesnoth does rely on the work of dedicated volunteers, but no project can function completely cost-free. Revenue from the Apple App Store and from donations goes towards maintaining our servers, websites, and commissioning new art and music.</p>
 
 					<div id="donate-box">
-						<a class="liberapay-bigbutton" href="https://liberapay.com/Battle_for_Wesnoth/donate"><i class="liberapay-icon"></i><span>Donate</span></a>
+						<a class="liberapay-bigbutton" href="https://liberapay.com/Wesnoth/donate" title="Donate to Wesnoth on Liberapay"><i class="liberapay-icon"></i><span>Donate</span></a>
 					</div>
 				</div>
 			</div>
