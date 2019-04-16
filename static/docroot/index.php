@@ -72,13 +72,13 @@ $branches = [
 	'stable' =>
 	[
 		'label'       => 'Stable',
-		'version'     => '1.14.6',
+		'version'     => '1.14.7',
 		'url'         => 'https://wiki.wesnoth.org/Download#Stable_.281.14_branch.29',
 		'recommended' => true,
 
 		'description' => '<p>The <b>stable</b> version of Wesnoth is recommended for new and veteran players and content creators on all platforms, as it offers a well-supported and extensively-tested experience, with new releases delivering bug fixes and translation updates.</p>',
 
-		'update-announcement' => 'https://forums.wesnoth.org/viewtopic.php?t=49406',
+		'update-announcement' => 'https://forums.wesnoth.org/viewtopic.php?t=49712',
 
 		'release-notes' => [ 'url' => '/start/1.14/', 'label' => 'Release notes for 1.14' ],
 
@@ -88,19 +88,19 @@ $branches = [
 		[
 			[
 				'os'    => 'windows',
-				'size'  => '408.3',
-				'url'   => '@/wesnoth-1.14.6-win32.exe/download',
+				'size'  => '408.2',
+				'url'   => '@/wesnoth-1.14.7-win32.exe/download',
 			],
 			[
 				'os'    => 'apple',
 				'label' => 'macOS',
-				'size'  => '465.2',
-				'url'   => '@/Wesnoth_1.14.6.dmg/download',
+				'size'  => '469.4',
+				'url'   => '@/Wesnoth_1.14.7.dmg/download',
 			],
 			[
 				'os'    => 'src',
-				'size'  => '451.8',
-				'url'   => '@/wesnoth-1.14.6.tar.bz2/download',
+				'size'  => '452.7',
+				'url'   => '@/wesnoth-1.14.7.tar.bz2/download',
 			],
 			[
 				'os'    => 'linux',
