@@ -143,45 +143,46 @@ $branches = [
 			'input' => 'Keyboard and mouse required',
 		],
 	],
-	/*
 	'dev' =>
 	[
 		'label'       => 'Development',
-		'version'     => '1.15.0',
+		'version'     => '1.15.1',
 		'url'         => 'https://wiki.wesnoth.org/Download#Development_.281.15_branch.29',
 
 		'description' => '<p>The <b>development</b> version of Wesnoth is geared towards veteran players and content creators who wish to try out the latest additions to the game. Updates are not guaranteed to be stable and may include game-breaking changes.</p>',
 
-		'update-announcement' => 'https://forums.wesnoth.org/viewtopic.php?t=00000',
+		'update-announcement' => 'https://forums.wesnoth.org/viewtopic.php?t=50705',
 
-		'files-url-prefix' => 'https://sourceforge.net/projects/wesnoth/files/wesnoth/wesnoth-1.15.0',
+		'files-url-prefix' => 'https://sourceforge.net/projects/wesnoth/files/wesnoth/wesnoth-1.15.1',
 
 		'files' =>
 		[
 			[
 				'os'    => 'windows',
-				'size'  => '000.0',
-				'url'   => '@/wesnoth-1.15.0-win32.exe/download',
+				'size'  => '423.0',
+				'url'   => '@/wesnoth-1.15.1-win32.exe/download',
 			],
 			[
 				'os'    => 'apple',
 				'label' => 'macOS (10.8+)',
-				'size'  => '000.0',
-				'url'   => '@/Wesnoth_1.15.0.dmg/download',
+				'size'  => '471.3',
+				'url'   => '@/Wesnoth_1.15.1.dmg/download',
 			],
 			[
 				'os'    => 'src',
-				'size'  => '000.0',
-				'url'   => '@/wesnoth-1.15.0.tar.bz2/download',
+				'size'  => '458.1',
+				'url'   => '@/wesnoth-1.15.1.tar.bz2/download',
 			],
 			[
 				'os'    => 'linux',
 				'url'   => 'https://wiki.wesnoth.org/WesnothBinariesLinux',
 			],
+			/*
 			[
 				'os'    => 'ios',
 				'url'   => $ios_appstore_url,
 			],
+			*/
 		],
 
 		'system-requirements' =>
@@ -211,7 +212,6 @@ $branches = [
 			'input' => 'Keyboard and mouse required',
 		]
 	],
-	*/
 ];
 
 //
