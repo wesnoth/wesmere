@@ -159,6 +159,7 @@ $branches = [
 		[
 			[
 				'os'    => 'windows',
+				'label' => 'Windows (64-bit)',
 				'size'  => '423.0',
 				'url'   => '@/wesnoth-1.15.1-win32.exe/download',
 			],
@@ -189,8 +190,8 @@ $branches = [
 		[
 			'platform' =>
 			[
-				'Microsoft Windows 7 SP1 or later<br />Apple macOS 10.8 or later<br />Ubuntu 16.04 or compatible',
-				'Microsoft Windows 10<br />Apple macOS 10.10 or later<br />Ubuntu 18.04 or compatible',
+				'Microsoft Windows 7 SP1 (64-bit) or later<br />Apple macOS 10.8 or later<br />Ubuntu 16.04 or compatible',
+				'Microsoft Windows 10 (64-bit)<br />Apple macOS 10.10 or later<br />Ubuntu 18.04 or compatible',
 			],
 			'processor' =>
 			[
@@ -198,7 +199,7 @@ $branches = [
 			],
 			'memory' =>
 			[
-				'2 GB', '4 GB'
+				'4 GB', '4 GB'
 			],
 			'storage' =>
 			[
