@@ -56,7 +56,7 @@
 		<div class="ver-columns">
 			<ul id="curvers">
 				<li><a href="1.14/" class="curver-link">1.14.x (Stable)</a><br/><a href="1.14/animations.html" class="astats-link">&astats;</a></li>
-				<li><a href="trunk/" class="curver-link">1.15.x/Git master (Development)</a><br/><a href="trunk/animations.html" class="astats-link">&astats;</a></li>
+				<li><a href="1.15/" class="curver-link">1.15.x/Git master (Development)</a><br/><a href="trunk/animations.html" class="astats-link">&astats;</a></li>
 			</ul>
 		</div>
 
