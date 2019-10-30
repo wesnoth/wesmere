@@ -163,14 +163,12 @@ $branches = [
 				'size'  => '424.8',
 				'url'   => '@/wesnoth-1.15.2-win32.exe/download',
 			],
-			/*
 			[
 				'os'    => 'apple',
 				'label' => 'macOS (10.8+)',
-				'size'  => '471.3',
+				'size'  => '474.0',
 				'url'   => '@/Wesnoth_1.15.2.dmg/download',
 			],
-			*/
 			[
 				'os'    => 'src',
 				'size'  => '459.6',
