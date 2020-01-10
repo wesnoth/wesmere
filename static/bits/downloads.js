@@ -3,7 +3,7 @@
  * button with a choice that is relevant to the user's platform.
  *
  * codename Wesmere - Next-gen Wesnoth.org stylesheet
- * Copyright (C) 2011 - 2019 by Iris Morelle <shadowm@wesnoth.org>
+ * Copyright (C) 2011 - 2020 by Iris Morelle <shadowm@wesnoth.org>
  *
  * See LICENSE for usage terms.
  */
