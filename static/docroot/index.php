@@ -146,33 +146,33 @@ $branches = [
 	'dev' =>
 	[
 		'label'       => 'Development',
-		'version'     => '1.15.2',
+		'version'     => '1.15.3',
 		'url'         => 'https://wiki.wesnoth.org/Download#Development_.281.15_branch.29',
 
 		'description' => '<p>The <b>development</b> version of Wesnoth is geared towards veteran players and content creators who wish to try out the latest additions to the game. Updates are not guaranteed to be stable and may include game-breaking changes.</p>',
 
-		'update-announcement' => 'https://forums.wesnoth.org/viewtopic.php?t=51039',
+		'update-announcement' => 'https://forums.wesnoth.org/viewtopic.php?t=52194',
 
-		'files-url-prefix' => 'https://sourceforge.net/projects/wesnoth/files/wesnoth/wesnoth-1.15.2',
+		'files-url-prefix' => 'https://sourceforge.net/projects/wesnoth/files/wesnoth/wesnoth-1.15.3',
 
 		'files' =>
 		[
 			[
 				'os'    => 'windows',
 				'label' => 'Windows (64-bit)',
-				'size'  => '424.8',
-				'url'   => '@/wesnoth-1.15.2-win32.exe/download',
+				'size'  => '423.6',
+				'url'   => '@/wesnoth-1.15.3-win64.exe/download',
 			],
 			[
 				'os'    => 'apple',
 				'label' => 'macOS (10.8+)',
-				'size'  => '474.0',
-				'url'   => '@/Wesnoth_1.15.2.dmg/download',
+				'size'  => '444.3',
+				'url'   => '@/Wesnoth_1.15.3.dmg/download',
 			],
 			[
 				'os'    => 'src',
-				'size'  => '459.6',
-				'url'   => '@/wesnoth-1.15.2.tar.bz2/download',
+				'size'  => '455.1',
+				'url'   => '@/wesnoth-1.15.3.tar.bz2/download',
 			],
 			[
 				'os'    => 'linux',
