@@ -87,7 +87,7 @@ if __name__ == '__main__':
             lines = inf.readlines()
         with open(output_file, "w", encoding="utf-8") as outf:
             for line in lines:
-                outf.write(apply_transforms(line))
+                outf.write(apply_transforms(line, minify))
     except FileNotFoundError as err:
         sys.exit("Could not open {0}, aborting.\n".format(err.filename))
 
