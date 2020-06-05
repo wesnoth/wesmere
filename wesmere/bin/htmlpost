@@ -39,9 +39,9 @@ def read_include(inc_path, minify_js=True):
             basepath = path[:-len(".js")]
             if Path(basepath + ".min.js").is_file():
                 path = basepath + ".min.js"
-                #print("use minified {1} for {0}".format(inc_path, path))
+                #sys.stderr.write("use minified {1} for {0}\n".format(inc_path, path))
             else:
-                print("WARNING: no minified version of {1} found for {0}".format(inc_path, path))
+                sys.stderr.write("WARNING: no minified version of {1} found for {0}\n".format(inc_path, path))
         with open(path, "r", encoding="utf-8") as js:
             contents = js.read()
             pre_size = len(contents.encode("utf-8"))
