@@ -55,19 +55,6 @@ class SkinWesmere extends SkinTemplate
 		$out->addHeadItem('apple-touch-icon', '<link rel="apple-touch-icon" type="image/png" href="'.$this->wesmerePrefix.'/wesmere/img/apple-touch-icon.png" sizes="180x180" />');
 		$out->addHeadItem('favicon32', '<link rel="icon" type="image/png" href="'.$this->wesmerePrefix.'/wesmere/img/favicon-32.png" sizes="32x32" />');
 		$out->addHeadItem('favicon16', '<link rel="icon" type="image/png" href="'.$this->wesmerePrefix.'/wesmere/img/favicon-16.png" sizes="16x16" />');
-		$out->addHeadItem('ga',
-			'<!-- Google Analytics -->
-<script>
-  var _gaq = _gaq || [];
-  _gaq.push(["_setAccount", "UA-1872754-3"]);
-  _gaq.push(["_trackPageview"]);
-
-  (function() {
-    var ga = document.createElement("script"); ga.type = "text/javascript"; ga.async = true;
-    ga.src = ("https:" == document.location.protocol ? "https://ssl" : "http://www") + ".google-analytics.com/ga.js";
-    var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>');
 	}
 
 	/**
