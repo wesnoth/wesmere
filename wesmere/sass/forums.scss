@@ -175,6 +175,44 @@ body {
 }
 
 /*****************************************************************************
+ *                        GENERAL CUSTOM BBCODES STYLING                     *
+ *****************************************************************************/
+
+.inline-code {
+	font-family: Monaco, 'Andale Mono', 'Courier New', Courier, monospace;
+	font-size: 0.9em;
+	font-style: normal;
+	line-height: 1.3em;
+	background: #FFF;
+	border: 1px solid #C9D2D8;
+	padding: 1px 3px;
+	color: #2E8B57;
+	display: inline;
+	white-space: nowrap;
+
+	.acidtech & {
+		// From Acidtech's [code] styles
+		background: #191919;
+		border-color: #2f74b3;
+		color: #f0e80a;
+	}
+
+	.prosilver-dark & {
+		// From prosilver Dark's [code] styles
+		background: #171b24;
+		border-color: rgba(255,255,255,0.04);
+		color: #2E8B57
+	}
+}
+
+table.markdown tr:nth-child(2n) {
+	.acidtech &,
+	.prosilver-dark & {
+		background-color: rgba(#eef8fb, 0.05);
+	}
+}
+
+/*****************************************************************************
  *                     RELEASE ANNOUNCEMENT BBCODES STYLING                  *
  *****************************************************************************/
 
