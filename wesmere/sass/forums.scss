@@ -73,7 +73,8 @@ html {
 		padding: $measurement-small 0;
 	}
 
-	.acidtech & {
+	.acidtech &,
+	.prosilver-dark & {
 		border: none;
 		background: inherit;
 	}
@@ -239,7 +240,19 @@ table.markdown tr:nth-child(2n) {
 .ra-section {
 	border-color: rgba(0,0,0,0.2);
 	background: #ddd;
-	background: rgba(255,255,255,0.2);
+	background: rgba(#fff,0.2);
+
+	.acidtech & {
+		background: #363636;
+		background: rgba(#fff,0.07);
+		border-color: #474747;
+	}
+
+	.prosilver-dark & {
+		background: #3a404b;
+		background: rgba(#fff,0.1);
+		border-color: #525761;
+	}
 }
 
 .ra-header {
@@ -256,21 +269,41 @@ table.markdown tr:nth-child(2n) {
 .ra-warn {
 	border-color: rgba(255,128,0,0.4);
 	background: #fc6;
-	background: rgba(255,128,0,0.2);
-}
+	background: rgba(#ff8000,0.2);
 
-.ra-warn .ra-header {
-	color: #b40;
+	.ra-header {
+		color: #b40;
+	}
+
+	.acidtech &,
+	.prosilver-dark & {
+		background: #4f3c31;
+		border-color: #845a42;
+
+		.ra-header {
+			color: #d98455;
+		}
+	}
 }
 
 .ra-issue {
 	border-color: rgba(0,0,0,0.2);
 	background: #fcc;
-	background: rgba(255,204,204,0.4);
-}
+	background: rgba(#fcc,0.4);
 
-.ra-issue .ra-header {
-	color: #a00;
+	.ra-header {
+		color: #a00;
+	}
+
+	.acidtech &,
+	.prosilver-dark & {
+		background: #573d42;
+		border-color: #955863;
+
+		.ra-header {
+			color: #d98383;
+		}
+	}
 }
 
 .ra-contents {
