@@ -146,14 +146,14 @@ $branches = [
 	'dev' =>
 	[
 		'label'       => 'Development',
-		'version'     => '1.15.4',
+		'version'     => '1.15.5',
 		'url'         => 'https://wiki.wesnoth.org/Download#Development_.281.15_branch.29',
 
 		'description' => '<p>The <b>development</b> version of Wesnoth is geared towards veteran players and content creators who wish to try out the latest additions to the game. Updates are not guaranteed to be stable and may include game-breaking changes.</p>',
 
-		'update-announcement' => 'https://forums.wesnoth.org/viewtopic.php?t=53013',
+		'update-announcement' => 'https://forums.wesnoth.org/viewtopic.php?t=53214',
 
-		'files-url-prefix' => 'https://sourceforge.net/projects/wesnoth/files/wesnoth/wesnoth-1.15.4',
+		'files-url-prefix' => 'https://sourceforge.net/projects/wesnoth/files/wesnoth/wesnoth-1.15.5',
 
 		'files' =>
 		[
@@ -161,18 +161,18 @@ $branches = [
 				'os'    => 'windows',
 				'label' => 'Windows (64-bit)',
 				'size'  => '426.8',
-				'url'   => '@/wesnoth-1.15.4-win64.exe/download',
+				'url'   => '@/wesnoth-1.15.5-win64.exe/download',
 			],
 			[
 				'os'    => 'apple',
-				'label' => 'macOS (10.8+)',
-				'size'  => '448.3',
-				'url'   => '@/Wesnoth_1.15.4.dmg/download',
+				'label' => 'macOS (10.11+)',
+				'size'  => '458.1',
+				'url'   => '@/Wesnoth_1.15.5.dmg/download',
 			],
 			[
 				'os'    => 'src',
-				'size'  => '459.0',
-				'url'   => '@/wesnoth-1.15.4.tar.bz2/download',
+				'size'  => '459.1',
+				'url'   => '@/wesnoth-1.15.5.tar.bz2/download',
 			],
 			[
 				'os'    => 'linux',
@@ -190,8 +190,8 @@ $branches = [
 		[
 			'platform' =>
 			[
-				'Microsoft Windows 7 SP1 (64-bit) or later<br />Apple macOS 10.8 or later<br />Ubuntu 16.04 or compatible',
-				'Microsoft Windows 10 (64-bit)<br />Apple macOS 10.10 or later<br />Ubuntu 18.04 or compatible',
+				'Microsoft Windows 7 SP1 (64-bit) or later<br />Apple macOS 10.11 or later<br />Ubuntu 16.04 or compatible',
+				'Microsoft Windows 10 (64-bit)<br />Apple macOS 10.14 or later<br />Ubuntu 20.04 or compatible',
 			],
 			'processor' =>
 			[
