@@ -9,7 +9,7 @@
 #
 
 SASS               := sass
-SASSFLAGS          := -t compressed
+SASSFLAGS          := -s compressed
 COMP               := zopfli -c --i100
 COMPSTATS          := bin/compstats
 PNGREPACK          := wesnoth-optipng
@@ -47,7 +47,7 @@ jsdir:
 .PHONY: css js
 css: cssdir
 	@echo "  SASS        $(sass_in_dir)/"
-	@$(SASS) $(SASSFLAGS) -C --update $(sass_in_dir):$(sass_out_dir)
+	@$(SASS) $(SASSFLAGS) --update $(sass_in_dir):$(sass_out_dir)
 	@for css in $(sass_out_dir)/*.css; do \
 		echo "  CSSPOST     $$css"; \
 		sed -ri 's:fonts/(fontawesome-webfont)\.([^?]+)\?:fonts/\1-min-$(font_ver).\2?:g' $$css; \
