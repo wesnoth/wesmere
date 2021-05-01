@@ -35,7 +35,7 @@ table.units {
 
 		.col#{$i} {
 			@extend %unit-column-width;
-			background: adjust-color($base-unit-cell-color, $hue: -10*($i), $saturation: -10*($i));
+			background: adjust-color($base-unit-cell-color, $hue: -10deg*($i), $saturation: -10%*($i));
 		}
 	}
 }
