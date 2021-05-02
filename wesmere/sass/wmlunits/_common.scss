@@ -246,6 +246,11 @@ div.popupmenu {
 		@include media-not-small-screen-constraint {
 			max-width: 38vw;
 		}
+
+		@include media-tiny-screen-constraint {
+			padding-left: 2em;
+			max-width:    none;
+		}
 	}
 }
 
