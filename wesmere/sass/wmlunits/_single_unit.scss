@@ -17,6 +17,10 @@ table.unitinfo {
 		text-align: left;
 		font-weight: normal;
 		white-space: nowrap;
+
+		@include media-small-screen-constraint {
+			white-space: normal;
+		}
 	}
 
 	// Remove outer padding from cells at the very left or right.
@@ -80,6 +84,15 @@ $portrait-height:                  200px;
 	margin-top: $measurement-paragraph-spacing/2; // same as h1 divided by 2
 	width: $portrait-width;
 	float: left;
+
+	@include media-small-screen-constraint {
+		display:      block;
+		width:        auto;
+		float:        none;
+		text-align:   center;
+		display:      flex;
+		flex-flow:    row wrap;
+	}
 }
 
 //
@@ -91,6 +104,10 @@ $portrait-height:                  200px;
 		flex-flow: row wrap;
 		width: auto;
 		float: none;
+
+		@include media-small-screen-constraint {
+			display: block;
+		}
 	}
 
 	.unit-column-left,
@@ -109,6 +126,14 @@ $portrait-height:                  200px;
 	.unit-column-right {
 		padding-left: $wmlunits-unit-col-margin;
 		min-width: $wmlunits-unit-col-width-right;
+	}
+
+	@include media-small-screen-constraint {
+		.unit-column-left,
+		.unit-column-right {
+			padding: 0;
+			min-width: auto;
+		}
 	}
 
 	#unit-desc,
@@ -160,6 +185,19 @@ div.portrait {
 		position: absolute;
 		height: $portrait-height;
 	}
+
+	@include media-small-screen-constraint {
+		height:  auto;
+		flex:    1 0 auto;
+
+		& > div {
+			display: none;
+		}
+
+		& > img {
+			position: relative;
+		}
+	}
 }
 
 table.attacks .col1 {
@@ -174,6 +212,19 @@ table.resistances {
 
 	.col3 {
 		width: 4em;
+	}
+
+	// HACK: because wmlunits sucks ass and shouldn't be making this a
+	// hardcoded table in the first place but such is life. We gotta make it a
+	// 2-column list at some point.
+	@include media-tiny-screen-constraint {
+		img {
+			display: none;
+		}
+
+		.col1, .col3, .col5 {
+			width: 0;
+		}
 	}
 }
 

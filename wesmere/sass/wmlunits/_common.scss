@@ -27,6 +27,11 @@ $wmlunits-menu-h-offset:   ($wmlunits-sidebar-width + $wmlunits-sidebar-padding/
 div.main {
 	margin-left: $wmlunits-sidebar-width;
 	padding-left: $wmlunits-sidebar-padding;
+
+	@include media-tiny-screen-constraint {
+		margin-left: 0;
+		padding-left: 0;
+	}
 }
 
 // There's a good reason this is an element.class selector -- another element
@@ -51,6 +56,10 @@ div.navbar {
 	&.wmlunits-unit #content {
 		display: flex;
 		flex-flow: row nowrap;
+
+		@include media-tiny-screen-constraint {
+			flex-flow: column nowrap;
+		}
 	}
 
 	div.main,
@@ -61,12 +70,20 @@ div.navbar {
 	div.navbar {
 		width: auto;
 		flex: 0 0 auto;
+
+		@include media-tiny-screen-constraint {
+			order: 1;
+		}
 	}
 
 	div.main {
 		margin-left: 0;
 		flex: 1 1 auto;
 		border-left: none;
+
+		@include media-tiny-screen-constraint {
+			order: 0;
+		}
 	}
 }
 
@@ -100,6 +117,10 @@ ul.navbar {
 			padding: 0 0.5em 0 0;
 			content: "›";
 			text-align: right;
+
+			@include media-tiny-screen-constraint {
+				content: "▾";
+			}
 		}
 
 		&:link, &:visited {
@@ -177,6 +198,13 @@ div.popupmenu {
 		opacity: 1;
 		display: block!important;
 		z-index: 1;
+
+		@include media-tiny-screen-constraint {
+			position: relative;
+			top: 100%;
+			left: 0%;
+			width: 100%;
+		}
 	}
 
 	& > ul,
@@ -263,6 +291,12 @@ ul.navbar div.popupheader {
 	border:  none;
 	display: inline;
 	float:   left;
+
+	@include media-small-screen-constraint {
+		display:    block;
+		float:      none;
+		text-align: center;
+	}
 
 	$unit-sprite-size: 72px;
 
