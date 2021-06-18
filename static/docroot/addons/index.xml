@@ -17,7 +17,8 @@
 
 		<ul>
 			<li><a href="1.14/"><b>Stable 1.14</b></a> <span>(1.13.12&ndash;1.14.x)</span></li>
-			<li><a href="1.15/"><b>Development 1.15</b></a> <span>(1.15.0&ndash;1.15.x)</span></li>
+			<li><a href="1.16/"><b>Development 1.16</b></a> <span>(1.15.14&ndash;1.16.x)</span></li>
+			<li><a href="1.15/"><b>Development 1.15</b></a> <span>(1.15.0&ndash;1.15.13)</span></li>
 			<li><a href="1.12/">Old stable 1.12</a> <span>(1.11.10&ndash;1.12.x)</span></li>
 			<li><a href="trunk/">Testing instance</a> <span>(no versions)</span></li>
 		</ul>
