@@ -319,7 +319,6 @@ set_error_handler('trap');
 
 				<ul id="sociallinks">
 					<li><a class="twitter-button" href="https://twitter.com/Wesnoth" title="Follow @Wesnoth on Twitter"><i class="twitter-icon" aria-hidden="true"></i><span class="sr-label">Follow @Wesnoth on Twitter</span></a></li>
-					<li><a class="facebook-button" href="https://www.facebook.com/Battle-for-Wesnoth-1671354243186470" title="Wesnoth on Facebook"><i class="facebook-icon" aria-hidden="true"></i><span class="sr-label">Wesnoth on Facebook</span></a></li>
 					<li><a class="discord-button" href="https://discord.gg/battleforwesnoth" title="Wesnoth Discord Server"><i class="discord-icon" aria-hidden="true"></i><span class="sr-label">Discord Server</span></a></li>
 					<li><a class="github-button" href="https://github.com/wesnoth/wesnoth" title="Wesnoth on GitHub"><i class="github-icon" aria-hidden="true"></i><span class="sr-label">GitHub Project</span></a></li>
 				</ul>
@@ -570,8 +569,6 @@ set_error_handler('trap');
 
 			<div class="social-buttons-group">
 				<a class="twitter-bigbutton" href="https://twitter.com/wesnoth" title="Follow @Wesnoth on Twitter"><i class="twitter-icon"></i><span class="sr-label">Twitter</span></a>
-
-				<a class="facebook-bigbutton" href="https://www.facebook.com/Battle-for-Wesnoth-1671354243186470/" title="Wesnoth on Facebook"><i class="facebook-icon-2"></i><span class="sr-label">Facebook</span></a>
 			</div>
 
 			<div class="social-buttons-group">
