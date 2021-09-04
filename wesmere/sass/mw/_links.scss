@@ -53,7 +53,7 @@ $wesmere-always-internal-domains: (
 // We also emit directives used by our CSS postprocessor scripts to detect that
 // these FA icons should be compiled.
 $wesmere-proto-icons: (
-	"https://":			($fa-var-lock,					lock),
+	//"https://":			($fa-var-lock,					lock),
 	//"ftp://":			($fa-var-file,					file),
 	"mailto:":			($fa-var-envelope,				envelope),
 	//"news:":			($fa-var-newspaper-o,			newspaper-o),
