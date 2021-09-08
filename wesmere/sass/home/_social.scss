@@ -145,8 +145,8 @@ $facebook-brand-color:						#4267b2;
 
 	.discord-button, .discord-button:hover {
 		background-repeat:   no-repeat;
-		background-position: 50% 65%;
-		background-size:     (4em/3); /* FA _larger.scss */
+		background-position: 50% 55%;
+		background-size:     45%;
 	}
 }
 
@@ -289,9 +289,9 @@ $facebook-brand-color:						#4267b2;
 
 #social-trail .discord-bigbutton {
 	background: $color-discord-logo;
-	background: $color-discord-logo $svg-discord-logo-white 50% 65% / auto 3em no-repeat;
+	background: $color-discord-logo $svg-discord-logo-white center / 365% 80% no-repeat;
 
-	width:  8em;
+	width:  10.75em;
 	height: 2.25em;
 
 	vertical-align: middle;
