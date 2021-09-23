@@ -104,7 +104,7 @@ $branches = [
 			],
 			[
 				'os'    => 'linux',
-				'url'   => 'https://wiki.wesnoth.org/WesnothBinariesLinux',
+				'url'   => 'https://flathub.org/apps/details/org.wesnoth.Wesnoth',
 			],
 			[
 				'os'    => 'ios',
