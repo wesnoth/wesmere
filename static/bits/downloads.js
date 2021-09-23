@@ -80,9 +80,7 @@
 		if (/ip[ao]d/i.test(ua)) platform = "ios";
 		if (/iphone/i.test(ua))  platform = "ios";
 		if (/android/i.test(ua)) platform = "android";
-		// Fallback to src until our Linux package list becomes more accessible
-		// for casual/new Linux users.
-		//if (/linux/i.test(ua))   platform = "linux";
+		if (/linux/i.test(ua))   platform = "linux";
 
 		if (!(platform in defBranch.files)) {
 			platform = "src";
