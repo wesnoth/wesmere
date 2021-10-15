@@ -456,6 +456,7 @@ table.markdown tr:nth-child(2n) {
 		$itchio-color:						#fa5c5c;
 		$itchio-color-highlight:			#fa6363;
 		$itchio-color-highlight-focus:		lighten($itchio-color-highlight, 5%);
+		$itchio-color-highlight-shadow:		#ffdbcd;
 
 		background: $itchio-color; // legacy browsers
 		background: linear-gradient(to right, $itchio-color, $itchio-color-highlight 80%);
@@ -468,7 +469,7 @@ table.markdown tr:nth-child(2n) {
 		}
 
 		&:hover, &:focus {
-			text-shadow: 0px -1px 0px $itchio-shadow, 0px 0px 8px #def;
+			text-shadow: 0px -1px 0px $itchio-shadow, 0px 0px 8px $itchio-color-highlight-shadow;
 			color:       #fff;
 
 			background: $itchio-color-highlight; // legacy browsers
@@ -477,6 +478,17 @@ table.markdown tr:nth-child(2n) {
 
 		&:active {
 			box-shadow: inset -1px 1px 3px 3px $itchio-shadow-inner-pressed;
+		}
+
+		.itchio-logo {
+			@extend %standard-transitions;
+			// big transparent shadow to avoid reflowing on hover
+			filter: drop-shadow(0px -1px 0px $itchio-shadow) drop-shadow(0px 0px 8px transparent);
+		}
+
+		&:hover .itchio-logo,
+		&:focus .itchio-logo {
+			filter: drop-shadow(0px -1px 0px $itchio-shadow) drop-shadow(0px 0px 8px $itchio-color-highlight-shadow);
 		}
 	}
 }
