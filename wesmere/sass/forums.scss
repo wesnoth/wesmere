@@ -324,6 +324,7 @@ table.markdown tr:nth-child(2n) {
 }
 
 #ra-steam,
+#ra-itchio,
 #ra-press {
 	margin: $measurement-sub;
 	margin-top: 0;
@@ -337,7 +338,8 @@ table.markdown tr:nth-child(2n) {
 }
 
 #ra-press > a,
-#ra-steam .steam-button {
+#ra-steam .steam-button,
+#ra-itchio .itchio-button {
 	@extend %standard-transitions;
 
 	display: block;
@@ -353,7 +355,8 @@ table.markdown tr:nth-child(2n) {
 }
 
 #ra-press > a,
-#ra-steam .download-big {
+#ra-steam .download-big,
+#ra-itchio .download-big {
 	font-family: 'Trebuchet MS', 'DejaVu Sans Condensed', Arial, sans-serif;
 	font-weight: bold;
 }
@@ -387,6 +390,33 @@ table.markdown tr:nth-child(2n) {
 	}
 }
 
+#ra-steam,
+#ra-itchio {
+	.steam-icon,
+	.itchio-logo {
+		float: left;
+		margin: 0 0.2em 0 0;
+		line-height: 0.8;
+	}
+
+	.download-big {
+		display: block;
+		line-height: 1.6;
+	}
+
+	.itchio-logo {
+		height:  1.66em;
+		width:   auto;
+
+		margin-left:  0.33em;
+		margin-right: 0.75em;
+
+		fill: #fff;
+
+		display: inline-block;
+	}
+}
+
 #ra-steam {
 	.steam-button {
 		$steam-color:						#171a21;
@@ -417,15 +447,36 @@ table.markdown tr:nth-child(2n) {
 			box-shadow: inset -1px 1px 3px 3px #000;
 		}
 	}
+}
 
-	.steam-icon {
-		float: left;
-		margin: 0 0.2em 0 0;
-		line-height: 0.8;
-	}
+#ra-itchio {
+	.itchio-button {
+		$itchio-shadow:						#4e2b2b;
+		$itchio-shadow-inner-pressed:		#ce3b3b;
+		$itchio-color:						#fa5c5c;
+		$itchio-color-highlight:			#fa6363;
+		$itchio-color-highlight-focus:		lighten($itchio-color-highlight, 5%);
 
-	.download-big {
-		display: block;
-		line-height: 1.6;
+		background: $itchio-color; // legacy browsers
+		background: linear-gradient(to right, $itchio-color, $itchio-color-highlight 80%);
+
+		&:link, &:visited, &:active {
+			text-shadow: 0px -1px 0px $itchio-shadow;
+			color:       #fafafa;
+
+			text-decoration: none;
+		}
+
+		&:hover, &:focus {
+			text-shadow: 0px -1px 0px $itchio-shadow, 0px 0px 8px #def;
+			color:       #fff;
+
+			background: $itchio-color-highlight; // legacy browsers
+			background: linear-gradient(to right, lighten($itchio-color, 5%), $itchio-color-highlight-focus 80%);
+		}
+
+		&:active {
+			box-shadow: inset -1px 1px 3px 3px $itchio-shadow-inner-pressed;
+		}
 	}
 }
