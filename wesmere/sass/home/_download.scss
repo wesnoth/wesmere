@@ -144,14 +144,16 @@
 	}
 }
 
+$itchio-shadow: #4e2b2b;
+
 .itchio-button {
 	$itchio-color: #fa5c5c;
-	$itchio-shadow: #4e2b2b;
 	$itchio-shadow-inner: #db4747;
 	$itchio-shadow-inner-pressed: #b43434;
 	$itchio-color-highlight: #fa6363;
 	$itchio-color-highlight-focus: lighten($itchio-color-highlight, 5%);
 	$itchio-color-highlight-border: #ffbca1;
+	$itchio-color-highlight-shadow: #ffdbcd;
 	//$itchio-border: #ff8a8a;
 	$itchio-border: #ffac8b;
 
@@ -172,7 +174,7 @@
 	}
 
 	&:hover, &:focus {
-		text-shadow: 0px -1px 0px $itchio-shadow, 0px 0px 8px #fff;
+		text-shadow: 0px -1px 0px $itchio-shadow, 0px 0px 8px $itchio-color-highlight-shadow;
 
 		background: $itchio-color; // legacy browsers
 		background: linear-gradient(to right, $itchio-color-highlight, $itchio-color-highlight-focus 80%);
@@ -181,7 +183,11 @@
 											$itchio-shadow,
 	                                        $itchio-shadow-inner,
 	                                        $itchio-shadow-inner,
-	                                        $itchio-color-highlight-focus);
+	                                        lighten($itchio-color-highlight-focus, 5%));
+
+		svg.itchio-logo {
+			filter: drop-shadow(0px -1px 0px $itchio-shadow) drop-shadow(0px 0px 8px $itchio-color-highlight-shadow);
+		}
 	}
 
 	&:active {
@@ -202,9 +208,12 @@ svg.itchio-logo {
 	margin-right: 0.33em;
 
 	fill: #fff;
-	filter: drop-shadow(0px -1px 0px #4e2b2b);
+	// big transparent shadow to avoid reflowing on hover
+	filter: drop-shadow(0px -1px 0px $itchio-shadow) drop-shadow(0px 0px 8px transparent);
 
 	display: inline-block;
+
+	@extend %standard-transitions;
 }
 
 .download-button,
