@@ -24,7 +24,8 @@
 }
 
 .download-button,
-.steam-button {
+.steam-button,
+.itchio-button {
 	display: block;
 	outline: none;
 
@@ -46,6 +47,7 @@
 }
 
 // Set spacing between items
+.itchio-button,
 .steam-button {
 	margin-top: 1em;
 }
@@ -142,6 +144,69 @@
 	}
 }
 
+.itchio-button {
+	$itchio-color: #fa5c5c;
+	$itchio-shadow: #4e2b2b;
+	$itchio-shadow-inner: #db4747;
+	$itchio-shadow-inner-pressed: #b43434;
+	$itchio-color-highlight: #fa6363;
+	$itchio-color-highlight-focus: lighten($itchio-color-highlight, 5%);
+	$itchio-color-highlight-border: #ffbca1;
+	//$itchio-border: #ff8a8a;
+	$itchio-border: #ffac8b;
+
+	background: $itchio-color;
+	background: linear-gradient(to right, $itchio-color, $itchio-color-highlight 80%);
+
+	@include wesnoth-bigbutton-normal-frame($itchio-border,
+											$itchio-shadow,
+	                                        $itchio-shadow-inner,
+	                                        $itchio-shadow-inner,
+	                                        $itchio-color-highlight-focus);
+
+	&:link, &:visited, &:active {
+		text-shadow: 0px -1px 0px $itchio-shadow;
+		color:       #fff;
+
+		text-decoration: none;
+	}
+
+	&:hover, &:focus {
+		text-shadow: 0px -1px 0px $itchio-shadow, 0px 0px 8px #fff;
+
+		background: $itchio-color; // legacy browsers
+		background: linear-gradient(to right, $itchio-color-highlight, $itchio-color-highlight-focus 80%);
+
+		@include wesnoth-bigbutton-normal-frame($itchio-color-highlight-border,
+											$itchio-shadow,
+	                                        $itchio-shadow-inner,
+	                                        $itchio-shadow-inner,
+	                                        $itchio-color-highlight-focus);
+	}
+
+	&:active {
+		box-shadow:        0px 0px 2px 1px $itchio-shadow,
+					inset -1px 1px 3px 3px $itchio-shadow-inner-pressed;
+	}
+}
+
+svg.itchio-badge {
+	width: 100%;
+	height: auto;
+}
+
+svg.itchio-logo {
+	width:  auto;
+	height: 1em;
+
+	margin-right: 0.33em;
+
+	fill: #fff;
+	filter: drop-shadow(0px -1px 0px #4e2b2b);
+
+	display: inline-block;
+}
+
 .download-button,
 .steam-button {
 	&:active {
@@ -156,7 +221,8 @@
 }
 
 .download-arrow,
-.steam-icon {
+.steam-icon,
+.itchio-logo {
 	@extend .fa;
 	@extend .fa-fw;
 	@extend .fa-download;
@@ -176,7 +242,8 @@
 	font-weight: bold;
 
 	// Try to center text on the Steam button since it's only one line.
-	.steam-button & {
+	.steam-button &,
+	.itchio-button & {
 		line-height: 2.2;
 	}
 }
