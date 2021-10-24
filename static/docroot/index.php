@@ -565,7 +565,7 @@ set_error_handler('trap');
 				<h2>Donate</h2><span id="bgdonate"></span>
 
 				<div class="columnbox">
-					<p id="donate-info">If you would like to donate to the project, you can do so on Liberapay, or by purchasing the game on iOS. Wesnoth does rely on the work of dedicated volunteers, but no project can function completely cost-free. Revenue from the Apple App Store and from donations goes towards maintaining our servers, websites, and commissioning new art and music.</p>
+					<p id="donate-info">If you would like to donate to the project, you can do so on Liberapay or when downloading Wesnoth through itch.io. Wesnoth does rely on the work of dedicated volunteers, but no project can function completely cost-free. Revenue from donations goes towards maintaining our servers, websites, and commissioning new art and music.</p>
 
 					<div id="donate-box">
 						<a class="liberapay-bigbutton" href="https://liberapay.com/Wesnoth/donate" title="Donate to Wesnoth on Liberapay"><i class="liberapay-icon"></i><span>Donate</span></a>
