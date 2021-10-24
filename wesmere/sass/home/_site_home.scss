@@ -270,8 +270,8 @@ $strip-padding:							$measurement-sub;
 }
 
 #showcase-screenshot-container {
-	$width-factor:  1280;
-	$height-factor: 768;
+	$width-factor:  1920;
+	$height-factor: 1080;
 	$vertical-span: 100%*($height-factor/$width-factor);
 
 	padding-bottom: $vertical-span;
