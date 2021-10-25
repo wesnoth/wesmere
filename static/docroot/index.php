@@ -76,118 +76,49 @@ $branches = [
 	'stable' =>
 	[
 		'label'       => 'Stable',
-		'version'     => '1.14.17',
-		'url'         => 'https://wiki.wesnoth.org/Download#Stable_.281.14_branch.29',
+		'version'     => '1.16.0',
+		'url'         => 'https://wiki.wesnoth.org/Download#Stable_.281.16_branch.29',
 		'recommended' => true,
 
 		'description' => '<p>The <b>stable</b> version of Wesnoth is recommended for new and veteran players and content creators on all platforms, as it offers a well-supported and extensively-tested experience, with new releases delivering bug fixes and translation updates.</p>',
 
-		'update-announcement' => 'https://forums.wesnoth.org/viewtopic.php?t=54496',
+		'update-announcement' => 'https://forums.wesnoth.org/viewtopic.php?t=55012',
 
-		'release-notes' => [ 'url' => '/start/1.14/', 'label' => 'Release notes for 1.14' ],
+		'release-notes' => [ 'url' => '/start/1.16/', 'label' => 'Release notes for 1.16' ],
 
-		'files-url-prefix' => 'https://sourceforge.net/projects/wesnoth/files/wesnoth-1.14/wesnoth-1.14.17',
-
-		'files' =>
-		[
-			[
-				'os'    => 'windows',
-				'size'  => '415.8',
-				'url'   => '@/wesnoth-1.14.17-win32.exe/download',
-			],
-			[
-				'os'    => 'apple',
-				'label' => 'macOS',
-				'size'  => '454.6',
-				'url'   => '@/Wesnoth_1.14.17.dmg/download',
-			],
-			[
-				'os'    => 'src',
-				'size'  => '462.5',
-				'url'   => '@/wesnoth-1.14.17.tar.bz2/download',
-			],
-			[
-				'os'    => 'linux',
-				'url'   => 'https://flathub.org/apps/details/org.wesnoth.Wesnoth',
-			],
-			[
-				'os'    => 'ios',
-				'url'   => $ios_appstore_url,
-			],
-			[
-				'os'    => 'android',
-				'url'   => 'https://play.google.com/store/apps/details?id=it.alessandropira.wesnoth114',
-			],
-		],
-
-		'system-requirements' =>
-		[
-			'platform' =>
-			[
-				'Microsoft Windows 7 SP1 or later<br />Apple macOS 10.8 or later<br />Ubuntu 16.04 or compatible',
-				'Microsoft Windows 10<br />Apple macOS 10.10 or later<br />Ubuntu 18.04 or compatible',
-			],
-			'processor' =>
-			[
-				'Dual-core 2.0 GHz or better', 'Dual-core 3.2 GHz or better'
-			],
-			'memory' =>
-			[
-				'2 GB', '4 GB'
-			],
-			'storage' =>
-			[
-				'800 MB free', '2 GB free'
-			],
-			'graphics' =>
-			[
-				'800x600 or larger screen',
-				'1024x768 or larger screen',
-			],
-			'input' => 'Keyboard and mouse required',
-		],
-	],
-	'dev' =>
-	[
-		'label'       => 'Development',
-		'version'     => '1.15.18',
-		'url'         => 'https://wiki.wesnoth.org/Download#Development_.281.15_branch.29',
-
-		'description' => '<p>The <b>development</b> version of Wesnoth is geared towards veteran players and content creators who wish to try out the latest additions to the game. Updates are not guaranteed to be stable and may include game-breaking changes.</p>',
-
-		'update-announcement' => 'https://forums.wesnoth.org/viewtopic.php?t=54926',
-
-		'files-url-prefix' => 'https://sourceforge.net/projects/wesnoth/files/wesnoth/wesnoth-1.15.18',
+		'files-url-prefix' => 'https://sourceforge.net/projects/wesnoth/files/wesnoth-1.16/wesnoth-1.16.0',
 
 		'files' =>
 		[
 			[
 				'os'    => 'windows',
 				'label' => 'Windows (64-bit)',
-				'size'  => '442.4',
-				'url'   => '@/wesnoth-1.15.18-win64.exe/download',
+				'size'  => '443.2',
+				'url'   => '@/wesnoth-1.16.0-win64.exe/download',
 			],
 			[
 				'os'    => 'apple',
 				'label' => 'macOS (10.11+)',
-				'size'  => '487.7',
-				'url'   => '@/Wesnoth_1.15.18.dmg/download',
+				'size'  => '488.2',
+				'url'   => '@/Wesnoth_1.16.0.dmg/download',
 			],
 			[
 				'os'    => 'src',
-				'size'  => '473.1',
-				'url'   => '@/wesnoth-1.15.18.tar.bz2/download',
+				'size'  => '473.9',
+				'url'   => '@/wesnoth-1.16.0.tar.bz2/download',
 			],
 			[
 				'os'    => 'linux',
-				'url'   => 'https://wiki.wesnoth.org/WesnothBinariesLinux',
+				'url'   => 'https://flathub.org/apps/details/org.wesnoth.Wesnoth',
 			],
-			/*
-			[
+			/*[
 				'os'    => 'ios',
 				'url'   => $ios_appstore_url,
 			],
-			*/
+			[
+				'os'    => 'android',
+				'url'   => 'https://play.google.com/store/apps/details?id=it.alessandropira.wesnoth114',
+			],*/
 		],
 
 		'system-requirements' =>
@@ -217,6 +148,72 @@ $branches = [
 			'input' => 'Keyboard and mouse required',
 		]
 	],
+	/*
+	'dev' =>
+	[
+		'label'       => 'Development',
+		'version'     => '1.17.0',
+		'url'         => 'https://wiki.wesnoth.org/Download#Development_.281.17_branch.29',
+
+		'description' => '<p>The <b>development</b> version of Wesnoth is geared towards veteran players and content creators who wish to try out the latest additions to the game. Updates are not guaranteed to be stable and may include game-breaking changes.</p>',
+
+		'update-announcement' => 'https://forums.wesnoth.org/viewtopic.php?t=00000',
+
+		'files-url-prefix' => 'https://sourceforge.net/projects/wesnoth/files/wesnoth/wesnoth-1.17.0',
+
+		'files' =>
+		[
+			[
+				'os'    => 'windows',
+				'label' => 'Windows (64-bit)',
+				'size'  => '000.0',
+				'url'   => '@/wesnoth-1.17.0-win64.exe/download',
+			],
+			[
+				'os'    => 'apple',
+				'label' => 'macOS (10.11+)',
+				'size'  => '000.0',
+				'url'   => '@/Wesnoth_1.17.0.dmg/download',
+			],
+			[
+				'os'    => 'src',
+				'size'  => '000.0',
+				'url'   => '@/wesnoth-1.17.0.tar.bz2/download',
+			],
+			[
+				'os'    => 'linux',
+				'url'   => 'https://wiki.wesnoth.org/WesnothBinariesLinux',
+			],
+		],
+
+		'system-requirements' =>
+		[
+			'platform' =>
+			[
+				'Microsoft Windows 7 SP1 (64-bit) or later<br />Apple macOS 10.11 or later<br />Ubuntu 16.04 or compatible',
+				'Microsoft Windows 10 (64-bit)<br />Apple macOS 10.14 or later<br />Ubuntu 20.04 or compatible',
+			],
+			'processor' =>
+			[
+				'Dual-core 2.0 GHz or better', 'Dual-core 3.2 GHz or better'
+			],
+			'memory' =>
+			[
+				'4 GB', '4 GB'
+			],
+			'storage' =>
+			[
+				'800 MB free', '2 GB free'
+			],
+			'graphics' =>
+			[
+				'800x600 or larger screen',
+				'1024x768 or larger screen',
+			],
+			'input' => 'Keyboard and mouse required',
+		]
+	],
+	*/
 ];
 
 //
