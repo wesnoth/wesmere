@@ -376,7 +376,7 @@ set_error_handler('trap');
 
 				<div id="showcase">
 					<div id="showcase-current">
-						<iframe id="showcase-object" width="854" height="480" src="https://www.youtube.com/embed/xDDKImYOIvA" frameborder="0" allowfullscreen></iframe>
+						<iframe id="showcase-object" width="854" height="480" src="https://www.youtube.com/embed/4Ebww6utt9I" frameborder="0" allowfullscreen></iframe>
 					</div>
 
 					<script>@ HTMLPOST:INCLUDE bits/gallery.js @</script>
