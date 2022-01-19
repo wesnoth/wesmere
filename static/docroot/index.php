@@ -76,13 +76,13 @@ $branches = [
 	'stable' =>
 	[
 		'label'       => 'Stable',
-		'version'     => '1.16.1',
+		'version'     => '1.16.2',
 		'url'         => 'https://wiki.wesnoth.org/Download#Stable_.281.16_branch.29',
 		'recommended' => true,
 
 		'description' => '<p>The <b>stable</b> version of Wesnoth is recommended for new and veteran players and content creators on all platforms, as it offers a well-supported and extensively-tested experience, with new releases delivering bug fixes and translation updates.</p>',
 
-		'update-announcement' => 'https://forums.wesnoth.org/viewtopic.php?t=55106',
+		'update-announcement' => 'https://forums.wesnoth.org/viewtopic.php?t=55333',
 
 		'release-notes' => [ 'url' => '/start/1.16/', 'label' => 'Release notes for 1.16' ],
 
@@ -93,19 +93,19 @@ $branches = [
 			[
 				'os'    => 'windows',
 				'label' => 'Windows (64-bit)',
-				'size'  => '443.4',
-				'url'   => '@/wesnoth-1.16.1-win64.exe/download',
+				'size'  => '442.9',
+				'url'   => '@/wesnoth-1.16.2-win64.exe/download',
 			],
 			[
 				'os'    => 'apple',
 				'label' => 'macOS (10.11+)',
-				'size'  => '488.3',
-				'url'   => '@/Wesnoth_1.16.1a.dmg/download',
+				'size'  => '487.1',
+				'url'   => '@/Wesnoth_1.16.2.dmg/download',
 			],
 			[
 				'os'    => 'src',
-				'size'  => '474.0',
-				'url'   => '@/wesnoth-1.16.1.tar.bz2/download',
+				'size'  => '474.8',
+				'url'   => '@/wesnoth-1.16.2.tar.bz2/download',
 			],
 			[
 				'os'    => 'linux',
@@ -148,7 +148,6 @@ $branches = [
 			'input' => 'Keyboard and mouse required',
 		]
 	],
-	/*
 	'dev' =>
 	[
 		'label'       => 'Development',
@@ -157,7 +156,7 @@ $branches = [
 
 		'description' => '<p>The <b>development</b> version of Wesnoth is geared towards veteran players and content creators who wish to try out the latest additions to the game. Updates are not guaranteed to be stable and may include game-breaking changes.</p>',
 
-		'update-announcement' => 'https://forums.wesnoth.org/viewtopic.php?t=00000',
+		'update-announcement' => 'https://forums.wesnoth.org/viewtopic.php?t=55332',
 
 		'files-url-prefix' => 'https://sourceforge.net/projects/wesnoth/files/wesnoth/wesnoth-1.17.0',
 
@@ -166,18 +165,18 @@ $branches = [
 			[
 				'os'    => 'windows',
 				'label' => 'Windows (64-bit)',
-				'size'  => '000.0',
+				'size'  => '446.6',
 				'url'   => '@/wesnoth-1.17.0-win64.exe/download',
 			],
 			[
 				'os'    => 'apple',
 				'label' => 'macOS (10.11+)',
-				'size'  => '000.0',
+				'size'  => '491.9',
 				'url'   => '@/Wesnoth_1.17.0.dmg/download',
 			],
 			[
 				'os'    => 'src',
-				'size'  => '000.0',
+				'size'  => '478.3',
 				'url'   => '@/wesnoth-1.17.0.tar.bz2/download',
 			],
 			[
@@ -213,7 +212,6 @@ $branches = [
 			'input' => 'Keyboard and mouse required',
 		]
 	],
-	*/
 ];
 
 //
