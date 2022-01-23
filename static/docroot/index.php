@@ -86,7 +86,7 @@ $branches = [
 
 		'release-notes' => [ 'url' => '/start/1.16/', 'label' => 'Release notes for 1.16' ],
 
-		'files-url-prefix' => 'https://sourceforge.net/projects/wesnoth/files/wesnoth-1.16/wesnoth-1.16.1',
+		'files-url-prefix' => 'https://sourceforge.net/projects/wesnoth/files/wesnoth-1.16/wesnoth-1.16.2',
 
 		'files' =>
 		[
