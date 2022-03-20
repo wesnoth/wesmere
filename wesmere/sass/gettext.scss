@@ -233,6 +233,10 @@ th.title {
 	text-align: right;
 }
 
+td.graph {
+	white-space: nowrap;
+}
+
 td.percent {
 	background: lighten($glamdrol-bg, 2%)!important;
 }
