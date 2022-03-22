@@ -286,6 +286,7 @@ set_error_handler('trap');
 	<link rel="apple-touch-icon" type="image/png" href="/wesmere/img/apple-touch-icon.png" sizes="180x180" />
 	<link rel="icon" type="image/png" href="/wesmere/img/favicon-32.png" sizes="32x32" />
 	<link rel="icon" type="image/png" href="/wesmere/img/favicon-16.png" sizes="16x16" />
+	<meta name="theme-color" content="#0f1421" />
 	<link rel="stylesheet" type="text/css" href="/wesmere/css/wesmere<?php echo ($use_css_versioning ? '-' . $css_version : '') ?>.css" />
 	<link rel="alternate" type="application/rss+xml" title="News" href="https://forums.wesnoth.org/feed.php?f=62" />
 

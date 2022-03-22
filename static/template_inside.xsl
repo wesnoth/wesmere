@@ -43,6 +43,7 @@ with this program; if not, see <http://www.gnu.org/licenses/>.
 	<link rel="apple-touch-icon" type="image/png" href="{$wesmere-resource-prefix}/wesmere/img/apple-touch-icon.png" sizes="180x180" />
 	<link rel="icon" type="image/png" href="{$wesmere-resource-prefix}/wesmere/img/favicon-32.png" sizes="32x32" />
 	<link rel="icon" type="image/png" href="{$wesmere-resource-prefix}/wesmere/img/favicon-16.png" sizes="16x16" />
+	<meta name="theme-color" content="#0f1421" />
 	<link rel="stylesheet" type="text/css" href="{$wesmere-resource-prefix}/wesmere/css/wesmere-{$wesmere-css-version}.css" />
 
 	<title><xsl:value-of select="document/title"/> - The Battle for Wesnoth</title>

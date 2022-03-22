@@ -55,6 +55,7 @@ class SkinWesmere extends SkinTemplate
 		$out->addHeadItem('apple-touch-icon', '<link rel="apple-touch-icon" type="image/png" href="'.$this->wesmerePrefix.'/wesmere/img/apple-touch-icon.png" sizes="180x180" />');
 		$out->addHeadItem('favicon32', '<link rel="icon" type="image/png" href="'.$this->wesmerePrefix.'/wesmere/img/favicon-32.png" sizes="32x32" />');
 		$out->addHeadItem('favicon16', '<link rel="icon" type="image/png" href="'.$this->wesmerePrefix.'/wesmere/img/favicon-16.png" sizes="16x16" />');
+		$out->addHeadItem('wesmere-theme-color', '<meta name="theme-color" content="#0f1421" />');
 	}
 
 	/**
