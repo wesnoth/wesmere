@@ -10,10 +10,10 @@ design from 2005 by Jordà Polo (ettin), "Glamdrol".
 
 The theme is available under the terms of the GNU General Public License;
 either version 2 of the license, or (at your option) any later version. The
-theme author is [Iris Morelle (shadowm/ShikadiQueen)][3] and it was developed
+theme author is [Iris Morelle (Irydacea)][3] and it was developed
 specifically for Wesnoth's use.
 
-[3]: <https://shadowm.ai0867.net/>
+[3]: <https://irydacea.me/>
 
 
 Build Requirements
