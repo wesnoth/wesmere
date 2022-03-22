@@ -33,3 +33,7 @@
 /template.html
 /valen.html
 /.htaccess
+
+# Platform cruft
+.DS_Store
+Thumbs.db
