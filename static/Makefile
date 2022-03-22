@@ -2,7 +2,7 @@
 # Wesnoth.org static pages build instructions
 #
 # codename Wesmere - Next-gen Wesnoth.org stylesheet
-# Copyright (C) 2011 - 2021 by Iris Morelle <shadowm@wesnoth.org>
+# Copyright (C) 2011 - 2022 by Iris Morelle <shadowm@wesnoth.org>
 #
 
 INDIR=docroot
