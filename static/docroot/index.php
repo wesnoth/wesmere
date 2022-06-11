@@ -98,7 +98,7 @@ $branches = [
 			],
 			[
 				'os'    => 'apple',
-				'label' => 'macOS (10.11+)',
+				'label' => 'macOS (10.12+)',
 				'size'  => '487.8',
 				'url'   => '@/Wesnoth_1.16.3.dmg/download',
 			],
@@ -125,7 +125,7 @@ $branches = [
 		[
 			'platform' =>
 			[
-				'Microsoft Windows 7 SP1 (64-bit) or later<br />Apple macOS 10.11 or later<br />Ubuntu 16.04 or compatible',
+				'Microsoft Windows 7 SP1 (64-bit) or later<br />Apple macOS 10.12 or later<br />Ubuntu 16.04 or compatible',
 				'Microsoft Windows 10 (64-bit)<br />Apple macOS 10.14 or later<br />Ubuntu 20.04 or compatible',
 			],
 			'processor' =>
@@ -170,7 +170,7 @@ $branches = [
 			],
 			[
 				'os'    => 'apple',
-				'label' => 'macOS (10.11+)',
+				'label' => 'macOS (10.12+)',
 				'size'  => '428.8',
 				'url'   => '@/Wesnoth_1.17.4.dmg/download',
 			],
@@ -189,7 +189,7 @@ $branches = [
 		[
 			'platform' =>
 			[
-				'Microsoft Windows 7 SP1 (64-bit) or later<br />Apple macOS 10.11 or later<br />Ubuntu 16.04 or compatible',
+				'Microsoft Windows 7 SP1 (64-bit) or later<br />Apple macOS 10.12 or later<br />Ubuntu 16.04 or compatible',
 				'Microsoft Windows 10 (64-bit)<br />Apple macOS 10.14 or later<br />Ubuntu 20.04 or compatible',
 			],
 			'processor' =>
