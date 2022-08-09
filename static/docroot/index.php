@@ -93,8 +93,7 @@ $branches = [
 			[
 				'os'    => 'windows',
 				'label' => 'Windows (64-bit)',
-				'size'  => '440.8',
-				'url'   => '@/wesnoth-1.16.5-win64.exe/download',
+				'url'   => 'https://wesnoth.itch.io/battle-for-wesnoth',
 			],
 			[
 				'os'    => 'apple',
@@ -103,13 +102,13 @@ $branches = [
 				'url'   => '@/Wesnoth_1.16.5.dmg/download',
 			],
 			[
+				'os'    => 'linux',
+				'url'   => 'https://flathub.org/apps/details/org.wesnoth.Wesnoth',
+			],
+			[
 				'os'    => 'src',
 				'size'  => '475.5',
 				'url'   => '@/wesnoth-1.16.5.tar.bz2/download',
-			],
-			[
-				'os'    => 'linux',
-				'url'   => 'https://flathub.org/apps/details/org.wesnoth.Wesnoth',
 			],
 			/*[
 				'os'    => 'ios',
@@ -165,8 +164,7 @@ $branches = [
 			[
 				'os'    => 'windows',
 				'label' => 'Windows (64-bit)',
-				'size'  => '386.7',
-				'url'   => '@/wesnoth-1.17.6-win64.exe/download',
+				'url'   => 'https://wesnoth.itch.io/battle-for-wesnoth',
 			],
 			[
 				'os'    => 'apple',
@@ -175,13 +173,13 @@ $branches = [
 				'url'   => '@/Wesnoth_1.17.6.dmg/download',
 			],
 			[
+				'os'    => 'linux',
+				'url'   => 'https://wiki.wesnoth.org/WesnothBinariesLinux',
+			],
+			[
 				'os'    => 'src',
 				'size'  => '419.2',
 				'url'   => '@/wesnoth-1.17.6.tar.bz2/download',
-			],
-			[
-				'os'    => 'linux',
-				'url'   => 'https://wiki.wesnoth.org/WesnothBinariesLinux',
 			],
 		],
 

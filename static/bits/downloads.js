@@ -86,16 +86,21 @@
 			platform = "src";
 		}
 
-		var $recBox = $("#download-recommended"),
-		    $downButt = $recBox.children(".download-button");
+		var $recBox = $("#download-recommended");
+		var $downButt = $recBox.children(".download-button");
 
-		$downButt.attr("href", defBranch.files[platform].url);
+		if (platform == "windows") {
+			$downButt.attr("style", "display:none;");
+		} else {
+			$downButt.attr("href", defBranch.files[platform].url);
+			var buttLabel = !defBranch.files[platform].noVersion
+			                ? defBranch.files[platform].label + " &#8212; " + defBranch.number
+			                : "Wesnoth for " + defBranch.files[platform].label;
 
-		var buttLabel = !defBranch.files[platform].noVersion
-		                ? defBranch.files[platform].label + " &#8212; " + defBranch.number
-		                : "Wesnoth for " + defBranch.files[platform].label;
+			$downButt.find(".download-desc").html(buttLabel);
+		}
 
-		$downButt.find(".download-desc").html(buttLabel);
+
 	}
 
 	//
