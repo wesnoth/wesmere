@@ -98,7 +98,6 @@ $branches = [
 			[
 				'os'    => 'apple',
 				'label' => 'macOS (10.12+)',
-				'size'  => '487.9',
 				'url'   => '@/Wesnoth_1.16.5.dmg/download',
 			],
 			[
@@ -107,7 +106,6 @@ $branches = [
 			],
 			[
 				'os'    => 'src',
-				'size'  => '475.5',
 				'url'   => '@/wesnoth-1.16.5.tar.bz2/download',
 			],
 			/*[
@@ -169,7 +167,6 @@ $branches = [
 			[
 				'os'    => 'apple',
 				'label' => 'macOS (10.12+)',
-				'size'  => '429.8',
 				'url'   => '@/Wesnoth_1.17.6.dmg/download',
 			],
 			[
@@ -178,7 +175,6 @@ $branches = [
 			],
 			[
 				'os'    => 'src',
-				'size'  => '419.2',
 				'url'   => '@/wesnoth-1.17.6.tar.bz2/download',
 			],
 		],
