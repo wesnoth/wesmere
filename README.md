@@ -24,10 +24,7 @@ build environments at this time are Debian 9 (Stretch), and Debian Buster.
 
 **Mandatory**
 
-* Ruby >= 2.1                  (`ruby`)
-* Sass                         (`ruby-sass`)
-    * If using the Ruby Gem installer instead (recommended), `ruby-dev`,
-      `build-essential` are also required.
+* Sass                         (`dart-sass`)
 * PHP >= 5.5                   (`php`)
 * Python >= 3.4                (`python3`)
 * libXSLT processor            (`xsltproc`)
