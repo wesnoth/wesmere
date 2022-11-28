@@ -8,8 +8,6 @@
  */
 
 $sbutton-bg:								rgba($wui-text-navlink, 0.15);
-$twitter-bird-color:						#1da1f2;
-$facebook-brand-color:						#4267b2;
 
 #nav {
 	position: relative;
@@ -83,10 +81,7 @@ $facebook-brand-color:						#4267b2;
 	}
 }
 
-.twitter-icon,
 .github-icon,
-.facebook-icon,
-.facebook-icon-2,
 .discord-icon,
 .liberapay-icon {
 	@extend .fa;
@@ -94,33 +89,13 @@ $facebook-brand-color:						#4267b2;
 	@extend .fa-fw;
 }
 
-.twitter-icon {
-	@extend .fa-twitter;
-}
-
-.facebook-icon {
-	@extend .fa-facebook-official;
-}
-
-.facebook-icon-2 {
-	@extend .fa-facebook;
-}
-
 .github-icon {
 	@extend .fa-github;
 }
 
-// Need id selector to override base #nav a styles (_site_layout.scss). At his
+// Need id selector to override base #nav a styles (_site_layout.scss). At this
 // point I'm regretting not spamming classes everywhere.
 #sociallinks {
-	.twitter-button:hover {
-		color: $twitter-bird-color;
-	}
-
-	.facebook-button:hover {
-		color: $facebook-brand-color;
-	}
-
 	.github-button:hover {
 		color: #222;
 	}
@@ -175,32 +150,15 @@ $facebook-brand-color:						#4267b2;
 	}
 }
 
-// These two are a special case because they inhabit the same group.
-
-.twitter-bigbutton {
-	margin-right: $measurement-small/2;
-}
-
-.facebook-bigbutton {
-	margin-left: $measurement-small/2;
-}
-
 .github-bigbutton,
 .discord-bigbutton,
-.twitter-bigbutton,
-.facebook-bigbutton,
 .liberapay-bigbutton {
-	border-radius: 4px; // Matches Facebook and Twitter buttons
+	border-radius: 4px;
 
 	display: inline-block;
 	padding: $measurement-small $measurement-sub;
 
 	text-align: left;
-
-	// We can't use this because it'll look inconsistent with the Twitter and
-	// Facebook widgets, which do not have transitions and are provided by
-	// iframe documents.
-	//@extend %standard-transitions;
 
 	&:hover, &:active {
 		text-decoration: none;
@@ -208,8 +166,6 @@ $facebook-brand-color:						#4267b2;
 }
 
 .github-bigbutton,
-.twitter-bigbutton,
-.facebook-bigbutton,
 .liberapay-bigbutton {
 	& > i {
 		font-size: 3em;
@@ -217,27 +173,6 @@ $facebook-brand-color:						#4267b2;
 
 	#social-trail &,
 	.github-icon,
-	.twitter-icon,
-	.facebook-icon-2 {
-		color: #fff;
-		vertical-align: middle;
-	}
-}
-
-.twitter-bigbutton {
-	background: #1b95e0;
-
-	&:hover, &:active {
-		background: #0c7abf;
-	}
-}
-
-.facebook-bigbutton {
-	background: #4267b2;
-
-	&:hover, &:active {
-		background: #365899;
-	}
 }
 
 .github-bigbutton {
