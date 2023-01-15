@@ -98,7 +98,7 @@ $branches = [
 			[
 				'os'    => 'apple',
 				'label' => 'macOS (10.12+)',
-				'url'   => '@/Wesnoth_1.16.6.dmg/download',
+				'url'   => 'https://sourceforge.net/projects/wesnoth/files/wesnoth-1.16/wesnoth-1.16.6/Wesnoth_1.16.6.dmg/download',
 			],
 			[
 				'os'    => 'linux',
@@ -167,7 +167,7 @@ $branches = [
 			[
 				'os'    => 'apple',
 				'label' => 'macOS (10.12+)',
-				'url'   => '@/Wesnoth_1.17.10.dmg/download',
+				'url'   => 'https://sourceforge.net/projects/wesnoth/files/wesnoth/wesnoth-1.17.10/Wesnoth_1.17.10.dmg/download',
 			],
 			[
 				'os'    => 'linux',
