@@ -76,17 +76,17 @@ $branches = [
 	'stable' =>
 	[
 		'label'       => 'Stable',
-		'version'     => '1.16.6',
+		'version'     => '1.16.7',
 		'url'         => 'https://wiki.wesnoth.org/Download#Stable_.281.16_branch.29',
 		'recommended' => true,
 
 		'description' => '<p>The <b>stable</b> version of Wesnoth is recommended for new and veteran players and content creators on all platforms, as it offers a well-supported and extensively-tested experience, with new releases delivering bug fixes and translation updates.</p>',
 
-		'update-announcement' => 'https://forums.wesnoth.org/viewtopic.php?t=56231',
+		'update-announcement' => 'https://forums.wesnoth.org/viewtopic.php?t=56588',
 
 		'release-notes' => [ 'url' => '/start/1.16/', 'label' => 'Release notes for 1.16' ],
 
-		'files-url-prefix' => 'https://sourceforge.net/projects/wesnoth/files/wesnoth-1.16/wesnoth-1.16.6',
+		'files-url-prefix' => 'https://sourceforge.net/projects/wesnoth/files/wesnoth-1.16/wesnoth-1.16.7',
 
 		'files' =>
 		[
@@ -106,7 +106,7 @@ $branches = [
 			],
 			[
 				'os'    => 'src',
-				'url'   => '@/wesnoth-1.16.6.tar.bz2/download',
+				'url'   => '@/wesnoth-1.16.7.tar.bz2/download',
 			],
 			/*[
 				'os'    => 'ios',
@@ -148,14 +148,14 @@ $branches = [
 	'dev' =>
 	[
 		'label'       => 'Development',
-		'version'     => '1.17.10',
+		'version'     => '1.17.12',
 		'url'         => 'https://wiki.wesnoth.org/Download#Development_.281.17_branch.29',
 
 		'description' => '<p>The <b>development</b> version of Wesnoth is geared towards veteran players and content creators who wish to try out the latest additions to the game. Updates are not guaranteed to be stable and may include game-breaking changes.</p>',
 
-		'update-announcement' => 'https://forums.wesnoth.org/viewtopic.php?t=56441',
+		'update-announcement' => 'https://forums.wesnoth.org/viewtopic.php?t=56589',
 
-		'files-url-prefix' => 'https://sourceforge.net/projects/wesnoth/files/wesnoth/wesnoth-1.17.10',
+		'files-url-prefix' => 'https://sourceforge.net/projects/wesnoth/files/wesnoth/wesnoth-1.17.12',
 
 		'files' =>
 		[
@@ -175,7 +175,7 @@ $branches = [
 			],
 			[
 				'os'    => 'src',
-				'url'   => '@/wesnoth-1.17.10.tar.bz2/download',
+				'url'   => '@/wesnoth-1.17.12.tar.bz2/download',
 			],
 		],
 
