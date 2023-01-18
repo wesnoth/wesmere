@@ -81,6 +81,7 @@ $sbutton-bg:								rgba($wui-text-navlink, 0.15);
 	}
 }
 
+.mastodon-icon,
 .github-icon,
 .discord-icon,
 .liberapay-icon {
@@ -118,10 +119,24 @@ $sbutton-bg:								rgba($wui-text-navlink, 0.15);
 		background-image: $svg-discord-icon-color;
 	}
 
-	.discord-button, .discord-button:hover {
+	.discord-button, .discord-button:hover,
+	.mastodon-button, .mastodon-button:hover {
 		background-repeat:   no-repeat;
 		background-position: 50% 55%;
 		background-size:     45%;
+	}
+
+	.mastodon-button, .mastodon-button:hover {
+		// Smaller than the others bc of different metrics
+		background-size:     40%;
+	}
+
+	.mastodon-button {
+		background-image: $svg-mastodon-logo-icononly-mono;
+	}
+
+	.mastodon-button:hover {
+		background-image: $svg-mastodon-logo-icononly;
 	}
 }
 
@@ -152,6 +167,7 @@ $sbutton-bg:								rgba($wui-text-navlink, 0.15);
 
 .github-bigbutton,
 .discord-bigbutton,
+.mastodon-bigbutton,
 .liberapay-bigbutton {
 	border-radius: 4px;
 
@@ -166,6 +182,7 @@ $sbutton-bg:								rgba($wui-text-navlink, 0.15);
 }
 
 .github-bigbutton,
+.mastodon-bigbutton,
 .liberapay-bigbutton {
 	& > i {
 		font-size: 3em;
@@ -192,6 +209,7 @@ $sbutton-bg:								rgba($wui-text-navlink, 0.15);
 }
 
 .github-bigbutton,
+.mastodon-bigbutton,
 .liberapay-bigbutton {
 	& > span {
 		font-weight: bold;
@@ -225,14 +243,30 @@ $sbutton-bg:								rgba($wui-text-navlink, 0.15);
 	}
 }
 
+#social-trail .mastodon-bigbutton,
 #social-trail .discord-bigbutton {
-	background: $color-discord-logo;
-	background: $color-discord-logo $svg-discord-logo-white center / 365% 80% no-repeat;
-
 	width:  10.75em;
 	height: 2.25em;
 
 	vertical-align: middle;
+}
+
+#social-trail .mastodon-bigbutton {
+	background: $color-mastodon-logo;
+	background: $color-mastodon-logo $svg-mastodon-logo-full center / 365% 60% no-repeat;
+
+	&:link, &:visited {
+		color: #fff;
+	}
+
+	&:hover, &:active {
+		background-color: #000;
+	}
+}
+
+#social-trail .discord-bigbutton {
+	background: $color-discord-logo;
+	background: $color-discord-logo $svg-discord-logo-white center / 365% 80% no-repeat;
 
 	&:link, &:visited {
 		color: #fff;

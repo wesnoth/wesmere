@@ -312,8 +312,9 @@ set_error_handler('trap');
 				</ul>
 
 				<ul id="sociallinks">
-					<li><a class="discord-button" href="https://discord.gg/battleforwesnoth" title="Wesnoth Discord Server"><i class="discord-icon" aria-hidden="true"></i><span class="sr-label">Discord Server</span></a></li>
-					<li><a class="github-button" href="https://github.com/wesnoth/wesnoth" title="Wesnoth on GitHub"><i class="github-icon" aria-hidden="true"></i><span class="sr-label">GitHub Project</span></a></li>
+					<li><a rel="me" class="mastodon-button" href="https://fosstodon.org/@wesnoth" title="Wesnoth on Mastodon"><i class="mastodon-icon" aria-hidden="true"></i><span class="sr-label">Mastodon</span></a></li>
+					<li><a rel="me" class="discord-button" href="https://discord.gg/battleforwesnoth" title="Wesnoth Discord Server"><i class="discord-icon" aria-hidden="true"></i><span class="sr-label">Discord Server</span></a></li>
+					<li><a rel="me" class="github-button" href="https://github.com/wesnoth/wesnoth" title="Wesnoth on GitHub"><i class="github-icon" aria-hidden="true"></i><span class="sr-label">GitHub Project</span></a></li>
 				</ul>
 			</div>
 		</div>
@@ -565,11 +566,15 @@ set_error_handler('trap');
 
 		<div id="social-trail" class="centerbox topdivider">
 			<div class="social-buttons-group">
-				<a class="discord-bigbutton" href="https://discord.gg/battleforwesnoth" title="Join our Discord server!"><span class="sr-label">Discord</span></a>
+				<a rel="me" class="mastodon-bigbutton" href="https://fosstodon.org/@wesnoth" title="Follow @wesnoth on Mastodon"><span class="sr-label">Mastodon</span></a>
 			</div>
 
 			<div class="social-buttons-group">
-				<a class="github-bigbutton" href="https://github.com/wesnoth/wesnoth" title="Check out Wesnoth’s source code on GitHub!"><i class="github-icon"></i><span>GitHub</span></a>
+				<a rel="me" class="discord-bigbutton" href="https://discord.gg/battleforwesnoth" title="Join our Discord server!"><span class="sr-label">Discord</span></a>
+			</div>
+
+			<div class="social-buttons-group">
+				<a rel="me" class="github-bigbutton" href="https://github.com/wesnoth/wesnoth" title="Check out Wesnoth’s source code on GitHub!"><i class="github-icon"></i><span>GitHub</span></a>
 			</div>
 
 			<div class="reset"></div>
