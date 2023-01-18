@@ -51,7 +51,8 @@ css: cssdir
 	@$(SASS) $(SASSFLAGS) --update $(sass_in_dir):$(sass_out_dir)
 	@for css in $(sass_out_dir)/*.css; do \
 		echo "  CSSPOST     $$css"; \
-		sed -Ei '' 's:fonts/(fontawesome-webfont)\.([^?]+)\?:fonts/\1-min-$(font_ver).\2?:g' $$css; \
+		sed -E 's:fonts/(fontawesome-webfont)\.([^?]+)\?:fonts/\1-min-$(font_ver).\2?:g' $$css > $$css.new; \
+		mv -f $$css.new $$css; \
 		fn=`basename $$css`; \
 		cssgz=$(css_out_dir)/$$fn.gz; \
 		echo "  CSSPACK     $$cssgz"; \
