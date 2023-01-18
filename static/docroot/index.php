@@ -28,10 +28,10 @@ if (php_sapi_name() !== "cli")
 }
 
 $show_build = gethostname() === "hanacore";
-$build_version = "1.1.9";
+$build_version = "1.1.10";
 
 $use_css_versioning = true;
-$css_version = "1.1.9";
+$css_version = "1.1.10";
 
 $config = [
 	// Fallback OS labels for when one isn't specified by a file entry.
