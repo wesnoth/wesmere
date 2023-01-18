@@ -14,7 +14,8 @@ XSLT               := xsltproc
 COMP               := zopfli -c --i100
 COMPSTATS          := $(WESMERE_TOOLCHAIN_PREFIX)/compstats
 HTMLPOST           := $(WESMERE_TOOLCHAIN_PREFIX)/htmlpost
-JSMIN              := yui-compressor --charset utf-8
+YUICOMPRESSOR      := yui-compressor
+JSMIN              := $(YUICOMPRESSOR) --charset utf-8
 PHP                := php
 
 html_files= \
