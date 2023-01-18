@@ -245,5 +245,6 @@ $sbutton-bg:								rgba($wui-text-navlink, 0.15);
 #sociallinks a,
 #social-trail a,
 #donate-box a {
+	transition-property: background-color, color;
 	transition-duration: 200ms;
 }
