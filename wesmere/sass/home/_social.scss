@@ -172,7 +172,10 @@ $sbutton-bg:								rgba($wui-text-navlink, 0.15);
 	}
 
 	#social-trail &,
-	.github-icon,
+	.github-icon {
+		color: #fff;
+		vertical-align: middle;
+	}
 }
 
 .github-bigbutton {
