@@ -148,14 +148,14 @@ $branches = [
 	'dev' =>
 	[
 		'label'       => 'Development',
-		'version'     => '1.17.13',
+		'version'     => '1.17.14',
 		'url'         => 'https://wiki.wesnoth.org/Download#Development_.281.17_branch.29',
 
 		'description' => '<p>The <b>development</b> version of Wesnoth is geared towards veteran players and content creators who wish to try out the latest additions to the game. Updates are not guaranteed to be stable and may include game-breaking changes.</p>',
 
-		'update-announcement' => 'https://forums.wesnoth.org/viewtopic.php?t=56705',
+		'update-announcement' => 'https://forums.wesnoth.org/viewtopic.php?t=56791',
 
-		'files-url-prefix' => 'https://sourceforge.net/projects/wesnoth/files/wesnoth/wesnoth-1.17.13',
+		'files-url-prefix' => 'https://sourceforge.net/projects/wesnoth/files/wesnoth/wesnoth-1.17.14',
 
 		'files' =>
 		[
@@ -167,7 +167,7 @@ $branches = [
 			[
 				'os'    => 'apple',
 				'label' => 'macOS (10.12+)',
-				'url'   => 'https://sourceforge.net/projects/wesnoth/files/wesnoth/wesnoth-1.17.13/Wesnoth_1.17.13.dmg/download',
+				'url'   => 'https://sourceforge.net/projects/wesnoth/files/wesnoth/wesnoth-1.17.14/Wesnoth_1.17.14.dmg/download',
 			],
 			[
 				'os'    => 'linux',
@@ -175,7 +175,7 @@ $branches = [
 			],
 			[
 				'os'    => 'src',
-				'url'   => '@/wesnoth-1.17.13.tar.bz2/download',
+				'url'   => '@/wesnoth-1.17.14.tar.bz2/download',
 			],
 		],
 
