@@ -167,7 +167,7 @@ $branches = [
 			[
 				'os'    => 'apple',
 				'label' => 'macOS (10.12+)',
-				'url'   => 'https://sourceforge.net/projects/wesnoth/files/wesnoth/wesnoth-1.17.17/Wesnoth_1.17.17.dmg/download',
+				'url'   => 'https://sourceforge.net/projects/wesnoth/files/wesnoth/wesnoth-1.17.18/Wesnoth_1.17.18.dmg/download',
 			],
 			[
 				'os'    => 'linux',
