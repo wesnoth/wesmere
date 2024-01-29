@@ -183,8 +183,8 @@ $branches = [
 		[
 			'platform' =>
 			[
-				'Microsoft Windows 10 1903 (64-bit) or later<br />Apple macOS 10.12 or later<br />Ubuntu 16.04 or compatible',
-				'Microsoft Windows 10 1903 (64-bit)<br />Apple macOS 10.14 or later<br />Ubuntu 20.04 or compatible',
+				'Microsoft Windows 10 1903 (64-bit) or later<br />Apple macOS 10.12 or later<br />Ubuntu 20.04 or compatible',
+				'Microsoft Windows 10 1903 (64-bit)<br />Apple macOS 10.14 or later<br />Ubuntu 22.04 or compatible',
 			],
 			'processor' =>
 			[
