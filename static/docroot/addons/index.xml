@@ -16,6 +16,7 @@
 		<h2>Current instances</h2>
 
 		<ul>
+			<li><a href="1.18/"><b>Stable 1.18</b></a> <span>(1.17.26&ndash;1.18.x)</span></li>
 			<li><a href="1.16/"><b>Stable 1.16</b></a> <span>(1.15.14&ndash;1.16.x)</span></li>
 			<li><a href="1.17/"><b>Development 1.17</b></a> <span>(1.17.0&ndash;1.17.x)</span></li>
 			<li><a href="1.14/">Old stable 1.14</a> <span>(1.13.12&ndash;1.14.x)</span></li>
