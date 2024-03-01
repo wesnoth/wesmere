@@ -102,7 +102,7 @@ $branches = [
 			[
 				'os'    => 'apple',
 				'label' => 'macOS (10.12+)',
-				'url'   => 'https://sourceforge.net/projects/wesnoth/files/wesnoth-1.16/wesnoth-1.16.11/Wesnoth_1.16.11.dmg/download',
+				'url'   => 'https://wesnoth.itch.io/battle-for-wesnoth',
 			],
 			[
 				'os'    => 'linux',
@@ -179,7 +179,7 @@ $branches = [
 			[
 				'os'    => 'apple',
 				'label' => 'macOS (10.12+)',
-				'url'   => 'https://sourceforge.net/projects/wesnoth/files/wesnoth/wesnoth-1.17.26/Wesnoth_1.17.26.dmg/download',
+				'url'   => 'https://wesnoth.itch.io/battle-for-wesnoth',
 			],
 			[
 				'os'    => 'linux',

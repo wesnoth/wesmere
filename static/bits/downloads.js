@@ -89,7 +89,7 @@
 		var $recBox = $("#download-recommended");
 		var $downButt = $recBox.children(".download-button");
 
-		if (platform == "windows") {
+		if (platform == "windows" || platform == "apple") {
 			$downButt.attr("style", "display:none;");
 		} else {
 			$downButt.attr("href", defBranch.files[platform].url);
