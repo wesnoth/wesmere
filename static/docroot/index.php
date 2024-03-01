@@ -27,7 +27,7 @@ if (php_sapi_name() !== "cli")
 	die(1);
 }
 
-$show_build = gethostname() === "hanacore";
+$show_build = in_array(gethostname(), ["hana", "mia"]);
 $build_version = "1.1.10";
 
 $use_css_versioning = true;
@@ -293,7 +293,7 @@ set_error_handler('trap');
 
 <body>
 
-<?php if ($show_build) { ?><span id="sitebuildver" style="text-shadow:0px 0px 2px #fff;font-family:Consolas;font-size:90%;position:absolute;top:0;left:0;display:block;padding:0.2em;color:rgba(127,0,0,0.4);z-index:1000">Wesmere <?php echo $build_version ?></span><?php } ?>
+<?php if ($show_build) { ?><span id="sitebuildver" style="text-shadow:0px 0px 2px #fff;font-family:Monaco,Consolas,monospace;font-size:90%;position:absolute;top:0;left:0;display:block;padding:0.2em;color:rgba(127,0,0,0.4);z-index:1000">Wesmere <?php echo $build_version ?></span><?php } ?>
 
 <div id="main">
 
