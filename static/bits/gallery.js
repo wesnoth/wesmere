@@ -25,7 +25,7 @@
 		}
 
 		this.makeListItem = function() {
-			return "<li><a class='" + this.type + "' href='" + this.href + "'>" + (this.type == "vyt" ? "<i aria-hidden='true'/>" : "") +
+			return "<li><a class='" + this.type + "' href='" + this.href + "'>" + (this.type == "vyt" ? "<i aria-hidden='true'></i>" : "") +
 			       "<img src='" + this.thumb + "' alt='" + this.alt + "'/></a></li>";
 		}
 	};

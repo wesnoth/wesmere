@@ -152,7 +152,7 @@
 			$branchSections[b.id].hide();
 		}
 
-		dMarkup += "'><i aria-hidden='true' class='branch-icon-" + b.id + "'/> ";
+		dMarkup += "'><i aria-hidden='true' class='branch-icon-" + b.id + "'></i> ";
 		dMarkup += b.label + " <span class='branch-desc'>" + b.number + "</span></a>";
 		$branchSections[b.id].children("h3").hide();
 

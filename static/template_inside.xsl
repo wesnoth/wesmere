@@ -50,7 +50,7 @@ with this program; if not, see <http://www.gnu.org/licenses/>.
 
 	<xsl:if test="document/style"><xsl:copy-of select="document/style"/></xsl:if>
 
-	<script src="{$wesmere-resource-prefix}/wesmere/js/jquery-3.2.1.min.js"></script>
+	<script src="{$wesmere-resource-prefix}/wesmere/js/jquery-3.7.1.min.js"></script>
 
 	<script src="{$wesmere-resource-prefix}/wesmere/js/modernizr.js"></script>
 </head>

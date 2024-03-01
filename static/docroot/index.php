@@ -306,7 +306,7 @@ set_error_handler('trap');
 
 	<title>The Battle for Wesnoth</title>
 
-	<script src="/wesmere/js/jquery-3.2.1.min.js"></script>
+	<script src="/wesmere/js/jquery-3.7.1.min.js"></script>
 
 	<script src="/wesmere/js/modernizr.js"></script>
 </head>

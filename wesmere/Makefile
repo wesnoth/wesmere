@@ -28,7 +28,7 @@ css_out_dir = $(sass_out_dir)
 js_in_dir = js
 js_out_dir = js
 js_files = \
-	$(js_out_dir)/jquery-3.2.1.min.js.gz \
+	$(js_out_dir)/jquery-3.7.1.min.js.gz \
 	$(js_out_dir)/modernizr.js.gz
 
 font_ver = 1.1.7
