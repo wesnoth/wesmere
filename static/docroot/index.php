@@ -434,7 +434,7 @@ set_error_handler('trap');
 									$os = $file['os'];
 									$os_label = isset($file['label']) ? $file['label'] : $config['default-os-labels'][$os];
 									$os_label_full = $os_label;
-									if (str_contains($os_label_full, ' ('))
+									if (strpos($os_label_full, ' (') !== false)
 									{
 										$os_parts = explode(' (', $os_label_full);
 										$os_label_full = $os_parts[0] . '<br /><span>(' .
