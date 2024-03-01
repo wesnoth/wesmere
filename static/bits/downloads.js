@@ -35,7 +35,7 @@
 			}
 
 			res[this.className] = {
-				label:		$link.children(".os")[0].innerHTML,
+				label:		$link.data("os-label"),
 				url:		$link[0].href,
 				size:		sizeText,
 				noVersion:	noVersion

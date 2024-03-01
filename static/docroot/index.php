@@ -48,7 +48,7 @@ $config = [
 	// System requirements table headers
 	'default-req-labels' =>
 	[
-		'platform'  => 'Operating system',
+		'platform'  => 'System',
 		'processor' => 'CPU',
 		'memory'    => 'RAM',
 		'storage'   => 'Disk',
@@ -71,6 +71,10 @@ $config = [
 // button despite not being from the stable branch as of this writing, so we
 // need a hidden entry on stable with the same URL as dev.
 $ios_appstore_url = 'https://itunes.apple.com/us/app/battle-for-wesnoth-hd/id575852062';
+
+$icon_windows = '<i class="fa fa-windows" aria-hidden="true"></i> ';
+$icon_apple = '<i class="fa fa-apple" aria-hidden="true"></i> ';
+$icon_linux = '<i class="fa fa-linux" aria-hidden="true"></i> ';
 
 $branches = [
 	'stable' =>
@@ -122,8 +126,16 @@ $branches = [
 		[
 			'platform' =>
 			[
-				'Microsoft Windows 7 SP1 (64-bit) or later<br />Apple macOS 10.12 or later<br />Ubuntu 16.04 or compatible',
-				'Microsoft Windows 10 (64-bit)<br />Apple macOS 10.14 or later<br />Ubuntu 20.04 or compatible',
+				[
+					$icon_windows . 'Windows 7 SP1 (64-bit) or later',
+					$icon_apple .   'macOS 10.12 or later',
+					$icon_linux .   'Ubuntu 16.04 or compatible',
+				],
+				[
+					$icon_windows . 'Windows 10 (64-bit) or later',
+					$icon_apple .   'macOS 10.14 or later',
+					$icon_linux .   'Ubuntu 20.04 or compatible',
+				],
 			],
 			'processor' =>
 			[
@@ -183,8 +195,16 @@ $branches = [
 		[
 			'platform' =>
 			[
-				'Microsoft Windows 10 1903 (64-bit) or later<br />Apple macOS 10.12 or later<br />Ubuntu 20.04 or compatible',
-				'Microsoft Windows 10 1903 (64-bit)<br />Apple macOS 10.14 or later<br />Ubuntu 22.04 or compatible',
+				[
+					$icon_windows . 'Windows 10 1903 (64-bit) or later',
+					$icon_apple .   'macOS 10.12 or later',
+					$icon_linux .   'Ubuntu 20.04 or compatible',
+				],
+				[
+					$icon_windows . 'Windows 10 1903 (64-bit) or later',
+					$icon_apple .   'macOS 10.14 or later',
+					$icon_linux .   'Ubuntu 22.04 or compatible',
+				],
 			],
 			'processor' =>
 			[
@@ -405,117 +425,147 @@ set_error_handler('trap');
 				{
 					?><div id="<?php echo htmlspecialchars($id) ?>" class="download-branch" data-version="<?php echo htmlspecialchars($branch['version']) ?>"<?php if (isset($branch['recommended']) && $branch['recommended']) { ?> data-recommended<?php } ?>>
 
-					<h3><?php echo $branch['label'] ?></h3><?php
+					<h3><?php echo $branch['label'] ?></h3>
+					<div class="downloads-panel">
+						<div class="downloads-left">
+							<ul id="dl<?php echo htmlspecialchars($id) ?>" class="downloads"><?php
+								foreach ($branch['files'] as $file)
+								{
+									$os = $file['os'];
+									$os_label = isset($file['label']) ? $file['label'] : $config['default-os-labels'][$os];
+									$os_label_full = $os_label;
+									if (str_contains($os_label_full, ' ('))
+									{
+										$os_parts = explode(' (', $os_label_full);
+										$os_label_full = $os_parts[0] . '<br /><span>(' .
+														 $os_parts[1] . '</span>';
+									}
+									$url = $file['url'];
+									$hidden = isset($file['hidden']) ? $file['hidden'] : false;
+									$nover = isset($file['nover']) ? $file['nover'] : false;
 
-					if (!isset($branch['recommended']) || !$branch['recommended'])
-					{
-						echo $config['wip-branch-message'];
-					}
+									if (!empty($url) && $url[0] == '@')
+									{
+										$prefix = $branch['files-url-prefix'];
+										$url = substr_replace($url, $prefix, 0, 1);
+									}
 
-					echo $branch['description'];
+									echo '<li class="' . htmlspecialchars($os) . '"' . ($hidden ? ' style="display:none"' : '') . ($nover ? ' data-version-agnostic' : '') . '>' .
+										 '<a href="' . htmlspecialchars($url) . '" data-os-label="' . htmlspecialchars($os_label) . '">';
+									echo '<i class="downloadicon downloadicon-' . htmlspecialchars($os) . '" aria-hidden="true"></i>';
+									echo '<span class="os">' . $os_label_full . '</span>';
 
-					?>
-					<ul id="dl<?php echo htmlspecialchars($id) ?>" class="downloads"><?php
-						foreach ($branch['files'] as $file)
-						{
-							$os = $file['os'];
-							$os_label = isset($file['label']) ? $file['label'] : $config['default-os-labels'][$os];
-							$url = $file['url'];
-							$hidden = isset($file['hidden']) ? $file['hidden'] : false;
-							$nover = isset($file['nover']) ? $file['nover'] : false;
+									if (isset($file['size']))
+									{
+										echo '<span class="size">' . $file['size'] . ' ' .
+											(isset($file['size-unit']) ? $file['size-unit'] : 'MiB') .
+											'</span>';
+									}
 
-							if (!empty($url) && $url[0] == '@')
+									if (isset($file['note']))
+									{
+										echo '<span class="size">' . $file['note'] . '</span>';
+									}
+
+									echo '</a></li>';
+								}
+							?></ul>
+							<ul class="downloads-more"><?php
+								if (isset($branch['update-announcement']))
+								{
+									echo '<li><a href="' . htmlspecialchars($branch['update-announcement']) . '">Update announcement</a></li>';
+								}
+
+								if (isset($branch['release-notes']))
+								{
+									echo '<li><a href="';
+									if (is_array($branch['release-notes']))
+									{
+										echo htmlspecialchars($branch['release-notes']['url']) . '">' . $branch['release-notes']['label'];
+									}
+									else
+									{
+										echo htmlspecialchars($branch['release-notes']) . '">Release notes';
+									}
+									echo '</a></li>';
+								}
+
+								if (isset($branch['url']))
+								{
+									echo '<li><a href="' . htmlspecialchars($branch['url']) . '">Checksums and other downloads</a></li>';
+								}
+							?></ul>
+						</div>
+						<div class="downloads-right"><?php
+							if (!isset($branch['recommended']) || !$branch['recommended'])
 							{
-								$prefix = $branch['files-url-prefix'];
-								$url = substr_replace($url, $prefix, 0, 1);
+								echo $config['wip-branch-message'];
 							}
 
-							echo '<li class="' . htmlspecialchars($os) . '"' . ($hidden ? ' style="display:none"' : '') . ($nover ? ' data-version-agnostic' : '') . '><a href="' . htmlspecialchars($url) . '">';
-							echo '<i class="downloadicon downloadicon-' . htmlspecialchars($os) . '" aria-hidden="true"></i>';
-							echo '<span class="os">' . $os_label . '</span>';
+							echo $branch['description'];
 
-							if (isset($file['size']))
+							if (isset($branch['system-requirements']))
 							{
-								echo '<span class="size">' . $file['size'] . ' ' .
-								     (isset($file['size-unit']) ? $file['size-unit'] : 'MiB') .
-								     '</span>';
-							}
+								?><h4>System Requirements</h4>
 
-							if (isset($file['note']))
-							{
-								echo '<span class="size">' . $file['note'] . '</span>';
-							}
+								<figure>
+									<table class="sysreqs">
+										<thead>
+											<tr>
+												<th></th>
+												<th>Minimum</th>
+												<th>Recommended</th>
+											</tr>
+										</thead>
+										<tbody>
+								<?php
 
-							echo '</a></li>';
-						}
-					?></ul>
-					<ul class="downloads-more"><?php
-						if (isset($branch['update-announcement']))
-						{
-							echo '<li><a href="' . htmlspecialchars($branch['update-announcement']) . '">Update announcement</a></li>';
-						}
+								$footer = isset($branch['system-requirements']['footer'])
+										? $branch['system-requirements']['footer']
+										: null;
 
-						if (isset($branch['release-notes']))
-						{
-							echo '<li><a href="';
-							if (is_array($branch['release-notes']))
-							{
-								echo htmlspecialchars($branch['release-notes']['url']) . '">' . $branch['release-notes']['label'];
-							}
-							else
-							{
-								echo htmlspecialchars($branch['release-notes']) . '">Release notes';
-							}
-							echo '</a></li>';
-						}
+								foreach ($branch['system-requirements'] as $item_id => $req)
+								{
+									if ($item_id === "footer")
+									{
+										continue;
+									}
 
-						if (isset($branch['url']))
-						{
-							echo '<li><a href="' . htmlspecialchars($branch['url']) . '">Checksums and other downloads</a></li>';
-						}
-					?></ul>
-					<?php
-					if (isset($branch['system-requirements']))
-					{
-						?><h4>System Requirements</h4>
+									$req_row = '';
+									if (is_array($req))
+									{
+										if (is_array($req[0]))
+										{
+											// Assume both $req[0] and $req[1] are arrays representing
+											// multiline cells
+											$req_row = '<td>' .
+												implode('<br />', $req[0]) . '</td><td>' .
+												implode('<br />', $req[1]) . '</td>';
+										}
+										else
+										{
+											$req_row = '<td>' . $req[0] . '</td><td>' . $req[1] . '</td>';
+										}
+									}
+									else
+									{
+										$req_row = '<td colspan="2">' . $req . '</td>';
+									}
 
-						<figure>
-							<table class="sysreqs">
-								<thead>
-									<tr>
-										<th></th><th>Minimum</th><th>Recommended</th>
-									</tr>
-								</thead>
-								<tbody>
-						<?php
+									echo '<tr><th>' . $config['default-req-labels'][$item_id] . '</th>' . $req_row . '</tr>';
+								}
 
-						$footer = isset($branch['system-requirements']['footer'])
-						          ? $branch['system-requirements']['footer']
-						          : null;
-
-						foreach ($branch['system-requirements'] as $item_id => $req)
-						{
-							if ($item_id === "footer")
-							{
-								continue;
-							}
-
-							echo '<tr>' .
-							     '<th>' . $config['default-req-labels'][$item_id] . '</th>' .
-							     '<td' . (is_array($req) ? '>' . $req[0] . '</td><td>' . $req[1] : ' colspan="2">' . $req) .
-							     '</td>' .
-							     '</tr>';
-						}
-
-						?>
-								</tbody>
-							</table><?php
-						if ($footer)
-						{ ?>
-							<figcaption class="leftalign"><small><?php echo $footer ?></small></figcaption><?php
-						} ?>
-						</figure><?php
-					} ?>
+								?>
+										</tbody>
+									</table><?php
+								if ($footer)
+								{ ?>
+									<figcaption class="leftalign"><small><?php echo $footer ?></small></figcaption><?php
+								} ?>
+								</figure><?php
+							} ?>
+							</div>
+						</div>
 					</div><?php
 				} ?>
 
