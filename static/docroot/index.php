@@ -28,10 +28,10 @@ if (php_sapi_name() !== "cli")
 }
 
 $show_build = in_array(gethostname(), ["hana", "mia"]);
-$build_version = "1.1.10";
+$build_version = "1.1.11";
 
 $use_css_versioning = true;
-$css_version = "1.1.10";
+$css_version = "1.1.11";
 
 $config = [
 	// Fallback OS labels for when one isn't specified by a file entry.
