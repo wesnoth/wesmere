@@ -213,7 +213,7 @@ $branches = [
 //
 
 // Die on first warning or notice
-function trap($errno, $errstr, $errfile, $errline, $errcontext)
+function trap($errno, $errstr, $errfile, $errline, $errcontext = null)
 {
 	if (!error_reporting() & $errno)
 	{
