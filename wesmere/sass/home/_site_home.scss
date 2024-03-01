@@ -238,6 +238,8 @@ $strip-padding:							$measurement-sub;
 
 	box-shadow: inset 0px 0px 2px 2px rgba($wui-text-navlink, 0.4);
 
+	min-width: 100%;
+
 	// Needed for the gallery arrow buttons to not extend past the bottom edge.
 	overflow: hidden;
 }
