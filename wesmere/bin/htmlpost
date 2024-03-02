@@ -44,7 +44,6 @@ def read_include(inc_path, minify_js=True):
                 sys.stderr.write("WARNING: no minified version of {1} found for {0}\n".format(inc_path, path))
         with open(path, "r", encoding="utf-8") as js:
             contents = js.read()
-            pre_size = len(contents.encode("utf-8"))
         return contents
     except FileNotFoundError as err:
         sys.exit("Could not open Javascript include {0}, aborting.\n".format(err.filename))
