@@ -17,6 +17,7 @@ HTMLPOST           := $(WESMERE_TOOLCHAIN_PREFIX)/htmlpost
 YUICOMPRESSOR      := yui-compressor
 JSMIN              := $(YUICOMPRESSOR) --charset utf-8
 PHP                := php
+WESMERE_OPTS       :=
 
 html_files= \
 	docroot/index.html \
@@ -57,7 +58,7 @@ html: $(html_files)
 
 docroot/index.html: docroot/index.php $(js_files)
 	@echo "  PHP         $@"
-	@$(PHP) $< > $@
+	@$(PHP) $< $(WESMERE_OPTS) > $@
 	@echo "  HTMLPOST    $@"
 	@$(HTMLPOST) $@
 

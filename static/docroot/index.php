@@ -21,18 +21,34 @@
 
 error_reporting(E_ALL);
 
-if (php_sapi_name() !== "cli")
+if (php_sapi_name() !== 'cli')
 {
 	// This script is not for web server use. Please don't change this.
 	die(1);
 }
 
-$show_build = in_array(gethostname(), ["hana", "mia"]);
-$build_version = "1.1.11";
+// Wesmere home page HTML build version used for reference/documentation
+// purposes.
+$build_version = '1.1.11';
 
+// Wesmere CSS version, used for CSS resource suffixes. For more info, see
+// $use_css_versioning below.
+$css_version = '1.1.11';
+
+// Shows a build stamp in the main banner area, for development/debugging.
+// (This can be enabled in the CLI by passing `--show-build`.)
+$show_build = false;
+
+// Enables or disables versioned CSS resource suffixes, which results in
+// resources such as wesmere.css being fetched via pathnames like
+// wesmere-X.Y.Z.css instead. These suffixes are expected to be handled
+// transparently by the web server and are used to implement an app-defined
+// cache control mechanism to avoid HTML/CSS version mismatches after major
+// changes to the page's layout and/or styles.
+// (This can be disabled in the CLI by passing `--no-css-versioning`.)
 $use_css_versioning = true;
-$css_version = "1.1.11";
 
+// General shared configuration attributes used to build the page content.
 $config = [
 	// Fallback OS labels for when one isn't specified by a file entry.
 	'default-os-labels' =>
@@ -45,7 +61,7 @@ $config = [
 		'android'   => 'Android',
 	],
 
-	// System requirements table headers
+	// System Requirements table headers.
 	'default-req-labels' =>
 	[
 		'platform'  => 'System',
@@ -75,10 +91,13 @@ $config = [
 // need a hidden entry on stable with the same URL as dev.
 $ios_appstore_url = 'https://itunes.apple.com/us/app/battle-for-wesnoth-hd/id575852062';
 
+// Icon markup used for System Requirements table entries.
+// (The trailing whitespace is intentional.)
 $icon_windows = '<i class="fa fa-windows" aria-hidden="true"></i> ';
 $icon_apple = '<i class="fa fa-apple" aria-hidden="true"></i> ';
 $icon_linux = '<i class="fa fa-linux" aria-hidden="true"></i> ';
 
+// Individual app branch descriptions.
 $branches = [
 	'stable' =>
 	[
@@ -295,6 +314,49 @@ function trap($errno, $errstr, $errfile, $errline, $errcontext = null)
 }
 
 set_error_handler('trap');
+
+//
+// Parse command line arguments.
+//
+
+global $argc, $argv;
+
+function cli_usage($retval = 0)
+{
+	global $argv;
+	$name = basename($argv[0]);
+
+	echo "Usage:\n";
+	echo "  $name [--no-css-versioning] [--show-build]\n";
+
+	exit($retval);
+}
+
+foreach ($argv as $argn => $arg)
+{
+	if ($argn === 0)
+	{
+		continue;
+	}
+
+	if ($arg === '-h' || $arg === '--help')
+	{
+		cli_usage(0);
+	}
+	elseif ($arg === '--no-css-versioning')
+	{
+		$use_css_versioning = false;
+	}
+	elseif ($arg === '--show-build')
+	{
+		$show_build = true;
+	}
+	else
+	{
+		echo "Bad command line argument: $arg\n";
+		cli_usage(1);
+	}
+}
 
 ?><!DOCTYPE html>
 
