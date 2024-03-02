@@ -14,8 +14,7 @@ XSLT               := xsltproc
 COMP               := zopfli -c --i100
 COMPSTATS          := $(WESMERE_TOOLCHAIN_PREFIX)/compstats
 HTMLPOST           := $(WESMERE_TOOLCHAIN_PREFIX)/htmlpost
-YUICOMPRESSOR      := yui-compressor
-JSMIN              := $(YUICOMPRESSOR) --charset utf-8
+TERSER             := terser
 PHP                := php
 WESMERE_OPTS       :=
 
@@ -47,7 +46,7 @@ html: $(html_files)
 
 %.min.js: %.js
 	@echo "  JSMIN       $@"
-	@$(JSMIN) $< -o $@
+	@$(TERSER) $< --ecma 2015 -m -o $@
 	@$(COMPSTATS) $< $@
 
 %.html: %.xml *.xsl

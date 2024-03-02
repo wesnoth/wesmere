@@ -33,8 +33,10 @@ environments at this time are Debian 10 (Buster) and Debian 11 (Bullseye).
 **Mandatory**
 
 * Python >= 3.4                (`python3`)
-* YUI compressor               (`yui-compressor`)
 * Zopfli compressor            (`zopfli`)
+* Terser
+
+Terser requires Node.js and NPM: `npm install terser -g`
 
 The following are only required if you intend to build the pages and templates
 under `static/`:

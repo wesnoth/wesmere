@@ -15,8 +15,7 @@ COMPSTATS          := bin/compstats
 PNGREPACK          := wesnoth-optipng
 ICONLIST           := bin/iconlist
 FONTFIX            := bin/fontellofix
-YUICOMPRESSOR      := yui-compressor
-JSMIN              := $(YUICOMPRESSOR) --charset utf-8
+TERSER             := terser
 
 sass_in_dir = sass
 sass_out_dir = css
@@ -94,7 +93,7 @@ $(js_out_dir)/%.min.js.gz: js/%.min.js
 
 $(js_out_dir)/%.js.gz: js/%.js
 	@echo "  JSMIN       $@"
-	@$(JSMIN) $< -o $@.tmp
+	@$(TERSER) $< --ecma 2015 -m -o $@.tmp
 	@echo "  JSPACK      $@"
 	@$(COMP) $@.tmp > $@
 	@rm $@.tmp
