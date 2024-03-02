@@ -42,7 +42,6 @@ class SkinWesmere extends SkinTemplate
 
 		$out->addModules('skins.wesmere.js');
 
-		$out->addHeadItem('wesmere-fonts', '<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montaga%7COpen+Sans:400,400i,700,700i" type="text/css" />');
 		// Don't use resource loader for our stylesheet so that clients can use
 		// the cached version they probably already have for the front page.
 		$out->addHeadItem('wesmere-css', '<link rel="stylesheet" type="text/css" href="'.$this->wesmerePrefix.'/wesmere/css/wesmere-'.$this->wesmereCssVersion.'.css" />');

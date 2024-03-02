@@ -365,7 +365,6 @@ foreach ($argv as $argn => $arg)
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width,initial-scale=1" />
 
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montaga%7COpen+Sans:400,400i,700,700i" type="text/css" />
 	<link rel="apple-touch-icon" type="image/png" href="/wesmere/img/apple-touch-icon.png" sizes="180x180" />
 	<link rel="icon" type="image/png" href="/wesmere/img/favicon-32.png" sizes="32x32" />
 	<link rel="icon" type="image/png" href="/wesmere/img/favicon-16.png" sizes="16x16" />
