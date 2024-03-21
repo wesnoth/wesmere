@@ -29,11 +29,11 @@ if (php_sapi_name() !== 'cli')
 
 // Wesmere home page HTML build version used for reference/documentation
 // purposes.
-$build_version = '1.1.11';
+$build_version = '1.2.0';
 
 // Wesmere CSS version, used for CSS resource suffixes. For more info, see
 // $use_css_versioning below.
-$css_version = '1.1.11';
+$css_version = '1.2.0';
 
 // Shows a build stamp in the main banner area, for development/debugging.
 // (This can be enabled in the CLI by passing `--show-build`.)
