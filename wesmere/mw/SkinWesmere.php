@@ -12,7 +12,7 @@ class SkinWesmere extends SkinTemplate
 	public $stylename = 'Wesmere';
 	public $template = 'WesmereTemplate';
 	public $wesmerePrefix = '';
-	public $wesmereCssVersion = '1.1.11';
+	public $wesmereCssVersion = '1.2.0';
 
 	public function __construct()
 	{
