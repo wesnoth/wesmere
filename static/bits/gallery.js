@@ -38,7 +38,7 @@
 	    screenshotExt = ".jpg",
 	    screenshotThumbSuffix = "192",
 	    screenshotSeries = [
-			{ ver: "1.16.0", count: 9  }
+			{ ver: "1.18.0", count: 9  }
 		];
 
 	var trailerUrl = $("#showcase-object").attr("src");
