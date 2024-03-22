@@ -55,8 +55,8 @@
 
 		<div class="ver-columns">
 			<ul id="curvers">
-				<li><a href="1.16/" class="curver-link">1.16.x (Stable)</a><br/><a href="1.16/animations.html" class="astats-link">&astats;</a></li>
-				<li><a href="1.17/" class="curver-link">1.17.x/Git master (Development)</a><br/><a href="trunk/animations.html" class="astats-link">&astats;</a></li>
+				<li><a href="1.18/" class="curver-link">1.18.x (Stable)</a><br/><a href="1.18/animations.html" class="astats-link">&astats;</a></li>
+				<li><a href="1.19/" class="curver-link">1.19.x/Git master (Development)</a><br/><a href="trunk/animations.html" class="astats-link">&astats;</a></li>
 			</ul>
 		</div>
 
@@ -64,6 +64,7 @@
 
 		<div class="ver-columns">
 			<ul>
+				<li><a href="1.16/">1.16.x (Old Stable)</a> &mdash; <a href="1.16/animations.html" class="astats-link">&astats;</a></li>
 				<li><a href="1.14/">1.14.x (Old stable)</a> &mdash; <a href="1.14/animations.html" class="astats-link">&astats;</a></li>
 				<li><a href="1.12/">1.12.x (Old stable)</a> &mdash; <a href="1.12/animations.html" class="astats-link">&astats;</a></li>
 				<li><a href="1.10/">1.10.x (Old stable)</a> &mdash; <a href="1.10/animations.html" class="astats-link">&astats;</a></li>
