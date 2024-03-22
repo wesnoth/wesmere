@@ -102,19 +102,19 @@ $branches = [
 	'stable' =>
 	[
 		'label'       => 'Stable',
-		'version'     => '1.16.11',
-		'url'         => 'https://wiki.wesnoth.org/Download#Stable_.281.16_branch.29',
+		'version'     => '1.18.0',
+		'url'         => 'https://wiki.wesnoth.org/Download#Stable_.281.18_branch.29',
 		'recommended' => true,
 
 		'description' =>
 			'<p>The <b>stable</b> version of Wesnoth is recommended for new and veteran players and content creators on all platforms, as it offers a well-supported and extensively-tested experience, with new releases delivering bug fixes and translation updates.</p>' .
 			'<p>Players can also obtain this version of Wesnoth from <a href="' . htmlspecialchars($config['steam-store-link']) . '">Steam</a> and the <a href="' . htmlspecialchars($config['mac-store-link']) . '">Mac App Store</a>, with the added benefit of continuous automatic updates.',
 
-		'update-announcement' => 'https://forums.wesnoth.org/viewtopic.php?t=57472',
+		'update-announcement' => 'https://forums.wesnoth.org/viewtopic.php?t=57843',
 
-		'release-notes' => [ 'url' => '/start/1.16/', 'label' => 'Release notes for 1.16' ],
+		'release-notes' => [ 'url' => '/start/1.18/', 'label' => 'Release notes for 1.18' ],
 
-		'files-url-prefix' => 'https://sourceforge.net/projects/wesnoth/files/wesnoth-1.16/wesnoth-1.16.11',
+		'files-url-prefix' => 'https://sourceforge.net/projects/wesnoth/files/wesnoth-1.18/wesnoth-1.18.0',
 
 		'files' =>
 		[
@@ -134,7 +134,7 @@ $branches = [
 			],
 			[
 				'os'    => 'src',
-				'url'   => '@/wesnoth-1.16.11.tar.bz2/download',
+				'url'   => '@/wesnoth-1.18.0.tar.bz2/download',
 			],
 			/*[
 				'os'    => 'ios',
@@ -151,14 +151,14 @@ $branches = [
 			'platform' =>
 			[
 				[
-					$icon_windows . 'Windows 7 SP1 (64-bit) or later',
+					$icon_windows . 'Windows 10 1903 (64-bit) or later',
 					$icon_apple .   'macOS 10.12 or later',
-					$icon_linux .   'Ubuntu 16.04 or compatible',
+					$icon_linux .   'Ubuntu 20.04 or compatible',
 				],
 				[
 					$icon_windows . 'Windows 10 (64-bit) or later',
 					$icon_apple .   'macOS 10.14 or later',
-					$icon_linux .   'Ubuntu 20.04 or compatible',
+					$icon_linux .   'Ubuntu 22.04 or compatible',
 				],
 			],
 			'processor' =>
@@ -184,16 +184,16 @@ $branches = [
 	'dev' =>
 	[
 		'label'       => 'Development',
-		'version'     => '1.17.26',
-		'url'         => 'https://wiki.wesnoth.org/Download#Development_.281.17_branch.29',
+		'version'     => '1.19.0',
+		'url'         => 'https://wiki.wesnoth.org/Download#Development_.281.19_branch.29',
 
 		'description' =>
 			'<p>The <b>development</b> version of Wesnoth is geared towards veteran players and content creators who wish to try out the latest additions to the game. Updates are not guaranteed to be stable and may include game-breaking changes.</p>' .
 			'<p>Players can also obtain this version of Wesnoth from <a href="' . htmlspecialchars($config['steam-store-link']) . '">Steam</a> by selecting it in the Betas tab in the game’s properties after installation, with the added benefit of continuous automatic updates.',
 
-		'update-announcement' => 'https://forums.wesnoth.org/viewtopic.php?t=57624',
+		'update-announcement' => 'https://forums.wesnoth.org/viewtopic.php?t=00000',
 
-		'files-url-prefix' => 'https://sourceforge.net/projects/wesnoth/files/wesnoth/wesnoth-1.17.26',
+		'files-url-prefix' => 'https://sourceforge.net/projects/wesnoth/files/wesnoth/wesnoth-1.19.0',
 
 		'files' =>
 		[
@@ -213,7 +213,7 @@ $branches = [
 			],
 			[
 				'os'    => 'src',
-				'url'   => '@/wesnoth-1.17.26.tar.bz2/download',
+				'url'   => '@/wesnoth-1.19.0.tar.bz2/download',
 			],
 		],
 
