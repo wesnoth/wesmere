@@ -183,6 +183,7 @@ $branches = [
 	],
 	'dev' =>
 	[
+		'hidden'      => true,
 		'label'       => 'Development',
 		'version'     => '1.19.0',
 		'url'         => 'https://wiki.wesnoth.org/Download#Development_.281.19_branch.29',
@@ -491,6 +492,10 @@ foreach ($argv as $argn => $arg)
 				<!--<span id="bgdownload"></span>-->
 				<?php foreach ($branches as $id => $branch)
 				{
+					if (isset($branch['hidden']) && $branch['hidden'])
+					{
+						continue;
+					}
 					?><div id="<?php echo htmlspecialchars($id) ?>" class="download-branch" data-version="<?php echo htmlspecialchars($branch['version']) ?>"<?php if (isset($branch['recommended']) && $branch['recommended']) { ?> data-recommended<?php } ?>>
 
 					<h3><?php echo $branch['label'] ?></h3>
