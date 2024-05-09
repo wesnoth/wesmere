@@ -710,6 +710,7 @@ foreach ($argv as $argn => $arg)
 
 <div id="footer"><div id="footer-content"><div>
 	<a href="https://wiki.wesnoth.org/StartingPoints">Site Map</a> &#8226; <a href="https://status.wesnoth.org/">Site Status</a><br />
+	<a href="https://www.wesnoth.org/constitution">Constitution</a><br />
 	Copyright &copy; 2003&ndash;2024 by <a rel="author" href="https://wiki.wesnoth.org/Project">The Battle for Wesnoth Project</a><br />
 	Site design Copyright &copy; 2017&ndash;2024 by Iris Morelle
 </div></div></div>
