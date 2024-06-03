@@ -183,7 +183,7 @@ $branches = [
 	],
 	'dev' =>
 	[
-		'hidden'      => true,
+		'hidden'      => false,
 		'label'       => 'Development',
 		'version'     => '1.19.0',
 		'url'         => 'https://wiki.wesnoth.org/Download#Development_.281.19_branch.29',
@@ -192,7 +192,7 @@ $branches = [
 			'<p>The <b>development</b> version of Wesnoth is geared towards veteran players and content creators who wish to try out the latest additions to the game. Updates are not guaranteed to be stable and may include game-breaking changes.</p>' .
 			'<p>Players can also obtain this version of Wesnoth from <a href="' . htmlspecialchars($config['steam-store-link']) . '">Steam</a> by selecting it in the Betas tab in the game’s properties after installation, with the added benefit of continuous automatic updates.',
 
-		'update-announcement' => 'https://forums.wesnoth.org/viewtopic.php?t=00000',
+		'update-announcement' => 'https://forums.wesnoth.org/viewtopic.php?t=58311',
 
 		'files-url-prefix' => 'https://sourceforge.net/projects/wesnoth/files/wesnoth/wesnoth-1.19.0',
 
