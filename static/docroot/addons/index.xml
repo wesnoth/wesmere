@@ -17,6 +17,7 @@
 
 		<ul>
 			<li><a href="1.18/"><b>Stable 1.18</b></a> <span>(1.17.26&ndash;1.18.x)</span></li>
+			<li><a href="1.19/"><b>Development 1.19</b></a> <span>(1.19.0&ndash;1.19.x)</span></li>
 			<li><a href="1.16/"><b>Old stable 1.16</b></a> <span>(1.15.14&ndash;1.16.x)</span></li>
 			<li><a href="1.14/">Old old stable 1.14</a> <span>(1.13.12&ndash;1.14.x)</span></li>
 			<li><a href="trunk/">Testing instance</a> <span>(no versions)</span></li>
