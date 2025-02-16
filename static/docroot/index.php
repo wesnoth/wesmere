@@ -245,11 +245,7 @@ $branches = [
 			[
 				'800 MB free', '2 GB free'
 			],
-			'graphics' =>
-			[
-				'800x600 or larger screen',
-				'1024x768 or larger screen',
-			],
+			'graphics' => '1280x720 or larger screen',
 			'input' => 'Keyboard and mouse required',
 		]
 	],
