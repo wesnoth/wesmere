@@ -185,16 +185,16 @@ $branches = [
 	[
 		'hidden'      => false,
 		'label'       => 'Development',
-		'version'     => '1.19.9',
+		'version'     => '1.19.10',
 		'url'         => 'https://wiki.wesnoth.org/Download#Development_.281.19_branch.29',
 
 		'description' =>
 			'<p>The <b>development</b> version of Wesnoth is geared towards veteran players and content creators who wish to try out the latest additions to the game. Updates are not guaranteed to be stable and may include game-breaking changes.</p>' .
 			'<p>Players can also obtain this version of Wesnoth from <a href="' . htmlspecialchars($config['steam-store-link']) . '">Steam</a> by selecting it in the Betas tab in the game’s properties after installation, with the added benefit of continuous automatic updates.',
 
-		'update-announcement' => 'https://forums.wesnoth.org/viewtopic.php?t=59108',
+		'update-announcement' => 'https://forums.wesnoth.org/viewtopic.php?t=59153',
 
-		'files-url-prefix' => 'https://sourceforge.net/projects/wesnoth/files/wesnoth/wesnoth-1.19.9',
+		'files-url-prefix' => 'https://sourceforge.net/projects/wesnoth/files/wesnoth/wesnoth-1.19.10',
 
 		'files' =>
 		[
@@ -205,7 +205,7 @@ $branches = [
 			],
 			[
 				'os'    => 'apple',
-				'label' => 'macOS (10.12+)',
+				'label' => 'macOS (10.13+)',
 				'url'   => 'https://wesnoth.itch.io/battle-for-wesnoth',
 			],
 			[
@@ -214,7 +214,7 @@ $branches = [
 			],
 			[
 				'os'    => 'src',
-				'url'   => '@/wesnoth-1.19.9.tar.bz2/download',
+				'url'   => '@/wesnoth-1.19.10.tar.bz2/download',
 			],
 		],
 
@@ -224,7 +224,7 @@ $branches = [
 			[
 				[
 					$icon_windows . 'Windows 10 1903 (64-bit) or later',
-					$icon_apple .   'macOS 10.12 or later',
+					$icon_apple .   'macOS 10.13 or later',
 					$icon_linux .   'Ubuntu 20.04 or compatible',
 				],
 				[
