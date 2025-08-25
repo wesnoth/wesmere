@@ -219,7 +219,7 @@ $branches = [
 			],
 			[
 				'os'    => 'android',
-				'url'   => '',
+				'url'   => 'https://f-droid.org/en/packages/org.wesnoth.Wesnoth/',
 			],
 		],
 
