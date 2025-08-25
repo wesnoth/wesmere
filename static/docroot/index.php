@@ -96,6 +96,7 @@ $ios_appstore_url = 'https://itunes.apple.com/us/app/battle-for-wesnoth-hd/id575
 $icon_windows = '<i class="fa fa-windows" aria-hidden="true"></i> ';
 $icon_apple = '<i class="fa fa-apple" aria-hidden="true"></i> ';
 $icon_linux = '<i class="fa fa-linux" aria-hidden="true"></i> ';
+$icon_android = '<i class="fa fa-android" aria-hidden="true"></i> ';
 
 // Individual app branch descriptions.
 $branches = [
@@ -185,16 +186,16 @@ $branches = [
 	[
 		'hidden'      => false,
 		'label'       => 'Development',
-		'version'     => '1.19.14',
+		'version'     => '1.19.15',
 		'url'         => 'https://wiki.wesnoth.org/Download#Development_.281.19_branch.29',
 
 		'description' =>
 			'<p>The <b>development</b> version of Wesnoth is geared towards veteran players and content creators who wish to try out the latest additions to the game. Updates are not guaranteed to be stable and may include game-breaking changes.</p>' .
 			'<p>Players can also obtain this version of Wesnoth from <a href="' . htmlspecialchars($config['steam-store-link']) . '">Steam</a> by selecting it in the Betas tab in the game’s properties after installation, with the added benefit of continuous automatic updates.',
 
-		'update-announcement' => 'https://forums.wesnoth.org/viewtopic.php?t=59527',
+		'update-announcement' => 'https://forums.wesnoth.org/viewtopic.php?t=59906',
 
-		'files-url-prefix' => 'https://sourceforge.net/projects/wesnoth/files/wesnoth/wesnoth-1.19.14',
+		'files-url-prefix' => 'https://sourceforge.net/projects/wesnoth/files/wesnoth/wesnoth-1.19.15',
 
 		'files' =>
 		[
@@ -214,7 +215,11 @@ $branches = [
 			],
 			[
 				'os'    => 'src',
-				'url'   => '@/wesnoth-1.19.14.tar.bz2/download',
+				'url'   => '@/wesnoth-1.19.15.tar.bz2/download',
+			],
+			[
+				'os'    => 'android',
+				'url'   => '',
 			],
 		],
 
@@ -226,11 +231,13 @@ $branches = [
 					$icon_windows . 'Windows 10 1903 (64-bit) or later',
 					$icon_apple .   'macOS 10.13 or later',
 					$icon_linux .   'Ubuntu 20.04 or compatible',
+					$icon_android . 'Android 6',
 				],
 				[
 					$icon_windows . 'Windows 10 1903 (64-bit) or later',
 					$icon_apple .   'macOS 10.14 or later',
 					$icon_linux .   'Ubuntu 22.04 or compatible',
+					$icon_android . 'Android 10+',
 				],
 			],
 			'processor' =>
@@ -243,7 +250,7 @@ $branches = [
 			],
 			'storage' =>
 			[
-				'800 MB free', '2 GB free'
+				'2 GB free', '2 GB free'
 			],
 			'graphics' => '1280x720 or larger screen',
 			'input' => 'Keyboard and mouse required',
