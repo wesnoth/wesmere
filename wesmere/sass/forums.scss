@@ -18,6 +18,9 @@
 
 /*! Wesmere forums.css v#{$wesmere-version} (GNU GPL v2+) <https://github.com/wesnoth/wesmere> */
 
+// Add rules and paths for main self-hosted fonts
+@import "3rdparty/fonts";
+
 // phpBB 3.2 ships its own version of Font Awesome and the forum styles pull it
 // before our styles are added, so don't include FA here (see ticket #12). The
 // markup for the forums' navbar has more verbose classes to account for this.
