@@ -177,11 +177,12 @@ class WesmereTemplate extends BaseTemplate
 		$html = Html::rawElement('input', [
 			'id' => 'searchbox',
 			'type' => 'search',
+			'name' => 'search',
 			'placeholder' => $this->getMsg('search')->escaped(),
 			// FIXME: i18n
 			'title' => 'Search this wiki [Alt+Shift+f]',
 			'accesskey' => 'f'
-			]);
+			]) . $html;
 
 		return Html::rawElement('form', [
 				'method' => 'get',
