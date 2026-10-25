@@ -21,6 +21,11 @@
 	font-size: $wesmere-base-font-size;
 	font-weight: normal;
 	display: inline-block;
+	// Space apart from headings so it doesn't look messy
+	-webkit-margin-start: 0.5em;
+	margin-inline-start:  0.5em;
+	-webkit-margin-end:   0;
+	margin-inline-end:    0;
 }
 
 #lastmod {
