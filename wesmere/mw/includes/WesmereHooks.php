@@ -21,7 +21,6 @@ class WesmereHooks
 			return;
 		}
 
-		//$out->addHeadItem('viewport-settings', '<meta name="viewport" content="width=device-width,initial-scale=1" />');
 		$out->addMeta('viewport', 'width=device-width,initial-scale=1');
 
 		$out->addModules('skins.wesmere.js');
@@ -39,6 +38,5 @@ class WesmereHooks
 		$out->addHeadItem('favicon32', '<link rel="icon" type="image/png" href="' . $skin->wesmerePrefix . '/wesmere/img/favicon-32.png" sizes="32x32" />');
 		$out->addHeadItem('favicon16', '<link rel="icon" type="image/png" href="' . $skin->wesmerePrefix . '/wesmere/img/favicon-16.png" sizes="16x16" />');
 		$out->addMeta('theme-color', '#0f1421');
-		//$out->addHeadItem('wesmere-theme-color', '<meta name="theme-color" content="#0f1421" />');
 	}
 } // class Hooks
