@@ -1,10 +1,19 @@
 <?php
 /*
  * codename Wesmere - Next-gen Wesnoth.org stylesheet
- * Copyright (C) 2011 - 2024 by Iris Morelle <shadowm@wesnoth.org>
+ * Copyright (C) 2011 - 2026 by Iris Morelle <shadowm@wesnoth.org>
  *
  * See LICENSE for usage terms.
  */
+
+namespace Wesmere;
+
+use BaseTemplate;
+use Config;
+use Html;
+use Linker;
+use Sanitizer;
+use Title;
 
 class WesmereTemplate extends BaseTemplate
 {
@@ -40,6 +49,8 @@ class WesmereTemplate extends BaseTemplate
 
 	public function __construct(Config $config = null)
 	{
+		parent::__construct($config);
+
 		// CUSTOMIZABLE SECTION BEGINS HERE
 
 		$this->recognized_namespaces = [
@@ -111,8 +122,6 @@ class WesmereTemplate extends BaseTemplate
 
 		// CUSTOMIZABLE SECTION ENDS HERE
 
-		parent::__construct($config);
-
 		// Wesmere toolbar data
 		$this->data['wm_ns_urls'] = [];
 		$this->data['wm_page_urls'] = [];
@@ -152,6 +161,35 @@ class WesmereTemplate extends BaseTemplate
 		return $this->data['wm_extra_urls'];
 	}
 
+	protected function searchForm()
+	{
+		$html = '<i class="search-icon" aria-hidden="true"></i>';
+		$html .= '<span class="sr-label">Search this wiki</span>';
+
+		$html = Html::rawElement('span', [ 'id' => 'searchbox-controls' ],
+			Html::rawElement('button', [
+				'id' => 'search-go',
+				'class' => 'search-button',
+				'type' => 'submit',
+				'title' => $this->getMsg('search')->escaped()
+				], $html));
+
+		$html = Html::rawElement('input', [
+			'id' => 'searchbox',
+			'type' => 'search',
+			'placeholder' => $this->getMsg('search')->escaped(),
+			// FIXME: i18n
+			'title' => 'Search this wiki [Alt+Shift+f]',
+			'accesskey' => 'f'
+			]);
+
+		return Html::rawElement('form', [
+				'method' => 'get',
+				'action' => $this->get('wgScript'),
+				'id' => 'searchform'
+			], $html);
+	}
+
 	/**
 	 * Outputs the entire contents of the (X)HTML page
 	 */
@@ -165,7 +203,7 @@ class WesmereTemplate extends BaseTemplate
 
 		$mw_nav_links = array_merge(
 			$this->data['content_actions'],
-			$this->getToolbox(),
+			$this->data['sidebar']['TOOLBOX'],
 			$this->getPersonalTools()
 		);
 
@@ -208,135 +246,130 @@ class WesmereTemplate extends BaseTemplate
 			$this->data[$toolbar][$key] = $link;
 		}
 
-		$this->data['pageLanguage'] = $this->getSkin()->getTitle()->getPageViewLanguage()->getHtmlCode();
+		$wm_nav_links = [
+			'Home'   => 'https://www.wesnoth.org/',
+			'News'   => 'https://forums.wesnoth.org/viewforum.php?f=62',
+			'Play'   => 'https://wiki.wesnoth.org/Play',
+			'Create' => 'https://wiki.wesnoth.org/Create',
+			'Forums' => 'https://forums.wesnoth.org/',
+			'About'  => 'https://wiki.wesnoth.org/Project',
+		];
+
+		$wm_nav_links = array_map(
+			fn($label, $url) => Html::rawElement('a', [ 'href' => $url ], $label),
+			array_keys($wm_nav_links), array_values($wm_nav_links));
 
 		// Output HTML Page
-		$this->html('headelement');
-?>
 
-<div id="main">
+		$html = Html::openElement('div', [ 'id' => 'main' ]);
 
-<div id="nav" role="banner">
-<div class="centerbox">
+		$html .= Html::openElement('div', [ 'id' => 'nav', 'role' => 'banner' ])
+			. Html::openElement('div', [ 'class' => 'centerbox' ])
+			. Html::rawElement('div', [ 'id' => 'logo' ],
+				Html::rawElement('a', [ 'href' => 'https://www.wesnoth.org/', 'aria-label' => 'Wesnoth logo' ]))
+			. Html::rawElement('ul', [ 'id' => 'navlinks' ], implode($wm_nav_links))
+			. Html::rawElement('div', [ 'id' => 'sitesearch', 'role' => 'search' ], $this->searchForm())
+			. Html::rawElement('div', [ 'class' => 'reset' ])
+			. Html::closeElement('div') // .centerbox
+			. Html::closeElement('div') // #nav
+			; // Leave #main open
 
-	<div id="logo">
-		<a href="https://www.wesnoth.org/" aria-label="Wesnoth logo"></a>
-	</div>
+		if ($this->data['sitenotice']) {
+			$html .= Html::rawElement('div', [ 'id' => 'siteNotice', 'class' => 'centerbox' ],
+				$this->get('sitenotice'));
+		}
 
-	<ul id="navlinks">
-		<li><a href="https://www.wesnoth.org/">Home</a></li>
-		<li><a href="https://forums.wesnoth.org/viewforum.php?f=62">News</a></li>
-		<li><a href="https://wiki.wesnoth.org/Play">Play</a></li>
-		<li><a href="https://wiki.wesnoth.org/Create">Create</a></li>
-		<li><a href="https://forums.wesnoth.org/">Forums</a></li>
-		<li><a href="https://wiki.wesnoth.org/Project">About</a></li>
-	</ul>
+		$html .= Html::openElement('div', [
+			'id'    => 'content',
+			'class' => 'mw-content',
+			'role'  => 'main',
+		]);
 
-	<div id="sitesearch" role="search">
-		<form method="get" action="<?php $this->text('wgScript') ?>">
-			<input id="searchbox" type="search" name="search" placeholder="<?php
-				echo wfMessage( 'search' )->text()
-			?>" value="<?php
-				echo $this->get( 'search', '' )
-			?>" title="Search this wiki [Alt+Shift+f]" accesskey="f" />
-			<span id="searchbox-controls">
-				<button id="search-go" class="search-button" type="submit" title="Search">
-					<i class="search-icon" aria-hidden="true"></i>
-					<span class="sr-label">Search this wiki</span>
-				</button>
-			</span>
-		</form>
-	</div>
+		$html .= Html::rawElement('a', [ 'id' => 'top' ])
+			. $this->wesmereWikiToolbar()
+			//. $this->getIndicators()
+			. Html::rawElement('h1', [
+				'class' => 'firstHeading',
+				'lang'  => $this->get('pageLanguage')
+				], $this->get('title'))
+			. $this->get('prebodyhtml');
 
-	<div class="reset"></div>
-</div>
-</div>
+		/* #bodyContent */
+		$html .= Html::openElement('div', [ 'id' => 'bodyContent' ]);
 
-<?php if ($this->data['sitenotice']) { ?>
-	<div id="siteNotice" class="centerbox"><?php
-		$this->html('sitenotice')
-	?></div>
-<?php } ?>
+		if ($this->data['isarticle'])
+		{
+			$html .= Html::rawElement('div', [ 'id' => 'siteSub' ], $this->getMsg('tagline')->parse());
+		}
 
-<div id="content" class="mw-content" role="main">
-	<a id="top"></a>
-	<?php $this->wesmereWikiToolbar() ?>
-	<h1 class="firstHeading" lang="<?php $this->text('pageLanguage') ?>"><?php
-		$this->html('title')
-	?></h1>
+		if ($this->data['subtitle'])
+		{
+			$html .= Html::rawElement('div', [
+				'id'   => 'contentSub',
+				'lang' => $this->get('userlang'),
+				'dir'  => $this->get('dir')],
+				$this->get('subtitle'));
+		}
 
-	<?php $this->html('prebodyhtml') ?>
+		if ($this->data['undelete'])
+		{
+			$html .= Html::rawElement('div', [ 'id' => 'contentSub2' ], $this->get('undelete'));
+		}
 
-	<div id="bodyContent">
-		<?php if ($this->data['isarticle']) { ?>
-			<div id="siteSub"><?php $this->msg('tagline') ?></div>
-		<?php } ?>
-		<div id="contentSub"<?php $this->html('userlangattributes') ?>><?php
-			$this->html('subtitle')
-		?></div>
-		<?php if ($this->data['undelete']) { ?>
-			<div id="contentSub2"><?php $this->html('undelete') ?></div>
-		<?php } ?>
-		<?php if ($this->data['newtalk']) { ?>
-			<div class="usermessage"><?php $this->html('newtalk') ?></div>
-		<?php } ?>
+		if ($this->data['newtalk'])
+		{
+			$html .= Html::rawElement('div', [ 'class' => 'usermessage' ], $this->get('newtalk'));
+		}
 
-		<!-- start wikipage -->
-		<?php $this->html('bodycontent') ?>
-		<!-- end wikipage -->
+		$html .= '<!-- start wikipage -->'
+			. $this->get('bodytext')
+			. '<!-- end wikipage -->';
 
-		<?php if ($this->data['printfooter']) { ?>
-			<div class="printfooter">
-				<?php $this->html( 'printfooter' ); ?>
-			</div>
-		<?php }
+		if ($this->data['printfooter'])
+		{
+			$html .= Html::rawElement('div', [ 'class' => 'printfooter' ], $this->get('printfooter'));
+		}
 
-			if ($this->data['catlinks'])
-			{
-				$this->html('catlinks');
-			}
+		if ($this->data['catlinks'])
+		{
+			$html .= $this->get('catlinks');
+		}
 
-			if ($this->data['lastmod'])
-			{
-				?><div id="lastmod"><?php $this->html( 'lastmod' ); ?></div><?php
-			}
+		if ($this->data['lastmod'])
+		{
+			$html .= Html::rawElement('div', [ 'id' => 'lastmod' ], $this->get('lastmod'));
+		}
 
-			if ($this->data['dataAfterContent'])
-			{
-				$this->html('dataAfterContent');
-			}
-		?>
-		<div class="visualClear"></div>
-		<?php $this->html('debughtml'); ?>
-	</div> <!-- bodyContent -->
+		$html .= $this->get('dataAfterContent');
 
-</div> <!-- end content -->
+		$html .= Html::rawElement('div', [ 'class' => 'visualClear' ])
+			. $this->get('debughtml');
 
-</div> <!-- end main -->
+		$html .= Html::closeElement('div') /* #bodyCcontent */
+			. Html::closeElement('div')    /* #content */
+			. Html::closeElement('div');   /* #main */
 
-<div id="footer-sep"></div>
+		$html .= Html::rawElement('div', [ 'id' => 'footer-sep' ])
+			. Html::rawElement('div', [ 'id' => 'footer'],
+				Html::rawElement('div', [ 'id' => 'footer-content'],
+					Html::rawElement('div', [],
+						'<a href="https://wiki.wesnoth.org/StartingPoints">Site Map</a> &#8226; <a href="https://status.wesnoth.org/">Site Status</a><br />' .
+						'Copyright &copy; 2003&ndash;2024 by <a rel="author" href="https://wiki.wesnoth.org/Project">The Battle for Wesnoth Project</a> — Powered by <a href="https://www.mediawiki.org/">MediaWiki</a><br />' .
+						'Site design Copyright &copy; 2017&ndash;2024 by Iris Morelle'
+					)));
 
-<div id="footer"><div id="footer-content"><div>
-	<a href="https://wiki.wesnoth.org/StartingPoints">Site Map</a> &#8226; <a href="https://status.wesnoth.org/">Site Status</a><br />
-	Copyright &copy; 2003&ndash;2024 by <a rel="author" href="https://wiki.wesnoth.org/Project">The Battle for Wesnoth Project</a> — Powered by <a href="https://www.mediawiki.org/">MediaWiki</a><br />
-	Site design Copyright &copy; 2017&ndash;2024 by Iris Morelle
-</div></div></div>
-
-<?php
-		$this->printTrail();
-		echo Html::closeElement('body');
-		echo Html::closeElement('html');
-		wfRestoreWarnings();
+		echo $html;
 	}
 
 	protected function wesmereWikiToolbar()
 	{
-		?><div id="wm-wiki-toolbar" role="toolbar"><?php
-		$this->startToolbar('Wiki');
+		$html = Html::openElement('div', [ 'id' => 'wm-wiki-toolbar', 'role' => 'toolbar' ]);
+
+		$html .= $this->startToolbar('Wiki');
 
 		foreach (array_merge($this->namespaceToolbar(), $this->pageToolbar()) as $key => $item)
 		{
-			echo $this->makeToolbarIconButton($key, $item);
+			$html .= $this->makeToolbarIconButton($key, $item);
 		}
 
 		if (isset($this->data['sidebar']['navigation']))
@@ -348,7 +381,7 @@ class WesmereTemplate extends BaseTemplate
 				$this->injectAccRolesIntoLink($nav_toolbar[$key], "menuitem");
 			}
 
-			$this->makeToolbarButtonDropdown([
+			$html .= $this->makeToolbarButtonDropdown([
 				'id' => 'wm-places-menu',
 				'label' => 'Places',
 				'show_label' => false,
@@ -362,7 +395,7 @@ class WesmereTemplate extends BaseTemplate
 
 		if (!empty($adv_toolbar))
 		{
-			$this->makeToolbarButtonDropdown([
+			$html .= $this->makeToolbarButtonDropdown([
 				'id' => 'wm-advanced-menu',
 				'label' => 'Advanced',
 				'show_label' => false,
@@ -370,7 +403,7 @@ class WesmereTemplate extends BaseTemplate
 			]);
 		}
 
-		$this->endToolbar();
+		$html .= $this->endToolbar();
 
 		//
 		// Unidentified actions toolbar
@@ -380,16 +413,16 @@ class WesmereTemplate extends BaseTemplate
 
 		if (!empty($extra_toolbar))
 		{
-			$this->startToolbar();
+			$html .= $this->startToolbar();
 
-			$this->makeToolbarButtonDropdown([
+			$html .= $this->makeToolbarButtonDropdown([
 				'id' => 'wm-extra-menu',
 				'label' => 'More options',
 				'show_label' => false,
 				'contents' => $extra_toolbar,
 			]);
 
-			$this->endToolbar();
+			$html .= $this->endToolbar();
 		}
 
 		//
@@ -400,7 +433,7 @@ class WesmereTemplate extends BaseTemplate
 
 		if (!empty($user_toolbar))
 		{
-			$logged_in = $this->getSkin()->getUser()->isLoggedIn();
+			$logged_in = $this->getSkin()->getUser()->isRegistered();
 			$user_label = $logged_in
 					? $this->getSkin()->getUser()->getName()
 					: $this->getMsg('notloggedin')->escaped();
@@ -418,12 +451,14 @@ class WesmereTemplate extends BaseTemplate
 				$user_dropdown_opts['url'] = Title::newFromText('User:' . $user_label)->getLinkURL();
 			}
 
-			$this->startToolbar('User');
-			$this->makeToolbarButtonDropdown($user_dropdown_opts);
-			$this->endToolbar();
+			$html .= $this->startToolbar('User');
+			$html .= $this->makeToolbarButtonDropdown($user_dropdown_opts);
+			$html .= $this->endToolbar();
 		}
 
-		?></div> <!-- wm-wiki-toolbar --><?php
+		$html .= Html::closeElement('div') . '<!-- wm-wiki-toolbar -->';
+
+		return $html;
 	}
 
 	private function injectAccRolesIntoLink(&$link, $roles)
@@ -457,10 +492,12 @@ class WesmereTemplate extends BaseTemplate
 	 *    url         URL for the button link itself (def: '#'). Note that this
 	 *                is NOT automatically escaped.
 	 *    contents    Contents array containing entries in the same format
-	 *                used by makeListItem()
+	 *                used by makeWesmereUiListItem()
 	 */
 	protected function makeToolbarButtonDropdown($config)
 	{
+		$html = '';
+
 		$id = isset($config['id']) ? $config['id'] : 'unknown';
 		$label = isset($config['label']) ? $config['label'] : '';
 		$show_label = isset($config['show_label']) ? $config['show_label'] : false;
@@ -468,58 +505,69 @@ class WesmereTemplate extends BaseTemplate
 		$url = isset($config['url']) ? $config['url'] : '';
 		$items = isset($config['contents']) ? $config['contents'] : null;
 
-		echo '<li id="' . htmlspecialchars($id) . '" class="wm-dropdown"><a class="wm-dropdown-trigger" href="' .
-			 (empty($url) ? '#' : $url) . '"';
+		$html .= Html::openElement('li', [ 'id' => $id, 'class' => 'wm-dropdown' ]);
 
-		if (!empty($tooltip))
-		{
-			echo ' title="' . htmlspecialchars($tooltip) . '"';
-		}
-
-		echo ' role="button"><i class="wm-toolbar-icon" aria-hidden="true"></i><span';
+		$link_html = '<i class="wm-toolbar-icon" aria-hidden="true"></i><span';
 
 		if (!$show_label)
 		{
-			echo ' class="sr-label"';
+			$link_html .= ' class="sr-label"';
 		}
 
-		echo '>' . htmlspecialchars($label) . '</span>' .
-		     '<i class="wm-toolbar-dropdown-marker" aria-hidden="true"></i></a>';
+		$link_html .= '>' . htmlspecialchars($label) . '</span>' .
+			'<i class="wm-toolbar-dropdown-marker" aria-hidden="true"></i>';
+
+		$html .= Html::rawElement('a', [
+				'class' => 'wm-dropdown-trigger',
+				'href' => empty($url) ? '#' : $url,
+				'title' => !empty($tooltip) ? $tooltip : '',
+				'role' => 'button'
+			], $link_html);
 
 		if (!empty($items))
 		{
-			echo '<ul class="wm-dropdown-menu" role="menu">';
+			$html .= Html::openElement('ul', [ 'class' => 'wm-dropdown-menu', 'role' => 'menu' ]);
 
 			foreach ($items as $key => $item)
 			{
-				echo $this->makeListItem($key, $item, [
+				$html .= $this->makeWesmereUiListItem($key, $item, [
 					'wm-haveicon' => true,
 					'wm-showlabel' => true,
 				]);
 			}
 
-			echo '</ul>';
+			$html .= Html::closeElement('ul');
 		}
+
+		$html .= Html::closeElement('li');
+
+		return $html;
 	}
 
 	function makeToolbarIconButton($key, $item, $options = [])
 	{
-		return $this->makeListItem($key, $item, array_merge([ 'wm-haveicon' => true, 'wm-showlabel' => false ], $options));
+		return $this->makeWesmereUiListItem($key, $item,
+			array_merge($options, [ 'wm-haveicon' => true, 'wm-showlabel' => false ]));
+	}
+
+	function makeWesmereUiListItem($key, $item, $options = [])
+	{
+		return Html::rawElement('li', [ 'id' => $item['id'] ], $this->makeWesmereUiLink($key, $item, $options));
 	}
 
 	/**
-	 * Makes a link, usually used by makeListItem to generate a link for an item
+	 * Makes a link, usually used by makeWesmereUiListItem to generate a link for an item
 	 * in a list used in navigation lists, portlets, portals, sidebars, etc...
 	 *
 	 * See BaseTemplate's documentation for this method.
 	 */
-	function makeLink($key, $item, $options = [])
+	function makeWesmereUiLink($key, $item, $options = [])
 	{
 		// Don't do anything special if no Wesmere-specific options are
 		// provided.
-		if(!isset($options['wm-haveicon']) && !isset($options['wm-isdropdown']) && !isset($options['wm-showlabel']))
+		if (!isset($options['wm-haveicon']) && !isset($options['wm-isdropdown']) && !isset($options['wm-showlabel']))
 		{
-			return parent::makeLink($key, $item, $options);
+			return $this->getSkin()->makeLink($key, $item, $options);
 		}
 
 		$have_icon = isset($options['wm-haveicon']) ? $options['wm-haveicon'] : false;
@@ -537,11 +585,33 @@ class WesmereTemplate extends BaseTemplate
 			$label_wrap['attributes'] = [ 'class' => 'sr-label' ];
 		}
 
-		$html = parent::makeLink($key, $item, array_merge($options, [ 'text-wrapper' => $label_wrap ]));
+		$links_array = [];
 
-		if (!empty($roles))
+		if (isset($item['links']))
 		{
-			$html = str_replace('<a ', '<a role="' . htmlspecialchars($roles) . '" ', $html);
+			$links = [];
+			foreach ($item['links'] as $link)
+			{
+				$link_html = $this->getSkin()->makeLink($item['id'], $link, array_merge($options, [ 'text-wrapper' => $label_wrap ]));
+
+				if (!empty($roles))
+				{
+					$link_html = str_replace('<a ', '<a role="' . htmlspecialchars($roles) . '" ', $html);
+				}
+
+				$links[] = $link_html;
+			}
+
+			$html = implode(' ', $links);
+		}
+		else
+		{
+			$html = $this->getSkin()->makeLink($key, $item, array_merge($options, [ 'text-wrapper' => $label_wrap ]));
+
+			if (!empty($roles))
+			{
+				$html = str_replace('<a ', '<a role="' . htmlspecialchars($roles) . '" ', $html);
+			}
 		}
 
 		if ($have_icon)
@@ -563,19 +633,23 @@ class WesmereTemplate extends BaseTemplate
 
 	protected function startToolbar($label = null)
 	{
-		echo '<ul class="wm-toolbar" role="toolbar"';
+		$attrs = [
+			'class' => 'wm-toolbar',
+			'role'  => 'toolbar',
+			'lang'  => $this->get('userlang'),
+			'dir'   => $this->get('dir')
+		];
 
 		if (!empty($label))
 		{
-			echo ' aria-label="' . htmlspecialchars($label) . '"';
+			$attrs['aria-label'] = $label;
 		}
 
-		$this->html('userlangattributes');
-		echo '>';
+		return Html::openElement('ul', $attrs);
 	}
 
 	protected function endToolbar()
 	{
-		?></ul><?php
+		return Html::closeElement('ul');
 	}
 } // class WesmereTemplate
