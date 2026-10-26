@@ -355,8 +355,8 @@ class WesmereTemplate extends BaseTemplate
 				Html::rawElement('div', [ 'id' => 'footer-content'],
 					Html::rawElement('div', [],
 						'<a href="https://wiki.wesnoth.org/StartingPoints">Site Map</a> &#8226; <a href="https://status.wesnoth.org/">Site Status</a><br />' .
-						'Copyright &copy; 2003&ndash;2024 by <a rel="author" href="https://wiki.wesnoth.org/Project">The Battle for Wesnoth Project</a> — Powered by <a href="https://www.mediawiki.org/">MediaWiki</a><br />' .
-						'Site design Copyright &copy; 2017&ndash;2024 by Iris Morelle'
+						'Copyright &copy; 2003&ndash;2026 by <a rel="author" href="https://wiki.wesnoth.org/Project">The Battle for Wesnoth Project</a> — Powered by <a href="https://www.mediawiki.org/">MediaWiki</a><br />' .
+						'Site design Copyright &copy; 2017&ndash;2026 by Iris Morelle'
 					)));
 
 		echo $html;
