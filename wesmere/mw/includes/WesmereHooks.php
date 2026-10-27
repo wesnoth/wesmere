@@ -21,8 +21,6 @@ class WesmereHooks
 			return;
 		}
 
-		$out->addMeta('viewport', 'width=device-width,initial-scale=1');
-
 		$out->addModules('skins.wesmere.js');
 
 		// Don't use resource loader for our stylesheet so that clients can use

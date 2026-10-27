@@ -18,6 +18,7 @@
 				{
 					"name": "wesmere",
 					"bodyOnly": true,
+					"responsive": true,
 					"template": "Wesmere\\WesmereTemplate",
 					"scripts": [
 						"skins.wesmere.js"
