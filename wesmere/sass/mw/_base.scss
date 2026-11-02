@@ -163,6 +163,8 @@ figure.mw-halign-center {
 
 @include media-small-screen-constraint {
 	figure,
+	figure.mw-halign-left,
+	figure:not(.mw-halign-left),
 	div.tleft,
 	div.tright {
 		clear: none;
