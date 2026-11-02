@@ -19,5 +19,5 @@ class SkinWesmere extends SkinTemplate
 	public $stylename = 'Wesmere';
 	public $template = 'Wesmere\WesmereTemplate';
 	public $wesmerePrefix = "https://www.wesnoth.org";
-	public $wesmereCssVersion = '1.3.0';
+	public $wesmereCssVersion = '1.3.1';
 }
