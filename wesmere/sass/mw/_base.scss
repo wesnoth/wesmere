@@ -50,29 +50,41 @@ a.mw-selflink {
  * Thumbnails
  */
 
+div.thumb,
+figure {
+	// FIXME: ideally the entire stylesheet should use this. I have regrets.
+	box-sizing: border-box;
+}
+
+figure,
 div.thumb {
 	margin: $measurement-paragraph-spacing;
+	max-width: 320px;
 
 	font-size: $measurement-sub;
 	// NOTE: should be 2x .thumbcaption's top margin. This is here to cover
 	//       some non-standard uses of .thumb (e.g. in
 	//       <https://wiki.wesnoth.org/Races>). See also the hr rule below.
-	line-height: $measurement-small*2;
+	line-height: 1.2;
 	text-align: center;
+}
 
-	& > div {
-		@extend %mw-box-measurements-std;
-		@extend %mw-box-colors-basic;
+figure,
+div.thumb > div {
+	@extend %mw-box-measurements-std;
+	@extend %mw-box-colors-basic;
 
-		// These properties are set by the .thumb parent in a gallery (see
-		// below)
-		li.gallerybox & {
-			background: none;
-			border:     none;
-			padding:    0;
-		}
+	// These properties are set by the .thumb parent in a gallery (see
+	// below)
+	li.gallerybox & {
+		background: none;
+		border:     none;
+		padding:    0;
 	}
+}
 
+figure,
+div.thumb {
 	li.gallerybox & {
 		@extend %mw-box-colors-basic;
 	}
@@ -99,48 +111,58 @@ div.thumb {
 	}
 }
 
-// Override MW style that uses the text direction class.
-.mw-content-ltr,
-.mw-content-rtl {
-	.thumbcaption {
-		margin-top: $measurement-small;
-		text-align: center;
-	}
+// MW injects a default style that makes this smaller than the parent <figure>
+// using ems, void that.
+figcaption {
+	font-size: 1em;
 }
 
+figure figcaption,
+.mw-content-ltr .thumbcaption,
+.mw-content-rtl .thumbcaption {
+	margin-top: $measurement-small;
+	text-align: center;
+}
+
+figure,
 div.tleft,
 div.tright {
-	// Borders are used to set a margin
-	margin-bottom: 0;
-	// Clear H2 borders around
-	border-bottom: solid 1em $wesmere-page-bg;
+	margin-bottom: 1em;
 }
 
 // Extra "margin" between stacked floated thumbnails
+figure:not(.mw-halign-left) + figure:not(.mw-halign-left),
+figure.mw-halign-left + figure.mw-halign-left,
 div.tleft + div.tleft,
 div.tright + div.tright {
 	padding-top: $measurement-paragraph-spacing;
 }
 
-div.tleft {
-	clear: left;
-	float: left;
-	// Borders are used to set a margin
-	margin-left: 0;
-	// Clear H2 borders around
-	border-right: solid 1.4em $wesmere-page-bg;
-}
-
+figure:not(.mw-halign-left),
 div.tright {
 	clear: right;
 	float: right;
-	// Borders are used to set a margin
+	margin-left:  1.4em;
 	margin-right: 0;
-	// Clear H2 borders around
-	border-left: solid 1.4em $wesmere-page-bg;
+}
+
+figure.mw-halign-left,
+div.tleft {
+	clear: left;
+	float: left;
+	margin-left:  0;
+	margin-right: 1.4em;
+}
+
+figure.mw-halign-center {
+	clear: none;
+	float: none;
+	margin-left:  auto;
+	margin-right: auto;
 }
 
 @include media-small-screen-constraint {
+	figure,
 	div.tleft,
 	div.tright {
 		clear: none;
