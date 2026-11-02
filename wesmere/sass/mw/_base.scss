@@ -167,14 +167,12 @@ figure.mw-halign-center {
 	div.tright {
 		clear: none;
 		float: none;
-		border: none;
 
 		// Re-set margin box of a non-floating thumb
-		margin: $measurement-paragraph-spacing;
+		margin: $measurement-paragraph-spacing auto;
 
 		& > div {
 			display: inline-block;
 		}
 	}
 }
-
