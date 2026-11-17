@@ -51,12 +51,12 @@ a.mw-selflink {
  */
 
 div.thumb,
-figure {
+body.mediawiki figure {
 	// FIXME: ideally the entire stylesheet should use this. I have regrets.
 	box-sizing: border-box;
 }
 
-figure,
+body.mediawiki figure,
 div.thumb {
 	margin: $measurement-paragraph-spacing;
 	max-width: 212px;
@@ -69,7 +69,7 @@ div.thumb {
 	text-align: center;
 }
 
-figure,
+body.mediawiki figure,
 div.thumb > div {
 	@extend %mw-box-measurements-std;
 	@extend %mw-box-colors-basic;
@@ -83,7 +83,7 @@ div.thumb > div {
 	}
 }
 
-figure,
+body.mediawiki figure,
 div.thumb {
 	li.gallerybox & {
 		@extend %mw-box-colors-basic;
@@ -113,32 +113,32 @@ div.thumb {
 
 // MW injects a default style that makes this smaller than the parent <figure>
 // using ems, void that.
-figcaption {
+body.mediawiki figcaption {
 	font-size: 1em;
 }
 
-figure figcaption,
+body.mediawiki figure figcaption,
 .mw-content-ltr .thumbcaption,
 .mw-content-rtl .thumbcaption {
 	margin-top: $measurement-small;
 	text-align: center;
 }
 
-figure,
+body.mediawiki figure,
 div.tleft,
 div.tright {
 	margin-bottom: 1em;
 }
 
 // Extra "margin" between stacked floated thumbnails
-figure:not(.mw-halign-left) + figure:not(.mw-halign-left),
-figure.mw-halign-left + figure.mw-halign-left,
+body.mediawiki figure:not(.mw-halign-left) + figure:not(.mw-halign-left),
+body.mediawiki figure.mw-halign-left + figure.mw-halign-left,
 div.tleft + div.tleft,
 div.tright + div.tright {
 	padding-top: $measurement-paragraph-spacing;
 }
 
-figure:not(.mw-halign-left),
+body.mediawiki figure:not(.mw-halign-left),
 div.tright {
 	clear: right;
 	float: right;
@@ -146,7 +146,7 @@ div.tright {
 	margin-right: 0;
 }
 
-figure.mw-halign-left,
+body.mediawiki figure.mw-halign-left,
 div.tleft {
 	clear: left;
 	float: left;
@@ -154,7 +154,7 @@ div.tleft {
 	margin-right: 1.4em;
 }
 
-figure.mw-halign-center {
+body.mediawiki figure.mw-halign-center {
 	clear: none;
 	float: none;
 	margin-left:  auto;
@@ -162,9 +162,9 @@ figure.mw-halign-center {
 }
 
 @include media-small-screen-constraint {
-	figure,
-	figure.mw-halign-left,
-	figure:not(.mw-halign-left),
+	body.mediawiki figure,
+	body.mediawiki figure.mw-halign-left,
+	body.mediawiki figure:not(.mw-halign-left),
 	div.tleft,
 	div.tright {
 		clear: none;
